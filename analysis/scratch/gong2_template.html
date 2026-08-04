@@ -1,0 +1,825 @@
+<title>The GONG — A Record of Hong Kong Listing Days</title>
+<style>
+  /* THE GONG · edition II — high-contrast broadsheet, separate pages,
+     switchable edition inks (朱 cinnabar · 玄 ink&seal · 绛 imperial · 褐 claret).
+     Gain prints red, loss prints green — as Hong Kong reads the tape. */
+  :root{
+    --paper:#f4f1e7; --paper-2:#ece8da; --panel:#faf8f0;
+    --ink:#191613; --ink-2:#4b473e; --ink-3:#847e6c;
+    --hairline:#d7d1bd; --rule:#b7af96;
+    --accent:#71212e; --accent-soft:#e7d5d3; --brass:#8f6a28;
+    --gain:#a8332e; --loss:#2f6e46;
+    --shadow:rgba(40,32,18,.12);
+    --hed:'Didot','Bodoni 72','Bodoni MT','Playfair Display','Georgia',serif;
+    --serif:'Iowan Old Style','Palatino Linotype','Palatino','Georgia',serif;
+    --mono:ui-monospace,'SF Mono','Menlo','Roboto Mono',monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:15px;line-height:1.62;
+    -webkit-font-smoothing:antialiased;transition:background .3s,color .3s;overflow-x:hidden;}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 26px;}
+  .mono{font-family:var(--mono);font-variant-numeric:tabular-nums;}
+  .up{color:var(--gain);} .down{color:var(--loss);}
+  .slug{font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);}
+
+  /* controls cluster */
+  .ctrls{position:fixed;top:12px;right:14px;z-index:70;display:flex;flex-direction:column;gap:8px;align-items:center;}
+  .toggle{width:36px;height:36px;border-radius:50%;border:1px solid var(--rule);background:var(--panel);color:var(--ink);
+    cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px var(--shadow);}
+  .toggle svg{width:17px;height:17px;}
+  .pals{display:flex;flex-direction:column;gap:6px;background:var(--panel);border:1px solid var(--rule);
+    border-radius:20px;padding:8px 6px;box-shadow:0 2px 8px var(--shadow);}
+  .pal{width:24px;height:24px;border-radius:50%;cursor:pointer;border:2px solid transparent;
+    display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:11px;color:#f6efe2;}
+  .pal.on{border-color:var(--ink);}
+  .pal[data-p="cinnabar"]{background:#9e2b23;} .pal[data-p="seal"]{background:#141210;}
+  .pal[data-p="imperial"]{background:#6b1420;} .pal[data-p="claret"]{background:#71212e;opacity:.75;}
+
+  /* ticker */
+  .tickbar{border-bottom:1px solid var(--rule);background:var(--paper-2);overflow:hidden;position:relative;}
+  .tickbar .lab{position:absolute;left:0;top:0;bottom:0;display:flex;align-items:center;padding:0 12px;
+    background:var(--accent);color:var(--paper);font-family:var(--mono);font-size:10px;letter-spacing:.16em;z-index:2;}
+  .tickwin{white-space:nowrap;padding:8px 0 8px 130px;}
+  .tickrun{display:inline-block;white-space:nowrap;animation:tickmove 90s linear infinite;}
+  .tickbar:hover .tickrun{animation-play-state:paused;}
+  @keyframes tickmove{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  .tk{font-family:var(--mono);font-size:11.5px;color:var(--ink-2);margin-right:30px;}
+  .tk b{color:var(--ink);font-weight:600;}
+  @media (prefers-reduced-motion:reduce){.tickrun{animation:none;}.tickwin{overflow-x:auto;}}
+
+  /* masthead */
+  .masthead{padding:26px 0 0;}
+  .mast-rules{border-top:3px solid var(--ink);border-bottom:1px solid var(--ink);height:5px;margin-bottom:14px;}
+  .mast-grid{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:18px;}
+  .ear{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);line-height:1.9;}
+  .ear.r{text-align:right;}
+  .nameplate{text-align:center;display:flex;align-items:center;justify-content:center;gap:22px;}
+  .nameplate h1{font-family:var(--hed);font-weight:700;font-size:clamp(48px,8vw,88px);line-height:.92;
+    letter-spacing:.05em;text-transform:uppercase;}
+  .nameplate h1 .the{display:block;font-family:var(--serif);font-size:.24em;font-weight:400;letter-spacing:.6em;
+    color:var(--ink-2);margin-bottom:9px;}
+  .medal{position:relative;width:72px;height:72px;flex:none;}
+  .medal svg{width:100%;height:100%;display:block;}
+  .medal .ring{position:absolute;inset:0;border-radius:50%;border:1.5px solid var(--brass);opacity:0;}
+  .struck .ring{animation:gongring 1.5s ease-out .25s 1;}
+  .struck .ring.r2{animation-delay:.5s;}
+  @keyframes gongring{0%{opacity:.7;transform:scale(.9);}100%{opacity:0;transform:scale(2.1);}}
+  @media (prefers-reduced-motion:reduce){.struck .ring{animation:none;}}
+  .kanji{writing-mode:vertical-rl;font-size:20px;letter-spacing:.5em;color:var(--ink-3);flex:none;user-select:none;}
+  .folio{margin-top:15px;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+    padding:7px 0;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+    font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);}
+  @media(max-width:780px){.ear{display:none;}.mast-grid{grid-template-columns:1fr;}.kanji{display:none;}}
+  /* compact masthead on inner pages */
+  body:not([data-page="home"]) .nameplate h1{font-size:40px;letter-spacing:.06em;}
+  body:not([data-page="home"]) .nameplate h1 .the{font-size:.3em;margin-bottom:4px;}
+  body:not([data-page="home"]) .medal{width:40px;height:40px;}
+  body:not([data-page="home"]) .kanji{display:none;}
+  body:not([data-page="home"]) .ear{display:none;}
+  body:not([data-page="home"]) .folio{display:none;}
+  body:not([data-page="home"]) .masthead{padding-top:18px;}
+  body:not([data-page="home"]) .mast-grid{grid-template-columns:1fr;}
+
+  .secnav{display:flex;justify-content:center;gap:0;border-bottom:1px solid var(--rule);flex-wrap:wrap;margin-top:2px;}
+  .secnav a{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--ink-2);text-decoration:none;padding:11px 20px;border-left:1px solid var(--hairline);}
+  .secnav a:first-child{border-left:none;}
+  .secnav a:hover{color:var(--accent);}
+  .secnav a.here{color:var(--accent);font-weight:600;box-shadow:inset 0 -2px 0 var(--accent);}
+
+  /* pages */
+  section.pg{display:none;}
+  section.pg.on{display:block;}
+  .pagehead{padding:26px 0 6px;}
+  .pagehead .slug{display:block;margin-bottom:8px;}
+  .pagehead h2{font-family:var(--hed);font-weight:700;font-size:clamp(28px,4.4vw,44px);line-height:1.04;letter-spacing:.005em;text-wrap:balance;}
+  .pagehead .dek{font-family:var(--serif);font-style:italic;font-size:16.5px;color:var(--ink-2);margin-top:10px;max-width:64ch;}
+
+  /* front */
+  .front{display:grid;grid-template-columns:7fr 5fr;gap:0;padding:30px 0 34px;border-bottom:3px double var(--rule);}
+  .lead{padding-right:30px;border-right:1px solid var(--hairline);}
+  .rail{padding-left:30px;display:flex;flex-direction:column;gap:24px;}
+  @media(max-width:860px){.front{grid-template-columns:1fr;}.lead{padding-right:0;border-right:none;}.rail{padding-left:0;margin-top:28px;}}
+  .hed{font-family:var(--hed);font-weight:700;font-size:clamp(32px,5vw,52px);line-height:1.02;letter-spacing:.004em;text-wrap:balance;}
+  .dek{font-family:var(--serif);font-style:italic;font-size:17px;line-height:1.5;color:var(--ink-2);margin-top:12px;max-width:56ch;}
+  .byline{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);
+    margin:14px 0 4px;padding-bottom:10px;border-bottom:1px solid var(--hairline);}
+  .cols{margin-top:14px;column-count:2;column-gap:30px;column-rule:1px solid var(--hairline);}
+  @media(max-width:640px){.cols{column-count:1;}}
+  .cols p{font-size:14.5px;line-height:1.66;color:var(--ink-2);margin-bottom:13px;break-inside:avoid-column;}
+  .cols p b{color:var(--ink);font-weight:600;}
+  .cols p:first-child::first-letter{font-family:var(--hed);font-size:54px;font-weight:700;float:left;line-height:.8;
+    padding:6px 8px 0 0;color:var(--accent);}
+  .contmark{font-family:var(--mono);font-size:10.5px;color:var(--ink-3);letter-spacing:.06em;margin-top:6px;}
+  .contmark a{color:var(--accent);text-decoration:none;}
+
+  .box{border:1px solid var(--ink);padding:16px 18px 15px;background:var(--panel);}
+  .box .bx-slug{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--paper);background:var(--ink);display:inline-block;padding:3px 9px;margin:-16px 0 12px -18px;}
+  .agate{list-style:none;}
+  .agate li{display:flex;align-items:baseline;gap:8px;font-size:13px;color:var(--ink-2);padding:5.5px 0;}
+  .agate .fill{flex:1;border-bottom:1px dotted var(--rule);transform:translateY(-3px);}
+  .agate .num{font-family:var(--mono);font-size:13.5px;font-weight:600;color:var(--ink);}
+  .idx li a{color:inherit;text-decoration:none;}
+  .idx li a:hover{color:var(--accent);}
+  .idx .pg-no{font-family:var(--mono);font-size:11px;color:var(--ink-3);}
+
+  /* chart frames */
+  .chart-frame{border:1px solid var(--ink);background:var(--panel);padding:16px 16px 12px;}
+  .chart-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;margin-bottom:8px;}
+  .chart-head .t{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);font-weight:600;}
+  .chart-head .legend{display:flex;gap:12px;font-family:var(--mono);font-size:10px;color:var(--ink-2);}
+  .chart-head .legend i{width:8px;height:8px;display:inline-block;margin-right:5px;}
+  #tape{width:100%;display:block;cursor:crosshair;}
+  .tape-x{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10px;color:var(--ink-3);margin-top:6px;}
+  .caption{font-family:var(--serif);font-style:italic;font-size:12.5px;color:var(--ink-3);margin-top:9px;line-height:1.55;}
+  .record{padding:30px 0 26px;}
+
+  /* exhibits */
+  .exgrid{display:grid;grid-template-columns:1fr 1fr;gap:22px;padding:22px 0 46px;}
+  @media(max-width:820px){.exgrid{grid-template-columns:1fr;}}
+  .ex{border:1px solid var(--ink);background:var(--panel);padding:15px 16px 11px;}
+  .ex .exn{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;color:var(--paper);background:var(--accent);
+    display:inline-block;padding:2px 8px;margin:-15px 0 9px -16px;}
+  .ex .ext{font-family:var(--serif);font-weight:600;font-size:15.5px;line-height:1.25;margin-bottom:8px;}
+  .ex svg{width:100%;height:auto;overflow:visible;font-family:var(--mono);display:block;}
+  .ex .exc{font-family:var(--serif);font-style:italic;font-size:11.8px;color:var(--ink-3);margin-top:8px;line-height:1.5;}
+  svg text{fill:var(--ink-3);font-size:9.5px;}
+  svg .val{fill:var(--ink);font-size:10px;font-weight:600;}
+  svg .zero{stroke:var(--rule);stroke-width:1;}
+  svg .gl{stroke:var(--hairline);stroke-width:1;}
+
+  /* ledger */
+  .lfilters{display:flex;gap:10px;flex-wrap:wrap;align-items:center;padding:16px 0 4px;}
+  .lfilters select{font-family:var(--mono);font-size:12px;padding:7px 10px;background:var(--panel);
+    border:1px solid var(--rule);color:var(--ink);border-radius:0;}
+  .lfilters .cnt{font-family:var(--mono);font-size:11px;color:var(--ink-3);margin-left:auto;letter-spacing:.06em;}
+  .tblwrap{overflow-x:auto;margin:12px 0 8px;}
+  .ledger{width:100%;border-collapse:collapse;border:1px solid var(--ink);background:var(--panel);}
+  .ledger th{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--paper);
+    background:var(--ink);text-align:right;padding:7px 9px;font-weight:600;cursor:pointer;user-select:none;white-space:nowrap;}
+  .ledger th.l{text-align:left;}
+  .ledger th.sorted::after{content:" ▾";color:var(--brass);}
+  .ledger th.sorted.asc::after{content:" ▴";}
+  .ledger td{font-family:var(--mono);font-size:11.5px;padding:6px 9px;text-align:right;border-top:1px solid var(--hairline);
+    white-space:nowrap;color:var(--ink-2);}
+  .ledger td.l{text-align:left;}
+  .ledger td.co{font-family:var(--serif);font-size:13px;color:var(--ink);max-width:280px;overflow:hidden;text-overflow:ellipsis;}
+  .ledger tr:hover td{background:var(--paper-2);}
+  .ledger .r{font-weight:600;}
+  .tablenote{font-family:var(--mono);font-size:10.5px;color:var(--ink-3);margin:8px 0 40px;letter-spacing:.03em;line-height:1.7;}
+
+  /* desk */
+  .desk{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;margin:22px 0 10px;}
+  @media(max-width:820px){.desk{grid-template-columns:1fr;}}
+  .desk .col{padding:6px 24px 10px;border-left:1px solid var(--hairline);}
+  .desk .col:first-child{border-left:none;padding-left:0;}
+  @media(max-width:820px){.desk .col{border-left:none;padding:16px 0;border-top:1px solid var(--hairline);}
+    .desk .col:first-child{border-top:none;}}
+  .verdict{font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;
+    display:inline-block;padding:3px 8px;border:1px solid currentColor;margin-bottom:10px;}
+  .v-live{color:var(--loss);} .v-dead{color:var(--accent);} .v-cond{color:var(--brass);}
+  .desk h3{font-family:var(--hed);font-weight:700;font-size:20px;line-height:1.14;margin-bottom:8px;}
+  .desk p{font-size:13.5px;line-height:1.62;color:var(--ink-2);}
+  .desk .fig{font-family:var(--mono);font-size:11.5px;color:var(--ink);margin-top:10px;line-height:1.8;}
+  .deskcharts{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:26px 0 46px;}
+  @media(max-width:820px){.deskcharts{grid-template-columns:1fr;}}
+
+  /* method */
+  .method p{font-family:var(--mono);font-size:11.5px;line-height:2;color:var(--ink-2);max-width:840px;letter-spacing:.01em;margin-bottom:16px;}
+  .fromdesk{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;
+    border:1px solid var(--ink);background:var(--panel);padding:18px 22px;margin:24px 0 46px;}
+  .fromdesk .l h3{font-family:var(--hed);font-weight:700;font-size:20px;}
+  .fromdesk .l p{font-size:13px;color:var(--ink-2);margin-top:4px;}
+  .fromdesk a.visit{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--accent);text-decoration:none;border:1px solid var(--accent);padding:9px 16px;white-space:nowrap;}
+  .fromdesk a.visit:hover{background:var(--accent);color:var(--paper);}
+
+  footer.colophon{padding:10px 0 60px;}
+  footer .endrule{border-top:1px solid var(--ink);border-bottom:3px solid var(--ink);height:6px;margin-bottom:16px;}
+  footer p{font-family:var(--mono);font-size:10.5px;color:var(--ink-3);line-height:2;letter-spacing:.05em;text-transform:uppercase;}
+
+  .tip{position:fixed;pointer-events:none;z-index:80;background:var(--ink);color:var(--paper);
+    font-size:11.5px;padding:8px 11px;border-radius:3px;line-height:1.5;max-width:240px;
+    box-shadow:0 6px 20px rgba(0,0,0,.35);opacity:0;transition:opacity .1s;}
+  .tip.on{opacity:1;}
+  .tip .nm{font-family:var(--serif);font-size:13px;}
+  .tip .mn{font-family:var(--mono);font-size:10.5px;opacity:.75;margin-top:1px;}
+  .tip .rt{font-family:var(--mono);margin-top:5px;}
+</style>
+
+<div class="ctrls">
+  <button class="toggle" id="toggle" aria-label="Toggle light or dark theme"></button>
+  <div class="pals" id="pals" title="Edition ink">
+    <button class="pal" data-p="cinnabar" title="朱 Cinnabar">朱</button>
+    <button class="pal" data-p="seal" title="玄 Ink & Seal">玄</button>
+    <button class="pal" data-p="imperial" title="绛 Imperial">绛</button>
+    <button class="pal" data-p="claret" title="褐 Claret">褐</button>
+  </div>
+</div>
+
+<div class="tickbar" aria-label="Latest listings ticker">
+  <span class="lab">LATEST STRIKES</span>
+  <div class="tickwin"><div class="tickrun" id="tickrun"></div></div>
+</div>
+
+<header class="masthead"><div class="wrap">
+  <div class="mast-rules"></div>
+  <div class="mast-grid">
+    <div class="ear">Hong Kong Main Board<br>A record of listing days<br>Every prospectus read</div>
+    <a class="nameplate" href="#/" style="text-decoration:none;color:inherit;">
+      <span class="kanji">敲鑼上市</span>
+      <h1><span class="the">The</span>GONG</h1>
+      <div class="medal" id="medal">
+        <span class="ring"></span><span class="ring r2"></span>
+        <svg viewBox="0 0 74 74" aria-hidden="true">
+          <circle cx="37" cy="37" r="33" fill="none" stroke="var(--brass)" stroke-width="2.5"/>
+          <circle cx="37" cy="37" r="24" fill="none" stroke="var(--brass)" stroke-width="1" opacity=".55"/>
+          <circle cx="37" cy="37" r="9" fill="var(--brass)"/>
+        </svg>
+      </div>
+    </a>
+    <div class="ear r">Vol. I · No. 331<br>January 2023 — June 2026<br>Returns verified to the raw tape</div>
+  </div>
+  <div class="folio">
+    <span>The gong has sounded 331 times</span>
+    <span>Median first day: +0.8% ('23) → +37.5% ('26 H1)</span>
+    <span>Not investment advice</span>
+  </div>
+  <nav class="secnav" id="secnav">
+    <a href="#/" data-r="home">Front Page</a>
+    <a href="#/ledger" data-r="ledger">The Ledger</a>
+    <a href="#/exhibits" data-r="exhibits">The Exhibits</a>
+    <a href="#/desk" data-r="desk">The Desk</a>
+    <a href="#/method" data-r="method">The Method</a>
+  </nav>
+</div></header>
+
+<main>
+<!-- ============ FRONT ============ -->
+<section class="pg" id="pg-home"><div class="wrap">
+  <div class="front">
+    <article class="lead">
+      <div class="slug">The lead · the offshore rush, 2023–2026</div>
+      <h2 class="hed" style="margin-top:10px">The year the gong never stopped</h2>
+      <p class="dek">Three and a half years, 331 listings, and a first-day median up forty-fold — yet the pop is spent before the first public trade prints.</p>
+      <div class="byline">From the desk · 331 verified filings · returns corrected to the raw tape</div>
+      <div class="cols">
+        <p>When the gong sounded for Fenbi Ltd. in January 2023, the median new listing closed its first day up <b>0.8 per cent</b>. By the first half of 2026 the ceremony was being performed eighty-three times in six months, to a median first-day gain of <b>37.5 per cent</b>. The rush is real, and accelerating.</p>
+        <p>Where the money is made is another matter. Offer to first close, the median gain is 7 per cent; <b>opening print to close, −0.3 per cent</b>. The pop is settled in the opening auction. Whoever holds allocation at the bell owns the day; whoever chases it buys, on average, nothing — and by one year out the median listing sits <b>22 per cent below</b> its offer price.</p>
+      </div>
+      <div class="contmark">The full anatomy in twenty charts → <a href="#/exhibits">The Exhibits, p.3</a></div>
+    </article>
+    <aside class="rail">
+      <div class="box">
+        <span class="bx-slug">By the numbers</span>
+        <ul class="agate">
+          <li>Listings recorded<span class="fill"></span><span class="num">331</span></li>
+          <li>Capital raised<span class="fill"></span><span class="num">US$80.7bn</span></li>
+          <li>Median day one, '26 H1<span class="fill"></span><span class="num up">+37.5%</span></li>
+          <li>Open → close, day one<span class="fill"></span><span class="num down">−0.3%</span></li>
+          <li>Retail edge per ballot<span class="fill"></span><span class="num up">+46 bps</span></li>
+          <li>Above water at one year<span class="fill"></span><span class="num down">34%</span></li>
+        </ul>
+      </div>
+      <div class="box idx">
+        <span class="bx-slug">In this edition</span>
+        <ul class="agate">
+          <li><a href="#/ledger">The Ledger · all 331 listings</a><span class="fill"></span><span class="pg-no">p.2</span></li>
+          <li><a href="#/exhibits">The Exhibits · twenty charts</a><span class="fill"></span><span class="pg-no">p.3</span></li>
+          <li><a href="#/desk">The Desk · three trades tested</a><span class="fill"></span><span class="pg-no">p.4</span></li>
+          <li><a href="#/method">The Method · sources</a><span class="fill"></span><span class="pg-no">p.5</span></li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+  <section class="record">
+    <div class="chart-frame">
+      <div class="chart-head">
+        <span class="t">The tape — first-day return of every listing, offer to close</span>
+        <span class="legend"><span><i style="background:var(--gain)"></i>GAIN</span><span><i style="background:var(--loss)"></i>LOSS</span></span>
+      </div>
+      <canvas id="tape" height="235"></canvas>
+      <div class="tape-x"><span>2023</span><span>2024</span><span>2025</span><span>2026 · H1</span></div>
+    </div>
+    <p class="caption">Each rule is one listing; its height, the first day against the offer, clamped at +200 / −60 per cent. Hover for the name. Twenty price series repaired where retail feeds had silently restated history.</p>
+  </section>
+</div></section>
+
+<!-- ============ LEDGER ============ -->
+<section class="pg" id="pg-ledger"><div class="wrap">
+  <div class="pagehead">
+    <span class="slug">Page 2 · The Ledger</span>
+    <h2>Every strike on record</h2>
+    <p class="dek">All 331 Main Board listings, January 2023 to June 2026. Click a column to sort; filter by year or sector.</p>
+  </div>
+  <div class="lfilters">
+    <select id="f-year"><option value="">All years</option></select>
+    <select id="f-sector"><option value="">All sectors</option></select>
+    <span class="cnt" id="f-cnt"></span>
+  </div>
+  <div class="tblwrap"><table class="ledger" id="ltbl">
+    <thead><tr>
+      <th class="l" data-k="0">Struck</th><th class="l" data-k="1">Code</th><th class="l" data-k="2">Company</th>
+      <th class="l" data-k="3">Sector</th><th data-k="5">Size US$M</th><th data-k="6">O/Sub</th>
+      <th data-k="8">Day 1</th><th data-k="13">1M</th><th data-k="16">1Y</th>
+    </tr></thead><tbody></tbody>
+  </table></div>
+  <div class="tablenote">RETURNS AGAINST OFFER PRICE · O/SUB = RETAIL OVERSUBSCRIPTION · 1-YEAR SHOWN ONLY WHERE THE HORIZON HAS ELAPSED · THE FULL EDITION ADDS ALLOCATION, PRICING BAND AND LOCK-UP DETAIL PER LISTING.</div>
+</div></section>
+
+<!-- ============ EXHIBITS ============ -->
+<section class="pg" id="pg-exhibits"><div class="wrap">
+  <div class="pagehead">
+    <span class="slug">Page 3 · The Exhibits</span>
+    <h2>The rush, in twenty charts</h2>
+    <p class="dek">The structure of 331 listings — issuance, demand, first-day behaviour, decay, and what the desk trades made of it. All figures from the verified record.</p>
+  </div>
+  <div class="exgrid" id="exgrid"></div>
+</div></section>
+
+<!-- ============ DESK ============ -->
+<section class="pg" id="pg-desk"><div class="wrap">
+  <div class="pagehead">
+    <span class="slug">Page 4 · The Desk</span>
+    <h2>Three trades, taken to the tape</h2>
+    <p class="dek">Designed on 2023–25, tested once on 2026 H1. Verdicts as printed; details in Exhibits 18–20.</p>
+  </div>
+  <div class="desk">
+    <div class="col">
+      <span class="verdict v-cond">Conditional · live since '25</span>
+      <h3>Subscribe when the tape is up</h3>
+      <p>Balloting every deal lost money through 2023–24 and paid through the rush. One gate — subscribe only when the Hang Seng's trailing month is positive — kept the seat out of the losing years and cost nothing in the hot ones.</p>
+      <div class="fig">train +154 bps · test +189 bps<br>per ballot, day-one exit</div>
+    </div>
+    <div class="col">
+      <span class="verdict v-live">Live · both periods</span>
+      <h3>Buy the winners, not the open</h3>
+      <p>Chasing the opening print is reliably unprofitable. Buying the first close — only after a confirmed pop above twenty per cent — and holding twenty days is the one secondary trade that survived the untouched test period. Capacity is small; size accordingly.</p>
+      <div class="fig">train +1,112 bps · test +407 bps<br>median +546 · max drawdown −93%</div>
+    </div>
+    <div class="col">
+      <span class="verdict v-dead">Dead · do not run</span>
+      <h3>Leave the lock-up alone</h3>
+      <p>The six-month expiry, shorted into and through, returns six basis points before borrow — and borrow on a six-month-old listing in Hong Kong is scarce to prohibitive. The overhang story does not survive contact with the tape.</p>
+      <div class="fig">+6.5 bps gross · borrow unmodelled<br>median −0.1% on the day</div>
+    </div>
+  </div>
+  <div class="deskcharts" id="deskcharts"></div>
+</div></section>
+
+<!-- ============ METHOD ============ -->
+<section class="pg" id="pg-method"><div class="wrap">
+  <div class="pagehead">
+    <span class="slug">Page 5 · The Method</span>
+    <h2>Sources &amp; corrections</h2>
+  </div>
+  <div class="method" style="margin-top:16px">
+    <p>331 MAIN BOARD LISTINGS, JAN 2023 – JUN 2026 · GEM TRANSFERS, INTRODUCTIONS AND DE-SPACS EXCLUDED · ~1,000 FILINGS READ: PROSPECTUSES, ALLOTMENT RESULTS, STABILISATION NOTICES.</p>
+    <p>RETURNS CROSS-CHECKED AGAINST UNADJUSTED EXCHANGE BARS — 20 SERIES REPAIRED WHERE RETAIL FEEDS HAD RESTATED HISTORY AFTER SPLITS AND BONUS ISSUES.</p>
+    <p>STRATEGIES DESIGNED ON 2023–25 AND TESTED ONCE ON 2026 H1 · COSTS: SUBSCRIPTION 1.01%, SALE 0.25% PER SIDE, HIBOR CARRY ON LOCKED CAPITAL · NOTHING HERE IS INVESTMENT ADVICE.</p>
+  </div>
+  <div class="fromdesk">
+    <div class="l">
+      <h3>Precedent Atlas — Japan Special Situations</h3>
+      <p>110 landmark takeover, activism and take-private cases, mapped by what they share. From the same desk.</p>
+    </div>
+    <a class="visit" href="#" aria-label="Visit the Precedent Atlas">Visit the Atlas →</a>
+  </div>
+</div></section>
+</main>
+
+<footer class="colophon"><div class="wrap">
+  <div class="endrule"></div>
+  <p>THE GONG · A RECORD OF HONG KONG LISTING DAYS · EDITION II PROTOTYPE · GAIN PRINTS RED, LOSS PRINTS GREEN, AS HONG KONG READS THE TAPE</p>
+</div></footer>
+
+<div class="tip" id="tip"></div>
+
+<script>
+__DATA__
+
+/* ================= palettes ================= */
+const PALETTES={
+ cinnabar:{light:{paper:'#f6f1e3','paper-2':'#efe8d5',panel:'#fcf8ec',ink:'#1d1812','ink-2':'#4e463a','ink-3':'#8a7f6a',
+   hairline:'#ddd3bc',rule:'#bfb192',accent:'#9e2b23','accent-soft':'#efd9d2',brass:'#a3742a',
+   gain:'#c3272b',loss:'#2f6e46',shadow:'rgba(60,40,20,.12)'},
+  dark:{paper:'#1a1512','paper-2':'#221c17',panel:'#201a15',ink:'#f0e8d8','ink-2':'#b5a996','ink-3':'#7f7462',
+   hairline:'#3a322a',rule:'#4d4234',accent:'#e05545','accent-soft':'#3a2420',brass:'#d0a34e',
+   gain:'#e26a5a',loss:'#6cbf8a',shadow:'rgba(0,0,0,.5)'}},
+ seal:{light:{paper:'#f7f5ef','paper-2':'#efece2',panel:'#fdfcf8',ink:'#141210','ink-2':'#454138','ink-3':'#837c6e',
+   hairline:'#ddd8cc',rule:'#b5ad9c',accent:'#c02719','accent-soft':'#f0d9d3',brass:'#6f6a5e',
+   gain:'#a8332e',loss:'#2f6e46',shadow:'rgba(30,25,15,.12)'},
+  dark:{paper:'#131211','paper-2':'#1b1a17',panel:'#181714',ink:'#eeeadf','ink-2':'#b0aca0','ink-3':'#7a766a',
+   hairline:'#34322c',rule:'#484539',accent:'#e04a38','accent-soft':'#3a2320',brass:'#a29b88',
+   gain:'#d9695f',loss:'#6cbf8a',shadow:'rgba(0,0,0,.5)'}},
+ imperial:{light:{paper:'#f3ecdd','paper-2':'#eae2cd',panel:'#faf5e8',ink:'#201510','ink-2':'#4f4235','ink-3':'#8b7c64',
+   hairline:'#dccfb5',rule:'#b9a26f',accent:'#6b1420','accent-soft':'#e8d3d0',brass:'#a67c00',
+   gain:'#b3342c',loss:'#33704a',shadow:'rgba(50,30,15,.13)'},
+  dark:{paper:'#191114','paper-2':'#211820',panel:'#1e161a',ink:'#efe6da','ink-2':'#b6a99c','ink-3':'#7f7266',
+   hairline:'#3a2e32',rule:'#4f3f44',accent:'#c95a6a','accent-soft':'#3a2228',brass:'#d4af37',
+   gain:'#dd6b5e',loss:'#6cbf8a',shadow:'rgba(0,0,0,.55)'}},
+ claret:{light:{paper:'#f4f1e7','paper-2':'#ece8da',panel:'#faf8f0',ink:'#191613','ink-2':'#4b473e','ink-3':'#847e6c',
+   hairline:'#d7d1bd',rule:'#b7af96',accent:'#71212e','accent-soft':'#e7d5d3',brass:'#8f6a28',
+   gain:'#a8332e',loss:'#2f6e46',shadow:'rgba(40,32,18,.12)'},
+  dark:{paper:'#171512','paper-2':'#1f1c18',panel:'#1c1916',ink:'#ece7d8','ink-2':'#b3ada0','ink-3':'#7d7768',
+   hairline:'#37332b',rule:'#4a4438',accent:'#cf6f78','accent-soft':'#3a2426',brass:'#c5a052',
+   gain:'#d9695f',loss:'#6cbf8a',shadow:'rgba(0,0,0,.5)'}}
+};
+const root=document.documentElement;
+let pal=localStorage.getItem('gong-pal')||'cinnabar';
+let mode=localStorage.getItem('gong-mode')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
+function applyPal(){
+  const v=PALETTES[pal][mode];
+  for(const k in v)root.style.setProperty('--'+k,v[k]);
+  document.querySelectorAll('.pal').forEach(b=>b.classList.toggle('on',b.dataset.p===pal));
+  paintToggle();
+  redrawAll();
+}
+const SUN='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4.4"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.1 5.1l1.6 1.6M17.3 17.3l1.6 1.6M18.9 5.1l-1.6 1.6M6.7 17.3l-1.6 1.6" stroke-linecap="round"/></svg>';
+const MOON='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20 14.6A8 8 0 1 1 9.4 4a6.3 6.3 0 0 0 10.6 10.6z" stroke-linejoin="round"/></svg>';
+function paintToggle(){document.getElementById('toggle').innerHTML=mode==='dark'?SUN:MOON;}
+document.getElementById('toggle').onclick=()=>{mode=mode==='dark'?'light':'dark';localStorage.setItem('gong-mode',mode);applyPal();};
+document.querySelectorAll('.pal').forEach(b=>b.onclick=()=>{pal=b.dataset.p;localStorage.setItem('gong-pal',pal);applyPal();});
+function cvar(n){return getComputedStyle(document.body).getPropertyValue('--'+n).trim();}
+
+/* ================= utils ================= */
+const NS='http://www.w3.org/2000/svg';
+function E(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e;}
+function median(a){const s=[...a].sort((x,y)=>x-y);if(!s.length)return null;const m=s.length>>1;return s.length%2?s[m]:(s[m-1]+s[m])/2;}
+const yearOf=r=>r[0].slice(0,4);
+const fmtpct=v=>(v>=0?'+':'')+(Math.abs(v)>=100?v.toFixed(0):v.toFixed(1))+'%';
+function txt(svg,x,y,s,a){const t=E('text',Object.assign({x,y},a||{}),svg);t.textContent=s;return t;}
+
+/* ================= ticker ================= */
+(function(){
+  const last=D.filter(r=>r[8]!=null).slice(-34);
+  const item=r=>{const up=r[8]>=0;
+    return `<span class="tk"><b>${r[1]}</b> ${r[2].length>22?r[2].slice(0,22)+'…':r[2]} <span class="${up?'up':'down'}">${up?'▲':'▼'} ${fmtpct(r[8])}</span></span>`;};
+  const html=last.map(item).join('');
+  document.getElementById('tickrun').innerHTML=html+html;
+})();
+
+/* ================= tape (canvas) ================= */
+const cv=document.getElementById('tape'), tip=document.getElementById('tip');
+let TP=[]; const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const CAP_UP=200,CAP_DN=60,t0=Date.parse('2023-01-01'),t1=Date.parse('2026-07-01');
+let tapeDone=false;
+function drawTape(prog){
+  const dpr=Math.min(2,devicePixelRatio||1),w=cv.clientWidth,h=cv.height;
+  if(!w)return;
+  cv.width=w*dpr;cv.height=h*dpr;
+  const x=cv.getContext('2d');x.setTransform(dpr,0,0,dpr,0,0);x.clearRect(0,0,w,h);
+  const padT=12,padB=10,plot=h-padT-padB,zf=CAP_UP/(CAP_UP+CAP_DN),zeroY=padT+plot*zf;
+  const gain=cvar('gain'),loss=cvar('loss'),rule=cvar('rule'),hair=cvar('hairline');
+  x.strokeStyle=hair;x.lineWidth=1;x.globalAlpha=.9;
+  ['2024-01-01','2025-01-01','2026-01-01'].forEach(d=>{const gx=((Date.parse(d)-t0)/(t1-t0))*w;
+    x.beginPath();x.moveTo(gx,padT);x.lineTo(gx,h-padB);x.stroke();});
+  x.globalAlpha=.55;
+  [[100],[50],[-25]].forEach(([v])=>{const yy=zeroY-(v/(v>=0?CAP_UP:CAP_DN))*(v>=0?plot*zf:plot*(1-zf));
+    x.beginPath();x.moveTo(0,yy);x.lineTo(w,yy);x.stroke();});
+  x.globalAlpha=1;x.strokeStyle=rule;x.lineWidth=1.3;
+  x.beginPath();x.moveTo(0,zeroY);x.lineTo(w,zeroY);x.stroke();
+  x.fillStyle=cvar('ink-3');x.font='9.5px ui-monospace,monospace';
+  x.fillText('+100%',4,zeroY-(100/CAP_UP)*plot*zf-3);
+  x.fillText('+50%',4,zeroY-(50/CAP_UP)*plot*zf-3);
+  x.fillText('−25%',4,zeroY+(25/CAP_DN)*plot*(1-zf)-3);
+  TP=[];
+  const rows=D.filter(r=>r[8]!=null),n=rows.length,shown=prog==null?n:Math.floor(n*prog);
+  for(let i=0;i<n;i++){
+    const r=rows[i],px=((Date.parse(r[0])-t0)/(t1-t0))*w;
+    const rr=Math.max(-CAP_DN,Math.min(CAP_UP,r[8]));
+    const py=rr>=0?zeroY-(rr/CAP_UP)*(plot*zf):zeroY+(-rr/CAP_DN)*(plot*(1-zf));
+    TP.push({x:px,y:py,up:r[8]>=0,rec:r});
+    if(i>=shown)continue;
+    x.strokeStyle=r[8]>=0?gain:loss;x.globalAlpha=.88;x.lineWidth=1.2;
+    x.beginPath();x.moveTo(px,zeroY);x.lineTo(px,py);x.stroke();
+  }
+  x.globalAlpha=1;
+}
+function animateTape(){
+  if(tapeDone){drawTape(1);return;}
+  tapeDone=true;
+  if(reduce){drawTape(1);return;}
+  let s=null;const dur=1200;
+  function step(ts){if(s==null)s=ts;const p=Math.min(1,(ts-s)/dur);drawTape(p*p*(3-2*p));if(p<1)requestAnimationFrame(step);}
+  requestAnimationFrame(step);
+}
+cv.addEventListener('mousemove',ev=>{
+  const rect=cv.getBoundingClientRect(),mx=ev.clientX-rect.left;
+  let best=null,bd=1e9;
+  for(const p of TP){const dd=Math.abs(p.x-mx);if(dd<bd){bd=dd;best=p;}}
+  if(best&&bd<7){
+    const r=best.rec;
+    tip.innerHTML=`<div class="nm">${r[2]||r[1]}</div><div class="mn">${r[1]} · ${r[0]}${r[3]?' · '+r[3]:''}</div><div class="rt" style="color:${best.up?cvar('gain'):cvar('loss')}">day one ${fmtpct(r[8])}</div>`;
+    tip.classList.add('on');
+    let tx=ev.clientX+15,ty=ev.clientY+15;if(tx+240>innerWidth)tx=ev.clientX-255;
+    tip.style.left=tx+'px';tip.style.top=ty+'px';
+  } else tip.classList.remove('on');
+});
+cv.addEventListener('mouseleave',()=>tip.classList.remove('on'));
+
+/* ================= chart primitives ================= */
+function chartSvg(host,W,H){host.innerHTML='';const s=E('svg',{viewBox:`0 0 ${W} ${H}`});host.appendChild(s);return s;}
+function vBars(svg,g,items,opts){
+  // items: [{label,val,color?}] ; g:{W,H,pl,pr,pt,pb} ; opts:{fmt,zero:boolean,labelEvery}
+  const o=opts||{},pw=g.W-g.pl-g.pr,ph=g.H-g.pt-g.pb;
+  const vals=items.map(d=>d.val);
+  let mx=Math.max(...vals,0),mn=Math.min(...vals,0);
+  if(mx===mn)mx=mn+1;
+  const pad=(mx-mn)*.12;mx+=pad;if(mn<0)mn-=pad;
+  const Y=v=>g.pt+ph*(1-(v-mn)/(mx-mn)),zy=Y(0);
+  E('line',{class:'zero',x1:g.pl,x2:g.W-g.pr,y1:zy,y2:zy},svg);
+  const step=pw/items.length,bw=Math.min(38,step*.62);
+  items.forEach((d,i)=>{
+    const cx=g.pl+i*step+step/2,y1=Y(d.val),top=Math.min(zy,y1),hh=Math.max(Math.abs(zy-y1),1);
+    E('rect',{x:cx-bw/2,y:top,width:bw,height:hh,fill:d.color||cvar('ink')},svg);
+    if(o.fmt&&(o.valEvery==null||i%o.valEvery===0))
+      txt(svg,cx,d.val>=0?y1-5:y1+11,o.fmt(d.val),{'text-anchor':'middle',class:'val'});
+    if(o.labelEvery==null||i%o.labelEvery===0)
+      txt(svg,cx,g.H-6,d.label,{'text-anchor':'middle'});
+  });
+}
+function hPairs(svg,g,items,c1,c2,opts){
+  // items: [{label,a,b}] horizontal paired bars (a=first series)
+  const o=opts||{},pw=g.W-g.pl-g.pr,ph=g.H-g.pt-g.pb;
+  const all=items.flatMap(d=>[d.a,d.b]).filter(v=>v!=null);
+  let mx=Math.max(...all,0),mn=Math.min(...all,0);
+  const pad=(mx-mn)*.14;mx+=pad;if(mn<0)mn-=pad;
+  const X=v=>g.pl+pw*((v-mn)/(mx-mn)),zx=X(0);
+  E('line',{class:'zero',x1:zx,x2:zx,y1:g.pt,y2:g.H-g.pb},svg);
+  const step=ph/items.length,bh=Math.min(11,step*.3);
+  items.forEach((d,i)=>{
+    const cy=g.pt+i*step+step/2;
+    txt(svg,g.pl-6,cy+3,d.label,{'text-anchor':'end'});
+    [[d.a,c1,-bh-1],[d.b,c2,1]].forEach(([v,c,dy])=>{
+      if(v==null)return;
+      const x1=X(v),left=Math.min(zx,x1),wd=Math.max(Math.abs(x1-zx),1);
+      E('rect',{x:left,y:cy+dy,width:wd,height:bh,fill:c},svg);
+      if(o.fmt)txt(svg,x1+(v>=0?4:-4),cy+dy+bh-2,o.fmt(v),{'text-anchor':v>=0?'start':'end'});
+    });
+  });
+}
+function lineChart(svg,g,series,opts){
+  // series: [{pts:[[x,y]], color, w}] with x in [0,1] domain already; opts:{ymin,ymax,fmt,xlabels:[[frac,label]]}
+  const o=opts||{},pw=g.W-g.pl-g.pr,ph=g.H-g.pt-g.pb;
+  let mn=o.ymin,mx=o.ymax;
+  if(mn==null||mx==null){
+    const all=series.flatMap(s=>s.pts.map(p=>p[1]));
+    mx=Math.max(...all);mn=Math.min(...all);const pad=(mx-mn)*.12||1;mx+=pad;mn-=pad;
+  }
+  const X=f=>g.pl+pw*f,Y=v=>g.pt+ph*(1-(v-mn)/(mx-mn));
+  if(mn<0&&mx>0){const zy=Y(0);E('line',{class:'zero',x1:g.pl,x2:g.W-g.pr,y1:zy,y2:zy},svg);txt(svg,g.pl-6,zy+3,'0',{'text-anchor':'end'});}
+  (o.xlabels||[]).forEach(([f,l])=>txt(svg,X(f),g.H-5,l,{'text-anchor':'middle'}));
+  series.forEach(s=>{
+    const d=s.pts.map((p,i)=>`${i?'L':'M'}${X(p[0]).toFixed(1)},${Y(p[1]).toFixed(1)}`).join(' ');
+    E('path',{d,fill:'none',stroke:s.color,'stroke-width':s.w||1.8,'stroke-linecap':'round','stroke-linejoin':'round'},svg);
+    if(s.dots)s.pts.forEach(p=>E('circle',{cx:X(p[0]),cy:Y(p[1]),r:2.8,fill:s.color,stroke:cvar('panel'),'stroke-width':1.5},svg));
+    if(s.endlabel)txt(svg,X(s.pts[s.pts.length-1][0])+5,Y(s.pts[s.pts.length-1][1])+3,s.endlabel,{class:'val',fill:s.color});
+  });
+  return {X,Y};
+}
+function scatter(svg,g,pts,opts){
+  // pts:[{x,y,up}] raw values; opts:{logx,logy,xmin..,fmt axes labels}
+  const o=opts||{},pw=g.W-g.pl-g.pr,ph=g.H-g.pt-g.pb;
+  const xs=pts.map(p=>p.x),ys=pts.map(p=>p.y);
+  let x0=o.xmin!=null?o.xmin:Math.min(...xs),x1=o.xmax!=null?o.xmax:Math.max(...xs);
+  let y0=o.ymin!=null?o.ymin:Math.min(...ys),y1=o.ymax!=null?o.ymax:Math.max(...ys);
+  const LX=v=>o.logx?Math.log10(Math.max(v,x0)):v, LY=v=>o.logy?Math.log10(Math.max(v,y0)):v;
+  const X=v=>g.pl+pw*((LX(v)-LX(x0))/(LX(x1)-LX(x0)));
+  const Y=v=>g.pt+ph*(1-(LY(v)-LY(y0))/(LY(y1)-LY(y0)));
+  if(!o.logy&&y0<0&&y1>0){const zy=Y(0);E('line',{class:'zero',x1:g.pl,x2:g.W-g.pr,y1:zy,y2:zy},svg);}
+  (o.xticks||[]).forEach(v=>{const gx=X(v);E('line',{class:'gl',x1:gx,x2:gx,y1:g.pt,y2:g.H-g.pb},svg);
+    txt(svg,gx,g.H-5,o.xtickfmt?o.xtickfmt(v):v,{'text-anchor':'middle'});});
+  (o.yticks||[]).forEach(v=>{const gy=Y(v);E('line',{class:'gl',x1:g.pl,x2:g.W-g.pr,y1:gy,y2:gy},svg);
+    txt(svg,g.pl-5,gy+3,o.ytickfmt?o.ytickfmt(v):v,{'text-anchor':'end'});});
+  pts.forEach(p=>{
+    const col=p.color||(p.up==null?cvar('ink'):p.up?cvar('gain'):cvar('loss'));
+    E('circle',{cx:X(Math.min(Math.max(p.x,x0),x1)),cy:Y(Math.min(Math.max(p.y,y0),y1)),r:2.4,fill:col,'fill-opacity':.68},svg);
+  });
+  return {X,Y};
+}
+
+/* ================= exhibits ================= */
+const G={W:520,H:250,pl:46,pr:16,pt:14,pb:26};
+const YEARS=['2023','2024','2025','2026'];
+const rowsOf=y=>D.filter(r=>yearOf(r)===y);
+function medOf(y,idx){return median(rowsOf(y).map(r=>r[idx]).filter(v=>v!=null));}
+const HOR=[['Day 1',8],['5d',11],['20d',12],['1m',13],['3m',14],['6m',15],['1y',16]];
+
+const EXHIBITS=[
+ {t:'Listings per quarter — the wave builds',c:'Deal count by listing quarter. The rush is a 2025–26 phenomenon stacked on a slow 2023–24 base.',
+  draw(h){const s=chartSvg(h,G.W,G.H);
+   vBars(s,G,A.wave.map(w=>({label:w.quarter.replace('20','’').replace('Q','·Q'),val:w.deals,color:cvar('ink')})),
+     {labelEvery:2,fmt:v=>v,valEvery:2});}},
+ {t:'Capital raised per quarter, US$m',c:'Proceeds concentrate even faster than the deal count — the rush is also a size story.',
+  draw(h){const s=chartSvg(h,G.W,G.H);
+   vBars(s,G,A.wave.map(w=>({label:w.quarter.replace('20','’').replace('Q','·Q'),val:Math.round(w.raised_usd_m/1000),color:cvar('brass')})),
+     {labelEvery:2,fmt:v=>v+'bn',valEvery:2});}},
+ {t:'Median first day, by year of striking',c:'From +0.8% to +37.5% in three years — a forty-fold escalation in the median debut.',
+  draw(h){const s=chartSvg(h,G.W,G.H);
+   vBars(s,G,YEARS.map(y=>{const v=medOf(y,8);return {label:y===' 2026'?'2026 H1':y,val:v,color:v>=0?cvar('gain'):cvar('loss')};}),
+     {fmt:fmtpct});}},
+ {t:'The distribution of first days',c:'All 331 debuts, binned. A long right tail pays for the crowd around zero; the worst decile still loses a quarter.',
+  draw(h){const s=chartSvg(h,G.W,G.H);
+   const bins=[[-60,-40],[-40,-20],[-20,0],[0,20],[20,40],[40,60],[60,80],[80,100],[100,150],[150,200]];
+   const vals=D.map(r=>r[8]).filter(v=>v!=null).map(v=>Math.max(-60,Math.min(200,v)));
+   vBars(s,G,bins.map(([a,b])=>({label:a+'…',val:vals.filter(v=>v>=a&&v<b).length,
+     color:a>=0?cvar('gain'):cvar('loss')})),{fmt:v=>v});}},
+ {t:'Every first day, year by year',c:'The same distribution as a strip — the widening after 2024 is the rush arriving.',
+  draw(h){const s=chartSvg(h,G.W,G.H);
+   const g=G,ph=g.H-g.pt-g.pb,pw=g.W-g.pl-g.pr;
+   const Y=v=>g.pt+ph*(1-(Math.max(-60,Math.min(200,v))+60)/260);
+   const zy=Y(0);E('line',{class:'zero',x1:g.pl,x2:g.W-g.pr,y1:zy,y2:zy},s);
+   txt(s,g.pl-6,zy+3,'0%',{'text-anchor':'end'});
+   txt(s,g.pl-6,Y(100)+3,'+100%',{'text-anchor':'end'});
+   YEARS.forEach((y,i)=>{
+     const cx=g.pl+pw*(i+0.5)/4;
+     txt(s,cx,g.H-6,y,{'text-anchor':'middle'});
+     rowsOf(y).forEach((r,j)=>{if(r[8]==null)return;
+       const jit=((j*2654435761)%1000)/1000-.5;
+       E('circle',{cx:cx+jit*pw*0.16,cy:Y(r[8]),r:2,fill:r[8]>=0?cvar('gain'):cvar('loss'),'fill-opacity':.55},s);});
+     const m=medOf(y,8);if(m!=null)E('line',{x1:cx-pw*0.09,x2:cx+pw*0.09,y1:Y(m),y2:Y(m),stroke:cvar('ink'),'stroke-width':2},s);});}},
+ {t:'The median path: pop, then fade',c:'Median return vs. offer across horizons. The peak is the first month; a year out, −22%.',
+  draw(h){const s=chartSvg(h,G.W,G.H);
+   const pts=HOR.map(([l,i],k)=>[k/(HOR.length-1),median(D.map(r=>r[i]).filter(v=>v!=null))]);
+   lineChart(s,G,[{pts,color:cvar('accent'),dots:true,endlabel:fmtpct(pts[pts.length-1][1])}],
+     {xlabels:HOR.map(([l],k)=>[k/(HOR.length-1),l])});}},
+ {t:'The same path, by vintage',c:'Every cohort decays; the rush vintages simply start higher. 1-year data exists only for 2023–24 (and part of 2025).',
+  draw(h){const s=chartSvg(h,G.W,G.H);
+   const labels=['Day 1','5d','20d','1m','3m','1y'];
+   const cols={2023:cvar('ink-3'),2024:cvar('brass'),2025:cvar('accent'),2026:cvar('gain')};
+   const series=A.hyear.map(row=>{
+     const pts=[];labels.forEach((l,k)=>{const c=row[l];if(c&&c.median!=null)pts.push([k/(labels.length-1),c.median]);});
+     return {pts,color:cols[row.year],w:1.6,endlabel:String(row.year)};}).filter(s=>s.pts.length>1);
+   lineChart(s,G,series,{xlabels:labels.map((l,k)=>[k/(labels.length-1),l])});}},
+ {t:'How oversubscribed is oversubscribed?',c:'Retail demand by order of magnitude. By 2026 the median book is covered 1,400 times.',
+  draw(h){const s=chartSvg(h,G.W,G.H);
+   const bins=[['<1×',v=>v<1],['1–10×',v=>v>=1&&v<10],['10–100×',v=>v>=10&&v<100],['100–500×',v=>v>=100&&v<500],['500–1k×',v=>v>=500&&v<1000],['≥1k×',v=>v>=1000]];
+   const vals=D.map(r=>r[6]).filter(v=>v!=null);
+   vBars(s,G,bins.map(([l,f])=>({label:l,val:vals.filter(f).length,color:cvar('ink')})),{fmt:v=>v});}},
+ {t:'Demand knows the pop is coming',c:'Retail oversubscription (log) against the first day. The book reads the deal before the market does.',
+  draw(h){const s=chartSvg(h,G.W,G.H);
+   scatter(s,G,D.filter(r=>r[6]!=null&&r[8]!=null).map(r=>({x:Math.max(r[6],.2),y:r[8],up:r[8]>=0})),
+     {logx:true,xmin:.2,xmax:9000,ymin:-60,ymax:200,xticks:[1,10,100,1000],xtickfmt:v=>v+'×',yticks:[0,100],ytickfmt:v=>(v>0?'+':'')+v+'%'});}},
+ {t:'First day by demand tier',c:'Median debut within each oversubscription band — monotonic once the book passes 100×.',
+  draw(h){const s=chartSvg(h,G.W,G.H);
+   vBars(s,G,A.tier.map(t=>({label:t.tier.replace('undersubscribed(<1x)','<1×').replace('x','×'),
+     val:t.median,color:t.median>=0?cvar('gain'):cvar('loss')})),{fmt:fmtpct});}},
+ {t:'The ballot gives you what nobody wants',c:'Allocation rate against oversubscription (both log). Hot books allocate in fractions of a per cent.',
+  draw(h){const s=chartSvg(h,G.W,G.H);
+   scatter(s,G,D.filter(r=>r[6]!=null&&r[7]!=null).map(r=>({x:Math.max(r[6],.2),y:Math.max(r[7],.05),up:null})),
+     {logx:true,logy:true,xmin:.2,xmax:9000,ymin:.05,ymax:100,xticks:[1,10,100,1000],xtickfmt:v=>v+'×',
+      yticks:[0.1,1,10,100],ytickfmt:v=>v+'%'});}},
+ {t:'Adverse selection, drawn',c:'Allocation rate against the first day: the deals you are given are the deals that do not pop (ρ ≈ −0.35).',
+  draw(h){const s=chartSvg(h,G.W,G.H);
+   scatter(s,G,D.filter(r=>r[7]!=null&&r[8]!=null).map(r=>({x:Math.max(r[7],.05),y:r[8],up:r[8]>=0})),
+     {logx:true,xmin:.05,xmax:100,ymin:-60,ymax:200,xticks:[0.1,1,10,100],xtickfmt:v=>v+'%',
+      yticks:[0,100],ytickfmt:v=>(v>0?'+':'')+v+'%'});}},
+ {t:'First day by deal size',c:'Median debut by offering size. The pop is strongest below US$500m; the megadeals behave.',
+  draw(h){const s=chartSvg(h,G.W,G.H);
+   const bins=[['<50m',0,50],['50–150m',50,150],['150–500m',150,500],['0.5–1.5bn',500,1500],['>1.5bn',1500,1e9]];
+   vBars(s,G,bins.map(([l,a,b])=>{
+     const v=median(D.filter(r=>r[5]!=null&&r[5]>=a&&r[5]<b&&r[8]!=null).map(r=>r[8]));
+     return {label:l,val:v,color:v>=0?cvar('gain'):cvar('loss')};}),{fmt:fmtpct});}},
+ {t:'Who came to list',c:'Share of listings by sector, the 2023 baseline against the rush. Technology doubles its share.',
+  draw(h){const s=chartSvg(h,{...G}.W,G.H);
+   const base=D.filter(r=>yearOf(r)==='2023'),rush=D.filter(r=>yearOf(r)!=='2023');
+   const secs={};D.forEach(r=>{if(r[3])secs[r[3]]=(secs[r[3]]||0)+1;});
+   const top=Object.keys(secs).sort((a,b)=>secs[b]-secs[a]).slice(0,6);
+   const g2={...G,pl:150};
+   hPairs(s,g2,top.map(sec=>({label:sec.length>20?sec.slice(0,20)+'…':sec,
+     a:100*base.filter(r=>r[3]===sec).length/base.length,
+     b:100*rush.filter(r=>r[3]===sec).length/rush.length})),cvar('ink-3'),cvar('accent'),
+     {fmt:v=>v.toFixed(0)+'%'});
+   txt(s,g2.pl,10,'grey = 2023 · red = 2024–26',{});}},
+ {t:'The H-share wave',c:'Listing regime mix, 2023 vs the rush: mainland-incorporated H-shares go from a third of strikes to six in ten.',
+  draw(h){const s=chartSvg(h,G.W,G.H);
+   const base=D.filter(r=>yearOf(r)==='2023'),rush=D.filter(r=>yearOf(r)!=='2023');
+   const regs=['H-share','Standard','18A biotech','19C secondary','18C specialist tech'];
+   const g2={...G,pl:150};
+   hPairs(s,g2,regs.map(rg=>({label:rg,
+     a:100*base.filter(r=>r[4]===rg).length/base.length,
+     b:100*rush.filter(r=>r[4]===rg).length/rush.length})),cvar('ink-3'),cvar('accent'),
+     {fmt:v=>v.toFixed(0)+'%'});
+   txt(s,g2.pl,10,'grey = 2023 · red = 2024–26',{});}},
+ {t:'The pop lives at the open',c:'Median open premium vs. median open-to-close, by year. Everything the day pays is paid by 9:30.',
+  draw(h){const s=chartSvg(h,G.W,G.H);
+   const g2={...G,pl:60};
+   hPairs(s,g2,YEARS.map(y=>({label:y,a:medOf(y,9),b:medOf(y,10)})),cvar('gain'),cvar('ink-3'),
+     {fmt:fmtpct});
+   txt(s,g2.pl,10,'red = open premium · grey = open→close',{});}},
+ {t:'Nothing happens at the lock-up',c:'Median cumulative return vs. offer, days around the six-month expiry. The overhang never arrives.',
+  draw(h){const s=chartSvg(h,G.W,G.H);
+   const pts=A.lock.map((p,i)=>[i/(A.lock.length-1),p.median]);
+   lineChart(s,G,[{pts,color:cvar('ink'),dots:true}],
+     {xlabels:A.lock.map((p,i)=>[i/(A.lock.length-1),(p.offset>0?'+':'')+p.offset+'d'])});}},
+ {t:'The retail seat, year by year',c:'Expected return per one-lot ballot at the first close, after odds, fees and carry. A 2025–26 phenomenon.',
+  draw(h){const s=chartSvg(h,G.W,G.H);
+   vBars(s,G,A.p2y.map(p=>({label:String(p.year),val:p.mean_bps,color:p.mean_bps>=0?cvar('gain'):cvar('loss')})),
+     {fmt:v=>(v>=0?'+':'')+Math.round(v)+'bp'});}},
+ {t:'Five strategies, trained and tested',c:'Mean return per deal, designed on 2023–25 (dark) and run once on 2026 H1 (red). Only the winners-momentum trade is large in both.',
+  draw(h){const s=chartSvg(h,G.W,G.H);
+   const names={'S1: Subscribe all':'Subscribe all','S2: Subscribe only if HSI 30d>0':'Subscribe · HSI gate',
+     'S3: Buy open, sell close':'Buy the open','S3: Buy close, sell 20d (if day1 pop>20%)':'Buy winners, hold 20d',
+     'S4: Short lockup expiry (-2d..+1d, ex-borrow)':'Short the lock-up'};
+   const seen={},items=[];
+   A.p3.forEach(p=>{const nm=names[p[0]]||p[0];if(seen[nm])return;seen[nm]=1;
+     items.push({label:nm,a:p[2],b:p[3]});});
+   const g2={...G,pl:170};
+   hPairs(s,g2,items,cvar('ink'),cvar('accent'),{fmt:v=>v==null?'':Math.round(v)});
+   txt(s,g2.pl,10,'dark = train (bps) · red = test 2026 H1',{});}},
+ {t:'Riding every winner: the equity curve',c:'One unit staked on each qualifying trade of the winners-momentum rule, compounded. The end point is high; the road is violent (max drawdown −93%).',
+  draw(h){const s=chartSvg(h,G.W,G.H);
+   const e0=Date.parse(A.eq[0][0]),e1=Date.parse(A.eq[A.eq.length-1][0]);
+   const pts=A.eq.map(p=>[(Date.parse(p[0])-e0)/(e1-e0),p[1]]);
+   lineChart(s,G,[{pts,color:cvar('accent'),w:1.6,endlabel:pts[pts.length-1][1].toFixed(1)+'×'}],
+     {ymin:0,xlabels:[[0,'2023'],[.5,'2025'],[1,'2026']]});
+   }},
+];
+let exDrawn=false;
+function drawExhibits(){
+  const grid=document.getElementById('exgrid');
+  if(!exDrawn){
+    grid.innerHTML=EXHIBITS.map((ex,i)=>`<div class="ex"><span class="exn">EXHIBIT ${i+1} / ${EXHIBITS.length}</span>
+      <div class="ext">${ex.t}</div><div class="exh" id="exh-${i}"></div><div class="exc">${ex.c}</div></div>`).join('');
+    exDrawn=true;
+  }
+  EXHIBITS.forEach((ex,i)=>{try{ex.draw(document.getElementById('exh-'+i));}catch(e){console.warn('exhibit',i+1,e);}});
+}
+function drawDeskCharts(){
+  const host=document.getElementById('deskcharts');
+  host.innerHTML=`<div class="chart-frame"><div class="chart-head"><span class="t">Strategies · train vs test</span></div><div id="dc1"></div></div>
+    <div class="chart-frame"><div class="chart-head"><span class="t">Winners-momentum · equity curve</span></div><div id="dc2"></div></div>`;
+  EXHIBITS[18].draw(document.getElementById('dc1'));
+  EXHIBITS[19].draw(document.getElementById('dc2'));
+}
+
+/* ================= ledger ================= */
+let sortK=0,sortAsc=true,ltblBuilt=false;
+function buildLedger(){
+  if(!ltblBuilt){
+    const ys=[...new Set(D.map(yearOf))].sort();
+    const fy=document.getElementById('f-year');
+    ys.forEach(y=>{const o=document.createElement('option');o.value=y;o.textContent=y;fy.appendChild(o);});
+    const secs=[...new Set(D.map(r=>r[3]).filter(Boolean))].sort();
+    const fs=document.getElementById('f-sector');
+    secs.forEach(sc=>{const o=document.createElement('option');o.value=sc;o.textContent=sc;fs.appendChild(o);});
+    fy.onchange=renderLedger;fs.onchange=renderLedger;
+    document.querySelectorAll('#ltbl th').forEach(th=>th.onclick=()=>{
+      const k=+th.dataset.k;
+      if(sortK===k)sortAsc=!sortAsc;else{sortK=k;sortAsc=k<4;}
+      renderLedger();});
+    ltblBuilt=true;
+  }
+  renderLedger();
+}
+function renderLedger(){
+  const fy=document.getElementById('f-year').value,fs=document.getElementById('f-sector').value;
+  let rows=D.filter(r=>(!fy||yearOf(r)===fy)&&(!fs||r[3]===fs));
+  rows=[...rows].sort((a,b)=>{
+    let av=a[sortK],bv=b[sortK];
+    if(av==null)av=sortAsc?Infinity:-Infinity;if(bv==null)bv=sortAsc?Infinity:-Infinity;
+    const c=(typeof av==='string')?String(av).localeCompare(String(bv)):av-bv;
+    return sortAsc?c:-c;});
+  document.querySelectorAll('#ltbl th').forEach(th=>{
+    th.classList.toggle('sorted',+th.dataset.k===sortK);
+    th.classList.toggle('asc',+th.dataset.k===sortK&&sortAsc);});
+  document.getElementById('f-cnt').textContent=rows.length+' / '+D.length+' LISTINGS';
+  const pc=(v,bold)=>v==null?'<td>—</td>':`<td class="${bold?'r ':''}${v>=0?'up':'down'}">${fmtpct(v)}</td>`;
+  document.querySelector('#ltbl tbody').innerHTML=rows.map(r=>
+    `<tr><td class="l">${r[0]}</td><td class="l">${r[1]}</td><td class="l co">${r[2]}</td><td class="l">${r[3]||'—'}</td>`+
+    `<td>${r[5]==null?'—':r[5].toLocaleString(undefined,{maximumFractionDigits:0})}</td>`+
+    `<td>${r[6]==null?'—':r[6].toLocaleString(undefined,{maximumFractionDigits:0})+'×'}</td>`+
+    pc(r[8],true)+pc(r[13])+pc(r[16])+`</tr>`).join('');
+}
+
+/* ================= router ================= */
+const ROUTES={'':'home','/':'home','/ledger':'ledger','/exhibits':'exhibits','/desk':'desk','/method':'method'};
+function route(){
+  const h=location.hash.replace(/^#/,''),r=ROUTES[h]||'home';
+  document.body.dataset.page=r;
+  document.querySelectorAll('section.pg').forEach(s=>s.classList.toggle('on',s.id==='pg-'+r));
+  document.querySelectorAll('#secnav a').forEach(a=>a.classList.toggle('here',a.dataset.r===r));
+  scrollTo(0,0);
+  if(r==='home'){requestAnimationFrame(()=>{drawTape(1);if(!tapeDone)animateTape();});}
+  if(r==='ledger')buildLedger();
+  if(r==='exhibits')drawExhibits();
+  if(r==='desk')drawDeskCharts();
+}
+addEventListener('hashchange',route);
+
+function redrawAll(){
+  const r=document.body.dataset.page;
+  if(r==='home')drawTape(1);
+  if(r==='exhibits')drawExhibits();
+  if(r==='desk')drawDeskCharts();
+}
+addEventListener('resize',()=>{clearTimeout(window._rz);window._rz=setTimeout(redrawAll,140);});
+
+/* ================= init ================= */
+document.getElementById('medal').classList.add('struck');
+applyPal();
+route();
+</script>

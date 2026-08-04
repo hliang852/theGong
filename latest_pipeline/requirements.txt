@@ -1,0 +1,6 @@
+# Latest-feed pipeline dependencies (kept minimal; stdlib does most of the work).
+requests>=2.31
+beautifulsoup4>=4.12
+lxml>=5.0
+jsonschema>=4.21          # validate emitted latest.json against schema/latest.schema.json
+# openai>=1.30            # only if LATEST_ENGINE=llm (build-time enrichment)

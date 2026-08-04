@@ -1,0 +1,3452 @@
+[
+  {
+    "stock_code": "02402",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "02147",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02147",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "02147",
+    "field": "total_ipo_size_shares",
+    "error": "Not found in prospectus/allotment text; approximated from total_ipo_size_hkd / ipo_price_hkd instead"
+  },
+  {
+    "stock_code": "02458",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02458",
+    "field": "market_cap_at_listing_hkd",
+    "error": "No prospectus/allotment share count found; approximated from current Yahoo shares outstanding x IPO price -- may drift from the true at-listing figure"
+  },
+  {
+    "stock_code": "02411",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02373",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02373",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "02373",
+    "field": "market_cap_at_listing_hkd",
+    "error": "No prospectus/allotment share count found; approximated from current Yahoo shares outstanding x IPO price -- may drift from the true at-listing figure"
+  },
+  {
+    "stock_code": "02459",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02459",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "02459",
+    "field": "total_ipo_size_shares",
+    "error": "Not found in prospectus/allotment text; approximated from total_ipo_size_hkd / ipo_price_hkd instead"
+  },
+  {
+    "stock_code": "02459",
+    "field": "market_cap_at_listing_hkd",
+    "error": "No prospectus/allotment share count found; approximated from current Yahoo shares outstanding x IPO price -- may drift from the true at-listing figure"
+  },
+  {
+    "stock_code": "02455",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02455",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "02455",
+    "field": "market_cap_at_listing_hkd",
+    "error": "No prospectus/allotment share count found; approximated from current Yahoo shares outstanding x IPO price -- may drift from the true at-listing figure"
+  },
+  {
+    "stock_code": "02306",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02450",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02450",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "02450",
+    "field": "market_cap_at_listing_hkd",
+    "error": "No prospectus/allotment share count found; approximated from current Yahoo shares outstanding x IPO price -- may drift from the true at-listing figure"
+  },
+  {
+    "stock_code": "02482",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02482",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "02482",
+    "field": "total_ipo_size_shares",
+    "error": "Not found in prospectus/allotment text; approximated from total_ipo_size_hkd / ipo_price_hkd instead"
+  },
+  {
+    "stock_code": "02482",
+    "field": "market_cap_at_listing_hkd",
+    "error": "No prospectus/allotment share count found; approximated from current Yahoo shares outstanding x IPO price -- may drift from the true at-listing figure"
+  },
+  {
+    "stock_code": "09636",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "09636",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "01405",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "01405",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "01405",
+    "field": "market_cap_at_listing_hkd",
+    "error": "No prospectus/allotment share count found; approximated from current Yahoo shares outstanding x IPO price -- may drift from the true at-listing figure"
+  },
+  {
+    "stock_code": "02409",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02409",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "02409",
+    "field": "market_cap_at_listing_hkd",
+    "error": "No prospectus/allotment share count found; approximated from current Yahoo shares outstanding x IPO price -- may drift from the true at-listing figure"
+  },
+  {
+    "stock_code": "02433",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02433",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "02439",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02439",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "02439",
+    "field": "market_cap_at_listing_hkd",
+    "error": "No prospectus/allotment share count found; approximated from current Yahoo shares outstanding x IPO price -- may drift from the true at-listing figure"
+  },
+  {
+    "stock_code": "02405",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02405",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "09669",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "09669",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "06979",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "06979",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "06979",
+    "field": "market_cap_at_listing_hkd",
+    "error": "No prospectus/allotment share count found; approximated from current Yahoo shares outstanding x IPO price -- may drift from the true at-listing figure"
+  },
+  {
+    "stock_code": "02415",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02415",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "02415",
+    "field": "market_cap_at_listing_hkd",
+    "error": "No prospectus/allotment share count found; approximated from current Yahoo shares outstanding x IPO price -- may drift from the true at-listing figure"
+  },
+  {
+    "stock_code": "02442",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02442",
+    "field": "total_ipo_size_shares",
+    "error": "Not found in prospectus/allotment text; approximated from total_ipo_size_hkd / ipo_price_hkd instead"
+  },
+  {
+    "stock_code": "02442",
+    "field": "market_cap_at_listing_hkd",
+    "error": "No prospectus/allotment share count found; approximated from current Yahoo shares outstanding x IPO price -- may drift from the true at-listing figure"
+  },
+  {
+    "stock_code": "02486",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02486",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "02486",
+    "field": "market_cap_at_listing_hkd",
+    "error": "No prospectus/allotment share count found; approximated from current Yahoo shares outstanding x IPO price -- may drift from the true at-listing figure"
+  },
+  {
+    "stock_code": "02416",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02416",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "02416",
+    "field": "total_ipo_size_shares",
+    "error": "Not found in prospectus/allotment text; approximated from total_ipo_size_hkd / ipo_price_hkd instead"
+  },
+  {
+    "stock_code": "02416",
+    "field": "market_cap_at_listing_hkd",
+    "error": "No prospectus/allotment share count found; approximated from current Yahoo shares outstanding x IPO price -- may drift from the true at-listing figure"
+  },
+  {
+    "stock_code": "09930",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "09930",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "09930",
+    "field": "market_cap_at_listing_hkd",
+    "error": "No prospectus/allotment share count found; approximated from current Yahoo shares outstanding x IPO price -- may drift from the true at-listing figure"
+  },
+  {
+    "stock_code": "09885",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "02105",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02105",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "09860",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "09860",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "09860",
+    "field": "market_cap_at_listing_hkd",
+    "error": "No prospectus/allotment share count found; approximated from current Yahoo shares outstanding x IPO price -- may drift from the true at-listing figure"
+  },
+  {
+    "stock_code": "02481",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02481",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "06990",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "06990",
+    "field": "market_cap_at_listing_hkd",
+    "error": "No prospectus/allotment share count found; approximated from current Yahoo shares outstanding x IPO price -- may drift from the true at-listing figure"
+  },
+  {
+    "stock_code": "03650",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "03650",
+    "field": "company_name_zh",
+    "error": "HKEX widget returned no distinct Chinese name (issuer has none registered)"
+  },
+  {
+    "stock_code": "03650",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "03650",
+    "field": "market_cap_at_listing_hkd",
+    "error": "No prospectus/allotment share count found; approximated from current Yahoo shares outstanding x IPO price -- may drift from the true at-listing figure"
+  },
+  {
+    "stock_code": "06683",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "06683",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "06683",
+    "field": "market_cap_at_listing_hkd",
+    "error": "No prospectus/allotment share count found; approximated from current Yahoo shares outstanding x IPO price -- may drift from the true at-listing figure"
+  },
+  {
+    "stock_code": "01284",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "01284",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "01284",
+    "field": "total_ipo_size_shares",
+    "error": "Not found in prospectus/allotment text; approximated from total_ipo_size_hkd / ipo_price_hkd instead"
+  },
+  {
+    "stock_code": "02271",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02271",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "02271",
+    "field": "market_cap_at_listing_hkd",
+    "error": "No prospectus/allotment share count found; approximated from current Yahoo shares outstanding x IPO price -- may drift from the true at-listing figure"
+  },
+  {
+    "stock_code": "01541",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "01541",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "01541",
+    "field": "total_ipo_size_shares",
+    "error": "Not found in prospectus/allotment text; approximated from total_ipo_size_hkd / ipo_price_hkd instead"
+  },
+  {
+    "stock_code": "01541",
+    "field": "market_cap_at_listing_hkd",
+    "error": "No prospectus/allotment share count found; approximated from current Yahoo shares outstanding x IPO price -- may drift from the true at-listing figure"
+  },
+  {
+    "stock_code": "02490",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02490",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "02496",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02496",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "02496",
+    "field": "market_cap_at_listing_hkd",
+    "error": "No prospectus/allotment share count found; approximated from current Yahoo shares outstanding x IPO price -- may drift from the true at-listing figure"
+  },
+  {
+    "stock_code": "09690",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "09890",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "09890",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "09890",
+    "field": "market_cap_at_listing_hkd",
+    "error": "No prospectus/allotment share count found; approximated from current Yahoo shares outstanding x IPO price -- may drift from the true at-listing figure"
+  },
+  {
+    "stock_code": "09686",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "09686",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "09686",
+    "field": "total_ipo_size_shares",
+    "error": "Not found in prospectus/allotment text; approximated from total_ipo_size_hkd / ipo_price_hkd instead"
+  },
+  {
+    "stock_code": "06682",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "06682",
+    "field": "total_ipo_size_shares",
+    "error": "Not found in prospectus/allotment text; approximated from total_ipo_size_hkd / ipo_price_hkd instead"
+  },
+  {
+    "stock_code": "01973",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "01973",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "01973",
+    "field": "total_ipo_size_shares",
+    "error": "Not found in prospectus/allotment text; approximated from total_ipo_size_hkd / ipo_price_hkd instead"
+  },
+  {
+    "stock_code": "01973",
+    "field": "market_cap_at_listing_hkd",
+    "error": "No prospectus/allotment share count found; approximated from current Yahoo shares outstanding x IPO price -- may drift from the true at-listing figure"
+  },
+  {
+    "stock_code": "02501",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02451",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02451",
+    "field": "total_ipo_size_shares",
+    "error": "Not found in prospectus/allotment text; approximated from total_ipo_size_hkd / ipo_price_hkd instead"
+  },
+  {
+    "stock_code": "02451",
+    "field": "market_cap_at_listing_hkd",
+    "error": "No prospectus/allotment share count found; approximated from current Yahoo shares outstanding x IPO price -- may drift from the true at-listing figure"
+  },
+  {
+    "stock_code": "09676",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "09676",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "09676",
+    "field": "market_cap_at_listing_hkd",
+    "error": "No prospectus/allotment share count found; approximated from current Yahoo shares outstanding x IPO price -- may drift from the true at-listing figure"
+  },
+  {
+    "stock_code": "01519",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "01519",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "01519",
+    "field": "market_cap_at_listing_hkd",
+    "error": "No prospectus/allotment share count found; approximated from current Yahoo shares outstanding x IPO price -- may drift from the true at-listing figure"
+  },
+  {
+    "stock_code": "02517",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "02517",
+    "field": "total_ipo_size_shares",
+    "error": "Not found in prospectus/allotment text; approximated from total_ipo_size_hkd / ipo_price_hkd instead"
+  },
+  {
+    "stock_code": "02517",
+    "field": "market_cap_at_listing_hkd",
+    "error": "No prospectus/allotment share count found; approximated from current Yahoo shares outstanding x IPO price -- may drift from the true at-listing figure"
+  },
+  {
+    "stock_code": "02429",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02473",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "01111",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "01111",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "01111",
+    "field": "total_ipo_size_shares",
+    "error": "Not found in prospectus/allotment text; approximated from total_ipo_size_hkd / ipo_price_hkd instead"
+  },
+  {
+    "stock_code": "02499",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02499",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "02499",
+    "field": "market_cap_at_listing_hkd",
+    "error": "No prospectus/allotment share count found; approximated from current Yahoo shares outstanding x IPO price -- may drift from the true at-listing figure"
+  },
+  {
+    "stock_code": "02268",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02268",
+    "field": "market_cap_at_listing_hkd",
+    "error": "No prospectus/allotment share count found; approximated from current Yahoo shares outstanding x IPO price -- may drift from the true at-listing figure"
+  },
+  {
+    "stock_code": "02520",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02520",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "02520",
+    "field": "total_ipo_size_shares",
+    "error": "Not found in prospectus/allotment text; approximated from total_ipo_size_hkd / ipo_price_hkd instead"
+  },
+  {
+    "stock_code": "02483",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02521",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "09663",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02419",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "01497",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "00666",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "01274",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "01274",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "02502",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02502",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "02516",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02511",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02511",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "02489",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "06911",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02149",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "09880",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02498",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02498",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "02503",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02453",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "06959",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02477",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02540",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02540",
+    "field": "hkex_widget_zh",
+    "error": "Page.goto: Timeout 30000ms exceeded.\nCall log:\n  - navigating to \"https://www.hkex.com.hk/Market-Data/Securities-Prices/Equities/Equities-Quote?sym=2540&sc_lang=zh-hk\", waiting until \"load\"\n"
+  },
+  {
+    "stock_code": "02535",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02535",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "09879",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02536",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02536",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "02497",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02598",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02555",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02555",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "02515",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02515",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "02438",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02556",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02529",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02898",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "00917",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02505",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02443",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02443",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "02550",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02522",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02512",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02512",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "02881",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02559",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "06181",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "06181",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "02479",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02479",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "01354",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02545",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "06657",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "06086",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02495",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02495",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "01334",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "01334",
+    "field": "total_ipo_size_shares",
+    "error": "Not found in prospectus/allotment text; approximated from total_ipo_size_hkd / ipo_price_hkd instead"
+  },
+  {
+    "stock_code": "09680",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02507",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02531",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "01471",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02533",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02410",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "00300",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "00300",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "02549",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02576",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02576",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "09639",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "09639",
+    "field": "total_ipo_size_shares",
+    "error": "Not found in prospectus/allotment text; approximated from total_ipo_size_hkd / ipo_price_hkd instead"
+  },
+  {
+    "stock_code": "02567",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02460",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "09660",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "09660",
+    "field": "company_name_zh",
+    "error": "HKEX widget returned no distinct Chinese name (issuer has none registered)"
+  },
+  {
+    "stock_code": "02465",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02563",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02510",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02551",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02551",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "02519",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02582",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "06936",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02566",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02585",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02586",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02586",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "02570",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02593",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "00999",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "00999",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "02432",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02431",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02431",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "02506",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02506",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "02577",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02587",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02587",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "06681",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "06681",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "02613",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02530",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02530",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "00805",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "02596",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02097",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02097",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "06693",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "06693",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "02561",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02561",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "02561",
+    "field": "total_ipo_size_shares",
+    "error": "Not found in prospectus/allotment text; approximated from total_ipo_size_hkd / ipo_price_hkd instead"
+  },
+  {
+    "stock_code": "02610",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02569",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "03677",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "03677",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "09606",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "01333",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "01333",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "01333",
+    "field": "latest_market_cap_hkd",
+    "error": "No Yahoo shares-outstanding figure available; used HKEX widget's own live market cap (native HKD) as fallback instead of last_price x shares_outstanding"
+  },
+  {
+    "stock_code": "02865",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02589",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02589",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "06831",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "06831",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "03750",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "03750",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "02629",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02629",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "01276",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "01276",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "02565",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02565",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "02603",
+    "field": "a1_filing_date",
+    "error": "no_match (matched_name=None)"
+  },
+  {
+    "stock_code": "02603",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02603",
+    "field": "hkex_widget_zh",
+    "error": "Page.goto: Timeout 30000ms exceeded.\nCall log:\n  - navigating to \"https://www.hkex.com.hk/Market-Data/Securities-Prices/Equities/Equities-Quote?sym=2603&sc_lang=zh-hk\", waiting until \"load\"\n"
+  },
+  {
+    "stock_code": "02621",
+    "field": "a1_filing_date",
+    "error": "no_match (matched_name=None)"
+  },
+  {
+    "stock_code": "02621",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02573",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02605",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02605",
+    "field": "company_name_zh",
+    "error": "HKEX widget returned no distinct Chinese name (issuer has none registered)"
+  },
+  {
+    "stock_code": "02605",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "09881",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "03288",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "03288",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "02609",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02617",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "02050",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02050",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "02643",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02643",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "02619",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02619",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "06883",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "06883",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "02508",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02508",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "06168",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "06168",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "06168",
+    "field": "latest_market_cap_hkd",
+    "error": "No Yahoo shares-outstanding figure available; used HKEX widget's own live market cap (native HKD) as fallback instead of last_price x shares_outstanding"
+  },
+  {
+    "stock_code": "09678",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "09678",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "03880",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "06603",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02592",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02592",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "02648",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02648",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "01828",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "01828",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "02590",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02590",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "02597",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02597",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "01304",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "01304",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "06613",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "06613",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "02651",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "09887",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "09887",
+    "field": "total_ipo_size_shares",
+    "error": "Not found in prospectus/allotment text; approximated from total_ipo_size_hkd / ipo_price_hkd instead"
+  },
+  {
+    "stock_code": "02627",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02591",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02591",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "02631",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02631",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "06960",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "06960",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "03858",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "03858",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "02580",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02543",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02543",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "02525",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02525",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "02656",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02656",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "02595",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02595",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "06090",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "09973",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02889",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02889",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "02583",
+    "field": "a1_filing_date",
+    "error": "no_match (matched_name=None)"
+  },
+  {
+    "stock_code": "02583",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02259",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02259",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "02652",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "02650",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02575",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02575",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "02670",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "02637",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "06687",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "06687",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "00638",
+    "field": "price_series",
+    "error": "Yahoo Finance returned no data for this ticker"
+  },
+  {
+    "stock_code": "00638",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "00638",
+    "field": "last_price_20260630_hkd",
+    "error": "Neither HKEX export nor Yahoo had history; used HKEX widget's current live price as of scrape date (not literally 30 Jun 2026) as fallback"
+  },
+  {
+    "stock_code": "00638",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "06166",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "06166",
+    "field": "hkex_widget_en",
+    "error": "Page.goto: Timeout 30000ms exceeded.\nCall log:\n  - navigating to \"https://www.hkex.com.hk/Market-Data/Securities-Prices/Equities/Equities-Quote?sym=6166&sc_lang=en\", waiting until \"load\"\n"
+  },
+  {
+    "stock_code": "06166",
+    "field": "hkex_widget_zh",
+    "error": "Page.goto: net::ERR_CONNECTION_RESET at https://www.hkex.com.hk/Market-Data/Securities-Prices/Equities/Equities-Quote?sym=6166&sc_lang=zh-hk\nCall log:\n  - navigating to \"https://www.hkex.com.hk/Market-Data/Securities-Prices/Equities/Equities-Quote?sym=6166&sc_lang=zh-hk\", waiting until \"load\"\n"
+  },
+  {
+    "stock_code": "06166",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "01384",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "01384",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "06031",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "06031",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "02718",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02718",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "09927",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "09927",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "02630",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02630",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "00800",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "00800",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "00699",
+    "field": "price_series",
+    "error": "Yahoo Finance returned no data for this ticker"
+  },
+  {
+    "stock_code": "00699",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "00699",
+    "field": "last_price_20260630_hkd",
+    "error": "Neither HKEX export nor Yahoo had history; used HKEX widget's current live price as of scrape date (not literally 30 Jun 2026) as fallback"
+  },
+  {
+    "stock_code": "00699",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "02026",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02026",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "02698",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02579",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02579",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "02788",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02788",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "02685",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02685",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "09609",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "09609",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "02693",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02693",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "02539",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02408",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02408",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "02658",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02658",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "02676",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02676",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "02676",
+    "field": "total_ipo_size_shares",
+    "error": "Not found in prospectus/allotment text; approximated from total_ipo_size_hkd / ipo_price_hkd instead"
+  },
+  {
+    "stock_code": "02687",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02687",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "02659",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02659",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "07618",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "07618",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "07618",
+    "field": "total_ipo_size_shares",
+    "error": "Not found in prospectus/allotment text; approximated from total_ipo_size_hkd / ipo_price_hkd instead"
+  },
+  {
+    "stock_code": "07618",
+    "field": "market_cap_at_listing_hkd",
+    "error": "No prospectus/allotment share count found; approximated from current Yahoo shares outstanding x IPO price -- may drift from the true at-listing figure"
+  },
+  {
+    "stock_code": "02655",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02655",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "03887",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "03887",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "03881",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "03881",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "02546",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02546",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "02695",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02691",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02691",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "02396",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02581",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02581",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "03378",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "03378",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "02635",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02661",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02661",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "03317",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "06651",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "06651",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "03696",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "03696",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "06600",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02657",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02657",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "02671",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "06082",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "06082",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "02513",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "02513",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02513",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "09903",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "09903",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "09903",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "02675",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "02675",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02675",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "00100",
+    "field": "a1_filing_date",
+    "error": "no_match (matched_name=None)"
+  },
+  {
+    "stock_code": "00100",
+    "field": "price_series",
+    "error": "Yahoo Finance returned no data for this ticker"
+  },
+  {
+    "stock_code": "00100",
+    "field": "company_name_zh",
+    "error": "HKEX widget returned no distinct Chinese name (issuer has none registered)"
+  },
+  {
+    "stock_code": "06938",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "06938",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "06938",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "03636",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "03636",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "03636",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "00501",
+    "field": "price_series",
+    "error": "Yahoo Finance returned no data for this ticker"
+  },
+  {
+    "stock_code": "00501",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "00501",
+    "field": "last_price_20260630_hkd",
+    "error": "Neither HKEX export nor Yahoo had history; used HKEX widget's current live price as of scrape date (not literally 30 Jun 2026) as fallback"
+  },
+  {
+    "stock_code": "00501",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "03986",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "03986",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "03986",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "01641",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "01641",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "01641",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "09611",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "09611",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "09611",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "01768",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "01768",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "09980",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "09980",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "09980",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "02768",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "02768",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02768",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "02677",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "02677",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02677",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "02714",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "02714",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02714",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "03200",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "03200",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "03200",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "06809",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "06809",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "06809",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "00600",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "00600",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "00600",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "00600",
+    "field": "total_ipo_size_shares",
+    "error": "Not found in prospectus/allotment text; approximated from total_ipo_size_hkd / ipo_price_hkd instead"
+  },
+  {
+    "stock_code": "02720",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "02720",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02720",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "00470",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "00470",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "00470",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "02706",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "02706",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02706",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "09981",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "09981",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "09981",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "02649",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "02649",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02649",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "02715",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "02715",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02692",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "02692",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02692",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "03268",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "03268",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "03268",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "01989",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "01989",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "01989",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "02701",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "02701",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02701",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "03355",
+    "field": "a1_filing_date",
+    "error": "no_match (matched_name=None)"
+  },
+  {
+    "stock_code": "03355",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "03355",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "03355",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "02729",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "02729",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02632",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "02632",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02632",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "01021",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "01021",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "01021",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "02526",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "02526",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02726",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "02726",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02726",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "06636",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "06636",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "06636",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "00664",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "00664",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "03625",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "03625",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "06656",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "06656",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "06656",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "03277",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "03277",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "03277",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "00068",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "00068",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "00068",
+    "field": "company_name_zh",
+    "error": "HKEX widget returned no distinct Chinese name (issuer has none registered)"
+  },
+  {
+    "stock_code": "02476",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "02476",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02476",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "03296",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "03296",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "03296",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "03296",
+    "field": "total_ipo_size_shares",
+    "error": "Not found in prospectus/allotment text; approximated from total_ipo_size_hkd / ipo_price_hkd instead"
+  },
+  {
+    "stock_code": "01879",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "01879",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02493",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "02493",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "06810",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "06810",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "06810",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "01609",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "01609",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "01609",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "01187",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "01187",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "01187",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "01236",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "01236",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "01236",
+    "field": "hkex_widget_en",
+    "error": "Page.goto: Timeout 30000ms exceeded.\nCall log:\n  - navigating to \"https://www.hkex.com.hk/Market-Data/Securities-Prices/Equities/Equities-Quote?sym=1236&sc_lang=en\", waiting until \"load\"\n"
+  },
+  {
+    "stock_code": "01236",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "01236",
+    "field": "total_ipo_size_shares",
+    "error": "Not found in prospectus/allotment text; approximated from total_ipo_size_hkd / ipo_price_hkd instead"
+  },
+  {
+    "stock_code": "07630",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "07630",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "07630",
+    "field": "total_ipo_size_shares",
+    "error": "Not found in prospectus/allotment text; approximated from total_ipo_size_hkd / ipo_price_hkd instead"
+  },
+  {
+    "stock_code": "07666",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "07666",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "07666",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "07666",
+    "field": "total_ipo_size_shares",
+    "error": "Not found in prospectus/allotment text; approximated from total_ipo_size_hkd / ipo_price_hkd instead"
+  },
+  {
+    "stock_code": "06871",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "06871",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "06871",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "01511",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "01511",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "01511",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "07688",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "07688",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "07688",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "06872",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "06872",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "06872",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "00901",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "00901",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "00901",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "00901",
+    "field": "market_cap_at_listing_hkd",
+    "error": "No prospectus/allotment share count found; approximated from current Yahoo shares outstanding x IPO price -- may drift from the true at-listing figure"
+  },
+  {
+    "stock_code": "02723",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "02723",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "03310",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "03310",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "03310",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "03388",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "03388",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "03388",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "02553",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "02553",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02553",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "01779",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "01779",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "01779",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "02290",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "02290",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02290",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "01081",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "01081",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "01081",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "06658",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "06658",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "06658",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "06675",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "06675",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "06675",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "06675",
+    "field": "market_cap_at_listing_hkd",
+    "error": "No share count available from any source (Yahoo, prospectus, or allotment results)"
+  },
+  {
+    "stock_code": "06675",
+    "field": "latest_market_cap_hkd",
+    "error": "No Yahoo shares-outstanding figure available; used HKEX widget's own live market cap (native HKD) as fallback instead of last_price x shares_outstanding"
+  },
+  {
+    "stock_code": "01392",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "01392",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "01392",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "06067",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "06067",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "06067",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "06132",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "06132",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "06132",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "06132",
+    "field": "latest_market_cap_hkd",
+    "error": "No Yahoo shares-outstanding figure available; used HKEX widget's own live market cap (native HKD) as fallback instead of last_price x shares_outstanding"
+  },
+  {
+    "stock_code": "02335",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "02335",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02335",
+    "field": "latest_market_cap_hkd",
+    "error": "No Yahoo shares-outstanding figure available; used HKEX widget's own live market cap (native HKD) as fallback instead of last_price x shares_outstanding"
+  },
+  {
+    "stock_code": "06106",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "06106",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "06106",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "06106",
+    "field": "latest_market_cap_hkd",
+    "error": "No Yahoo shares-outstanding figure available; used HKEX widget's own live market cap (native HKD) as fallback instead of last_price x shares_outstanding"
+  },
+  {
+    "stock_code": "02272",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "02272",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02272",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "02272",
+    "field": "market_cap_at_listing_hkd",
+    "error": "No prospectus/allotment share count found; approximated from current Yahoo shares outstanding x IPO price -- may drift from the true at-listing figure"
+  },
+  {
+    "stock_code": "06228",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "06228",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "06228",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "06228",
+    "field": "total_ipo_size_shares",
+    "error": "Not found in prospectus/allotment text; approximated from total_ipo_size_hkd / ipo_price_hkd instead"
+  },
+  {
+    "stock_code": "06228",
+    "field": "latest_market_cap_hkd",
+    "error": "Neither last_price_20260630_hkd nor Yahoo shares outstanding nor HKEX widget market cap available"
+  },
+  {
+    "stock_code": "03661",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "03661",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "03661",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "01688",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "01688",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "01688",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "01956",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "01956",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "01956",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "01956",
+    "field": "latest_market_cap_hkd",
+    "error": "No Yahoo shares-outstanding figure available; used HKEX widget's own live market cap (native HKD) as fallback instead of last_price x shares_outstanding"
+  },
+  {
+    "stock_code": "09630",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "09630",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "09630",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "09637",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "09637",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "09637",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "01191",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "01191",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "01191",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "01191",
+    "field": "latest_market_cap_hkd",
+    "error": "No Yahoo shares-outstanding figure available; used HKEX widget's own live market cap (native HKD) as fallback instead of last_price x shares_outstanding"
+  },
+  {
+    "stock_code": "02672",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "02672",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02672",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "06915",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "06915",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "06915",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "03952",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "03952",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02697",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "02697",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "02697",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "02697",
+    "field": "latest_market_cap_hkd",
+    "error": "No Yahoo shares-outstanding figure available; used HKEX widget's own live market cap (native HKD) as fallback instead of last_price x shares_outstanding"
+  },
+  {
+    "stock_code": "06715",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "06715",
+    "field": "hkex_price_export",
+    "error": "HKEX chart export unavailable or IPO older than its 2-year export window; using Yahoo/widget fallback"
+  },
+  {
+    "stock_code": "06715",
+    "field": "offer_price_range_low_hkd",
+    "error": "No low-high range or Maximum Offer Price cap found in prospectus or allotment documents"
+  },
+  {
+    "stock_code": "06715",
+    "field": "total_ipo_size_shares",
+    "error": "Not found in prospectus/allotment text; approximated from total_ipo_size_hkd / ipo_price_hkd instead"
+  }
+]

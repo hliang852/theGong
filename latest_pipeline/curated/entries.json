@@ -1,0 +1,38 @@
+[
+  {
+    "date": "2026-07-24",
+    "type": "rule",
+    "entity": "HKEX",
+    "title": "HKEX consults on lowering the 18C market-cap threshold for specialist tech",
+    "url": "https://www.hkex.com.hk/News/Market-Consultations",
+    "source": "HKEX Consultation Paper",
+    "note": "A consultation proposes cutting the minimum market cap for commercial-stage specialist-tech applicants under Chapter 18C to widen the pipeline; comment period runs to September."
+  },
+  {
+    "date": "2026-07-18",
+    "type": "rule",
+    "entity": "Hang Seng Indexes",
+    "title": "Hang Seng Index consultation floats a fast-entry rule for mega-IPOs",
+    "url": "https://www.hsi.com.hk/eng/index-announcements",
+    "source": "Index Consultation",
+    "note": "A proposal would fast-track index entry for IPOs above a market-cap threshold, shortening the wait between listing and inclusion."
+  },
+  {
+    "date": "2026-07-21",
+    "type": "rumor",
+    "entity": "Example Robotics Group",
+    "title": "Consumer-robotics unit of a large appliance group said to weigh a Hong Kong spin-off",
+    "url": "#",
+    "source": "Wire report",
+    "note": "Reported to be exploring a separate listing of its robotics arm; no filing has been made and terms are not set."
+  },
+  {
+    "date": "2026-07-10",
+    "type": "rumor",
+    "entity": "Placeholder Retail Group",
+    "title": "Overseas fast-fashion group said to revive Hong Kong listing talks",
+    "url": "#",
+    "source": "Wire report",
+    "note": "Sources suggest the group is reconsidering Hong Kong after a stalled process elsewhere; the company has not commented."
+  }
+]

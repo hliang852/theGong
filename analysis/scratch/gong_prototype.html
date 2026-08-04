@@ -1,0 +1,523 @@
+<title>The GONG — A Record of Hong Kong Listing Days</title>
+<style>
+  /* ==========================================================
+     THE GONG — broadsheet direction. A financial paper of
+     record for Hong Kong listing days: newsprint ground, ink
+     rules, claret slugs, brass gong. Dense columns, agate
+     tables, justified prose. Gain = red, loss = green (HK
+     convention). Sibling of the Japan Precedent Atlas by
+     typography discipline (serif display + mono data), not by
+     layout.
+     ========================================================== */
+  :root{
+    --paper:#f4f1e7; --paper-2:#ece8da; --panel:#faf8f0;
+    --ink:#191613; --ink-2:#4b473e; --ink-3:#847e6c;
+    --hairline:#d7d1bd; --rule:#b7af96;
+    --claret:#71212e; --claret-soft:#e7d5d3; --brass:#8f6a28;
+    --gain:#a8332e; --loss:#2f6e46;
+    --shadow:rgba(40,32,18,.12);
+    --serif:'Iowan Old Style','Palatino Linotype','Palatino','Georgia',serif;
+    --sans:-apple-system,'Segoe UI',system-ui,sans-serif;
+    --mono:ui-monospace,'SF Mono','Menlo','Roboto Mono',monospace;
+  }
+  :root[data-theme="dark"]{
+    --paper:#171512; --paper-2:#1f1c18; --panel:#1c1916;
+    --ink:#ece7d8; --ink-2:#b3ada0; --ink-3:#7d7768;
+    --hairline:#37332b; --rule:#4a4438;
+    --claret:#cf6f78; --claret-soft:#3a2426; --brass:#c5a052;
+    --gain:#d9695f; --loss:#6cbf8a;
+    --shadow:rgba(0,0,0,.5);
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --paper:#171512; --paper-2:#1f1c18; --panel:#1c1916;
+      --ink:#ece7d8; --ink-2:#b3ada0; --ink-3:#7d7768;
+      --hairline:#37332b; --rule:#4a4438;
+      --claret:#cf6f78; --claret-soft:#3a2426; --brass:#c5a052;
+      --gain:#d9695f; --loss:#6cbf8a;
+      --shadow:rgba(0,0,0,.5);
+    }
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:15px;line-height:1.6;
+    -webkit-font-smoothing:antialiased;transition:background .35s,color .35s;overflow-x:hidden;}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 26px;}
+  .mono{font-family:var(--mono);font-variant-numeric:tabular-nums;}
+  .up{color:var(--gain);} .down{color:var(--loss);}
+  .slug{font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--claret);}
+
+  /* ---- ticker strip ---- */
+  .tickbar{border-bottom:1px solid var(--rule);background:var(--paper-2);overflow:hidden;position:relative;}
+  .tickbar .lab{position:absolute;left:0;top:0;bottom:0;display:flex;align-items:center;padding:0 12px;
+    background:var(--claret);color:var(--paper);font-family:var(--mono);font-size:10px;letter-spacing:.16em;z-index:2;}
+  .tickwin{white-space:nowrap;padding:8px 0 8px 130px;}
+  .tickrun{display:inline-block;white-space:nowrap;animation:tickmove 90s linear infinite;}
+  .tickbar:hover .tickrun{animation-play-state:paused;}
+  @keyframes tickmove{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  .tk{font-family:var(--mono);font-size:11.5px;color:var(--ink-2);margin-right:30px;}
+  .tk b{color:var(--ink);font-weight:600;}
+  @media (prefers-reduced-motion:reduce){.tickrun{animation:none;} .tickwin{overflow-x:auto;}}
+
+  /* ---- masthead ---- */
+  .masthead{padding:28px 0 0;position:relative;}
+  .mast-rules{border-top:3px solid var(--ink);border-bottom:1px solid var(--ink);height:5px;margin-bottom:16px;}
+  .mast-grid{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:18px;}
+  .ear{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);line-height:1.9;}
+  .ear.r{text-align:right;}
+  .nameplate{text-align:center;display:flex;align-items:center;justify-content:center;gap:22px;}
+  .nameplate h1{font-family:var(--serif);font-weight:700;font-size:clamp(46px,8vw,84px);line-height:.95;
+    letter-spacing:.015em;text-transform:uppercase;}
+  .nameplate h1 .the{display:block;font-size:.28em;font-weight:400;letter-spacing:.55em;color:var(--ink-2);margin-bottom:8px;}
+  .medal{position:relative;width:74px;height:74px;flex:none;}
+  .medal svg{width:100%;height:100%;display:block;}
+  .medal .ring{position:absolute;inset:0;border-radius:50%;border:1.5px solid var(--brass);opacity:0;}
+  .struck .ring{animation:gongring 1.5s ease-out .25s 1;}
+  .struck .ring.r2{animation-delay:.5s;}
+  @keyframes gongring{0%{opacity:.7;transform:scale(.9);}100%{opacity:0;transform:scale(2.1);}}
+  @media (prefers-reduced-motion:reduce){.struck .ring{animation:none;}}
+  .kanji{writing-mode:vertical-rl;font-size:21px;letter-spacing:.5em;color:var(--ink-3);flex:none;user-select:none;}
+  .folio{margin-top:16px;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+    padding:7px 0;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+    font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);}
+  @media(max-width:780px){ .ear{display:none;} .mast-grid{grid-template-columns:1fr;} .kanji{display:none;} }
+
+  /* ---- section nav ---- */
+  .secnav{display:flex;justify-content:center;gap:0;border-bottom:1px solid var(--rule);flex-wrap:wrap;}
+  .secnav a{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--ink-2);text-decoration:none;padding:11px 20px;border-left:1px solid var(--hairline);}
+  .secnav a:first-child{border-left:none;}
+  .secnav a:hover{color:var(--claret);}
+  .secnav a.here{color:var(--claret);font-weight:600;}
+
+  .toggle{position:fixed;top:14px;right:16px;z-index:60;width:36px;height:36px;border-radius:50%;
+    border:1px solid var(--rule);background:var(--panel);color:var(--ink);cursor:pointer;
+    display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px var(--shadow);}
+  .toggle:hover{border-color:var(--ink-3);}
+  .toggle svg{width:17px;height:17px;}
+
+  /* ---- front page grid ---- */
+  .front{display:grid;grid-template-columns:7fr 5fr;gap:0;padding:30px 0 36px;border-bottom:3px double var(--rule);}
+  .lead{padding-right:30px;border-right:1px solid var(--hairline);}
+  .rail{padding-left:30px;display:flex;flex-direction:column;gap:26px;}
+  @media(max-width:860px){ .front{grid-template-columns:1fr;} .lead{padding-right:0;border-right:none;} .rail{padding-left:0;margin-top:30px;} }
+  .hed{font-family:var(--serif);font-weight:700;font-size:clamp(30px,4.6vw,46px);line-height:1.06;letter-spacing:-.005em;text-wrap:balance;}
+  .dek{font-family:var(--serif);font-style:italic;font-size:17.5px;line-height:1.5;color:var(--ink-2);margin-top:13px;max-width:56ch;}
+  .byline{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);
+    margin:15px 0 4px;padding-bottom:10px;border-bottom:1px solid var(--hairline);}
+  .cols{margin-top:14px;column-count:2;column-gap:28px;column-rule:1px solid var(--hairline);}
+  @media(max-width:640px){.cols{column-count:1;}}
+  .cols p{font-size:14.5px;line-height:1.62;color:var(--ink-2);text-align:justify;hyphens:auto;margin-bottom:12px;
+    break-inside:avoid-column;}
+  .cols p b{color:var(--ink);font-weight:600;}
+  .cols p:first-child::first-letter{font-size:52px;font-weight:700;float:left;line-height:.82;
+    padding:5px 8px 0 0;color:var(--claret);}
+  .contmark{font-family:var(--mono);font-size:10.5px;color:var(--ink-3);letter-spacing:.06em;margin-top:4px;}
+
+  /* rail boxes */
+  .box{border:1px solid var(--ink);padding:16px 18px 15px;background:var(--panel);}
+  .box .bx-slug{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--paper);background:var(--ink);display:inline-block;padding:3px 9px;margin:-16px 0 12px -18px;}
+  .agate{list-style:none;}
+  .agate li{display:flex;align-items:baseline;gap:8px;font-size:13px;color:var(--ink-2);padding:5.5px 0;
+    border-bottom:1px dotted var(--hairline);}
+  .agate li:last-child{border-bottom:none;}
+  .agate .fill{flex:1;border-bottom:1px dotted var(--rule);transform:translateY(-3px);}
+  .agate .num{font-family:var(--mono);font-size:13.5px;font-weight:600;color:var(--ink);}
+  .idx li a{color:inherit;text-decoration:none;}
+  .idx li a:hover{color:var(--claret);}
+  .idx .pg{font-family:var(--mono);font-size:11px;color:var(--ink-3);}
+  .idx-note{font-family:var(--mono);font-size:10px;color:var(--ink-3);margin-top:10px;line-height:1.7;letter-spacing:.03em;}
+
+  /* ---- chart of record ---- */
+  .record{padding:34px 0 30px;border-bottom:1px solid var(--rule);}
+  .chart-frame{border:1px solid var(--ink);background:var(--panel);padding:18px 18px 12px;margin-top:16px;}
+  .chart-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;margin-bottom:10px;}
+  .chart-head .t{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);font-weight:600;}
+  .chart-head .legend{display:flex;gap:14px;font-family:var(--mono);font-size:10.5px;color:var(--ink-2);}
+  .chart-head .legend i{width:8px;height:8px;display:inline-block;margin-right:5px;}
+  #tape{width:100%;display:block;cursor:crosshair;}
+  .tape-x{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10px;color:var(--ink-3);margin-top:6px;}
+  .caption{font-family:var(--serif);font-style:italic;font-size:12.5px;color:var(--ink-3);margin-top:10px;line-height:1.55;}
+
+  /* ---- shared section ---- */
+  section.page{padding:38px 0;border-bottom:1px solid var(--rule);}
+  .sec-rule{display:flex;align-items:center;gap:14px;margin-bottom:22px;}
+  .sec-rule .slug{white-space:nowrap;}
+  .sec-rule .ln{flex:1;height:1px;background:var(--rule);}
+  h2.sec{font-family:var(--serif);font-weight:700;font-size:clamp(22px,3vw,30px);line-height:1.15;letter-spacing:-.004em;}
+
+  /* anatomy */
+  .anat{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:start;}
+  @media(max-width:820px){.anat{grid-template-columns:1fr;}}
+  svg.line{width:100%;height:auto;overflow:visible;font-family:var(--mono);}
+  svg .zero{stroke:var(--rule);stroke-width:1;}
+  svg text{fill:var(--ink-3);font-size:10px;}
+  svg .val{fill:var(--ink);font-size:11px;font-weight:600;}
+  .anat .prose p{font-size:14.5px;line-height:1.62;color:var(--ink-2);text-align:justify;hyphens:auto;margin-bottom:12px;}
+  .anat .prose p b{color:var(--ink);font-weight:600;}
+
+  /* ledger table */
+  .ledger{width:100%;border-collapse:collapse;margin-top:14px;border:1px solid var(--ink);background:var(--panel);}
+  .ledger caption{caption-side:bottom;text-align:left;}
+  .ledger th{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--paper);
+    background:var(--ink);text-align:right;padding:7px 10px;font-weight:600;}
+  .ledger th:nth-child(1),.ledger th:nth-child(2),.ledger th:nth-child(3),.ledger th:nth-child(4){text-align:left;}
+  .ledger td{font-family:var(--mono);font-size:12px;padding:6.5px 10px;text-align:right;border-top:1px solid var(--hairline);
+    white-space:nowrap;color:var(--ink-2);}
+  .ledger td:nth-child(1),.ledger td:nth-child(2),.ledger td:nth-child(3),.ledger td:nth-child(4){text-align:left;}
+  .ledger td.co{font-family:var(--serif);font-size:13.5px;color:var(--ink);max-width:300px;overflow:hidden;text-overflow:ellipsis;}
+  .ledger tr:hover td{background:var(--paper-2);}
+  .ledger .r{font-weight:600;}
+  .tablenote{font-family:var(--mono);font-size:10.5px;color:var(--ink-3);margin-top:9px;letter-spacing:.03em;line-height:1.7;}
+  .tblwrap{overflow-x:auto;}
+
+  /* the desk: 3 columns */
+  .desk{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;margin-top:6px;}
+  @media(max-width:820px){.desk{grid-template-columns:1fr;}}
+  .desk .col{padding:4px 24px 8px;border-left:1px solid var(--hairline);}
+  .desk .col:first-child{border-left:none;padding-left:0;}
+  @media(max-width:820px){.desk .col{border-left:none;padding:14px 0;border-top:1px solid var(--hairline);}
+    .desk .col:first-child{border-top:none;}}
+  .verdict{font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;
+    display:inline-block;padding:3px 8px;border:1px solid currentColor;margin-bottom:10px;}
+  .v-live{color:var(--loss);} .v-dead{color:var(--claret);} .v-cond{color:var(--brass);}
+  .desk h3{font-family:var(--serif);font-weight:700;font-size:18.5px;line-height:1.22;margin-bottom:8px;}
+  .desk p{font-size:13.5px;line-height:1.6;color:var(--ink-2);text-align:justify;hyphens:auto;}
+  .desk .fig{font-family:var(--mono);font-size:11.5px;color:var(--ink);margin-top:10px;line-height:1.8;}
+
+  /* method + repertoire */
+  .method p{font-family:var(--mono);font-size:11.5px;line-height:1.9;color:var(--ink-2);max-width:820px;letter-spacing:.01em;}
+  .fromdesk{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;
+    border:1px solid var(--ink);background:var(--panel);padding:18px 22px;margin-top:8px;}
+  .fromdesk .l h3{font-family:var(--serif);font-weight:700;font-size:19px;}
+  .fromdesk .l p{font-size:13px;color:var(--ink-2);margin-top:4px;}
+  .fromdesk a.visit{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--claret);text-decoration:none;border:1px solid var(--claret);padding:9px 16px;white-space:nowrap;}
+  .fromdesk a.visit:hover{background:var(--claret);color:var(--paper);}
+
+  footer.colophon{padding:26px 0 60px;}
+  footer .endrule{border-top:1px solid var(--ink);border-bottom:3px solid var(--ink);height:6px;margin-bottom:18px;}
+  footer p{font-family:var(--mono);font-size:10.5px;color:var(--ink-3);line-height:2;letter-spacing:.05em;text-transform:uppercase;}
+
+  .tip{position:fixed;pointer-events:none;z-index:80;background:var(--ink);color:var(--paper);
+    font-size:11.5px;padding:8px 11px;border-radius:3px;line-height:1.5;max-width:240px;
+    box-shadow:0 6px 20px rgba(0,0,0,.35);opacity:0;transition:opacity .1s;}
+  .tip.on{opacity:1;}
+  .tip .nm{font-family:var(--serif);font-size:13px;}
+  .tip .mn{font-family:var(--mono);font-size:10.5px;opacity:.75;margin-top:1px;}
+  .tip .rt{font-family:var(--mono);margin-top:5px;}
+</style>
+
+<button class="toggle" id="toggle" aria-label="Toggle light or dark theme"></button>
+
+<div class="tickbar" aria-label="Latest listings ticker">
+  <span class="lab">LATEST STRIKES</span>
+  <div class="tickwin"><div class="tickrun" id="tickrun"></div></div>
+</div>
+
+<header class="masthead"><div class="wrap">
+  <div class="mast-rules"></div>
+  <div class="mast-grid">
+    <div class="ear">Hong Kong Main Board<br>A record of listing days<br>Every prospectus read</div>
+    <div class="nameplate">
+      <span class="kanji">敲鑼上市</span>
+      <h1><span class="the">The</span>GONG</h1>
+      <div class="medal" id="medal">
+        <span class="ring"></span><span class="ring r2"></span>
+        <svg viewBox="0 0 74 74" aria-hidden="true">
+          <circle cx="37" cy="37" r="33" fill="none" stroke="var(--brass)" stroke-width="2.5"/>
+          <circle cx="37" cy="37" r="24" fill="none" stroke="var(--brass)" stroke-width="1" opacity=".55"/>
+          <circle cx="37" cy="37" r="9" fill="var(--brass)"/>
+        </svg>
+      </div>
+    </div>
+    <div class="ear r">Vol. I · No. 331<br>January 2023 — June 2026<br>Returns verified to the raw tape</div>
+  </div>
+  <div class="folio">
+    <span>The gong has sounded 331 times</span>
+    <span>Median first day: +0.8% ('23) → +37.5% ('26 H1)</span>
+    <span>Not investment advice</span>
+  </div>
+  <nav class="secnav">
+    <a class="here" href="#front">Front Page</a>
+    <a href="#ledger">The Ledger</a>
+    <a href="#anatomy">The Anatomy</a>
+    <a href="#desk">The Desk</a>
+    <a href="#method">The Method</a>
+  </nav>
+</div></header>
+
+<main>
+  <!-- ================= FRONT ================= -->
+  <div class="wrap"><div class="front" id="front">
+    <article class="lead">
+      <div class="slug">The lead · the offshore rush, 2023–2026</div>
+      <h2 class="hed" style="margin-top:10px">The year the gong never stopped</h2>
+      <p class="dek">Three and a half years, 331 Main Board listings, and a first-day median that rose forty-fold — yet the whole of the average pop is spent before the first trade prints. A study of who the rush actually paid.</p>
+      <div class="byline">From the desk · compiled from 331 verified filings and the unadjusted tape</div>
+      <div class="cols">
+        <p>On the ninth of January, 2023, the gong at Exchange Square sounded for Fenbi Ltd., and the market shrugged: the median new listing that year closed its first day up <b>0.8 per cent</b>. By the first half of 2026 the same ceremony was being performed eighty-three times in six months, to a median first-day gain of <b>37.5 per cent</b>, with four of every five debuts finishing above their offer price. The rush — mainland issuers seeking offshore listings through Hong Kong — is real, and it is accelerating.</p>
+        <p>What the ceremony conceals is where the money is made. Across all 331 listings, the median gain from offer to first close is 7 per cent; the median gain from the <b>opening print to the close is −0.3 per cent</b>. The pop exists, and it is settled in the opening auction, before any public buyer has traded. Whoever holds allocation at 9:30 owns the day; whoever chases at the bell, on average, buys nothing.</p>
+        <p>The subscription seat is therefore the story. Adjusted for ballot odds, fees and financing, a one-lot Pool A subscriber earned an expected <b>+46 basis points per deal</b> at the first close — a real edge, a small one, and a recent one: the same strategy <i>lost</i> money in 2023 and 2024. Allocation odds and returns run opposite each other (−0.35): the deals you are given are the deals nobody wanted.</p>
+        <p>And the fade is unsentimental. By six months the median listing sits below its offer; by a year, <b>22 per cent below</b>, with a third still above water. The gong marks a beginning that is, for the median holder, also the high.</p>
+      </div>
+      <div class="contmark">Continued in The Anatomy and The Desk, below → </div>
+    </article>
+
+    <aside class="rail">
+      <div class="box">
+        <span class="bx-slug">By the numbers</span>
+        <ul class="agate">
+          <li>Listings recorded<span class="fill"></span><span class="num">331</span></li>
+          <li>Capital raised<span class="fill"></span><span class="num">US$80.7bn</span></li>
+          <li>Median day one, 2023<span class="fill"></span><span class="num up">+0.8%</span></li>
+          <li>Median day one, 2026 H1<span class="fill"></span><span class="num up">+37.5%</span></li>
+          <li>Open → close, day one<span class="fill"></span><span class="num down">−0.3%</span></li>
+          <li>Retail edge per ballot<span class="fill"></span><span class="num up">+46 bps</span></li>
+          <li>Above water at one year<span class="fill"></span><span class="num down">34%</span></li>
+          <li>Median oversubscription '26<span class="fill"></span><span class="num">1,422×</span></li>
+        </ul>
+      </div>
+      <div class="box idx">
+        <span class="bx-slug">In this edition</span>
+        <ul class="agate">
+          <li><a href="#front">The Front Page · the rush</a><span class="fill"></span><span class="pg">p.1</span></li>
+          <li><a href="#ledger">The Ledger · all 331 listings</a><span class="fill"></span><span class="pg">p.2</span></li>
+          <li><a href="#anatomy">The Anatomy · pop, then fade</a><span class="fill"></span><span class="pg">p.3</span></li>
+          <li><a href="#desk">The Desk · three trades tested</a><span class="fill"></span><span class="pg">p.4</span></li>
+          <li><a href="#method">The Method · sources &amp; corrections</a><span class="fill"></span><span class="pg">p.5</span></li>
+        </ul>
+        <div class="idx-note">Prototype edition: front page set in full; pages 2–5 shown in brief below. The full build carries each as its own page, with the working dashboard absorbed into The Ledger and The Desk.</div>
+      </div>
+    </aside>
+  </div></div>
+
+  <!-- ================= CHART OF RECORD ================= -->
+  <div class="wrap"><section class="record">
+    <div class="chart-frame">
+      <div class="chart-head">
+        <span class="t">The tape — first-day return of every listing, offer to close</span>
+        <span class="legend"><span><i style="background:var(--gain)"></i>GAIN</span><span><i style="background:var(--loss)"></i>LOSS</span></span>
+      </div>
+      <canvas id="tape" height="235"></canvas>
+      <div class="tape-x"><span>2023</span><span>2024</span><span>2025</span><span>2026 · H1</span></div>
+    </div>
+    <p class="caption">Each rule is one listing; its height, the first day's return against the offer price, clamped at +200 / −60 per cent. Hover for the name. Returns corrected against unadjusted exchange bars — twenty series repaired where retail feeds had silently restated history. Source: 331 verified filings.</p>
+  </section></div>
+
+  <!-- ================= LEDGER (p.2 teaser) ================= -->
+  <div class="wrap"><section class="page" id="ledger">
+    <div class="sec-rule"><span class="slug">Page 2 · The Ledger</span><div class="ln"></div></div>
+    <h2 class="sec">New listings — the final fortnight of the record</h2>
+    <div class="tblwrap"><table class="ledger" id="ledgertbl">
+      <thead><tr><th>Struck</th><th>Code</th><th>Company</th><th>Sector</th><th>Size US$M</th><th>O/Sub</th><th>Day One</th></tr></thead>
+      <tbody></tbody>
+    </table></div>
+    <div class="tablenote">JUNE 2026 · 14 OF 331 · THE FULL LEDGER — EVERY LISTING, SORTABLE AND FILTERABLE WITH ALLOCATION, PRICING AND LOCK-UP DETAIL — RUNS AS PAGE 2 OF THE FULL EDITION.</div>
+  </section></div>
+
+  <!-- ================= ANATOMY (p.3 teaser) ================= -->
+  <div class="wrap"><section class="page" id="anatomy">
+    <div class="sec-rule"><span class="slug">Page 3 · The Anatomy</span><div class="ln"></div></div>
+    <div class="anat">
+      <div>
+        <h2 class="sec">Pop, then fade</h2>
+        <div class="prose" style="margin-top:12px">
+          <p>The median listing's life against its offer price: <b>+7 per cent</b> on day one, drifting to <b>+11 per cent</b> at one month — then the turn. Six months out the median deal is under water; at a year it is <b>22 per cent below offer</b>, and only a third of the class of 2023–25 still trades above its issue price.</p>
+          <p>The mean tells a friendlier story, but only because a handful of listings run to multiples. The typical deal — the one you are most likely to hold — peaks within weeks of the gong. Whatever the strategy, the data argues for an early exit convention, not conviction holding.</p>
+        </div>
+      </div>
+      <div class="chart-frame" style="margin-top:0">
+        <div class="chart-head"><span class="t">Median return vs. offer, by horizon</span></div>
+        <svg class="line" id="anatline" viewBox="0 0 520 270" role="img" aria-label="Median IPO return versus offer price by holding horizon"></svg>
+      </div>
+    </div>
+  </section></div>
+
+  <!-- ================= DESK (p.4 teaser) ================= -->
+  <div class="wrap"><section class="page" id="desk">
+    <div class="sec-rule"><span class="slug">Page 4 · The Desk</span><div class="ln"></div></div>
+    <h2 class="sec" style="margin-bottom:18px">Three trades, taken to the tape</h2>
+    <div class="desk">
+      <div class="col">
+        <span class="verdict v-cond">Conditional · live since '25</span>
+        <h3>Subscribe when the tape is up</h3>
+        <p>Balloting every deal lost money through 2023–24 and paid through the rush. A single gate — subscribe only when the Hang Seng's trailing month is positive — kept the seat out of the losing years and cost nothing in the hot ones.</p>
+        <div class="fig">train +154 bps · test +189 bps<br>per ballot, day-one exit</div>
+      </div>
+      <div class="col">
+        <span class="verdict v-live">Live · both periods</span>
+        <h3>Buy the winners, not the open</h3>
+        <p>Chasing the opening print is reliably unprofitable. Buying the first <i>close</i> — only after a confirmed pop above twenty per cent — and holding twenty days is the one secondary trade that survived an untouched test period. Capacity is small; size accordingly.</p>
+        <div class="fig">train +1,112 bps · test +407 bps<br>median +546 · max drawdown −93%</div>
+      </div>
+      <div class="col">
+        <span class="verdict v-dead">Dead · do not run</span>
+        <h3>Leave the lock-up alone</h3>
+        <p>The six-month expiry, shorted into and through, returns six basis points before borrow — and borrow on a six-month-old listing in Hong Kong is scarce to prohibitive. The overhang story does not survive contact with the tape.</p>
+        <div class="fig">+6.5 bps gross · borrow unmodelled<br>event study: median −0.1% on the day</div>
+      </div>
+    </div>
+    <div class="tablenote" style="margin-top:18px">FULL BACKTESTS — TRAIN 2023–25, UNTOUCHED TEST 2026 H1, BOOTSTRAP INTERVALS, COST AND CAPACITY STRESS — RUN AS PAGE 4, WITH THE ALLOCATION CALCULATOR.</div>
+  </section></div>
+
+  <!-- ================= METHOD (p.5 teaser) ================= -->
+  <div class="wrap"><section class="page method" id="method">
+    <div class="sec-rule"><span class="slug">Page 5 · The Method</span><div class="ln"></div></div>
+    <p>331 MAIN BOARD LISTINGS, JAN 2023 – JUN 2026 · GEM TRANSFERS, INTRODUCTIONS AND DE-SPACS EXCLUDED · ~1,000 FILINGS READ: PROSPECTUSES, ALLOTMENT RESULTS, STABILISATION NOTICES · RETURNS CROSS-CHECKED AGAINST UNADJUSTED EXCHANGE BARS — 20 SERIES REPAIRED WHERE RETAIL FEEDS HAD RESTATED HISTORY · STRATEGIES DESIGNED ON 2023–25 AND TESTED ONCE ON 2026 H1 · COSTS: SUBSCRIPTION 1.01%, SALE 0.25%/SIDE, HIBOR CARRY ON LOCKED CAPITAL · NOTHING HERE IS INVESTMENT ADVICE.</p>
+  </section></div>
+
+  <!-- ================= FROM THE SAME DESK ================= -->
+  <div class="wrap"><section class="page" style="border-bottom:none">
+    <div class="sec-rule"><span class="slug">From the same desk</span><div class="ln"></div></div>
+    <div class="fromdesk">
+      <div class="l">
+        <h3>Precedent Atlas — Japan Special Situations</h3>
+        <p>110 landmark takeover, activism and take-private cases, mapped by what they share. Describe a deal; surface its closest precedents.</p>
+      </div>
+      <a class="visit" href="#" aria-label="Visit the Precedent Atlas">Visit the Atlas →</a>
+    </div>
+  </section></div>
+
+  <footer class="colophon"><div class="wrap">
+    <div class="endrule"></div>
+    <p>THE GONG · A RECORD OF HONG KONG LISTING DAYS · PROTOTYPE EDITION — DESIGN DIRECTION ONLY · SET IN SERIF AND MONOSPACE ON NEWSPRINT · GAIN PRINTS RED, LOSS PRINTS GREEN, AS HONG KONG READS THE TAPE</p>
+  </div></footer>
+</main>
+
+<div class="tip" id="tip"></div>
+
+<script>
+__TAPE__
+const LEDGER=__LEDGER__;
+
+// ---------- theme ----------
+const root=document.documentElement;
+const SUN='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4.4"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.1 5.1l1.6 1.6M17.3 17.3l1.6 1.6M18.9 5.1l-1.6 1.6M6.7 17.3l-1.6 1.6" stroke-linecap="round"/></svg>';
+const MOON='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20 14.6A8 8 0 1 1 9.4 4a6.3 6.3 0 0 0 10.6 10.6z" stroke-linejoin="round"/></svg>';
+function curTheme(){return root.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');}
+function paintToggle(){document.getElementById('toggle').innerHTML=curTheme()==='dark'?SUN:MOON;}
+function cvar(n){return getComputedStyle(document.body).getPropertyValue(n).trim();}
+document.getElementById('toggle').onclick=()=>{root.setAttribute('data-theme',curTheme()==='dark'?'light':'dark');paintToggle();drawTape(1);drawAnat();};
+paintToggle();
+
+// ---------- ticker ----------
+(function(){
+  const last=TAPE.slice(-34);
+  const item=r=>{const [d,p,code,name]=r;const up=p>=0;
+    return `<span class="tk"><b>${code}</b> ${name.length>22?name.slice(0,22)+'…':name} <span class="${up?'up':'down'}">${up?'▲':'▼'} ${up?'+':''}${p}%</span></span>`;};
+  const html=last.map(item).join('');
+  document.getElementById('tickrun').innerHTML=html+html; // duplicate for seamless loop
+})();
+
+// ---------- ledger ----------
+(function(){
+  const tb=document.querySelector('#ledgertbl tbody');
+  tb.innerHTML=LEDGER.map(r=>{
+    const up=r[6]>=0;
+    return `<tr><td>${r[0]}</td><td>${r[1]}</td><td class="co">${r[2]}</td><td>${r[3]||'—'}</td>`+
+      `<td>${r[4]==null?'—':r[4].toLocaleString(undefined,{maximumFractionDigits:0})}</td>`+
+      `<td>${r[5]==null?'—':r[5].toLocaleString(undefined,{maximumFractionDigits:0})+'×'}</td>`+
+      `<td class="r ${up?'up':'down'}">${up?'+':''}${r[6].toFixed(1)}%</td></tr>`;}).join('');
+})();
+
+// ---------- the tape ----------
+const cv=document.getElementById('tape'), tip=document.getElementById('tip');
+let TP=[];
+const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const CAP_UP=200, CAP_DN=60;
+const t0=Date.parse('2023-01-01'), t1=Date.parse('2026-07-01');
+function drawTape(prog){
+  const dpr=Math.min(2,devicePixelRatio||1);
+  const w=cv.clientWidth, h=cv.height;
+  cv.width=w*dpr; cv.height=h*dpr;
+  const x=cv.getContext('2d'); x.setTransform(dpr,0,0,dpr,0,0); x.clearRect(0,0,w,h);
+  const padT=12,padB=10, plot=h-padT-padB;
+  const zf=CAP_UP/(CAP_UP+CAP_DN), zeroY=padT+plot*zf;
+  const gain=cvar('--gain'), loss=cvar('--loss'), rule=cvar('--rule'), hair=cvar('--hairline');
+  // year gridlines
+  x.strokeStyle=hair;x.lineWidth=1;x.globalAlpha=.9;
+  ['2024-01-01','2025-01-01','2026-01-01'].forEach(d=>{
+    const gx=((Date.parse(d)-t0)/(t1-t0))*w;
+    x.beginPath();x.moveTo(gx,padT);x.lineTo(gx,h-padB);x.stroke();});
+  // horizontal guides
+  x.globalAlpha=.55;
+  [[100],[50],[-25]].forEach(([v])=>{
+    const yy=zeroY-(v/(v>=0?CAP_UP:CAP_DN))*(v>=0?plot*zf:plot*(1-zf));
+    x.beginPath();x.moveTo(0,yy);x.lineTo(w,yy);x.stroke();});
+  x.globalAlpha=1;
+  x.strokeStyle=rule;x.lineWidth=1.3;x.beginPath();x.moveTo(0,zeroY);x.lineTo(w,zeroY);x.stroke();
+  // guide labels
+  x.fillStyle=cvar('--ink-3');x.font='9.5px ui-monospace,monospace';
+  x.fillText('+100%',4,zeroY-(100/CAP_UP)*plot*zf-3);
+  x.fillText('+50%',4,zeroY-(50/CAP_UP)*plot*zf-3);
+  x.fillText('−25%',4,zeroY+(25/CAP_DN)*plot*(1-zf)-3);
+  TP=[];
+  const n=TAPE.length, shown=prog==null?n:Math.floor(n*prog);
+  for(let i=0;i<n;i++){
+    const [d,r]=TAPE[i];
+    const px=((Date.parse(d)-t0)/(t1-t0))*w;
+    const rr=Math.max(-CAP_DN,Math.min(CAP_UP,r));
+    const py=rr>=0?zeroY-(rr/CAP_UP)*(plot*zf):zeroY+(-rr/CAP_DN)*(plot*(1-zf));
+    TP.push({x:px,y:py,up:r>=0,rec:TAPE[i]});
+    if(i>=shown)continue;
+    x.strokeStyle=r>=0?gain:loss;x.globalAlpha=.88;x.lineWidth=1.2;
+    x.beginPath();x.moveTo(px,zeroY);x.lineTo(px,py);x.stroke();
+  }
+  x.globalAlpha=1;
+}
+function animateTape(){
+  if(reduce){drawTape(1);return;}
+  let s=null;const dur=1200;
+  function step(ts){if(s==null)s=ts;const p=Math.min(1,(ts-s)/dur);drawTape(p*p*(3-2*p));if(p<1)requestAnimationFrame(step);}
+  requestAnimationFrame(step);
+}
+cv.addEventListener('mousemove',ev=>{
+  const rect=cv.getBoundingClientRect(),mx=ev.clientX-rect.left;
+  let best=null,bd=1e9;
+  for(const p of TP){const dd=Math.abs(p.x-mx);if(dd<bd){bd=dd;best=p;}}
+  if(best&&bd<7){
+    const [d,r,code,name,sec]=best.rec;
+    tip.innerHTML=`<div class="nm">${name||code}</div><div class="mn">${code} · ${d}${sec?' · '+sec:''}</div><div class="rt" style="color:${best.up?cvar('--gain'):cvar('--loss')}">day one ${r>=0?'+':''}${r}%</div>`;
+    tip.classList.add('on');
+    let tx=ev.clientX+15,ty=ev.clientY+15;if(tx+240>innerWidth)tx=ev.clientX-255;
+    tip.style.left=tx+'px';tip.style.top=ty+'px';
+  } else tip.classList.remove('on');
+});
+cv.addEventListener('mouseleave',()=>tip.classList.remove('on'));
+
+// ---------- anatomy ----------
+function drawAnat(){
+  const svg=document.getElementById('anatline');svg.innerHTML='';
+  const pts=[['Day 1',7.1],['5d',6.6],['20d',10.2],['1m',11.0],['3m',5.5],['6m',-2.4],['1y',-22.0]];
+  const W=520,H=270,pl=38,pr=50,pt=20,pb=30,pw=W-pl-pr,ph=H-pt-pb;
+  const vals=pts.map(p=>p[1]),mx=Math.max(...vals)+6,mn=Math.min(...vals)-6,rng=mx-mn;
+  const X=i=>pl+pw*(i/(pts.length-1)),Y=v=>pt+ph*(1-(v-mn)/rng);
+  const NS='http://www.w3.org/2000/svg';
+  const mk=(t,a)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);return e;};
+  const zy=Y(0);
+  svg.appendChild(mk('line',{class:'zero',x1:pl,x2:W-pr,y1:zy,y2:zy}));
+  const zl=mk('text',{x:pl-7,y:zy+3,'text-anchor':'end'});zl.textContent='0%';svg.appendChild(zl);
+  const ink=cvar('--ink'),claret=cvar('--claret');
+  const dpath=pts.map((p,i)=>`${i?'L':'M'}${X(i).toFixed(1)},${Y(p[1]).toFixed(1)}`).join(' ');
+  svg.appendChild(mk('path',{d:dpath,fill:'none',stroke:ink,'stroke-width':1.8,'stroke-linecap':'round','stroke-linejoin':'round'}));
+  pts.forEach((p,i)=>{
+    svg.appendChild(mk('circle',{cx:X(i),cy:Y(p[1]),r:3.4,fill:i===pts.length-1?claret:ink,stroke:cvar('--panel'),'stroke-width':2}));
+    const xl=mk('text',{x:X(i),y:H-10,'text-anchor':'middle'});xl.textContent=p[0];svg.appendChild(xl);
+    if(i===3||i===pts.length-1){
+      const vt=mk('text',{class:'val',x:X(i)+(i===3?0:4),y:Y(p[1])+(p[1]>=0?-9:16),'text-anchor':i===3?'middle':'start'});
+      if(i===pts.length-1)vt.setAttribute('fill',claret);
+      vt.textContent=(p[1]>=0?'+':'')+p[1]+'%';svg.appendChild(vt);}
+  });
+}
+
+// ---------- init ----------
+drawAnat();
+document.getElementById('medal').classList.add('struck');
+if('IntersectionObserver' in window){
+  const io=new IntersectionObserver(e=>{if(e[0].isIntersecting){animateTape();io.disconnect();}},{threshold:.15});
+  io.observe(cv);
+} else animateTape();
+addEventListener('resize',()=>{clearTimeout(window._rz);window._rz=setTimeout(()=>{drawTape(1);drawAnat();},120);});
+</script>

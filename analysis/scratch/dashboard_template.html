@@ -1,0 +1,1220 @@
+<title>HK IPO Trading Strategy Study — 2023–2026</title>
+<style>
+__FONTFACE_CSS__
+
+  /*
+    Design concept: a Central trading-floor screen at dusk — cool ink-charcoal
+    ground (not pure black), warm HKEX-gold as the single accent, a slate-blue
+    second identity for train/test comparisons. Gains render in red, losses in
+    green — the Hong Kong / mainland convention, reversed from Western charts,
+    chosen because the audience is an HK-market trader for whom the Western
+    mapping would misread at a glance. Prose sets in Plex Sans; every number
+    — prices, percentages, ticker codes, table digits — sets in Plex Mono,
+    so data always looks like data.
+  */
+  :root, .viz-root {
+    color-scheme: light;
+    --page:            #f5f3ee;
+    --surface-1:       #ffffff;
+    --surface-2:       #ece9e1;
+    --text-primary:    #16181c;
+    --text-secondary:  #55585f;
+    --text-muted:      #83868d;
+    --grid:            #ddd9d0;
+    --baseline:        #b9b5aa;
+    --border:          rgba(22,24,28,0.12);
+    --accent:          #a8720b;   /* HKEX gold */
+    --accent-ink:      #ffffff;
+    --accent-2:        #3f6683;   /* slate blue — secondary identity (test / 2023 baseline) */
+    --gain:            #b23a34;   /* red   = price UP   (HK/mainland convention) */
+    --loss:            #3f7d52;   /* green = price DOWN */
+    --shadow: 0 1px 0 rgba(22,24,28,0.03);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) {
+      color-scheme: dark;
+      --page:            #101216;
+      --surface-1:       #181b20;
+      --surface-2:       #21252b;
+      --text-primary:    #f1efe9;
+      --text-secondary:  #aeb2b9;
+      --text-muted:      #797d85;
+      --grid:            #2a2e35;
+      --baseline:        #3b3f47;
+      --border:          rgba(241,239,233,0.12);
+      --accent:          #dba43f;
+      --accent-ink:      #16181c;
+      --accent-2:        #7fa8c9;
+      --gain:            #d9695f;
+      --loss:            #6bbf8a;
+      --shadow: 0 1px 0 rgba(0,0,0,0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --page:            #101216;
+    --surface-1:       #181b20;
+    --surface-2:       #21252b;
+    --text-primary:    #f1efe9;
+    --text-secondary:  #aeb2b9;
+    --text-muted:      #797d85;
+    --grid:            #2a2e35;
+    --baseline:        #3b3f47;
+    --border:          rgba(241,239,233,0.12);
+    --accent:          #dba43f;
+    --accent-ink:      #16181c;
+    --accent-2:        #7fa8c9;
+    --gain:            #d9695f;
+    --loss:            #6bbf8a;
+    --shadow: 0 1px 0 rgba(0,0,0,0.4);
+  }
+
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0; background: var(--page); color: var(--text-primary);
+    font-family: 'Plex Sans', system-ui, -apple-system, "Segoe UI", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  body { padding: 26px 22px 84px; }
+  .wrap { max-width: 1180px; margin: 0 auto; }
+  .mono { font-family: 'Plex Mono', ui-monospace, "SF Mono", monospace; font-variant-numeric: tabular-nums; }
+
+  header.top { margin-bottom: 22px; display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+  header.top .mark {
+    font-family: 'Plex Mono', monospace; font-weight: 600; font-size: 11px; letter-spacing: .09em;
+    color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, transparent);
+    padding: 3px 8px; border-radius: 4px; text-transform: uppercase; white-space: nowrap;
+  }
+  header.top h1 { font-size: 23px; font-weight: 650; margin: 0; letter-spacing: -0.01em; text-wrap: balance; }
+  header.top p.sub { color: var(--text-secondary); font-size: 13.5px; margin: 6px 0 0; max-width: 800px; line-height: 1.55; flex-basis: 100%; }
+  header.top p.sub .mono { color: var(--text-secondary); }
+
+  nav.tabs {
+    display: flex; gap: 2px; margin: 18px 0 20px; border-bottom: 1px solid var(--grid);
+    overflow-x: auto;
+  }
+  nav.tabs button {
+    appearance: none; border: none; background: transparent; color: var(--text-secondary);
+    font: inherit; font-size: 13px; font-weight: 550; padding: 9px 13px; cursor: pointer;
+    border-bottom: 2px solid transparent; white-space: nowrap;
+  }
+  nav.tabs button:hover { color: var(--text-primary); }
+  nav.tabs button.active { color: var(--accent); border-bottom-color: var(--accent); }
+  nav.tabs button:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible, th:focus-visible {
+    outline: 2px solid var(--accent); outline-offset: 1px;
+  }
+
+  section.view { display: none; }
+  section.view.active { display: block; }
+
+  .kpirow { display: grid; grid-template-columns: repeat(auto-fit, minmax(148px, 1fr)); gap: 1px; margin-bottom: 22px; background: var(--border); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+  .tile { background: var(--surface-1); padding: 13px 15px; }
+  .tile .label { font-size: 10.5px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: .04em; }
+  .tile .value { font-size: 21px; font-weight: 650; margin-top: 4px; letter-spacing: -0.01em; }
+  .tile .delta { font-size: 11.5px; margin-top: 3px; color: var(--text-secondary); }
+
+  .card {
+    background: var(--surface-1); border: 1px solid var(--border); border-radius: 8px;
+    padding: 18px 20px 16px; margin-bottom: 16px; box-shadow: var(--shadow);
+  }
+  .card h2 { font-size: 14.5px; font-weight: 650; margin: 0 0 2px; }
+  .card p.note { color: var(--text-secondary); font-size: 12.5px; margin: 0 0 14px; line-height: 1.55; max-width: 780px; }
+  .card .callout {
+    font-size: 12.5px; color: var(--text-secondary); background: color-mix(in srgb, var(--accent) 9%, transparent);
+    border-left: 3px solid var(--accent); padding: 9px 12px; border-radius: 0 5px 5px 0; margin-top: 12px; line-height: 1.55;
+  }
+  .card .callout b, .card .callout .mono { color: var(--text-primary); }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  @media (max-width: 860px) { .grid2, .grid3 { grid-template-columns: 1fr; } }
+
+  .convention {
+    display: inline-flex; align-items: center; gap: 14px; font-size: 12px; color: var(--text-secondary);
+    background: var(--surface-2); border: 1px solid var(--border); border-radius: 6px; padding: 7px 13px; margin-bottom: 18px;
+  }
+  .convention .key { display: inline-flex; align-items: center; gap: 5px; }
+  .convention .dot { width: 8px; height: 8px; border-radius: 2px; display: inline-block; }
+
+  svg.chart { width: 100%; height: auto; overflow: visible; font-family: 'Plex Mono', monospace; }
+  svg text { fill: var(--text-secondary); font-size: 10.5px; }
+  svg .axislabel { fill: var(--text-muted); font-size: 9.5px; }
+  svg .gridline { stroke: var(--grid); stroke-width: 1; }
+  svg .baseline { stroke: var(--baseline); stroke-width: 1; }
+  svg .barlabel { fill: var(--text-primary); font-size: 10px; font-weight: 600; }
+  svg .grouplabel { font-family: 'Plex Sans', sans-serif; }
+
+  .legend { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 10px; font-size: 11.5px; color: var(--text-secondary); }
+  .legend .key { display: inline-flex; align-items: center; gap: 6px; }
+  .legend .swatch { width: 9px; height: 9px; border-radius: 2px; display: inline-block; }
+
+  .tooltip {
+    position: fixed; pointer-events: none; background: var(--text-primary); color: var(--page);
+    font-size: 11.5px; padding: 8px 11px; border-radius: 6px; line-height: 1.5; z-index: 50;
+    max-width: 240px; box-shadow: 0 6px 18px rgba(0,0,0,0.28); opacity: 0; transition: opacity .08s;
+  }
+  .tooltip.show { opacity: 1; }
+  .tooltip b { font-weight: 650; }
+  .tooltip .mono { font-family: 'Plex Mono', monospace; }
+
+  .filters { display: flex; gap: 9px; flex-wrap: wrap; margin-bottom: 16px; align-items: center; }
+  .filters select, .filters input {
+    font: inherit; font-size: 12.5px; padding: 6px 9px; border-radius: 5px; border: 1px solid var(--border);
+    background: var(--surface-1); color: var(--text-primary);
+  }
+  .filters label { font-size: 11px; color: var(--text-muted); margin-right: -4px; text-transform: uppercase; letter-spacing: .03em; }
+  .filters .count { font-size: 12px; color: var(--text-secondary); margin-left: auto; font-family: 'Plex Mono', monospace; }
+
+  table.deals { width: 100%; border-collapse: collapse; font-size: 12px; }
+  table.deals thead th {
+    text-align: right; font-weight: 600; color: var(--text-muted); font-size: 10px;
+    text-transform: uppercase; letter-spacing: .03em; padding: 7px 8px; border-bottom: 1px solid var(--grid);
+    cursor: pointer; user-select: none; white-space: nowrap; position: sticky; top: 0; background: var(--surface-1);
+  }
+  table.deals thead th:first-child, table.deals thead th:nth-child(2), table.deals thead th:nth-child(3) { text-align: left; }
+  table.deals thead th:hover { color: var(--text-primary); }
+  table.deals thead th.sorted::after { content: " ▾"; color: var(--accent); }
+  table.deals thead th.sorted.asc::after { content: " ▴"; }
+  table.deals tbody td { padding: 6px 8px; text-align: right; border-bottom: 1px solid var(--grid); font-family: 'Plex Mono', monospace; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  table.deals tbody td:first-child, table.deals tbody td:nth-child(2), table.deals tbody td:nth-child(3) { text-align: left; font-family: 'Plex Sans', sans-serif; }
+  table.deals tbody tr:hover { background: color-mix(in srgb, var(--accent) 7%, transparent); }
+  .tablewrap { max-height: 560px; overflow: auto; border: 1px solid var(--border); border-radius: 8px; }
+  .pos { color: var(--gain); font-weight: 600; }
+  .neg { color: var(--loss); font-weight: 600; }
+  .pill { display: inline-block; padding: 1px 7px; border-radius: 3px; font-size: 10px; font-weight: 600; background: color-mix(in srgb, var(--accent) 16%, transparent); color: var(--accent); font-family: 'Plex Mono', monospace; }
+
+  .calc { display: grid; grid-template-columns: 300px 1fr; gap: 22px; }
+  @media (max-width: 780px) { .calc { grid-template-columns: 1fr; } }
+  .calc .field { margin-bottom: 12px; }
+  .calc label { display: block; font-size: 11.5px; color: var(--text-muted); margin-bottom: 4px; font-weight: 550; text-transform: uppercase; letter-spacing: .03em; }
+  .calc select, .calc input[type=number] {
+    width: 100%; font: inherit; font-size: 13px; padding: 8px 10px; border-radius: 5px;
+    border: 1px solid var(--border); background: var(--page); color: var(--text-primary);
+  }
+  .calc .result { background: var(--surface-2); border-radius: 8px; padding: 17px 19px; border: 1px solid var(--border); }
+  .calc .result .big { font-size: 27px; font-weight: 650; letter-spacing: -0.01em; font-family: 'Plex Mono', monospace; }
+  .calc .result .rows { margin-top: 11px; font-size: 12.5px; color: var(--text-secondary); line-height: 2; }
+  .calc .result .rows span.v { color: var(--text-primary); font-weight: 600; float: right; font-family: 'Plex Mono', monospace; font-variant-numeric: tabular-nums; }
+  .calc .warn { font-size: 11.5px; color: var(--text-secondary); margin-top: 10px; line-height: 1.55; background: color-mix(in srgb, var(--accent) 9%, transparent); border-left: 3px solid var(--accent); padding: 8px 11px; border-radius: 0 5px 5px 0; }
+
+  footer.meth { margin-top: 28px; font-size: 12px; color: var(--text-muted); line-height: 1.7; border-top: 1px solid var(--grid); padding-top: 16px; }
+  footer.meth h3 { font-size: 12px; color: var(--text-secondary); margin: 14px 0 4px; text-transform: uppercase; letter-spacing: .03em; }
+  footer.meth #meta-line { font-family: 'Plex Mono', monospace; color: var(--text-secondary); }
+  code { font-size: 11px; font-family: 'Plex Mono', monospace; background: var(--surface-2); padding: 1px 5px; border-radius: 3px; }
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <span class="mark">HKEX · Main Board</span>
+    <h1>Hong Kong IPO Trading Strategy Study</h1>
+    <p class="sub"><span class="mono">331</span> Main Board listings, <span class="mono">Jan 2023 – Jun 2026</span> · full field-level provenance in the underlying scrape · returns corrected for Yahoo's silent split-adjustment (<span class="mono">20</span> companies repaired against Tencent unadjusted bars) · strategies designed on <span class="mono">2023–2025</span>, tested untouched on <span class="mono">2026H1</span>.</p>
+  </header>
+
+  <div class="convention">
+    <span class="key"><span class="dot" style="background:var(--gain)"></span>Gain (red)</span>
+    <span class="key"><span class="dot" style="background:var(--loss)"></span>Loss (green)</span>
+    <span style="color:var(--text-muted)">— HK / mainland convention throughout, reversed from US charts</span>
+  </div>
+
+  <nav class="tabs" id="tabs">
+    <button data-view="overview" class="active">Overview</button>
+    <button data-view="anatomy">Performance anatomy</button>
+    <button data-view="participation">Participation math</button>
+    <button data-view="strategies">Strategies</button>
+    <button data-view="explorer">Deal explorer</button>
+    <button data-view="calculator">Allocation calculator</button>
+  </nav>
+
+  <!-- ============ OVERVIEW ============ -->
+  <section class="view active" id="view-overview">
+    <div class="kpirow" id="kpi-overview"></div>
+
+    <div class="card">
+      <h2>The issuance wave</h2>
+      <p class="note">Deal count and capital raised by quarter. 2026 is H1 only. The offshore-listing rush is a 2025–26 phenomenon layered on top of a slower 2023–24 base.</p>
+      <div id="chart-wave"></div>
+    </div>
+
+    <div class="grid2">
+      <div class="card">
+        <h2>Composition shift</h2>
+        <p class="note">Share of deals by listing regime, 2023 baseline vs. 2024–26 rush.</p>
+        <div id="chart-regime"></div>
+      </div>
+      <div class="card">
+        <h2>Demand escalation</h2>
+        <p class="note">Median retail oversubscription by year — the defining feature of the rush.</p>
+        <div id="chart-oversub"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ANATOMY ============ -->
+  <section class="view" id="view-anatomy">
+    <div class="card">
+      <h2>Return vs. offer price, by horizon and year</h2>
+      <p class="note">Median return (dot) with interquartile range (bar), across exit horizons. Watch the shape: the median decays after ~1–3 months in every cohort — buy-and-hold has been a losing median proposition beyond that window even in the hot 2025–26 vintage.</p>
+      <div id="chart-horizon"></div>
+    </div>
+    <div class="grid2">
+      <div class="card">
+        <h2>Day-1 return by demand tier</h2>
+        <p class="note">Retail oversubscription tier is the dominant sorting variable for day-1 pop. Not usable ex-ante for subscription timing — final oversubscription publishes after the deadline — but central to day-1 secondary decisions.</p>
+        <div id="chart-tier"></div>
+      </div>
+      <div class="card">
+        <h2>Lockup expiry (6-month) event path</h2>
+        <p class="note">Median cumulative return vs. IPO price, days around the lockup expiry date. Flat/negative — no exploitable pre-expiry drift survives at the median.</p>
+        <div id="chart-lockup"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PARTICIPATION ============ -->
+  <section class="view" id="view-participation">
+    <div class="card">
+      <h2>Retail Pool A: expected return on committed capital</h2>
+      <p class="note">1-lot cash subscription, allocation-probability-weighted, net of subscription/sale fees and HIBOR carry on locked capital. This is the number that matters for a retail subscriber — not the headline day-1 pop, which assumes full allocation nobody gets.</p>
+      <div id="chart-p2"></div>
+      <div class="callout">Headline mean day-1 return (full-allocation fantasy): <b>+28.8%</b>. Allocation-adjusted mean return on committed capital at day-1 close: <b>+46 bps/deal</b>. Correlation between allocation probability and day-1 return: <b>−0.35</b> — hot deals allocate least.</div>
+    </div>
+    <div class="card">
+      <h2>By year</h2>
+      <p class="note">The retail edge is a 2025–26 phenomenon. Subscribing to everything was expected-value-negative in 2023–24.</p>
+      <div id="chart-p2-year"></div>
+    </div>
+  </section>
+
+  <!-- ============ STRATEGIES ============ -->
+  <section class="view" id="view-strategies">
+    <div class="card">
+      <h2>Strategy backtests — train (2023–25) vs. untouched test (2026H1)</h2>
+      <p class="note">Expected return per deal in basis points, with 95% bootstrap confidence intervals (5,000 resamples). Bars crossing zero on the CI whisker are not statistically distinguishable from noise at this sample size.</p>
+      <div id="chart-p3"></div>
+      <div class="callout">Read S1 vs S2 together: on 2026H1 both scored near-identically (+208 vs +189 bps) because the whole test period was a hot regime — the filters couldn't differentiate a uniformly good tape. The regime gate's real value is what it avoided in 2023–24, not test-period alpha. The one strategy with a genuinely live, both-periods-positive secondary edge is <b>buy the day-1 close only after a confirmed +20% pop, sell at 20 days</b> — but see the hardening checks below before sizing it.</div>
+    </div>
+
+    <div class="card">
+      <h2>S3b hardening checks — is this production-ready?</h2>
+      <p class="note">Before treating a backtested mean as a tradable edge: does it survive costs, is it concentrated in a few lucky trades, can it actually be filled at size, is it stable year to year, and what does the drawdown look like if run continuously? Each check below is a reason to size this cautiously, not a reason to discard it.</p>
+      <div class="kpirow" id="kpi-hardening"></div>
+      <div class="callout" id="hardening-verdict" style="border-left-color:var(--loss)"></div>
+    </div>
+
+    <div class="grid2">
+      <div class="card">
+        <h2>Chronological equity curve</h2>
+        <p class="note">One unit staked per qualifying trade, compounding, no diversification cap — the unrealistic upper bound of what "just take every signal" looks like. Real sizing must cap exposure per trade (see capacity, right).</p>
+        <div id="chart-equity"></div>
+      </div>
+      <div class="card">
+        <h2>Capacity — position size vs. actual day-1 turnover</h2>
+        <p class="note">Share of qualifying deals where the position would exceed 1% of that deal's own day-1 dollar turnover — past this, the backtest's flat cost assumption stops being a realistic stand-in for market impact.</p>
+        <div id="capacity-table"></div>
+      </div>
+    </div>
+
+    <div class="grid2">
+      <div class="card">
+        <h2>Year-by-year stability</h2>
+        <p class="note">The pooled mean hides how thin the evidence is in any single year. Whiskers = 95% bootstrap CI.</p>
+        <div id="chart-stability"></div>
+      </div>
+      <div class="card">
+        <h2>Cost sensitivity</h2>
+        <p class="note">Mean return per deal as the round-trip cost assumption rises from 0% to 2% per leg.</p>
+        <div id="chart-costsens"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Entry timing — does acting earlier help?</h2>
+      <p class="note">Tests entering at the day-1 <b>open</b> on an oversubscription threshold (known the evening before) against waiting for a <b>confirmed close pop</b> before entering (S3b's actual rule).</p>
+      <div id="chart-entrytiming"></div>
+    </div>
+
+    <div class="card">
+      <h2>Concentration — the best and worst qualifying trades (train)</h2>
+      <p class="note">Top 3 of 79 train-period trades contributed <span class="mono" id="conc-top3-share"></span> of the total summed return. This is a right-tail-driven edge, not a smooth one.</p>
+      <div class="tablewrap" style="max-height:280px">
+        <table class="deals" id="concentration-table"><thead><tr><th>Company</th><th>Date</th><th>Day-1 %</th><th>20d trade %</th></tr></thead><tbody id="concentration-tbody"></tbody></table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EXPLORER ============ -->
+  <section class="view" id="view-explorer">
+    <div class="card">
+      <h2>Deal explorer</h2>
+      <p class="note">Every scraped field, filterable and sortable. Click a column header to sort.</p>
+      <div class="filters">
+        <label>Year</label>
+        <select id="f-year"><option value="">All</option></select>
+        <label>Sector</label>
+        <select id="f-sector"><option value="">All</option></select>
+        <label>Regime</label>
+        <select id="f-regime"><option value="">All</option></select>
+        <label>Demand tier</label>
+        <select id="f-tier"><option value="">All</option></select>
+        <input id="f-search" type="text" placeholder="Search company / code…" style="min-width:180px" />
+        <span class="count" id="f-count"></span>
+      </div>
+      <div class="tablewrap">
+        <table class="deals" id="deal-table">
+          <thead><tr id="deal-thead"></tr></thead>
+          <tbody id="deal-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CALCULATOR ============ -->
+  <section class="view" id="view-calculator">
+    <div class="card">
+      <h2>Allocation-adjusted P&amp;L calculator</h2>
+      <p class="note">Models a 1-lot Pool A cash subscription for a single deal, or an aggregate "subscribe to every deal in the filtered set" run. Same formula as the Participation Math tab: <code>E[return] = p(allocation) × (exit proceeds net of fees − cost net of fees) − HIBOR carry on locked capital</code>, expressed on committed capital.</p>
+      <div class="calc">
+        <div>
+          <div class="field">
+            <label>Mode</label>
+            <select id="calc-mode">
+              <option value="single">Single deal</option>
+              <option value="portfolio">Portfolio — subscribe to all matching deals</option>
+            </select>
+          </div>
+          <div class="field" id="calc-deal-field">
+            <label>Deal</label>
+            <select id="calc-deal"></select>
+          </div>
+          <div class="field" id="calc-filter-field" style="display:none">
+            <label>Year filter</label>
+            <select id="calc-year-filter"><option value="">All years</option></select>
+          </div>
+          <div class="field">
+            <label>Exit horizon</label>
+            <select id="calc-exit">
+              <option value="day1_open_hkd|">Day-1 open</option>
+              <option value="|day1_performance_pct" selected>Day-1 close</option>
+              <option value="|perf_5d_pct">5 trading days</option>
+              <option value="|perf_1m_pct">1 month</option>
+              <option value="|perf_3m_pct">3 months</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Number of 1-lot ballots submitted</label>
+            <input id="calc-lots" type="number" min="1" value="1" />
+          </div>
+        </div>
+        <div>
+          <div class="result">
+            <div class="label" style="font-size:11.5px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:.02em">Expected P&amp;L</div>
+            <div class="big" id="calc-pnl">—</div>
+            <div class="rows" id="calc-rows"></div>
+          </div>
+          <div class="warn" id="calc-warn"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="meth">
+    <h3>Data &amp; methodology</h3>
+    <div id="meta-line"></div>
+    <p>Costs: subscription 1.0084% (brokerage + SFC + AFRC + trading fee) on allotted shares; sale 0.25% (stamp duty + brokerage + slippage) per side. HIBOR 1-month carry on committed capital for 6 calendar days (pre-FINI, T+5 era) or 2 days (post-FINI, T+1 era). Pool A allocation probability is the smallest-application-tier ballot rate from each deal's own Basis of Allocation announcement — multi-lot allocation curves are not modeled, so the portfolio calculator assumes the 1-lot probability applies per ballot, which overstates larger-capital outcomes (higher tiers allocate at equal-or-lower rates in every observed table).</p>
+    <p>Return corruption repair: Yahoo Finance back-adjusts its full price history after a post-listing split/bonus/consolidation. 20 of 331 companies were affected; all vs-offer returns for those companies were rescaled against Tencent's explicitly-unadjusted daily bars before any analysis in this dashboard.</p>
+    <p>Point-in-time discipline: subscription-decision strategies (S1/S2) use only information published before the subscription deadline (prospectus facts, calendar, market regime, prior-deal history). Day-1 secondary strategies (S3) additionally use the allotment results published the evening before listing. No strategy uses same-day-or-later information to make an earlier decision.</p>
+  </footer>
+</div>
+
+<div class="tooltip" id="tooltip"></div>
+
+<script>
+const DATA = __DASHBOARD_DATA__;
+const deals = DATA.deals;
+const agg = DATA.agg;
+const meta = DATA.meta;
+
+// ---------- helpers ----------
+const fmt = (v, d=1) => v === null || v === undefined || isNaN(v) ? "—" : v.toLocaleString(undefined, {minimumFractionDigits:d, maximumFractionDigits:d});
+const fmtPct = (v, d=1) => v === null || v === undefined || isNaN(v) ? "—" : (v>0?"+":"") + fmt(v,d) + "%";
+const fmtBps = (v, d=0) => v === null || v === undefined || isNaN(v) ? "—" : (v>0?"+":"") + fmt(v,d) + " bps";
+const fmtUsd = (v) => v === null || v === undefined ? "—" : "$" + (v>=1000? fmt(v/1000,1)+"B" : fmt(v,0)+"M");
+const signClass = (v) => v === null || v === undefined || isNaN(v) ? "" : (v >= 0 ? "pos" : "neg");
+const css = getComputedStyle(document.documentElement);
+function cvar(name){ return getComputedStyle(document.body).getPropertyValue(name).trim() || css.getPropertyValue(name).trim(); }
+
+const tooltipEl = document.getElementById('tooltip');
+function showTip(evt, html){
+  tooltipEl.innerHTML = html;
+  tooltipEl.classList.add('show');
+  moveTip(evt);
+}
+function moveTip(evt){
+  const pad = 14;
+  let x = evt.clientX + pad, y = evt.clientY + pad;
+  tooltipEl.style.left = x + 'px';
+  tooltipEl.style.top = y + 'px';
+}
+function hideTip(){ tooltipEl.classList.remove('show'); }
+
+const SVGNS = "http://www.w3.org/2000/svg";
+function el(tag, attrs={}, children=[]){
+  const e = document.createElementNS(SVGNS, tag);
+  for (const k in attrs) e.setAttribute(k, attrs[k]);
+  for (const c of children) e.appendChild(c);
+  return e;
+}
+
+// ---------- tabs ----------
+document.getElementById('tabs').addEventListener('click', (e) => {
+  const btn = e.target.closest('button[data-view]');
+  if (!btn) return;
+  document.querySelectorAll('nav.tabs button').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('section.view').forEach(s => s.classList.remove('active'));
+  document.getElementById('view-' + btn.dataset.view).classList.add('active');
+});
+
+// ============================================================
+// KPI tiles
+// ============================================================
+function renderKpis(){
+  const c = document.getElementById('kpi-overview');
+  const totalUsd = meta.total_raised_usd_bn;
+  const d26 = deals.filter(d => d.year === 2026);
+  const med26 = median(d26.map(d => d.day1_performance_pct).filter(v => v != null));
+  const p2 = agg.phase2_participation.find(p => p.exit === "Day-1 close");
+  const tiles = [
+    {label:"Deals scraped", value: meta.n_deals, delta: meta.date_range[0] + " → " + meta.date_range[1]},
+    {label:"Capital raised", value: "US$" + fmt(totalUsd,1) + "B", delta: "across " + meta.n_deals + " Main Board IPOs"},
+    {label:"2026H1 median day-1", value: fmtPct(med26), delta: d26.length + " listings", cls: signClass(med26)},
+    {label:"Retail edge, day-1 close", value: fmtBps(p2.mean_bps), delta: "expected, on committed capital", cls: signClass(p2.mean_bps)},
+    {label:"Returns repaired", value: meta.corrected_companies, delta: "split-adjusted series fixed vs Tencent"},
+  ];
+  c.innerHTML = tiles.map(t => `<div class="tile"><div class="label">${t.label}</div><div class="value mono ${t.cls||''}">${t.value}</div><div class="delta">${t.delta}</div></div>`).join('');
+}
+function median(arr){
+  if (!arr.length) return null;
+  const s = [...arr].sort((a,b)=>a-b);
+  const mid = Math.floor(s.length/2);
+  return s.length % 2 ? s[mid] : (s[mid-1]+s[mid])/2;
+}
+
+// ============================================================
+// Chart: issuance wave (two small-multiple bar panels, shared x)
+// ============================================================
+function renderWave(){
+  const rows = agg.issuance_wave;
+  const w = 1100, hEach = 130, gap = 30, padL = 46, padR = 10, padT = 10, padB = 22;
+  const plotW = w - padL - padR;
+  const bw = Math.min(24, plotW / rows.length * 0.6);
+  const step = plotW / rows.length;
+
+  function panel(values, color, label, fmtFn, yOff){
+    const maxV = Math.max(...values) * 1.15;
+    const svg = [];
+    // gridlines (4)
+    for (let i=0;i<=3;i++){
+      const gy = yOff + padT + (hEach-padT-padB) * (1 - i/3);
+      svg.push(`<line class="gridline" x1="${padL}" x2="${w-padR}" y1="${gy}" y2="${gy}"/>`);
+      svg.push(`<text class="axislabel" x="${padL-8}" y="${gy+3}" text-anchor="end">${fmtFn(maxV*i/3)}</text>`);
+    }
+    rows.forEach((r,i) => {
+      const v = values[i];
+      const bh = (hEach-padT-padB) * (v/maxV);
+      const x = padL + i*step + (step-bw)/2;
+      const y = yOff + (hEach-padB) - bh;
+      svg.push(`<rect x="${x}" y="${y}" width="${bw}" height="${Math.max(bh,1)}" rx="4" fill="${color}" data-i="${i}" data-series="${label}" class="bar-hit" style="cursor:pointer"/>`);
+    });
+    svg.push(`<line class="baseline" x1="${padL}" x2="${w-padR}" y1="${yOff+hEach-padB}" y2="${yOff+hEach-padB}"/>`);
+    svg.push(`<text class="axislabel" x="${padL}" y="${yOff+12}" font-weight="650" fill="${color}">${label}</text>`);
+    return svg.join('');
+  }
+
+  const dealsV = rows.map(r=>r.deals);
+  const raisedV = rows.map(r=>r.raised_usd_m);
+  let svg = `<svg class="chart" viewBox="0 0 ${w} ${hEach*2+gap}">`;
+  svg += panel(dealsV, cvar('--accent'), 'Deals per quarter', v=>Math.round(v), 0);
+  svg += panel(raisedV, cvar('--accent-2'), 'Capital raised (US$M)', v=>Math.round(v), hEach+gap);
+  // x labels (shared, every 2nd quarter to avoid crowding)
+  rows.forEach((r,i) => {
+    if (i % 2 === 0) svg += `<text class="axislabel" x="${padL+i*step+step/2}" y="${hEach*2+gap+14}" text-anchor="middle">${r.quarter}</text>`;
+  });
+  svg += `</svg>`;
+  const container = document.getElementById('chart-wave');
+  container.innerHTML = svg;
+  container.querySelectorAll('.bar-hit').forEach(bar => {
+    bar.addEventListener('mousemove', (e) => {
+      const i = +bar.dataset.i, r = rows[i];
+      showTip(e, `<b>${r.quarter}</b><br>Deals: ${r.deals}<br>Raised: $${fmt(r.raised_usd_m,0)}M`);
+    });
+    bar.addEventListener('mouseleave', hideTip);
+  });
+}
+
+// ============================================================
+// Chart: composition shift (grouped horizontal bars, 2 cohorts)
+// ============================================================
+function renderRegime(){
+  const cohorts = ["2023 (baseline)", "2024-26 (rush)"];
+  const regimes = {};
+  deals.forEach(d => {
+    if (!d.listing_regime) return;
+    regimes[d.listing_regime] = regimes[d.listing_regime] || {"2023 (baseline)":0, "2024-26 (rush)":0};
+    const cohort = d.year === 2023 ? "2023 (baseline)" : "2024-26 (rush)";
+    regimes[d.listing_regime][cohort]++;
+  });
+  const totals = {"2023 (baseline)": deals.filter(d=>d.year===2023).length, "2024-26 (rush)": deals.filter(d=>d.year!==2023).length};
+  const names = Object.keys(regimes).sort((a,b) => regimes[b]["2024-26 (rush)"]/totals["2024-26 (rush)"] - regimes[a]["2024-26 (rush)"]/totals["2024-26 (rush)"]);
+  const w = 540, rowH = 30, padL = 130, padR = 50, padT = 6;
+  const h = names.length * rowH * 2 + padT + 10;
+  const plotW = w - padL - padR;
+  let svg = `<svg class="chart" viewBox="0 0 ${w} ${h}">`;
+  const colors = {"2023 (baseline)": cvar('--accent-2'), "2024-26 (rush)": cvar('--accent')};
+  names.forEach((name, ni) => {
+    cohorts.forEach((coh, ci) => {
+      const pct = regimes[name][coh] / totals[coh] * 100;
+      const y = padT + (ni*2+ci) * rowH;
+      const bw = plotW * pct/100;
+      svg += `<text x="${padL-8}" y="${y+rowH/2+3.5}" text-anchor="end" font-size="11">${ci===0?name:''}</text>`;
+      svg += `<rect x="${padL}" y="${y+4}" width="${Math.max(bw,1)}" height="18" rx="4" fill="${colors[coh]}" class="bar-hit2" data-name="${name}" data-coh="${coh}" data-pct="${pct.toFixed(1)}" style="cursor:pointer"/>`;
+      svg += `<text class="barlabel" x="${padL+bw+6}" y="${y+rowH/2+3.5}" font-size="10.5">${pct.toFixed(0)}%</text>`;
+    });
+  });
+  svg += `</svg>`;
+  const legend = `<div class="legend">${cohorts.map(c=>`<span class="key"><span class="swatch" style="background:${colors[c]}"></span>${c}</span>`).join('')}</div>`;
+  const container = document.getElementById('chart-regime');
+  container.innerHTML = legend + svg;
+  container.querySelectorAll('.bar-hit2').forEach(bar => {
+    bar.addEventListener('mousemove', (e) => showTip(e, `<b>${bar.dataset.name}</b><br>${bar.dataset.coh}: ${bar.dataset.pct}%`));
+    bar.addEventListener('mouseleave', hideTip);
+  });
+}
+
+// ============================================================
+// Chart: oversubscription by year (single-series bar, log-scale friendly)
+// ============================================================
+function renderOversub(){
+  const years = [2023,2024,2025,2026];
+  const vals = years.map(y => median(deals.filter(d=>d.year===y).map(d=>d.times_oversubscribed_retail).filter(v=>v!=null)));
+  const w=500,h=190,padL=54,padR=14,padT=14,padB=26;
+  const plotW=w-padL-padR, plotH=h-padT-padB;
+  const maxV = Math.max(...vals)*1.15;
+  const step = plotW/years.length;
+  const bw = Math.min(40, step*0.5);
+  let svg = `<svg class="chart" viewBox="0 0 ${w} ${h}">`;
+  for (let i=0;i<=4;i++){
+    const gy = padT + plotH*(1-i/4);
+    svg += `<line class="gridline" x1="${padL}" x2="${w-padR}" y1="${gy}" y2="${gy}"/>`;
+    svg += `<text class="axislabel" x="${padL-8}" y="${gy+3}" text-anchor="end">${Math.round(maxV*i/4)}x</text>`;
+  }
+  years.forEach((y,i) => {
+    const v = vals[i];
+    const bh = plotH*(v/maxV);
+    const x = padL + i*step + (step-bw)/2;
+    const yy = padT + plotH - bh;
+    svg += `<rect x="${x}" y="${yy}" width="${bw}" height="${Math.max(bh,1)}" rx="4" fill="${cvar('--accent')}" class="bar-hit3" data-y="${y}" data-v="${v.toFixed(0)}" style="cursor:pointer"/>`;
+    svg += `<text class="barlabel" x="${x+bw/2}" y="${yy-6}" text-anchor="middle">${Math.round(v)}x</text>`;
+    svg += `<text class="axislabel" x="${x+bw/2}" y="${h-8}" text-anchor="middle">${y}</text>`;
+  });
+  svg += `<line class="baseline" x1="${padL}" x2="${w-padR}" y1="${padT+plotH}" y2="${padT+plotH}"/></svg>`;
+  const container = document.getElementById('chart-oversub');
+  container.innerHTML = svg;
+  container.querySelectorAll('.bar-hit3').forEach(bar => {
+    bar.addEventListener('mousemove', (e) => showTip(e, `<b>${bar.dataset.y}</b><br>Median oversubscription: ${bar.dataset.v}x`));
+    bar.addEventListener('mouseleave', hideTip);
+  });
+}
+
+// ============================================================
+// Chart: return by horizon x year (small multiples, median dot + IQR bar)
+// ============================================================
+function renderHorizon(){
+  const rows = agg.return_by_year_horizon.sort((a,b)=>a.year-b.year);
+  const horizons = ["Day 1","5d","20d","1m","3m","1y"];
+  const w=1100, panelW = w/rows.length, h=210, padT=22, padB=26, padL=4, padR=4;
+  const plotH = h-padT-padB;
+  let allVals = [];
+  rows.forEach(r => horizons.forEach(hz => { if(r[hz] && r[hz].p25!=null){ allVals.push(r[hz].p25, r[hz].p75, r[hz].median);} }));
+  const maxAbs = Math.max(...allVals.map(Math.abs)) * 1.1;
+  const yScale = v => padT + plotH/2 - (v/maxAbs)*(plotH/2);
+
+  let svg = `<svg class="chart" viewBox="0 0 ${w} ${h}">`;
+  const zeroY = yScale(0);
+  svg += `<line class="baseline" x1="0" x2="${w}" y1="${zeroY}" y2="${zeroY}"/>`;
+  svg += `<text class="axislabel" x="2" y="${zeroY-4}">0%</text>`;
+  rows.forEach((r, ri) => {
+    const px0 = ri*panelW;
+    svg += `<text class="axislabel" x="${px0+panelW/2}" y="12" text-anchor="middle" font-weight="650" fill="${cvar('--text-primary')}">${r.year}${r.year===2026?' (H1)':''}</text>`;
+    const step = panelW/horizons.length;
+    horizons.forEach((hz, hi) => {
+      const cell = r[hz];
+      const cx = px0 + hi*step + step/2;
+      if (!cell || cell.median==null) { return; }
+      const yMed = yScale(cell.median);
+      const yP25 = yScale(cell.p25), yP75 = yScale(cell.p75);
+      svg += `<line x1="${cx}" x2="${cx}" y1="${yP75}" y2="${yP25}" stroke="${cvar('--accent')}" stroke-width="3" stroke-linecap="round" opacity="0.35"/>`;
+      svg += `<circle cx="${cx}" cy="${yMed}" r="4.5" fill="${cvar('--accent')}" stroke="${cvar('--surface-1')}" stroke-width="2" class="dot-hit" data-year="${r.year}" data-hz="${hz}" data-med="${cell.median}" data-p25="${cell.p25}" data-p75="${cell.p75}" data-n="${cell.n}" style="cursor:pointer"/>`;
+      if (hi === horizons.length-1) svg += `<text class="axislabel" x="${cx+8}" y="${yMed+3}" font-size="9">${hz}</text>`;
+    });
+  });
+  svg += `</svg>`;
+  const container = document.getElementById('chart-horizon');
+  container.innerHTML = `<div class="legend"><span class="key"><span class="swatch" style="background:${cvar('--accent')}"></span>Median return, thick band = interquartile range</span></div>` + svg;
+  container.querySelectorAll('.dot-hit').forEach(dot => {
+    dot.addEventListener('mousemove', (e) => showTip(e, `<b>${dot.dataset.year} · ${dot.dataset.hz}</b><br>Median: ${fmtPct(+dot.dataset.med)}<br>IQR: ${fmtPct(+dot.dataset.p25)} to ${fmtPct(+dot.dataset.p75)}<br>n=${dot.dataset.n}`));
+    dot.addEventListener('mouseleave', hideTip);
+  });
+}
+
+// ============================================================
+// Chart: day1 by demand tier (single-series bar, diverging around 0 handled by axis)
+// ============================================================
+function renderTier(){
+  const rows = agg.day1_by_demand_tier;
+  const w=520,h=230,padL=54,padR=14,padT=14,padB=54;
+  const plotW=w-padL-padR, plotH=h-padT-padB;
+  const maxV = Math.max(...rows.map(r=>r.median))*1.15;
+  const minV = Math.min(0, Math.min(...rows.map(r=>r.median))*1.15);
+  const range = maxV-minV;
+  const yScale = v => padT + plotH*(1-(v-minV)/range);
+  const step = plotW/rows.length;
+  const bw = Math.min(34, step*0.55);
+  let svg = `<svg class="chart" viewBox="0 0 ${w} ${h}">`;
+  const zeroY = yScale(0);
+  svg += `<line class="baseline" x1="${padL}" x2="${w-padR}" y1="${zeroY}" y2="${zeroY}"/>`;
+  rows.forEach((r,i) => {
+    const x = padL + i*step + (step-bw)/2;
+    const y0 = zeroY, y1 = yScale(r.median);
+    const y = Math.min(y0,y1), bh = Math.abs(y1-y0);
+    const color = r.median >= 0 ? cvar('--gain') : cvar('--loss');
+    svg += `<rect x="${x}" y="${y}" width="${bw}" height="${Math.max(bh,1)}" rx="4" fill="${color}" class="tier-hit" data-t="${r.tier}" data-med="${r.median}" data-n="${r.n}" style="cursor:pointer"/>`;
+    svg += `<text class="axislabel" x="${x+bw/2}" y="${h-padB+14}" text-anchor="end" transform="rotate(-32 ${x+bw/2} ${h-padB+14})">${r.tier}</text>`;
+  });
+  svg += `</svg>`;
+  const container = document.getElementById('chart-tier');
+  container.innerHTML = svg;
+  container.querySelectorAll('.tier-hit').forEach(bar => {
+    bar.addEventListener('mousemove', (e) => showTip(e, `<b>${bar.dataset.t}</b><br>Median day-1: ${fmtPct(+bar.dataset.med)}<br>n=${bar.dataset.n}`));
+    bar.addEventListener('mouseleave', hideTip);
+  });
+}
+
+// ============================================================
+// Chart: lockup event path (line)
+// ============================================================
+function renderLockup(){
+  const rows = agg.lockup_event_path;
+  const w=520,h=210,padL=54,padR=20,padT=16,padB=28;
+  const plotW=w-padL-padR, plotH=h-padT-padB;
+  const vals = rows.map(r=>r.median);
+  const maxV = Math.max(...vals)+1, minV = Math.min(...vals)-1;
+  const range = maxV-minV || 1;
+  const xScale = i => padL + plotW*(i/(rows.length-1));
+  const yScale = v => padT + plotH*(1-(v-minV)/range);
+  const zeroY = yScale(0);
+  let svg = `<svg class="chart" viewBox="0 0 ${w} ${h}">`;
+  svg += `<line class="gridline" x1="${padL}" x2="${w-padR}" y1="${zeroY}" y2="${zeroY}"/>`;
+  svg += `<text class="axislabel" x="${padL-8}" y="${zeroY+3}" text-anchor="end">0%</text>`;
+  let path = rows.map((r,i) => `${i===0?'M':'L'}${xScale(i)},${yScale(r.median)}`).join(' ');
+  svg += `<path d="${path}" fill="none" stroke="${cvar('--accent')}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>`;
+  rows.forEach((r,i) => {
+    svg += `<circle cx="${xScale(i)}" cy="${yScale(r.median)}" r="4.5" fill="${cvar('--accent')}" stroke="${cvar('--surface-1')}" stroke-width="2" class="lk-hit" data-off="${r.offset}" data-med="${r.median}" data-n="${r.n}" style="cursor:pointer"/>`;
+    const lbl = r.offset===0?'expiry':(r.offset>0?'+'+r.offset+'d':r.offset+'d');
+    svg += `<text class="axislabel" x="${xScale(i)}" y="${h-8}" text-anchor="middle">${lbl}</text>`;
+  });
+  svg += `</svg>`;
+  const container = document.getElementById('chart-lockup');
+  container.innerHTML = svg;
+  container.querySelectorAll('.lk-hit').forEach(dot => {
+    dot.addEventListener('mousemove', (e) => showTip(e, `<b>Day ${dot.dataset.off}</b><br>Median cum. return vs IPO: ${fmtPct(+dot.dataset.med)}<br>n=${dot.dataset.n}`));
+    dot.addEventListener('mouseleave', hideTip);
+  });
+}
+
+// ============================================================
+// Chart: Phase 2 participation by exit (bar, single series)
+// ============================================================
+function renderP2(){
+  const rows = agg.phase2_participation;
+  const w=760,h=220,padL=60,padR=16,padT=16,padB=30;
+  const plotW=w-padL-padR, plotH=h-padT-padB;
+  const maxV = Math.max(...rows.map(r=>r.mean_bps))*1.2;
+  const minV = Math.min(0, Math.min(...rows.map(r=>r.mean_bps))*1.2);
+  const range = maxV-minV;
+  const yScale = v => padT + plotH*(1-(v-minV)/range);
+  const step = plotW/rows.length;
+  const bw = Math.min(60, step*0.45);
+  let svg = `<svg class="chart" viewBox="0 0 ${w} ${h}">`;
+  const zeroY = yScale(0);
+  svg += `<line class="baseline" x1="${padL}" x2="${w-padR}" y1="${zeroY}" y2="${zeroY}"/>`;
+  rows.forEach((r,i) => {
+    const cx = padL + i*step + step/2;
+    // mean bar
+    const y0=zeroY, y1=yScale(r.mean_bps);
+    const y=Math.min(y0,y1), bh=Math.abs(y1-y0);
+    svg += `<rect x="${cx-bw/2-10}" y="${y}" width="${bw*0.42}" height="${Math.max(bh,1)}" rx="3" fill="${cvar('--accent')}" class="p2-hit" data-exit="${r.exit}" data-mean="${r.mean_bps}" data-med="${r.median_bps}" data-pos="${r.pct_positive}" data-n="${r.n}" style="cursor:pointer"/>`;
+    // median bar
+    const my1 = yScale(r.median_bps);
+    const my=Math.min(y0,my1), mh=Math.abs(my1-y0);
+    svg += `<rect x="${cx+10-bw*0.42/2-bw*0.42/2+bw*0.42}" y="${my}" width="${bw*0.42}" height="${Math.max(mh,1)}" rx="3" fill="${cvar('--accent-2')}" class="p2-hit" data-exit="${r.exit}" data-mean="${r.mean_bps}" data-med="${r.median_bps}" data-pos="${r.pct_positive}" data-n="${r.n}" style="cursor:pointer"/>`;
+    svg += `<text class="axislabel" x="${cx}" y="${h-8}" text-anchor="middle">${r.exit}</text>`;
+  });
+  for (let i=0;i<=4;i++){
+    const gv = minV + range*i/4, gy = yScale(gv);
+    svg += `<line class="gridline" x1="${padL}" x2="${w-padR}" y1="${gy}" y2="${gy}"/>`;
+    svg += `<text class="axislabel" x="${padL-8}" y="${gy+3}" text-anchor="end">${Math.round(gv)}</text>`;
+  }
+  svg += `</svg>`;
+  const legend = `<div class="legend"><span class="key"><span class="swatch" style="background:${cvar('--accent')}"></span>Mean (bps)</span><span class="key"><span class="swatch" style="background:${cvar('--accent-2')}"></span>Median (bps)</span></div>`;
+  const container = document.getElementById('chart-p2');
+  container.innerHTML = legend + svg;
+  container.querySelectorAll('.p2-hit').forEach(bar => {
+    bar.addEventListener('mousemove', (e) => showTip(e, `<b>Exit: ${bar.dataset.exit}</b><br>Mean: ${fmtBps(+bar.dataset.mean)}<br>Median: ${fmtBps(+bar.dataset.med)}<br>% deals positive: ${bar.dataset.pos}%<br>n=${bar.dataset.n}`));
+    bar.addEventListener('mouseleave', hideTip);
+  });
+}
+
+function renderP2Year(){
+  const rows = agg.phase2_by_year;
+  const w=520,h=200,padL=54,padR=14,padT=14,padB=26;
+  const plotW=w-padL-padR, plotH=h-padT-padB;
+  const maxV = Math.max(...rows.map(r=>r.mean_bps))*1.2;
+  const minV = Math.min(0, Math.min(...rows.map(r=>r.mean_bps))*1.2);
+  const range = maxV-minV;
+  const yScale = v => padT + plotH*(1-(v-minV)/range);
+  const step = plotW/rows.length;
+  const bw = Math.min(40, step*0.5);
+  let svg = `<svg class="chart" viewBox="0 0 ${w} ${h}">`;
+  const zeroY = yScale(0);
+  svg += `<line class="baseline" x1="${padL}" x2="${w-padR}" y1="${zeroY}" y2="${zeroY}"/>`;
+  rows.forEach((r,i) => {
+    const x = padL + i*step + (step-bw)/2;
+    const y0=zeroY, y1=yScale(r.mean_bps);
+    const y=Math.min(y0,y1), bh=Math.abs(y1-y0);
+    const color = r.mean_bps>=0 ? cvar('--gain') : cvar('--loss');
+    svg += `<rect x="${x}" y="${y}" width="${bw}" height="${Math.max(bh,1)}" rx="4" fill="${color}" class="p2y-hit" data-y="${r.year}" data-v="${r.mean_bps}" data-n="${r.n}" style="cursor:pointer"/>`;
+    svg += `<text class="axislabel" x="${x+bw/2}" y="${h-8}" text-anchor="middle">${r.year}</text>`;
+  });
+  svg += `</svg>`;
+  const container = document.getElementById('chart-p2-year');
+  container.innerHTML = svg;
+  container.querySelectorAll('.p2y-hit').forEach(bar => {
+    bar.addEventListener('mousemove', (e) => showTip(e, `<b>${bar.dataset.y}</b><br>Mean return on capital: ${fmtBps(+bar.dataset.v)}<br>n=${bar.dataset.n}`));
+    bar.addEventListener('mouseleave', hideTip);
+  });
+}
+
+// ============================================================
+// Chart: Phase 3 strategy comparison (grouped diverging bars + CI whiskers)
+// ============================================================
+function renderP3(){
+  const rows = agg.phase3_strategies;
+  const w=1080,rowH=64,padL=270,padR=90,padT=10;
+  const h = rows.length*rowH + padT + 10;
+  const plotW = w-padL-padR;
+  let allVals = [];
+  rows.forEach(r => { [r.train, r.test].forEach(x => { if(x && x.mean_bps!=null){allVals.push(x.mean_bps, x.lo_bps??x.mean_bps, x.hi_bps??x.mean_bps);} }); });
+  const maxAbs = Math.max(...allVals.map(Math.abs)) * 1.1;
+  const xScale = v => padL + plotW/2 + (v/maxAbs)*(plotW/2);
+  const zeroX = xScale(0);
+  let svg = `<svg class="chart" viewBox="0 0 ${w} ${h}">`;
+  svg += `<line class="baseline" x1="${zeroX}" x2="${zeroX}" y1="${padT}" y2="${h-6}"/>`;
+  const barH = 14, gap=4;
+  rows.forEach((r,ri) => {
+    const yBase = padT + ri*rowH;
+    svg += `<text x="${padL-14}" y="${yBase+rowH/2+3}" text-anchor="end" font-size="11.5" font-weight="550">${r.strategy}</text>`;
+    svg += `<text x="${padL-14}" y="${yBase+rowH/2+17}" text-anchor="end" font-size="9.5" fill="${cvar('--text-muted')}">exit: ${r.exit}</text>`;
+    [["train",r.train,cvar('--accent'),0],["test",r.test,cvar('--accent-2'),1]].forEach(([lbl,d,color,idx]) => {
+      const y = yBase + 8 + idx*(barH+gap);
+      if (!d || d.mean_bps==null){
+        svg += `<text x="${zeroX+6}" y="${y+barH/2+3}" font-size="10" fill="${cvar('--text-muted')}">${lbl}: n/a</text>`;
+        return;
+      }
+      const x0 = xScale(0), x1 = xScale(d.mean_bps);
+      const x = Math.min(x0,x1), bw = Math.max(Math.abs(x1-x0),1);
+      svg += `<rect x="${x}" y="${y}" width="${bw}" height="${barH}" rx="3" fill="${color}" class="p3-hit" data-strat="${r.strategy}" data-lbl="${lbl}" data-mean="${d.mean_bps}" data-lo="${d.lo_bps}" data-hi="${d.hi_bps}" data-med="${d.median_bps}" data-hit="${d.hit}" data-n="${d.n}" style="cursor:pointer"/>`;
+      if (d.lo_bps!=null && d.hi_bps!=null){
+        const xlo=xScale(d.lo_bps), xhi=xScale(d.hi_bps), cy=y+barH/2;
+        svg += `<line x1="${xlo}" x2="${xhi}" y1="${cy}" y2="${cy}" stroke="${cvar('--text-primary')}" stroke-width="1.3" opacity="0.55"/>`;
+        svg += `<line x1="${xlo}" x2="${xlo}" y1="${cy-3}" y2="${cy+3}" stroke="${cvar('--text-primary')}" stroke-width="1.3" opacity="0.55"/>`;
+        svg += `<line x1="${xhi}" x2="${xhi}" y1="${cy-3}" y2="${cy+3}" stroke="${cvar('--text-primary')}" stroke-width="1.3" opacity="0.55"/>`;
+      }
+      svg += `<text x="${w-padR+6}" y="${y+barH/2+3}" font-size="9.5" fill="${cvar('--text-muted')}">${lbl}</text>`;
+    });
+  });
+  svg += `</svg>`;
+  const legend = `<div class="legend"><span class="key"><span class="swatch" style="background:${cvar('--accent')}"></span>Train (2023–25)</span><span class="key"><span class="swatch" style="background:${cvar('--accent-2')}"></span>Test (2026H1, untouched)</span><span class="key">— whiskers = 95% bootstrap CI</span></div>`;
+  const container = document.getElementById('chart-p3');
+  container.innerHTML = legend + svg;
+  container.querySelectorAll('.p3-hit').forEach(bar => {
+    bar.addEventListener('mousemove', (e) => showTip(e, `<b>${bar.dataset.strat}</b> (${bar.dataset.lbl})<br>Mean: ${fmtBps(+bar.dataset.mean)}<br>95% CI: [${fmtBps(+bar.dataset.lo)}, ${fmtBps(+bar.dataset.hi)}]<br>Median: ${fmtBps(+bar.dataset.med)}<br>Hit rate: ${bar.dataset.hit}%<br>n=${bar.dataset.n}`));
+    bar.addEventListener('mouseleave', hideTip);
+  });
+}
+
+// ============================================================
+// S3b hardening checks
+// ============================================================
+function renderHardeningKpis(){
+  const h = agg.phase3b_hardening;
+  if (!h || !h.concentration) return;
+  const c = document.getElementById('kpi-hardening');
+  const tiles = [
+    {label:"Max drawdown", value: fmtPct(h.equity_curve.max_drawdown_pct), cls:"neg"},
+    {label:"Longest losing streak", value: h.equity_curve.longest_losing_streak + " trades"},
+    {label:"Top-3 share of return", value: fmt(h.concentration.top3_share_pct,0) + "%"},
+    {label:"Median per-trade (train)", value: fmtBps(h.concentration.median_bps)},
+    {label:"Realistic capacity ceiling", value: "~HK$100–200K", delta:"per trade, see capacity panel"},
+  ];
+  c.innerHTML = tiles.map(t => `<div class="tile"><div class="label">${t.label}</div><div class="value mono ${t.cls||''}">${t.value}</div>${t.delta?`<div class="delta">${t.delta}</div>`:''}</div>`).join('');
+  document.getElementById('hardening-verdict').innerHTML =
+    `<b>Verdict:</b> the edge is real and cost-robust (survives to ~2%/leg), but it is right-tail-driven, not smooth — a live implementation must cap position size per trade (~HK$100–200K, per the capacity panel), treat the pooled mean as optimistic vs. the <span class="mono">${fmtBps(h.concentration.median_bps)}</span> median, and be sized as a small, uncorrelated-across-trades satellite allocation given the <span class="mono">${fmtPct(h.equity_curve.max_drawdown_pct)}</span> max drawdown and ${h.equity_curve.longest_losing_streak}-trade losing streak observed even within this backtest.`;
+  document.getElementById('conc-top3-share').textContent = fmt(h.concentration.top3_share_pct,0) + '%';
+}
+
+function renderEquityCurve(){
+  const pts = agg.phase3b_hardening?.equity_curve?.points;
+  if (!pts || !pts.length) return;
+  const w=1080,h=260,padL=54,padR=16,padT=16,padB=26;
+  const plotW=w-padL-padR, plotH=h-padT-padB;
+  const maxEq = Math.max(...pts.map(p=>p.equity))*1.08, minEq = 0;
+  const xScale = i => padL + plotW*(i/(pts.length-1));
+  const yScale = v => padT + plotH*(1-(v-minEq)/(maxEq-minEq));
+  let svg = `<svg class="chart" viewBox="0 0 ${w} ${h}">`;
+  for (let i=0;i<=4;i++){
+    const gv = maxEq*i/4, gy = yScale(gv);
+    svg += `<line class="gridline" x1="${padL}" x2="${w-padR}" y1="${gy}" y2="${gy}"/>`;
+    svg += `<text class="axislabel" x="${padL-8}" y="${gy+3}" text-anchor="end">${gv.toFixed(1)}x</text>`;
+  }
+  svg += `<line class="baseline" x1="${padL}" x2="${w-padR}" y1="${yScale(1)}" y2="${yScale(1)}" stroke-dasharray="1"/>`;
+  let path = pts.map((p,i) => `${i===0?'M':'L'}${xScale(i)},${yScale(p.equity)}`).join(' ');
+  const areaPath = path + ` L${xScale(pts.length-1)},${yScale(0)} L${xScale(0)},${yScale(0)} Z`;
+  svg += `<path d="${areaPath}" fill="${cvar('--accent')}" opacity="0.08"/>`;
+  svg += `<path d="${path}" fill="none" stroke="${cvar('--accent')}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>`;
+  // mark max drawdown point
+  const ddPoint = pts.reduce((worst,p,i) => p.drawdown_pct < pts[worst].drawdown_pct ? i : worst, 0);
+  svg += `<circle cx="${xScale(ddPoint)}" cy="${yScale(pts[ddPoint].equity)}" r="5" fill="${cvar('--loss')}" stroke="${cvar('--surface-1')}" stroke-width="2"/>`;
+  [0, Math.floor(pts.length/2), pts.length-1].forEach(i => {
+    svg += `<text class="axislabel" x="${xScale(i)}" y="${h-8}" text-anchor="middle">${pts[i].date.slice(0,7)}</text>`;
+  });
+  svg += `</svg>`;
+  document.getElementById('chart-equity').innerHTML =
+    `<div class="legend"><span class="key"><span class="swatch" style="background:${cvar('--accent')}"></span>Equity (1.0 = start)</span><span class="key"><span class="swatch" style="background:${cvar('--loss')}"></span>Deepest drawdown point</span></div>` + svg;
+}
+
+function renderCapacityTable(){
+  const rows = agg.phase3b_hardening?.capacity;
+  if (!rows) return;
+  const html = `<table class="deals"><thead><tr><th>Position size</th><th>Median % of day-1 turnover</th><th>% deals breaching 1%</th></tr></thead><tbody>${
+    rows.map(r => `<tr><td class="mono">HK$${fmt(r.position_usd,0)}</td><td class="mono">${fmt(r.median_pct_of_day1_turnover,3)}%</td><td class="mono ${r.pct_deals_breaching_1pct>30?'neg':''}">${fmt(r.pct_deals_breaching_1pct,0)}%</td></tr>`).join('')
+  }</tbody></table>`;
+  document.getElementById('capacity-table').innerHTML = html;
+}
+
+function renderStability(){
+  const rows = agg.phase3b_hardening?.sub_period_stability;
+  if (!rows) return;
+  const w=520,h=220,padL=54,padR=16,padT=16,padB=26;
+  const plotW=w-padL-padR, plotH=h-padT-padB;
+  let allVals = [];
+  rows.forEach(r => { if(r.mean_bps!=null) allVals.push(r.mean_bps, r.lo_bps??r.mean_bps, r.hi_bps??r.mean_bps); });
+  const maxAbs = Math.max(...allVals.map(Math.abs))*1.15;
+  const yScale = v => padT + plotH/2 - (v/maxAbs)*(plotH/2);
+  const zeroY = yScale(0);
+  const step = plotW/rows.length, bw = Math.min(50, step*0.5);
+  let svg = `<svg class="chart" viewBox="0 0 ${w} ${h}">`;
+  svg += `<line class="baseline" x1="${padL}" x2="${w-padR}" y1="${zeroY}" y2="${zeroY}"/>`;
+  rows.forEach((r,i) => {
+    const cx = padL + i*step + step/2;
+    if (r.mean_bps == null){ svg += `<text class="axislabel" x="${cx}" y="${zeroY}" text-anchor="middle">n/a</text>`; return; }
+    const y0=zeroY, y1=yScale(r.mean_bps), y=Math.min(y0,y1), bh=Math.max(Math.abs(y1-y0),1);
+    const color = r.mean_bps>=0 ? cvar('--gain') : cvar('--loss');
+    svg += `<rect x="${cx-bw/2}" y="${y}" width="${bw}" height="${bh}" rx="3" fill="${color}" class="stab-hit" data-y="${r.year}" data-mean="${r.mean_bps}" data-lo="${r.lo_bps}" data-hi="${r.hi_bps}" data-n="${r.n}" style="cursor:pointer"/>`;
+    if (r.lo_bps!=null){
+      const xlo=yScale(r.lo_bps), xhi=yScale(r.hi_bps);
+      svg += `<line x1="${cx}" x2="${cx}" y1="${xlo}" y2="${xhi}" stroke="${cvar('--text-primary')}" stroke-width="1.3" opacity="0.5"/>`;
+    }
+    svg += `<text class="axislabel" x="${cx}" y="${h-8}" text-anchor="middle">${r.year}</text>`;
+  });
+  svg += `</svg>`;
+  const container = document.getElementById('chart-stability');
+  container.innerHTML = svg;
+  container.querySelectorAll('.stab-hit').forEach(bar => {
+    bar.addEventListener('mousemove', (e) => showTip(e, `<b>${bar.dataset.y}</b><br>Mean: ${fmtBps(+bar.dataset.mean)}<br>95% CI: [${fmtBps(+bar.dataset.lo)}, ${fmtBps(+bar.dataset.hi)}]<br>n=${bar.dataset.n}`));
+    bar.addEventListener('mouseleave', hideTip);
+  });
+}
+
+function renderCostSens(){
+  const rows = agg.phase3b_hardening?.cost_sensitivity;
+  if (!rows) return;
+  const w=520,h=220,padL=54,padR=16,padT=16,padB=26;
+  const plotW=w-padL-padR, plotH=h-padT-padB;
+  let allVals = [];
+  rows.forEach(r => { [r.train,r.test].forEach(x=>{ if(x&&x.mean_bps!=null) allVals.push(x.mean_bps); }); });
+  const maxV = Math.max(...allVals)*1.15, minV = Math.min(0,Math.min(...allVals)*1.15);
+  const range = maxV-minV;
+  const yScale = v => padT + plotH*(1-(v-minV)/range);
+  const zeroY = yScale(0);
+  const step = plotW/rows.length;
+  let svg = `<svg class="chart" viewBox="0 0 ${w} ${h}">`;
+  svg += `<line class="baseline" x1="${padL}" x2="${w-padR}" y1="${zeroY}" y2="${zeroY}"/>`;
+  rows.forEach((r,i) => {
+    const cx = padL + i*step + step/2;
+    [["train",r.train,cvar('--accent'),-9],["test",r.test,cvar('--accent-2'),9]].forEach(([lbl,d,color,dx]) => {
+      if (!d || d.mean_bps==null) return;
+      const y0=zeroY, y1=yScale(d.mean_bps), y=Math.min(y0,y1), bh=Math.max(Math.abs(y1-y0),1);
+      svg += `<rect x="${cx+dx-8}" y="${y}" width="16" height="${bh}" rx="3" fill="${color}" class="cs-hit" data-side="${r.side_pct}" data-lbl="${lbl}" data-mean="${d.mean_bps}" data-n="${d.n}" style="cursor:pointer"/>`;
+    });
+    svg += `<text class="axislabel" x="${cx}" y="${h-8}" text-anchor="middle">${r.side_pct}%</text>`;
+  });
+  svg += `</svg>`;
+  const legend = `<div class="legend"><span class="key"><span class="swatch" style="background:${cvar('--accent')}"></span>Train</span><span class="key"><span class="swatch" style="background:${cvar('--accent-2')}"></span>Test</span></div>`;
+  const container = document.getElementById('chart-costsens');
+  container.innerHTML = legend + svg;
+  container.querySelectorAll('.cs-hit').forEach(bar => {
+    bar.addEventListener('mousemove', (e) => showTip(e, `<b>${bar.dataset.side}%/leg</b> (${bar.dataset.lbl})<br>Mean: ${fmtBps(+bar.dataset.mean)}<br>n=${bar.dataset.n}`));
+    bar.addEventListener('mouseleave', hideTip);
+  });
+}
+
+function renderEntryTiming(){
+  const rows = agg.phase3b_hardening?.entry_timing_variants;
+  if (!rows) return;
+  const w=1080,rowH=56,padL=280,padR=90,padT=10;
+  const h = rows.length*rowH+padT+10;
+  const plotW = w-padL-padR;
+  let allVals = [];
+  rows.forEach(r => [r.train,r.test].forEach(d=>{ if(d&&d.mean_bps!=null) allVals.push(d.mean_bps, d.lo_bps??d.mean_bps, d.hi_bps??d.mean_bps); }));
+  const maxAbs = Math.max(...allVals.map(Math.abs))*1.1;
+  const xScale = v => padL + plotW/2 + (v/maxAbs)*(plotW/2);
+  const zeroX = xScale(0);
+  let svg = `<svg class="chart" viewBox="0 0 ${w} ${h}">`;
+  svg += `<line class="baseline" x1="${zeroX}" x2="${zeroX}" y1="${padT}" y2="${h-6}"/>`;
+  const barH=14, gap=4;
+  rows.forEach((r,ri) => {
+    const yBase = padT+ri*rowH;
+    svg += `<text x="${padL-14}" y="${yBase+rowH/2+3}" text-anchor="end" font-size="11.5" font-weight="550">${r.label}</text>`;
+    [["train",r.train,cvar('--accent'),0],["test",r.test,cvar('--accent-2'),1]].forEach(([lbl,d,color,idx]) => {
+      const y = yBase+8+idx*(barH+gap);
+      if (!d || d.mean_bps==null){ svg += `<text x="${zeroX+6}" y="${y+barH/2+3}" font-size="10" fill="${cvar('--text-muted')}">${lbl}: n/a</text>`; return; }
+      const x0=xScale(0), x1=xScale(d.mean_bps), x=Math.min(x0,x1), bw=Math.max(Math.abs(x1-x0),1);
+      svg += `<rect x="${x}" y="${y}" width="${bw}" height="${barH}" rx="3" fill="${color}" class="et-hit" data-strat="${r.label}" data-lbl="${lbl}" data-mean="${d.mean_bps}" data-lo="${d.lo_bps}" data-hi="${d.hi_bps}" data-n="${d.n}" style="cursor:pointer"/>`;
+      if (d.lo_bps!=null){
+        const xlo=xScale(d.lo_bps), xhi=xScale(d.hi_bps), cy=y+barH/2;
+        svg += `<line x1="${xlo}" x2="${xhi}" y1="${cy}" y2="${cy}" stroke="${cvar('--text-primary')}" stroke-width="1.3" opacity="0.55"/>`;
+      }
+      svg += `<text x="${w-padR+6}" y="${y+barH/2+3}" font-size="9.5" fill="${cvar('--text-muted')}">${lbl}</text>`;
+    });
+  });
+  svg += `</svg>`;
+  const legend = `<div class="legend"><span class="key"><span class="swatch" style="background:${cvar('--accent')}"></span>Train (2023–25)</span><span class="key"><span class="swatch" style="background:${cvar('--accent-2')}"></span>Test (2026H1)</span></div>`;
+  const container = document.getElementById('chart-entrytiming');
+  container.innerHTML = legend + svg;
+  container.querySelectorAll('.et-hit').forEach(bar => {
+    bar.addEventListener('mousemove', (e) => showTip(e, `<b>${bar.dataset.strat}</b> (${bar.dataset.lbl})<br>Mean: ${fmtBps(+bar.dataset.mean)}<br>n=${bar.dataset.n}`));
+    bar.addEventListener('mouseleave', hideTip);
+  });
+}
+
+function renderConcentrationTable(){
+  const c = agg.phase3b_hardening?.concentration;
+  if (!c) return;
+  const rows = [...c.top_deals.map(d=>({...d,tag:'best'})), ...c.bottom_deals.map(d=>({...d,tag:'worst'}))];
+  document.getElementById('concentration-tbody').innerHTML = rows.map(r => `
+    <tr><td>${r.name} <span class="pill">${r.tag}</span></td><td class="mono">${r.date}</td><td class="mono ${signClass(r.day1_pct)}">${fmtPct(r.day1_pct)}</td><td class="mono ${signClass(r.c20_pct)}">${fmtPct(r.c20_pct)}</td></tr>
+  `).join('');
+}
+
+// ============================================================
+// Deal explorer table
+// ============================================================
+const TABLE_COLS = [
+  {key:"ipo_date", label:"Listed", type:"date"},
+  {key:"stock_code", label:"Code", type:"str"},
+  {key:"company_name_en", label:"Company", type:"str"},
+  {key:"sector", label:"Sector", type:"str"},
+  {key:"listing_regime", label:"Regime", type:"str"},
+  {key:"total_ipo_size_usd", label:"Size (US$M)", type:"num", d:0},
+  {key:"ipo_price_hkd", label:"Offer px (HK$)", type:"num", d:2},
+  {key:"times_oversubscribed_retail", label:"Oversub", type:"num", d:1, suffix:"x"},
+  {key:"pool_a_1lot_allocation_rate_pct", label:"Alloc %", type:"num", d:1},
+  {key:"day1_performance_pct", label:"Day-1 %", type:"pct"},
+  {key:"perf_1m_pct", label:"1m %", type:"pct"},
+  {key:"perf_3m_pct", label:"3m %", type:"pct"},
+  {key:"ipo_perf_1y_pct", label:"1y %", type:"pct"},
+];
+let sortState = {key:"ipo_date", dir:-1};
+let filtered = deals.slice();
+
+function populateFilterOptions(){
+  const years = [...new Set(deals.map(d=>d.year))].sort();
+  const sectors = [...new Set(deals.map(d=>d.sector))].filter(Boolean).sort();
+  const regimes = [...new Set(deals.map(d=>d.listing_regime))].filter(Boolean).sort();
+  const tiers = [...new Set(deals.map(d=>d.demand_tier))].filter(Boolean);
+  const tierOrder = ["undersubscribed(<1x)","1-15x","15-50x","50-100x","100-500x",">500x"];
+  tiers.sort((a,b)=>tierOrder.indexOf(a)-tierOrder.indexOf(b));
+  const fill = (id, vals) => { const s=document.getElementById(id); vals.forEach(v=>{const o=document.createElement('option');o.value=v;o.textContent=v;s.appendChild(o);}); };
+  fill('f-year', years); fill('f-sector', sectors); fill('f-regime', regimes); fill('f-tier', tiers);
+}
+
+function applyFilters(){
+  const y=document.getElementById('f-year').value, sc=document.getElementById('f-sector').value,
+        rg=document.getElementById('f-regime').value, tr=document.getElementById('f-tier').value,
+        q=document.getElementById('f-search').value.toLowerCase();
+  filtered = deals.filter(d =>
+    (!y || String(d.year)===y) && (!sc || d.sector===sc) && (!rg || d.listing_regime===rg) &&
+    (!tr || d.demand_tier===tr) && (!q || d.company_name_en.toLowerCase().includes(q) || d.stock_code.includes(q))
+  );
+  document.getElementById('f-count').textContent = filtered.length + " / " + deals.length + " deals";
+  renderTable();
+}
+
+function renderTheadOnce(){
+  const thead = document.getElementById('deal-thead');
+  thead.innerHTML = TABLE_COLS.map(c => `<th data-key="${c.key}">${c.label}</th>`).join('');
+  thead.querySelectorAll('th').forEach(th => {
+    th.addEventListener('click', () => {
+      const key = th.dataset.key;
+      if (sortState.key === key) sortState.dir *= -1; else sortState = {key, dir:1};
+      renderTable();
+    });
+  });
+}
+
+function renderTable(){
+  const thead = document.getElementById('deal-thead');
+  thead.querySelectorAll('th').forEach(th => th.classList.toggle('sorted', th.dataset.key===sortState.key) || th.classList.toggle('asc', th.dataset.key===sortState.key && sortState.dir===1));
+  const rows = [...filtered].sort((a,b) => {
+    let av=a[sortState.key], bv=b[sortState.key];
+    if (av==null) av = -Infinity; if (bv==null) bv = -Infinity;
+    if (typeof av === 'string') return av.localeCompare(bv) * sortState.dir;
+    return (av-bv) * sortState.dir;
+  });
+  const tbody = document.getElementById('deal-tbody');
+  const frag = document.createDocumentFragment();
+  rows.slice(0, 400).forEach(d => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = TABLE_COLS.map(c => {
+      const v = d[c.key];
+      if (c.type === 'pct') return `<td class="${signClass(v)}">${fmtPct(v)}</td>`;
+      if (c.type === 'num') return `<td>${v==null?'—':fmt(v,c.d)+(c.suffix||'')}</td>`;
+      return `<td>${v==null?'—':v}</td>`;
+    }).join('');
+    frag.appendChild(tr);
+  });
+  tbody.innerHTML = '';
+  tbody.appendChild(frag);
+}
+
+['f-year','f-sector','f-regime','f-tier'].forEach(id => document.getElementById(id).addEventListener('change', applyFilters));
+document.getElementById('f-search').addEventListener('input', applyFilters);
+
+// ============================================================
+// Allocation calculator
+// ============================================================
+const FEE_SUB = 0.010084, SIDE = 0.0025;
+function calcDealReturn(d, exitField){
+  const [pxCol, perfCol] = exitField.split('|');
+  let exitPx;
+  if (pxCol) exitPx = d[pxCol];
+  else exitPx = d.ipo_price_hkd * (1 + d[perfCol]/100);
+  if (exitPx == null || d.ipo_price_hkd == null || d.board_lot_shares == null || d.pool_a_1lot_allocation_rate_pct == null) return null;
+  const p = d.pool_a_1lot_allocation_rate_pct/100;
+  const capital = d.board_lot_shares * d.ipo_price_hkd * (1+FEE_SUB);
+  const lockDays = d.fini_platform_flag === "T+1" ? 2 : 6;
+  const carry = capital * (d.hibor_1m_on_ipo_pct||0)/100 * lockDays/365;
+  const win = d.board_lot_shares * (exitPx*(1-SIDE) - d.ipo_price_hkd*(1+FEE_SUB));
+  return {p_alloc:p, capital, carry, e_pnl: p*win - carry, win_pnl: win};
+}
+
+function populateCalc(){
+  const sel = document.getElementById('calc-deal');
+  const sorted = [...deals].sort((a,b) => a.ipo_date < b.ipo_date ? 1 : -1);
+  sorted.forEach(d => { const o = document.createElement('option'); o.value = d.stock_code; o.textContent = `${d.company_name_en} (${d.stock_code}, ${d.ipo_date})`; sel.appendChild(o); });
+  const yrs = [...new Set(deals.map(d=>d.year))].sort();
+  const yf = document.getElementById('calc-year-filter');
+  yrs.forEach(y => { const o=document.createElement('option'); o.value=y; o.textContent=y; yf.appendChild(o); });
+}
+
+document.getElementById('calc-mode').addEventListener('change', (e) => {
+  const isPortfolio = e.target.value === 'portfolio';
+  document.getElementById('calc-deal-field').style.display = isPortfolio ? 'none' : 'block';
+  document.getElementById('calc-filter-field').style.display = isPortfolio ? 'block' : 'none';
+  runCalc();
+});
+['calc-deal','calc-exit','calc-lots','calc-year-filter'].forEach(id => document.getElementById(id).addEventListener('input', runCalc));
+
+function runCalc(){
+  const mode = document.getElementById('calc-mode').value;
+  const exitField = document.getElementById('calc-exit').value;
+  const lots = Math.max(1, +document.getElementById('calc-lots').value || 1);
+  const warnEl = document.getElementById('calc-warn');
+  warnEl.textContent = lots > 1 ? "⚠ Multi-lot allocation curves aren't modeled — this treats every ballot as an independent 1-lot draw at the smallest tier's rate, which overstates the true allocation probability for larger applications (every observed Basis-of-Allocation table shows higher tiers allocate at equal-or-lower rates)." : "";
+
+  if (mode === 'single'){
+    const code = document.getElementById('calc-deal').value || deals[deals.length-1].stock_code;
+    const d = deals.find(x => x.stock_code === code);
+    const r = d ? calcDealReturn(d, exitField) : null;
+    if (!r){
+      document.getElementById('calc-pnl').textContent = '—';
+      document.getElementById('calc-rows').innerHTML = '<i>Missing data for this deal/exit combination.</i>';
+      return;
+    }
+    const totalPnl = r.e_pnl * lots, totalCap = r.capital * lots;
+    document.getElementById('calc-pnl').innerHTML = `<span class="${signClass(totalPnl)}">${totalPnl>=0?'+':''}HK$${fmt(totalPnl,0)}</span>`;
+    document.getElementById('calc-rows').innerHTML = `
+      <div>Capital committed<span class="v">HK$${fmt(totalCap,0)}</span></div>
+      <div>Allocation probability<span class="v">${fmt(r.p_alloc*100,1)}%</span></div>
+      <div>P&amp;L if allotted<span class="v">HK$${fmt(r.win_pnl*lots,0)}</span></div>
+      <div>HIBOR carry cost<span class="v">HK$${fmt(r.carry*lots,0)}</span></div>
+      <div>Return on capital<span class="v">${fmtBps(totalPnl/totalCap*1e4)}</span></div>`;
+  } else {
+    const yf = document.getElementById('calc-year-filter').value;
+    const pool = deals.filter(d => !yf || String(d.year)===yf);
+    let totalPnl=0, totalCap=0, n=0;
+    pool.forEach(d => { const r = calcDealReturn(d, exitField); if (r){ totalPnl += r.e_pnl*lots; totalCap += r.capital*lots; n++; } });
+    document.getElementById('calc-pnl').innerHTML = `<span class="${signClass(totalPnl)}">${totalPnl>=0?'+':''}HK$${fmt(totalPnl,0)}</span>`;
+    document.getElementById('calc-rows').innerHTML = `
+      <div>Deals subscribed<span class="v">${n}</span></div>
+      <div>Total capital committed<span class="v">HK$${fmt(totalCap,0)}</span></div>
+      <div>Mean return on capital<span class="v">${fmtBps(totalPnl/totalCap*1e4)}</span></div>
+      <div>Per-deal average P&amp;L<span class="v">HK$${fmt(totalPnl/n,0)}</span></div>`;
+  }
+}
+
+// ============================================================
+// init
+// ============================================================
+function init(){
+  renderKpis();
+  renderWave();
+  renderRegime();
+  renderOversub();
+  renderHorizon();
+  renderTier();
+  renderLockup();
+  renderP2();
+  renderP2Year();
+  renderP3();
+  renderHardeningKpis();
+  renderEquityCurve();
+  renderCapacityTable();
+  renderStability();
+  renderCostSens();
+  renderEntryTiming();
+  renderConcentrationTable();
+  populateFilterOptions();
+  renderTheadOnce();
+  applyFilters();
+  populateCalc();
+  runCalc();
+  document.getElementById('meta-line').textContent = `${meta.n_deals} deals · ${meta.n_train} train (2023–2025) · ${meta.n_test} test (2026H1, untouched).`;
+  document.addEventListener('mousemove', (e) => { if (tooltipEl.classList.contains('show')) moveTip(e); });
+}
+init();
+
+// re-render charts when the viewer's theme flips, so CSS-var-derived SVG colors refresh
+const themeObserver = new MutationObserver(() => { renderWave(); renderRegime(); renderOversub(); renderHorizon(); renderTier(); renderLockup(); renderP2(); renderP2Year(); renderP3(); renderEquityCurve(); renderStability(); renderCostSens(); renderEntryTiming(); });
+themeObserver.observe(document.documentElement, {attributes:true, attributeFilter:['data-theme']});
+</script>

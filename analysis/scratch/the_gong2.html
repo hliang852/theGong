@@ -1,0 +1,827 @@
+<title>The GONG — A Record of Hong Kong Listing Days</title>
+<style>
+  /* THE GONG · edition II — high-contrast broadsheet, separate pages,
+     switchable edition inks (朱 cinnabar · 玄 ink&seal · 绛 imperial · 褐 claret).
+     Gain prints red, loss prints green — as Hong Kong reads the tape. */
+  :root{
+    --paper:#f4f1e7; --paper-2:#ece8da; --panel:#faf8f0;
+    --ink:#191613; --ink-2:#4b473e; --ink-3:#847e6c;
+    --hairline:#d7d1bd; --rule:#b7af96;
+    --accent:#71212e; --accent-soft:#e7d5d3; --brass:#8f6a28;
+    --gain:#a8332e; --loss:#2f6e46;
+    --shadow:rgba(40,32,18,.12);
+    --hed:'Didot','Bodoni 72','Bodoni MT','Playfair Display','Georgia',serif;
+    --serif:'Iowan Old Style','Palatino Linotype','Palatino','Georgia',serif;
+    --mono:ui-monospace,'SF Mono','Menlo','Roboto Mono',monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:15px;line-height:1.62;
+    -webkit-font-smoothing:antialiased;transition:background .3s,color .3s;overflow-x:hidden;}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 26px;}
+  .mono{font-family:var(--mono);font-variant-numeric:tabular-nums;}
+  .up{color:var(--gain);} .down{color:var(--loss);}
+  .slug{font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);}
+
+  /* controls cluster */
+  .ctrls{position:fixed;top:12px;right:14px;z-index:70;display:flex;flex-direction:column;gap:8px;align-items:center;}
+  .toggle{width:36px;height:36px;border-radius:50%;border:1px solid var(--rule);background:var(--panel);color:var(--ink);
+    cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px var(--shadow);}
+  .toggle svg{width:17px;height:17px;}
+  .pals{display:flex;flex-direction:column;gap:6px;background:var(--panel);border:1px solid var(--rule);
+    border-radius:20px;padding:8px 6px;box-shadow:0 2px 8px var(--shadow);}
+  .pal{width:24px;height:24px;border-radius:50%;cursor:pointer;border:2px solid transparent;
+    display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:11px;color:#f6efe2;}
+  .pal.on{border-color:var(--ink);}
+  .pal[data-p="cinnabar"]{background:#9e2b23;} .pal[data-p="seal"]{background:#141210;}
+  .pal[data-p="imperial"]{background:#6b1420;} .pal[data-p="claret"]{background:#71212e;opacity:.75;}
+
+  /* ticker */
+  .tickbar{border-bottom:1px solid var(--rule);background:var(--paper-2);overflow:hidden;position:relative;}
+  .tickbar .lab{position:absolute;left:0;top:0;bottom:0;display:flex;align-items:center;padding:0 12px;
+    background:var(--accent);color:var(--paper);font-family:var(--mono);font-size:10px;letter-spacing:.16em;z-index:2;}
+  .tickwin{white-space:nowrap;padding:8px 0 8px 130px;}
+  .tickrun{display:inline-block;white-space:nowrap;animation:tickmove 90s linear infinite;}
+  .tickbar:hover .tickrun{animation-play-state:paused;}
+  @keyframes tickmove{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  .tk{font-family:var(--mono);font-size:11.5px;color:var(--ink-2);margin-right:30px;}
+  .tk b{color:var(--ink);font-weight:600;}
+  @media (prefers-reduced-motion:reduce){.tickrun{animation:none;}.tickwin{overflow-x:auto;}}
+
+  /* masthead */
+  .masthead{padding:26px 0 0;}
+  .mast-rules{border-top:3px solid var(--ink);border-bottom:1px solid var(--ink);height:5px;margin-bottom:14px;}
+  .mast-grid{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:18px;}
+  .ear{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);line-height:1.9;}
+  .ear.r{text-align:right;}
+  .nameplate{text-align:center;display:flex;align-items:center;justify-content:center;gap:22px;}
+  .nameplate h1{font-family:var(--hed);font-weight:700;font-size:clamp(48px,8vw,88px);line-height:.92;
+    letter-spacing:.05em;text-transform:uppercase;}
+  .nameplate h1 .the{display:block;font-family:var(--serif);font-size:.24em;font-weight:400;letter-spacing:.6em;
+    color:var(--ink-2);margin-bottom:9px;}
+  .medal{position:relative;width:72px;height:72px;flex:none;}
+  .medal svg{width:100%;height:100%;display:block;}
+  .medal .ring{position:absolute;inset:0;border-radius:50%;border:1.5px solid var(--brass);opacity:0;}
+  .struck .ring{animation:gongring 1.5s ease-out .25s 1;}
+  .struck .ring.r2{animation-delay:.5s;}
+  @keyframes gongring{0%{opacity:.7;transform:scale(.9);}100%{opacity:0;transform:scale(2.1);}}
+  @media (prefers-reduced-motion:reduce){.struck .ring{animation:none;}}
+  .kanji{writing-mode:vertical-rl;font-size:20px;letter-spacing:.5em;color:var(--ink-3);flex:none;user-select:none;}
+  .folio{margin-top:15px;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);
+    padding:7px 0;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+    font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);}
+  @media(max-width:780px){.ear{display:none;}.mast-grid{grid-template-columns:1fr;}.kanji{display:none;}}
+  /* compact masthead on inner pages */
+  body:not([data-page="home"]) .nameplate h1{font-size:40px;letter-spacing:.06em;}
+  body:not([data-page="home"]) .nameplate h1 .the{font-size:.3em;margin-bottom:4px;}
+  body:not([data-page="home"]) .medal{width:40px;height:40px;}
+  body:not([data-page="home"]) .kanji{display:none;}
+  body:not([data-page="home"]) .ear{display:none;}
+  body:not([data-page="home"]) .folio{display:none;}
+  body:not([data-page="home"]) .masthead{padding-top:18px;}
+  body:not([data-page="home"]) .mast-grid{grid-template-columns:1fr;}
+
+  .secnav{display:flex;justify-content:center;gap:0;border-bottom:1px solid var(--rule);flex-wrap:wrap;margin-top:2px;}
+  .secnav a{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--ink-2);text-decoration:none;padding:11px 20px;border-left:1px solid var(--hairline);}
+  .secnav a:first-child{border-left:none;}
+  .secnav a:hover{color:var(--accent);}
+  .secnav a.here{color:var(--accent);font-weight:600;box-shadow:inset 0 -2px 0 var(--accent);}
+
+  /* pages */
+  section.pg{display:none;}
+  section.pg.on{display:block;}
+  .pagehead{padding:26px 0 6px;}
+  .pagehead .slug{display:block;margin-bottom:8px;}
+  .pagehead h2{font-family:var(--hed);font-weight:700;font-size:clamp(28px,4.4vw,44px);line-height:1.04;letter-spacing:.005em;text-wrap:balance;}
+  .pagehead .dek{font-family:var(--serif);font-style:italic;font-size:16.5px;color:var(--ink-2);margin-top:10px;max-width:64ch;}
+
+  /* front */
+  .front{display:grid;grid-template-columns:7fr 5fr;gap:0;padding:30px 0 34px;border-bottom:3px double var(--rule);}
+  .lead{padding-right:30px;border-right:1px solid var(--hairline);}
+  .rail{padding-left:30px;display:flex;flex-direction:column;gap:24px;}
+  @media(max-width:860px){.front{grid-template-columns:1fr;}.lead{padding-right:0;border-right:none;}.rail{padding-left:0;margin-top:28px;}}
+  .hed{font-family:var(--hed);font-weight:700;font-size:clamp(32px,5vw,52px);line-height:1.02;letter-spacing:.004em;text-wrap:balance;}
+  .dek{font-family:var(--serif);font-style:italic;font-size:17px;line-height:1.5;color:var(--ink-2);margin-top:12px;max-width:56ch;}
+  .byline{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);
+    margin:14px 0 4px;padding-bottom:10px;border-bottom:1px solid var(--hairline);}
+  .cols{margin-top:14px;column-count:2;column-gap:30px;column-rule:1px solid var(--hairline);}
+  @media(max-width:640px){.cols{column-count:1;}}
+  .cols p{font-size:14.5px;line-height:1.66;color:var(--ink-2);margin-bottom:13px;break-inside:avoid-column;}
+  .cols p b{color:var(--ink);font-weight:600;}
+  .cols p:first-child::first-letter{font-family:var(--hed);font-size:54px;font-weight:700;float:left;line-height:.8;
+    padding:6px 8px 0 0;color:var(--accent);}
+  .contmark{font-family:var(--mono);font-size:10.5px;color:var(--ink-3);letter-spacing:.06em;margin-top:6px;}
+  .contmark a{color:var(--accent);text-decoration:none;}
+
+  .box{border:1px solid var(--ink);padding:16px 18px 15px;background:var(--panel);}
+  .box .bx-slug{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--paper);background:var(--ink);display:inline-block;padding:3px 9px;margin:-16px 0 12px -18px;}
+  .agate{list-style:none;}
+  .agate li{display:flex;align-items:baseline;gap:8px;font-size:13px;color:var(--ink-2);padding:5.5px 0;}
+  .agate .fill{flex:1;border-bottom:1px dotted var(--rule);transform:translateY(-3px);}
+  .agate .num{font-family:var(--mono);font-size:13.5px;font-weight:600;color:var(--ink);}
+  .idx li a{color:inherit;text-decoration:none;}
+  .idx li a:hover{color:var(--accent);}
+  .idx .pg-no{font-family:var(--mono);font-size:11px;color:var(--ink-3);}
+
+  /* chart frames */
+  .chart-frame{border:1px solid var(--ink);background:var(--panel);padding:16px 16px 12px;}
+  .chart-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;margin-bottom:8px;}
+  .chart-head .t{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);font-weight:600;}
+  .chart-head .legend{display:flex;gap:12px;font-family:var(--mono);font-size:10px;color:var(--ink-2);}
+  .chart-head .legend i{width:8px;height:8px;display:inline-block;margin-right:5px;}
+  #tape{width:100%;display:block;cursor:crosshair;}
+  .tape-x{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10px;color:var(--ink-3);margin-top:6px;}
+  .caption{font-family:var(--serif);font-style:italic;font-size:12.5px;color:var(--ink-3);margin-top:9px;line-height:1.55;}
+  .record{padding:30px 0 26px;}
+
+  /* exhibits */
+  .exgrid{display:grid;grid-template-columns:1fr 1fr;gap:22px;padding:22px 0 46px;}
+  @media(max-width:820px){.exgrid{grid-template-columns:1fr;}}
+  .ex{border:1px solid var(--ink);background:var(--panel);padding:15px 16px 11px;}
+  .ex .exn{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;color:var(--paper);background:var(--accent);
+    display:inline-block;padding:2px 8px;margin:-15px 0 9px -16px;}
+  .ex .ext{font-family:var(--serif);font-weight:600;font-size:15.5px;line-height:1.25;margin-bottom:8px;}
+  .ex svg{width:100%;height:auto;overflow:visible;font-family:var(--mono);display:block;}
+  .ex .exc{font-family:var(--serif);font-style:italic;font-size:11.8px;color:var(--ink-3);margin-top:8px;line-height:1.5;}
+  svg text{fill:var(--ink-3);font-size:9.5px;}
+  svg .val{fill:var(--ink);font-size:10px;font-weight:600;}
+  svg .zero{stroke:var(--rule);stroke-width:1;}
+  svg .gl{stroke:var(--hairline);stroke-width:1;}
+
+  /* ledger */
+  .lfilters{display:flex;gap:10px;flex-wrap:wrap;align-items:center;padding:16px 0 4px;}
+  .lfilters select{font-family:var(--mono);font-size:12px;padding:7px 10px;background:var(--panel);
+    border:1px solid var(--rule);color:var(--ink);border-radius:0;}
+  .lfilters .cnt{font-family:var(--mono);font-size:11px;color:var(--ink-3);margin-left:auto;letter-spacing:.06em;}
+  .tblwrap{overflow-x:auto;margin:12px 0 8px;}
+  .ledger{width:100%;border-collapse:collapse;border:1px solid var(--ink);background:var(--panel);}
+  .ledger th{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--paper);
+    background:var(--ink);text-align:right;padding:7px 9px;font-weight:600;cursor:pointer;user-select:none;white-space:nowrap;}
+  .ledger th.l{text-align:left;}
+  .ledger th.sorted::after{content:" ▾";color:var(--brass);}
+  .ledger th.sorted.asc::after{content:" ▴";}
+  .ledger td{font-family:var(--mono);font-size:11.5px;padding:6px 9px;text-align:right;border-top:1px solid var(--hairline);
+    white-space:nowrap;color:var(--ink-2);}
+  .ledger td.l{text-align:left;}
+  .ledger td.co{font-family:var(--serif);font-size:13px;color:var(--ink);max-width:280px;overflow:hidden;text-overflow:ellipsis;}
+  .ledger tr:hover td{background:var(--paper-2);}
+  .ledger .r{font-weight:600;}
+  .tablenote{font-family:var(--mono);font-size:10.5px;color:var(--ink-3);margin:8px 0 40px;letter-spacing:.03em;line-height:1.7;}
+
+  /* desk */
+  .desk{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;margin:22px 0 10px;}
+  @media(max-width:820px){.desk{grid-template-columns:1fr;}}
+  .desk .col{padding:6px 24px 10px;border-left:1px solid var(--hairline);}
+  .desk .col:first-child{border-left:none;padding-left:0;}
+  @media(max-width:820px){.desk .col{border-left:none;padding:16px 0;border-top:1px solid var(--hairline);}
+    .desk .col:first-child{border-top:none;}}
+  .verdict{font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;
+    display:inline-block;padding:3px 8px;border:1px solid currentColor;margin-bottom:10px;}
+  .v-live{color:var(--loss);} .v-dead{color:var(--accent);} .v-cond{color:var(--brass);}
+  .desk h3{font-family:var(--hed);font-weight:700;font-size:20px;line-height:1.14;margin-bottom:8px;}
+  .desk p{font-size:13.5px;line-height:1.62;color:var(--ink-2);}
+  .desk .fig{font-family:var(--mono);font-size:11.5px;color:var(--ink);margin-top:10px;line-height:1.8;}
+  .deskcharts{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:26px 0 46px;}
+  @media(max-width:820px){.deskcharts{grid-template-columns:1fr;}}
+
+  /* method */
+  .method p{font-family:var(--mono);font-size:11.5px;line-height:2;color:var(--ink-2);max-width:840px;letter-spacing:.01em;margin-bottom:16px;}
+  .fromdesk{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;
+    border:1px solid var(--ink);background:var(--panel);padding:18px 22px;margin:24px 0 46px;}
+  .fromdesk .l h3{font-family:var(--hed);font-weight:700;font-size:20px;}
+  .fromdesk .l p{font-size:13px;color:var(--ink-2);margin-top:4px;}
+  .fromdesk a.visit{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--accent);text-decoration:none;border:1px solid var(--accent);padding:9px 16px;white-space:nowrap;}
+  .fromdesk a.visit:hover{background:var(--accent);color:var(--paper);}
+
+  footer.colophon{padding:10px 0 60px;}
+  footer .endrule{border-top:1px solid var(--ink);border-bottom:3px solid var(--ink);height:6px;margin-bottom:16px;}
+  footer p{font-family:var(--mono);font-size:10.5px;color:var(--ink-3);line-height:2;letter-spacing:.05em;text-transform:uppercase;}
+
+  .tip{position:fixed;pointer-events:none;z-index:80;background:var(--ink);color:var(--paper);
+    font-size:11.5px;padding:8px 11px;border-radius:3px;line-height:1.5;max-width:240px;
+    box-shadow:0 6px 20px rgba(0,0,0,.35);opacity:0;transition:opacity .1s;}
+  .tip.on{opacity:1;}
+  .tip .nm{font-family:var(--serif);font-size:13px;}
+  .tip .mn{font-family:var(--mono);font-size:10.5px;opacity:.75;margin-top:1px;}
+  .tip .rt{font-family:var(--mono);margin-top:5px;}
+</style>
+
+<div class="ctrls">
+  <button class="toggle" id="toggle" aria-label="Toggle light or dark theme"></button>
+  <div class="pals" id="pals" title="Edition ink">
+    <button class="pal" data-p="cinnabar" title="朱 Cinnabar">朱</button>
+    <button class="pal" data-p="seal" title="玄 Ink & Seal">玄</button>
+    <button class="pal" data-p="imperial" title="绛 Imperial">绛</button>
+    <button class="pal" data-p="claret" title="褐 Claret">褐</button>
+  </div>
+</div>
+
+<div class="tickbar" aria-label="Latest listings ticker">
+  <span class="lab">LATEST STRIKES</span>
+  <div class="tickwin"><div class="tickrun" id="tickrun"></div></div>
+</div>
+
+<header class="masthead"><div class="wrap">
+  <div class="mast-rules"></div>
+  <div class="mast-grid">
+    <div class="ear">Hong Kong Main Board<br>A record of listing days<br>Every prospectus read</div>
+    <a class="nameplate" href="#/" style="text-decoration:none;color:inherit;">
+      <span class="kanji">敲鑼上市</span>
+      <h1><span class="the">The</span>GONG</h1>
+      <div class="medal" id="medal">
+        <span class="ring"></span><span class="ring r2"></span>
+        <svg viewBox="0 0 74 74" aria-hidden="true">
+          <circle cx="37" cy="37" r="33" fill="none" stroke="var(--brass)" stroke-width="2.5"/>
+          <circle cx="37" cy="37" r="24" fill="none" stroke="var(--brass)" stroke-width="1" opacity=".55"/>
+          <circle cx="37" cy="37" r="9" fill="var(--brass)"/>
+        </svg>
+      </div>
+    </a>
+    <div class="ear r">Vol. I · No. 331<br>January 2023 — June 2026<br>Returns verified to the raw tape</div>
+  </div>
+  <div class="folio">
+    <span>The gong has sounded 331 times</span>
+    <span>Median first day: +0.8% ('23) → +37.5% ('26 H1)</span>
+    <span>Not investment advice</span>
+  </div>
+  <nav class="secnav" id="secnav">
+    <a href="#/" data-r="home">Front Page</a>
+    <a href="#/ledger" data-r="ledger">The Ledger</a>
+    <a href="#/exhibits" data-r="exhibits">The Exhibits</a>
+    <a href="#/desk" data-r="desk">The Desk</a>
+    <a href="#/method" data-r="method">The Method</a>
+  </nav>
+</div></header>
+
+<main>
+<!-- ============ FRONT ============ -->
+<section class="pg" id="pg-home"><div class="wrap">
+  <div class="front">
+    <article class="lead">
+      <div class="slug">The lead · the offshore rush, 2023–2026</div>
+      <h2 class="hed" style="margin-top:10px">The year the gong never stopped</h2>
+      <p class="dek">Three and a half years, 331 listings, and a first-day median up forty-fold — yet the pop is spent before the first public trade prints.</p>
+      <div class="byline">From the desk · 331 verified filings · returns corrected to the raw tape</div>
+      <div class="cols">
+        <p>When the gong sounded for Fenbi Ltd. in January 2023, the median new listing closed its first day up <b>0.8 per cent</b>. By the first half of 2026 the ceremony was being performed eighty-three times in six months, to a median first-day gain of <b>37.5 per cent</b>. The rush is real, and accelerating.</p>
+        <p>Where the money is made is another matter. Offer to first close, the median gain is 7 per cent; <b>opening print to close, −0.3 per cent</b>. The pop is settled in the opening auction. Whoever holds allocation at the bell owns the day; whoever chases it buys, on average, nothing — and by one year out the median listing sits <b>22 per cent below</b> its offer price.</p>
+      </div>
+      <div class="contmark">The full anatomy in twenty charts → <a href="#/exhibits">The Exhibits, p.3</a></div>
+    </article>
+    <aside class="rail">
+      <div class="box">
+        <span class="bx-slug">By the numbers</span>
+        <ul class="agate">
+          <li>Listings recorded<span class="fill"></span><span class="num">331</span></li>
+          <li>Capital raised<span class="fill"></span><span class="num">US$80.7bn</span></li>
+          <li>Median day one, '26 H1<span class="fill"></span><span class="num up">+37.5%</span></li>
+          <li>Open → close, day one<span class="fill"></span><span class="num down">−0.3%</span></li>
+          <li>Retail edge per ballot<span class="fill"></span><span class="num up">+46 bps</span></li>
+          <li>Above water at one year<span class="fill"></span><span class="num down">34%</span></li>
+        </ul>
+      </div>
+      <div class="box idx">
+        <span class="bx-slug">In this edition</span>
+        <ul class="agate">
+          <li><a href="#/ledger">The Ledger · all 331 listings</a><span class="fill"></span><span class="pg-no">p.2</span></li>
+          <li><a href="#/exhibits">The Exhibits · twenty charts</a><span class="fill"></span><span class="pg-no">p.3</span></li>
+          <li><a href="#/desk">The Desk · three trades tested</a><span class="fill"></span><span class="pg-no">p.4</span></li>
+          <li><a href="#/method">The Method · sources</a><span class="fill"></span><span class="pg-no">p.5</span></li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+  <section class="record">
+    <div class="chart-frame">
+      <div class="chart-head">
+        <span class="t">The tape — first-day return of every listing, offer to close</span>
+        <span class="legend"><span><i style="background:var(--gain)"></i>GAIN</span><span><i style="background:var(--loss)"></i>LOSS</span></span>
+      </div>
+      <canvas id="tape" height="235"></canvas>
+      <div class="tape-x"><span>2023</span><span>2024</span><span>2025</span><span>2026 · H1</span></div>
+    </div>
+    <p class="caption">Each rule is one listing; its height, the first day against the offer, clamped at +200 / −60 per cent. Hover for the name. Twenty price series repaired where retail feeds had silently restated history.</p>
+  </section>
+</div></section>
+
+<!-- ============ LEDGER ============ -->
+<section class="pg" id="pg-ledger"><div class="wrap">
+  <div class="pagehead">
+    <span class="slug">Page 2 · The Ledger</span>
+    <h2>Every strike on record</h2>
+    <p class="dek">All 331 Main Board listings, January 2023 to June 2026. Click a column to sort; filter by year or sector.</p>
+  </div>
+  <div class="lfilters">
+    <select id="f-year"><option value="">All years</option></select>
+    <select id="f-sector"><option value="">All sectors</option></select>
+    <span class="cnt" id="f-cnt"></span>
+  </div>
+  <div class="tblwrap"><table class="ledger" id="ltbl">
+    <thead><tr>
+      <th class="l" data-k="0">Struck</th><th class="l" data-k="1">Code</th><th class="l" data-k="2">Company</th>
+      <th class="l" data-k="3">Sector</th><th data-k="5">Size US$M</th><th data-k="6">O/Sub</th>
+      <th data-k="8">Day 1</th><th data-k="13">1M</th><th data-k="16">1Y</th>
+    </tr></thead><tbody></tbody>
+  </table></div>
+  <div class="tablenote">RETURNS AGAINST OFFER PRICE · O/SUB = RETAIL OVERSUBSCRIPTION · 1-YEAR SHOWN ONLY WHERE THE HORIZON HAS ELAPSED · THE FULL EDITION ADDS ALLOCATION, PRICING BAND AND LOCK-UP DETAIL PER LISTING.</div>
+</div></section>
+
+<!-- ============ EXHIBITS ============ -->
+<section class="pg" id="pg-exhibits"><div class="wrap">
+  <div class="pagehead">
+    <span class="slug">Page 3 · The Exhibits</span>
+    <h2>The rush, in twenty charts</h2>
+    <p class="dek">The structure of 331 listings — issuance, demand, first-day behaviour, decay, and what the desk trades made of it. All figures from the verified record.</p>
+  </div>
+  <div class="exgrid" id="exgrid"></div>
+</div></section>
+
+<!-- ============ DESK ============ -->
+<section class="pg" id="pg-desk"><div class="wrap">
+  <div class="pagehead">
+    <span class="slug">Page 4 · The Desk</span>
+    <h2>Three trades, taken to the tape</h2>
+    <p class="dek">Designed on 2023–25, tested once on 2026 H1. Verdicts as printed; details in Exhibits 18–20.</p>
+  </div>
+  <div class="desk">
+    <div class="col">
+      <span class="verdict v-cond">Conditional · live since '25</span>
+      <h3>Subscribe when the tape is up</h3>
+      <p>Balloting every deal lost money through 2023–24 and paid through the rush. One gate — subscribe only when the Hang Seng's trailing month is positive — kept the seat out of the losing years and cost nothing in the hot ones.</p>
+      <div class="fig">train +154 bps · test +189 bps<br>per ballot, day-one exit</div>
+    </div>
+    <div class="col">
+      <span class="verdict v-live">Live · both periods</span>
+      <h3>Buy the winners, not the open</h3>
+      <p>Chasing the opening print is reliably unprofitable. Buying the first close — only after a confirmed pop above twenty per cent — and holding twenty days is the one secondary trade that survived the untouched test period. Capacity is small; size accordingly.</p>
+      <div class="fig">train +1,112 bps · test +407 bps<br>median +546 · max drawdown −93%</div>
+    </div>
+    <div class="col">
+      <span class="verdict v-dead">Dead · do not run</span>
+      <h3>Leave the lock-up alone</h3>
+      <p>The six-month expiry, shorted into and through, returns six basis points before borrow — and borrow on a six-month-old listing in Hong Kong is scarce to prohibitive. The overhang story does not survive contact with the tape.</p>
+      <div class="fig">+6.5 bps gross · borrow unmodelled<br>median −0.1% on the day</div>
+    </div>
+  </div>
+  <div class="deskcharts" id="deskcharts"></div>
+</div></section>
+
+<!-- ============ METHOD ============ -->
+<section class="pg" id="pg-method"><div class="wrap">
+  <div class="pagehead">
+    <span class="slug">Page 5 · The Method</span>
+    <h2>Sources &amp; corrections</h2>
+  </div>
+  <div class="method" style="margin-top:16px">
+    <p>331 MAIN BOARD LISTINGS, JAN 2023 – JUN 2026 · GEM TRANSFERS, INTRODUCTIONS AND DE-SPACS EXCLUDED · ~1,000 FILINGS READ: PROSPECTUSES, ALLOTMENT RESULTS, STABILISATION NOTICES.</p>
+    <p>RETURNS CROSS-CHECKED AGAINST UNADJUSTED EXCHANGE BARS — 20 SERIES REPAIRED WHERE RETAIL FEEDS HAD RESTATED HISTORY AFTER SPLITS AND BONUS ISSUES.</p>
+    <p>STRATEGIES DESIGNED ON 2023–25 AND TESTED ONCE ON 2026 H1 · COSTS: SUBSCRIPTION 1.01%, SALE 0.25% PER SIDE, HIBOR CARRY ON LOCKED CAPITAL · NOTHING HERE IS INVESTMENT ADVICE.</p>
+  </div>
+  <div class="fromdesk">
+    <div class="l">
+      <h3>Precedent Atlas — Japan Special Situations</h3>
+      <p>110 landmark takeover, activism and take-private cases, mapped by what they share. From the same desk.</p>
+    </div>
+    <a class="visit" href="#" aria-label="Visit the Precedent Atlas">Visit the Atlas →</a>
+  </div>
+</div></section>
+</main>
+
+<footer class="colophon"><div class="wrap">
+  <div class="endrule"></div>
+  <p>THE GONG · A RECORD OF HONG KONG LISTING DAYS · EDITION II PROTOTYPE · GAIN PRINTS RED, LOSS PRINTS GREEN, AS HONG KONG READS THE TAPE</p>
+</div></footer>
+
+<div class="tip" id="tip"></div>
+
+<script>
+const D=[["2023-01-09","02469","Fenbi Ltd.","Consumer Discretionary","Standard",25.4,33.9,72.32,12.1,6.1,5.7,5.0,21.0,20.2,16.2,-52.1,-58.8],["2023-01-12","02402","Beijing SinoHytec Co., Ltd.","Industrials","H-share",140.8,0.3,100.0,0.0,0.0,0.0,0.0,6.1,0.1,-0.2,-11.1,-21.9],["2023-01-13","02147","Zhengwei Group Holdings Company Limited","Consumer Staples","Standard",17.4,18.3,100.0,-17.6,8.8,-24.3,-29.4,-29.4,-30.1,-10.3,100.0,-56.6],["2023-01-16","02458","Gala Technology Holding Limited","Information Technology","Standard",10.3,3.4,50.02,-11.5,-23.1,15.0,-20.9,5.1,3.1,-21.5,-37.7,-20.0],["2023-01-16","02411","Shenzhen Pagoda Industrial (Group) Corporation Limited","Consumer Staples","H-share",63.6,12.2,19.99,7.1,16.4,-8.0,1.1,-0.0,-0.0,5.5,-3.9,-25.4],["2023-01-16","02373","Beauty Farm Medical and Health Industry Inc.","Healthcare","Standard",115.5,22.1,55.74,53.5,57.9,-2.8,56.3,50.6,49.1,52.7,-6.8,-47.9],["2023-01-17","02459","SANERGY GROUP LIMITED","Industrials","Standard",35.4,9.9,7.72,11.2,5.0,6.0,3.1,49.3,39.9,18.1,76.8,202.4],["2023-01-17","02455","Runhua Living Service Group Holdings Limited","Properties & Construction","Standard",16.3,8.7,20.0,-25.9,-18.8,-8.7,-23.5,-25.9,-25.3,-18.8,-33.5,-59.4],["2023-01-19","02306","YH Entertainment Group","Consumer Discretionary","Standard",63.8,28.7,50.0,47.8,37.3,7.7,17.2,10.1,5.1,8.8,26.2,-71.6],["2023-01-20","02450","Huaibei GreenGold Industry Investment Co., Ltd.","Properties & Construction","H-share",16.2,12.3,30.0,-44.5,-36.6,-12.4,-47.6,-56.0,-57.1,-64.4,-67.0,-71.2],["2023-03-09","02482","Logory Logistics Technology Co., Ltd.","Industrials","H-share",16.1,23.1,30.01,-2.1,-3.1,1.1,-1.4,-3.8,-3.8,-6.9,-27.2,-73.1],["2023-03-10","09636","JF Wealth Holdings Ltd","Information Technology","Standard",130.6,2.6,100.0,0.8,0.1,0.7,-0.8,-7.8,-6.0,-1.2,-17.5,-44.6],["2023-03-28","01405","DPC Dash Ltd","Consumer Discretionary","Standard",80.3,0.5,100.0,-0.1,0.0,-0.1,22.8,9.7,9.7,6.8,34.5,16.3],["2023-03-29","02409","Seacon Shipping Group Holdings Limited","Industrials","Standard",52.4,1.1,100.0,-21.1,0.3,-21.3,-7.7,-10.1,-10.1,-8.3,-2.1,0.9],["2023-03-30","02433","Zhongtian Construction (Hunan) Group Limited","Properties & Construction","Standard",18.2,10.6,40.0,126.3,147.5,-8.6,77.1,14.4,17.8,-55.9,-72.9,-85.2],["2023-03-31","02439","China Treasures New Materials Group Ltd.","Industrials","Standard",33.7,6.3,100.0,-35.2,-38.1,4.6,-36.2,-40.0,-39.0,-44.8,12.4,-64.3],["2023-03-31","02405","Powerwin Tech Group Limited","Consumer Discretionary","Standard",17.9,13.5,25.0,20.0,8.6,10.5,50.0,131.4,97.1,392.9,685.7,318.6],["2023-04-13","09669","Beisen Holding Limited","Information Technology","Standard",30.6,16.6,25.0,-12.1,-0.3,-11.8,-52.5,-68.1,-69.2,-70.5,-81.7,-85.6],["2023-04-27","02415","MedSci Healthcare Holdings Limited","Healthcare","Standard",77.9,9.8,20.0,1.1,-2.7,4.0,-5.5,-1.8,-1.8,-12.6,-58.4,-72.4],["2023-04-27","06979","ZJLD Group Inc","Consumer Staples","Standard",680.7,1.9,100.0,-17.9,-16.8,-1.3,-15.9,-36.0,-36.0,-17.1,-0.4,-4.1],["2023-05-08","02480","Beijing Luzhu Biotechnology Co., Ltd.","Healthcare","18A biotech",43.7,3.2,50.0,-32.9,-4.0,-30.2,-30.9,8.2,2.0,-3.5,4.3,-15.4],["2023-05-09","02442","Easy Smart Group Holdings Limited","Properties & Construction","Standard",16.7,17.3,11.11,-23.4,-32.0,12.6,20.3,25.8,26.6,-19.5,-3.9,37.5],["2023-05-11","02486","Plus Group Holdings Inc.","Consumer Discretionary","Standard",34.0,2.2,100.0,-24.6,-1.9,-23.2,-29.2,-44.8,-43.7,-49.9,-43.4,-73.2],["2023-05-25","02416","Edianyun Limited","Information Technology","Standard",76.5,0.3,100.0,-3.0,-7.2,4.4,8.0,8.2,8.1,-36.1,-23.4,-71.0],["2023-05-25","09930","Horizon Construction Development Limited","Industrials","Standard",211.3,0.1,100.0,-29.0,-27.9,-1.5,-41.4,-44.7,-44.7,-38.1,-16.6,-59.7],["2023-06-12","02487","Cutia Therapeutics","Healthcare","18A biotech",59.6,1.4,100.0,0.5,-0.2,0.7,38.7,2.8,-1.6,-1.8,-25.3,-70.7],["2023-06-28","09885","YSB Inc.","Healthcare","Standard",44.2,5.6,30.01,5.5,15.2,-8.5,22.5,147.2,147.5,168.0,-59.6,-60.2],["2023-06-29","02105","Laekna, Inc.","Healthcare","18A biotech",101.4,5.8,22.31,20.9,0.2,20.6,22.3,12.2,16.5,8.5,65.2,-58.0],["2023-06-30","09860","ADICON Holdings Limited","Healthcare","Standard",58.6,1.1,100.0,12.0,-0.0,12.0,1.6,3.1,3.1,29.9,5.8,-29.1],["2023-07-10","02481","Wise Living Technology Co., Ltd","Utilities","H-share",34.9,1.5,100.0,-0.0,-0.0,0.0,-19.7,-20.8,-22.2,-25.6,-28.3,-42.2],["2023-07-11","06990","Sichuan Kelun-Biotech Biopharmaceutical Co., Ltd.","Healthcare","18A biotech",200.5,1.3,75.03,3.1,-0.0,3.1,8.9,16.2,19.6,25.4,68.3,119.0],["2023-07-12","03650","Keep Inc.","Consumer Discretionary","Standard",40.2,3.1,40.03,0.3,4.8,-4.3,-0.2,1.3,9.3,3.4,-77.7,-78.9],["2023-07-13","06683","Star Plus Legend Holdings Limited","Consumer Staples","Standard",70.0,13.0,30.02,23.8,35.3,-8.5,67.1,40.5,34.4,99.5,97.4,137.7],["2023-07-17","01284","New Media Lab Limited","Consumer Discretionary","Standard",17.7,44.2,30.01,1.1,-4.3,5.7,1.1,-42.4,-38.0,-51.1,-66.8,-61.4],["2023-07-18","02271","Zhong An Intelligent Living Service Limited","Properties & Construction","Standard",20.8,0.1,50.0,2.5,3.4,-0.8,-10.2,-27.1,-30.5,-42.4,-34.8,10.2],["2023-09-05","01541","ImmuneOnco Biopharmaceuticals (Shanghai) Inc.","Healthcare","18A biotech",43.1,10.0,11.56,5.0,14.0,-7.9,34.4,34.1,34.1,64.8,-19.1,-59.0],["2023-09-25","02490","LC Logistics, Inc.","Industrials","Standard",20.2,4.8,30.04,-0.6,0.0,-0.6,8.3,-4.8,-0.2,3.0,-5.0,462.5],["2023-09-25","02496","Wuhan YZY Biopharma Co., Ltd.","Healthcare","18A biotech",24.3,13.8,18.0,0.0,2.5,-2.4,-21.4,-50.9,-54.0,-54.9,-59.4,-68.3],["2023-09-26","09690","TUHU Car Inc.","Consumer Discretionary","Standard",168.6,2.7,100.0,5.4,0.0,5.4,2.5,16.8,16.8,3.6,-47.1,-31.2],["2023-09-28","06682","Beijing Fourth Paradigm Technology Co., Ltd.","Information Technology","H-share",143.9,11.4,90.04,5.2,13.5,-7.3,-2.9,-7.0,-7.0,-11.9,12.6,-29.4],["2023-09-28","09686","Neusoft Xikang Holdings Inc.","Healthcare","Standard",81.7,0.9,100.0,-42.9,-22.5,-26.3,-51.3,-63.9,-63.9,-71.4,-76.3,-86.5],["2023-09-28","09890","ZX Inc.","Information Technology","Standard",34.1,104.0,50.0,0.0,-1.6,1.6,-3.9,-17.1,-17.1,213.6,37.9,-50.4],["2023-10-06","01973","Tian Tu Capital Co., Ltd.",null,"H-share",144.4,1.3,100.0,-24.9,-17.1,-9.5,-38.5,-18.8,-18.8,-22.3,-50.3,-48.9],["2023-10-11","02501","Maiyue Technology Limited","Information Technology","Standard",18.9,2.5,100.0,38.1,4.2,32.5,14.4,10.2,11.9,2.5,-15.2,-24.6],["2023-10-12","02451","Luyuan Group Holding (Cayman) Limited","Consumer Discretionary","Standard",100.8,7.7,80.03,0.9,-0.4,1.4,-1.6,-0.9,0.5,-1.8,-9.1,-13.2],["2023-10-12","09676","Shiyue Daotian Group Co., Ltd.","Consumer Staples","H-share",105.2,1.3,61.61,22.7,8.1,13.5,60.8,63.4,61.5,68.6,36.7,-47.6],["2023-10-27","01519","J&T Global Express Limited","Industrials","Standard",502.4,1.4,100.0,0.0,0.0,0.0,3.3,0.5,-1.2,29.8,-46.9,-50.7],["2023-11-02","02517","Guoquan Food (Shanghai) Co., Ltd.","Consumer Staples","H-share",59.3,4.3,19.01,0.0,0.0,0.0,6.5,17.1,30.4,58.4,-12.4,-55.4],["2023-11-03","02429","Beijing UBOX Online Technology Corp.","Consumer Staples","H-share",30.0,11.3,15.02,40.9,20.8,16.6,20.8,55.8,55.9,98.6,55.6,-51.6],["2023-11-09","02473","XXF Group Holdings Limited","Consumer Discretionary","Standard",14.5,14.7,6.76,49.1,98.2,-24.8,46.4,129.1,122.7,170.0,193.6,1372.7],["2023-11-10","02499","FOLANGSI CO., LTD","Industrials","H-share",22.2,7.8,20.0,3.4,8.4,-4.7,3.8,1.3,2.7,-0.0,5.0,-13.2],["2023-11-10","01111","Huashi Group Holdings Limited","Consumer Discretionary","Standard",16.7,12.6,10.56,55.8,58.7,-1.8,84.6,98.1,100.0,-61.1,-67.8,-57.7],["2023-11-17","02268","WuXi XDC Cayman Inc.","Healthcare","Standard",521.9,50.0,13.0,35.9,30.8,3.9,40.8,47.1,51.2,-29.5,-17.7,15.3],["2023-11-22","02520","Shanxi Installation Group Co., Ltd.","Properties & Construction","H-share",104.4,0.6,100.0,0.0,0.0,0.0,-5.5,-22.5,-14.7,0.9,0.0,-3.7],["2023-12-05","02483","K Cash Corporation Limited","Financials","Standard",28.8,18.9,100.0,-0.6,-10.6,11.2,-5.0,-0.0,1.7,-5.6,-2.2,1.7],["2023-12-05","02521","Shenghui Cleanness Group Holdings Limited","Consumer Discretionary","Standard",17.0,33.4,100.0,3.1,-6.2,10.0,15.6,20.3,23.4,-14.1,-9.4,25.0],["2023-12-05","09663","Sino-Synergy Hydrogen Energy Technology (Jiaxing) Co., Ltd.","Industrials","H-share",200.4,1.2,100.0,0.7,-16.1,20.0,-22.4,-14.2,-11.0,-9.0,-26.2,-3.4],["2023-12-06","02419","DEKON FOOD AND AGRICULTURE GROUP","Consumer Staples","H-share",127.5,1.9,100.0,1.5,0.0,1.5,2.2,59.3,57.0,32.6,44.5,0.1],["2023-12-12","01497","XIAMEN YAN PALACE BIRD’S NEST INDUSTRY CO., LTD.","Consumer Staples","H-share",39.8,83.6,6.02,-0.0,8.2,-7.6,-5.2,-0.1,-1.5,2.9,-13.6,-11.3],["2023-12-18","00666","REPT BATTERO Energy Co., Ltd.","Industrials","H-share",272.3,1.3,100.0,2.6,1.6,1.0,0.8,3.1,1.6,-20.4,-22.3,-28.7],["2023-12-20","02502","Henan Jinyuan Hydrogenated Chemicals Co., Ltd.","Materials","H-share",36.8,42.8,68.01,-27.5,-11.7,-17.9,-20.8,-25.8,-23.3,-34.2,-42.5,-60.0],["2023-12-20","01274","iMotion Automotive Technology (Suzhou) Co., Ltd.","Information Technology","H-share",84.1,6.5,100.0,-12.8,-0.3,-12.5,13.7,36.4,15.3,147.4,164.8,-39.8],["2023-12-22","02516","FAR International Holdings Group Company Limited","Industrials","Standard",16.2,14.5,7.72,11.1,44.4,-23.1,6.7,-6.7,-5.6,-35.6,-52.2,8.9],["2023-12-22","02511","HighTide Therapeutics, Inc.","Healthcare","18A biotech",35.7,32.2,13.65,7.7,3.7,3.9,1.9,6.1,-1.6,-47.3,-68.8,-88.9],["2023-12-22","02489","PERSISTENCE RESOURCES GROUP LTD","Materials","Standard",35.3,8.8,60.0,1.8,-7.3,9.8,0.0,1.8,0.0,10.9,27.3,54.5],["2023-12-22","06911","PU’ER LANCANG ANCIENT TEA CO., LTD.","Consumer Staples","H-share",28.8,13.2,20.01,-18.7,-0.0,-18.7,-0.0,-12.3,-10.4,-4.7,-21.8,-50.6],["2023-12-28","02149","BaTeLab Co., Ltd.","Information Technology","H-share",52.8,1.3,73.56,-17.4,-8.8,-9.4,-8.6,-26.1,-25.7,-14.8,-13.0,-5.5],["2023-12-29","09880","UBTECH ROBOTICS CORP LTD","Information Technology","H-share",133.5,5.2,40.02,0.9,-0.1,1.1,-2.2,-2.3,-2.3,143.3,70.0,-30.6],["2024-01-05","02498","ROBOSENSE TECHNOLOGY CO., LTD","Information Technology","Standard",135.8,0.6,100.0,0.0,0.0,0.0,0.0,-5.3,-9.3,-0.8,-62.7,-35.2],["2024-01-09","06959","Changjiu Holdings Limited","Consumer Discretionary","Standard",38.6,11.7,20.12,16.1,2.5,13.3,24.7,28.6,28.2,538.7,525.2,-34.6],["2024-01-09","02453","Concord Healthcare Group Co., Ltd.","Healthcare","H-share",72.2,2.0,100.0,-22.4,-31.4,13.1,-2.2,-12.5,-5.3,61.4,257.1,-39.1],["2024-01-09","02503","Zhongshen Jianye Holding Limited","Properties & Construction","Standard",16.5,58.4,100.0,-28.0,-19.0,-11.1,5.0,41.0,8.0,-23.0,-13.0,-42.0],["2024-01-12","02477","WellCell Holdings Co., Limited",null,"Standard",16.0,28.6,20.04,164.0,77.0,49.2,250.0,231.0,230.0,263.0,210.0,1180.0],["2024-03-08","02540","Lesi Group Limited","Consumer Discretionary","Standard",17.6,22.4,100.0,36.4,-18.2,66.7,166.4,232.7,238.2,4.5,54.5,11.8],["2024-03-08","02535","WK Group (Holdings) Limited","Properties & Construction","Standard",16.0,70.5,2.57,136.0,160.0,-9.2,156.0,148.0,164.0,128.0,184.0,120.0],["2024-03-20","02509","Qyuns Therapeutics Co., Ltd.","Healthcare","18A biotech",30.6,163.2,5.0,23.7,38.4,-10.6,21.0,20.4,15.2,44.9,40.9,-56.2],["2024-03-21","09879","MIGAO GROUP HOLDINGS LIMITED","Materials","Standard",122.4,9.8,30.02,0.2,7.4,-6.6,-0.0,34.1,44.9,83.8,86.0,21.1],["2024-03-26","02536","Palasino Holdings Limited","Consumer Discretionary","Standard",51.3,16.0,100.0,15.4,5.8,9.1,111.5,100.8,103.1,130.0,46.1,16.9],["2024-03-28","02497","Fujing Holdings Co., Limited","Consumer Staples","Standard",13.8,294.1,10.02,37.0,97.2,-30.5,14.8,-2.8,0.9,-1.9,-3.7,-14.8],["2024-03-28","02598","Lianlian DigiTech Co., Ltd.","Financials","H-share",84.2,16.9,100.0,-7.6,-4.1,-3.7,-4.8,-4.6,-7.0,-7.1,-12.1,-29.6],["2024-04-23","02555","Sichuan Baicha Baidao Industrial Co., Ltd.","Consumer Staples","H-share",331.5,0.5,100.0,-26.9,-10.1,-18.7,-34.6,-35.7,-35.7,-48.3,-49.0,-52.8],["2024-04-23","02515","Tianjin Construction Development Group Co., Ltd.","Properties & Construction","H-share",17.3,433.1,10.01,-39.2,-24.8,-19.1,-39.2,-48.4,-48.4,-51.2,-84.8,-80.0],["2024-04-24","02438","Mobvoi Inc.","Information Technology","Standard",46.3,117.4,25.01,-3.2,-21.6,23.5,1.3,-5.3,-5.3,-63.9,-72.4,-89.1],["2024-05-16","02556","Marketingforce Management Ltd","Information Technology","Standard",33.3,6.0,55.04,18.5,3.2,14.8,40.0,91.4,90.3,125.3,159.6,-6.8],["2024-05-17","02529","Hollwin Urban Operation Service Group Co., Ltd","Properties & Construction","H-share",16.4,47.6,80.03,0.3,8.1,-7.2,-19.4,-7.5,-7.5,-12.5,-10.0,-6.2],["2024-05-24","02898","Sunho Biologics, Inc.","Healthcare","18A biotech",59.1,10.1,7.82,7.6,7.1,0.4,-47.4,-57.1,-57.1,-49.6,-65.8,-60.9],["2024-05-27","00917","Qunabox Group Limited","Consumer Discretionary","Standard",63.2,12.1,60.02,40.0,32.0,6.1,83.8,117.0,40.0,40.0,40.0,40.0],["2024-05-28","02505","EDA GROUP HOLDINGS LIMITED","Industrials","Standard",28.5,103.4,10.01,84.2,35.5,35.9,35.1,95.2,84.2,49.1,-0.0,22.8],["2024-05-31","02443","Autostreets Development Limited","Consumer Discretionary","Standard",19.6,433.3,5.01,26.9,42.2,-10.8,12.6,-21.6,-21.6,-48.9,-41.2,-63.2],["2024-06-07","02550","Easou Technology Holdings Limited","Consumer Discretionary","Standard",11.0,114.6,10.02,91.7,46.6,30.8,191.0,207.2,192.4,223.8,77.9,-37.6],["2024-06-07","02522","Jiangxi Rimag Group Co., Ltd.","Healthcare","H-share",34.2,336.3,3.01,0.1,0.1,0.0,28.3,16.8,26.3,34.2,245.5,-3.3],["2024-06-13","02228","QuantumPharm Inc.","Healthcare","18C specialist tech",132.8,103.3,20.0,9.8,2.1,7.6,0.4,3.6,9.8,165.9,-17.4,15.3],["2024-06-14","02512","Cloud Factory Technology Holdings Limited","Information Technology","Standard",67.8,25.8,100.0,-17.4,-5.0,-13.0,-17.4,-17.6,-17.6,-22.0,-34.8,-14.1],["2024-06-18","02881","Wuhan Youji Holdings Ltd.","Materials","Standard",12.9,337.6,5.01,27.6,79.6,-28.9,12.7,-10.2,-13.6,-23.6,-3.6,24.4],["2024-06-28","02559","Dida Inc.","Consumer Discretionary","Standard",30.1,112.9,10.0,-22.5,-12.8,-11.1,-51.3,-60.8,-60.8,-57.7,-67.8,-81.2],["2024-06-28","06181","Laopu Gold Co., Ltd.","Consumer Discretionary","H-share",133.6,582.1,3.39,72.8,59.3,8.5,110.4,97.9,97.9,271.9,423.0,2388.9],["2024-06-28","02479","Tianju Dihe (Suzhou) Technology Co., Ltd.","Information Technology","H-share",51.5,602.9,1.28,-27.8,35.6,-46.8,-22.0,-11.1,-11.1,-25.6,-6.4,-22.0],["2024-07-03","01354","Xi’an Kingfar Property Services Co., Ltd.","Properties & Construction","H-share",16.0,118.9,3.79,-11.5,2.0,-13.2,-24.0,6.3,44.3,212.0,272.7,-17.5],["2024-07-03","02545","Zhonggan Communication (Group) Holdings Limited","Telecommunications","Standard",25.6,196.0,70.01,-46.4,-39.2,-11.8,-63.6,-69.6,-67.2,-67.6,-75.2,-69.6],["2024-07-09","06657","BAIWANG CO., LTD.","Information Technology","H-share",42.7,6.6,40.01,8.1,-11.1,21.6,-4.9,-12.2,0.0,-1.5,-0.3,-36.7],["2024-07-09","06086","Fangzhou Inc.",null,"Standard",25.0,16.6,40.04,-44.6,-42.8,-3.2,-43.8,-47.2,-47.4,-19.2,-47.3,-54.2],["2024-07-10","09680","Chenqi Technology Limited","Consumer Discretionary","Standard",134.6,0.6,100.0,-3.1,-14.3,13.0,-20.6,-13.4,-25.9,-41.7,-64.0,-71.5],["2024-07-10","01334","RUICHANG INTERNATIONAL HOLDINGS LIMITED","Energy","Standard",16.8,19.2,20.01,14.3,23.8,-7.7,9.5,-15.2,-22.9,-15.2,-9.5,-4.8],["2024-07-10","02495","Shanghai Voicecomm Information Technology Co., Ltd. .","Information Technology","H-share",87.1,3.5,34.86,-11.2,-11.2,0.0,-6.7,23.9,23.3,24.9,38.6,-54.8],["2024-07-12","02507","Cirrus Aircraft Limited","Industrials","Standard",194.0,1.6,100.0,0.0,0.0,0.0,-10.4,-6.9,-9.6,-27.4,-26.9,69.1],["2024-07-15","02531","GL-Carlink Technology Holding Limited","Information Technology","Standard",38.3,2.5,100.0,2.1,16.6,-12.4,56.0,46.4,80.9,235.3,538.3,283.8],["2024-08-06","01471","Zhongmiao Holdings (Qingdao) Co., Ltd.","Financials","H-share",31.7,16.1,50.0,5.0,-1.7,6.8,-19.4,-15.7,-17.6,-1.6,97.4,111.4],["2024-08-08","02533","Black Sesame International Holding Limited","Information Technology","Standard",132.8,2.5,100.0,-27.0,-32.9,8.8,-28.0,-22.1,-23.6,-14.6,0.7,-37.1],["2024-08-20","02410","TYK Medicines, Inc","Healthcare","18A biotech",74.3,2.3,47.88,13.2,19.7,-5.4,90.1,153.7,153.7,118.6,160.7,26.6],["2024-09-17","00300","Midea Group Co., Ltd.","Consumer Discretionary","H-share",4572.6,0.1,100.0,7.8,8.0,-0.2,-4.1,-15.6,-14.5,-13.8,-7.3,-0.9],["2024-10-02","02549","Carote Ltd","Consumer Discretionary","Standard",110.7,1347.3,15.0,58.3,64.4,-3.7,17.6,-10.2,-11.1,-13.0,-9.9,-20.1],["2024-10-08","02576","Zhejiang Taimei Medical Technology Co., Ltd.","Information Technology","H-share",43.0,null,2.69,-29.2,-13.5,-18.1,-54.9,-54.7,-54.6,-67.1,-76.2,-62.8],["2024-10-09","09639","Wing Lee Development Construction Holdings Limited","Properties & Construction","Standard",23.4,120.6,25.0,-15.1,-31.5,24.0,-39.7,-33.6,-37.0,-41.1,-23.3,67.1],["2024-10-16","02567","Qiniu Limited","Information Technology","Standard",56.3,19.9,80.0,-56.7,-41.8,-25.6,-56.7,-62.5,-62.2,-76.4,-70.9,-62.5],["2024-10-23","02460","China Resources Beverage (Holdings) Company Limited","Consumer Staples","Standard",740.2,234.5,30.0,15.0,13.5,1.3,6.6,-12.3,-20.3,-17.4,-0.1,-25.0],["2024-10-24","09660","Horizon Robotics","Information Technology","Standard",780.4,33.8,100.0,2.8,28.3,-19.9,19.6,2.8,5.0,3.3,40.4,122.6],["2024-10-30","02465","Jiangsu Lopal Tech. Co., Ltd.","Industrials","H-share",70.5,4.0,70.02,-13.6,-7.6,-6.5,-17.4,6.7,-2.2,-17.5,-14.7,117.1],["2024-10-31","02563","Beijing Biostar Pharmaceuticals Co., Ltd.","Healthcare","18A biotech",29.9,21.4,4.45,30.0,34.4,-3.3,75.0,74.4,87.5,-1.5,-72.4,-79.1],["2024-11-01","02510","T.S. Lines Limited","Industrials","Standard",142.0,12.1,5.87,-1.9,-0.0,-1.9,-0.0,3.8,7.7,2.9,52.1,116.0],["2024-11-08","02551","APT Electronics Co., Ltd.","Industrials","H-share",17.9,5677.8,0.24,47.6,16.3,26.9,25.2,1.4,-1.9,21.9,-7.5,-14.1],["2024-11-08","02519","AuGroup (SHENZHEN) Cross-Border Business Co., Ltd.","Consumer Discretionary","H-share",59.8,17.7,70.02,-11.4,-11.0,-0.4,-22.8,-17.9,-19.2,-22.6,-53.3,-58.4],["2024-11-15","02582","Jiangsu Guofu Hydrogen Energy Equipment Co., Ltd.","Industrials","H-share",50.0,21.1,15.03,20.0,26.6,-5.2,48.5,75.8,69.8,109.4,95.2,-41.3],["2024-11-27","06936","S.F. Holding Co., Ltd.","Industrials","H-share",747.6,79.1,20.0,-0.0,-0.0,0.0,-5.0,-1.8,-1.7,11.8,17.2,4.1],["2024-11-28","02566","Hangzhou Jiuyuan Gene Engineering Co., Ltd.","Healthcare","H-share",72.3,675.8,20.01,-38.4,-39.6,2.0,-35.4,-45.9,-45.9,-43.6,-49.9,-37.0],["2024-11-29","02585","Mokingran Jewellery Group Co., Ltd.","Consumer Discretionary","H-share",67.6,20.6,7.66,7.5,4.2,3.2,-3.3,2.8,7.2,45.2,32.0,21.7],["2024-12-06","02586","Dmall Inc.","Information Technology","Standard",99.8,1.9,100.0,-54.3,-28.2,-36.4,-79.2,-80.7,-81.0,-67.6,-67.4,-78.1],["2024-12-06","02570","Shanghai REFIRE Group Limited","Industrials","H-share",91.4,1.6,56.81,0.1,1.3,-1.2,11.0,23.1,12.4,67.3,46.3,-42.2],["2024-12-10","01318","Mao Geping Cosmetics Co., Ltd.","Healthcare","H-share",344.6,919.2,100.0,76.5,59.9,10.4,96.3,102.2,95.1,250.0,266.8,187.4],["2024-12-19","02593","Herbs Generation Group Holdings Limited","Healthcare","Standard",16.0,6083.6,3.0,10.4,25.1,-11.7,-24.3,-44.8,-42.7,-52.0,-54.4,-68.0],["2024-12-20","00999","Xiaocaiyuan International Holding Ltd.","Consumer Discretionary","Standard",110.3,1.4,100.0,13.7,5.9,7.3,14.0,32.6,15.2,41.1,8.9,15.2],["2024-12-23","02432","Shenzhen Dobot Corp Ltd","Information Technology","H-share",106.5,9.2,50.0,0.7,4.8,-3.9,1.6,10.9,11.7,297.1,189.9,53.7],["2024-12-27","02431","Minieye Technology Co., Ltd","Information Technology","H-share",87.1,14.0,50.01,14.1,9.4,4.3,2.9,22.1,22.1,97.1,57.1,-15.2],["2024-12-30","02587","HealthyWay Inc.","Healthcare","Standard",25.0,34.4,50.0,36.7,27.6,7.1,98.0,64.6,71.8,269.2,121.0,-44.0],["2024-12-30","02577","InnoScience (Suzhou) Technology Holding Co., Ltd.","Information Technology","H-share",186.1,2.9,80.01,0.5,0.5,0.0,-0.0,26.7,32.7,38.9,20.7,153.2],["2024-12-30","02506","Xunfei Healthcare Technology Co., Ltd.","Healthcare","H-share",74.7,3.7,80.05,5.1,8.4,-3.1,2.2,4.1,5.4,54.0,26.2,-9.2],["2025-01-08","06681","BrainAurora Medical Technology Limited","Healthcare","18A biotech",74.8,11.4,50.01,3.4,0.0,3.4,14.9,68.3,74.8,87.9,78.6,132.6],["2025-01-09","02560","Anhui Conch Material Technology Co., Ltd.","Materials","H-share",55.8,25.8,70.0,-47.7,-40.0,-12.8,-51.7,-54.0,-53.7,-42.7,-42.7,-44.0],["2025-01-09","02613","ContiOcean Environment Tech Group Co., Ltd.","Industrials","H-share",40.8,55.3,40.01,6.3,6.8,-0.4,-5.7,-4.1,-3.8,-9.9,-26.1,-5.7],["2025-01-10","00325","Bloks Group Limited","Consumer Discretionary","Standard",246.8,6000.0,10.0,40.9,81.6,-22.4,49.6,49.3,53.1,88.9,131.2,14.3],["2025-01-10","02530","Numans Health Food Holdings Company Limited","Healthcare","Standard",25.6,65.2,50.01,-13.8,-1.2,-12.7,-15.0,-15.0,-10.0,-17.5,-16.2,-27.5],["2025-01-13","00805","New Gonow Recreational Vehicles Inc.","Consumer Discretionary","Standard",39.1,2.5,60.0,-22.8,-22.8,0.0,14.2,-27.6,-26.8,-7.9,-9.4,-11.8],["2025-01-13","02596","Yibin City Commercial Bank Co., Ltd","Financials","H-share",228.6,0.2,100.0,0.8,-0.0,0.8,0.4,0.4,0.4,1.2,0.4,1.5],["2025-01-15","02571","Beijing Saimo Technology Co., Ltd.","Information Technology","H-share",55.5,2.7,100.0,1.5,2.4,-0.9,0.4,14.1,10.5,-2.2,-2.2,2.4],["2025-02-12","01364","Guming Holdings Limited","Consumer Staples","Standard",260.3,194.9,100.0,-6.4,0.6,-7.0,-2.1,42.2,63.0,147.5,132.8,191.3],["2025-03-03","02097","MIXUE Group","Consumer Staples","H-share",509.3,5258.2,8.0,43.2,29.4,10.7,94.3,108.0,103.2,188.6,102.9,64.6],["2025-03-10","06693","Chifeng Jilong Gold Mining Co., Ltd.","Materials","H-share",416.0,9.5,28.0,0.0,0.0,0.0,2.0,25.4,25.5,104.8,118.4,206.8],["2025-03-21","02561","VISEN Pharmaceuticals","Healthcare","18A biotech",100.4,72.6,6.27,0.0,0.0,0.0,-16.8,-29.7,-35.6,-29.2,-36.2,-63.8],["2025-03-25","02610","Nanshan Aluminium International Holdings Limited","Materials","Standard",305.0,3.9,100.0,-5.1,0.0,-5.1,-8.8,-8.7,-7.1,15.4,46.0,116.9],["2025-03-27","02569","Soft International Group Ltd","Consumer Staples","Standard",16.3,167.1,30.01,31.4,-3.9,36.7,-2.0,19.6,31.4,192.2,33.3,98.0],["2025-03-31","02625","Jiangsu Horizon Chain Supermarket Company Limited","Consumer Staples","H-share",17.2,47.0,3.91,0.0,37.6,-27.3,-14.4,30.8,11.6,11.2,126.8,95.2],["2025-04-14","03677","Jiangsu Zenergy Battery Technologies Group Co., Ltd.","Industrials","H-share",128.8,3.5,100.0,1.4,2.3,-0.8,0.7,12.7,12.0,23.1,43.4,-5.1],["2025-04-15","09606","Duality Biotherapeutics, Inc.","Healthcare","18A biotech",241.7,115.1,80.01,116.7,91.3,13.3,137.8,101.4,95.6,217.3,222.4,235.9],["2025-05-07","01333","Breton Technology Co., Ltd.","Industrials","H-share",30.0,198.7,2.0,38.3,61.1,-14.1,31.1,63.9,79.4,52.4,92.7,-3.8],["2025-05-08","02589","Auntea Jenny (Shanghai) Industrial Co., Ltd.","Consumer Staples","H-share",40.2,3616.8,10.0,40.0,68.5,-16.9,12.9,10.1,10.5,22.9,-24.9,30.5],["2025-05-08","02865","Hainan Drinda New Energy Technology Co., Ltd.","Industrials","H-share",180.1,3.5,23.84,20.1,0.2,19.8,3.6,8.8,5.6,-2.1,-14.8,99.6],["2025-05-16","06831","Green Tea Group Limited","Consumer Discretionary","Standard",155.2,317.5,40.0,-12.5,0.0,-12.5,-19.6,-13.1,-11.3,3.8,-18.5,8.6],["2025-05-20","03750","Contemporary Amperex Technology Co., Limited","Industrials","H-share",5257.1,null,10.0,16.4,12.5,3.4,17.5,17.9,13.5,53.9,91.6,151.9],["2025-05-23","02629","Mirxes Holding Company Limited","Healthcare","18A biotech",139.3,25.5,95.0,28.8,28.3,0.3,25.3,48.7,44.4,96.7,125.3,-46.7],["2025-05-23","01276","Jiangsu Hengrui Pharmaceuticals Co., Ltd.","Healthcare","H-share",1458.2,454.9,10.0,25.2,30.8,-4.3,31.7,27.8,26.8,73.4,49.7,35.4],["2025-05-27","02565","PegBio Co., Ltd.","Healthcare","18A biotech",38.6,743.8,8.0,-25.9,-16.7,-11.1,-37.8,-41.9,-42.8,123.8,309.0,-43.5],["2025-05-27","02603","Xiamen Jihong Co., Ltd","Consumer Discretionary","H-share",66.9,49.4,50.0,39.1,43.2,-2.9,30.2,40.1,53.6,144.4,61.5,99.1],["2025-05-30","02621","Shouhui Group Ltd.","Financials","Standard",25.2,990.0,5.0,-18.2,-7.2,-11.9,-33.0,-39.4,-39.5,-40.1,-51.9,-60.5],["2025-06-10","02605","MetaLight Inc.","Consumer Discretionary","Standard",31.1,274.4,45.0,-30.3,-22.1,-10.5,-29.9,-36.6,-37.8,-49.8,-69.2,-86.9],["2025-06-10","02573","Newtrend Group Holding Co., Ltd.","Consumer Staples","H-share",25.6,149.4,10.0,21.4,60.1,-24.1,-16.8,-32.8,-34.6,-36.0,-54.0,-75.1],["2025-06-10","09881","Rongta Technology (Xiamen) Group Co., Ltd.","Information Technology","H-share",23.6,276.0,6.01,42.0,66.0,-14.5,30.0,-5.9,3.0,6.7,24.1,77.0],["2025-06-19","03288","Foshan Haitian Flavouring and Food Company Ltd.","Consumer Staples","H-share",1355.3,918.1,5.0,0.6,3.3,-2.7,-3.4,-1.6,-1.7,-7.7,-10.6,-19.7],["2025-06-23","02609","Bayzed Health Group Inc","Healthcare","Standard",72.0,25.9,20.0,42.2,24.4,14.3,46.2,55.5,57.1,101.4,8.5,26.5],["2025-06-23","02617","TransThera Sciences (Nanjing), Inc.","Healthcare","18A biotech",25.8,3419.9,0.8,78.7,64.6,8.5,129.3,138.0,138.8,1023.2,1182.9,-14.4],["2025-06-23","02050","Zhejiang Sanhua Intelligent Controls Co., Ltd.","Industrials","H-share",1376.5,null,15.0,-0.1,-7.0,7.4,11.6,23.6,26.5,76.7,57.2,14.2],["2025-06-25","02643","CaoCao Inc.","Consumer Discretionary","Standard",237.5,21.1,50.0,-14.2,-19.4,6.5,-16.2,-1.9,-3.6,24.9,-30.1,-47.3],["2025-06-25","02619","X.J. Electrics (Hu Bei) Co., Ltd","Consumer Discretionary","H-share",25.0,852.4,10.0,-11.9,-7.3,-4.9,-13.9,14.8,-11.9,-11.9,20.3,-28.5],["2025-06-26","06883","Eternal Beauty Holdings Limited","Healthcare","Standard",123.1,35.8,10.0,-16.7,-10.4,-7.0,-23.6,-29.5,-28.5,-29.2,-27.1,-29.5],["2025-06-26","02508","SAINT BELLA Inc.","Consumer Discretionary","Standard",103.1,193.0,2.54,33.7,28.4,4.1,0.5,9.0,16.4,-5.0,-40.0,-49.2],["2025-06-26","06168","Zhou Liu Fu Jewellery Co., Ltd.","Consumer Discretionary","H-share",190.5,711.1,0.82,25.0,11.2,12.4,55.4,61.2,61.5,84.8,6.0,-34.7],["2025-06-30","06603","IFBH Limited","Consumer Staples","Standard",170.8,2682.3,10.0,42.1,57.9,-10.0,45.7,36.1,33.6,6.5,-43.4,-79.0],["2025-06-30","03880","Medtide Inc.","Healthcare","H-share",65.9,301.1,50.0,0.7,-1.0,1.7,1.6,11.6,15.5,1.7,-2.5,-27.8],["2025-06-30","09678","Unisound AI Technology Co., Ltd.","Information Technology","H-share",47.2,91.7,10.01,44.6,0.0,44.6,105.4,181.9,184.9,151.2,100.6,-65.2],["2025-07-03","02592","Cloudbreak Pharma Inc.","Healthcare","18A biotech",78.4,78.8,5.0,-38.6,-5.9,-34.7,-42.6,-47.0,-50.1,-56.4,-55.4,null],["2025-07-04","02648","Anjoy Foods Group Co., Ltd.","Consumer Staples","H-share",307.7,44.2,70.0,-5.0,0.0,-5.0,0.1,0.9,0.0,-3.3,12.2,null],["2025-07-07","01828","FWD Group Holdings Limited","Financials","Standard",469.4,37.1,20.0,1.1,0.0,1.1,0.7,0.3,0.3,20.2,0.9,null],["2025-07-09","02590","Beijing Geekplus Technology Co., Ltd.","Information Technology","H-share",383.5,null,4.26,5.4,0.6,4.7,12.6,12.9,10.7,92.5,44.2,null],["2025-07-09","02597","Beijing Xunzhong Communication Technology Co., Ltd.","Telecommunications","H-share",52.9,12.8,20.01,0.2,7.2,-6.5,-0.4,0.5,0.7,47.6,0.3,null],["2025-07-09","01304","Fortior Technology (Shenzhen) Co., Ltd.","Information Technology","H-share",333.0,138.3,20.0,16.0,8.5,6.9,25.8,31.2,26.4,65.1,8.6,null],["2025-07-09","06613","Lens Technology Co., Ltd.","Industrials","H-share",702.9,462.8,20.0,9.1,3.9,5.1,6.4,12.8,13.4,76.8,48.7,null],["2025-07-09","02651","Wuhan Dazhong Dental Medical Co., Ltd.","Healthcare","H-share",27.9,108.2,10.0,3.5,20.0,-13.8,-10.5,-27.5,-28.6,-36.0,-47.0,null],["2025-07-25","09887","Nanjing Leads Biolabs Co., Ltd.","Healthcare","18A biotech",190.2,3494.8,0.27,91.7,106.9,-7.3,100.0,92.4,94.3,69.1,60.1,null],["2025-08-11","02627","Ab&B Bio-Tech CO., LTD. JS","Healthcare","18A biotech",55.3,4007.6,1.0,158.0,155.8,0.8,314.7,273.6,245.6,214.0,272.1,null],["2025-08-15","02591","Guangzhou Innogen Pharmaceutical Group Co., Ltd.","Healthcare","18A biotech",87.5,5341.7,0.5,206.5,285.4,-20.5,183.7,138.5,137.4,76.4,47.8,null],["2025-08-20","02631","SICC CO., LTD.","Information Technology","H-share",301.3,2809.2,30.0,6.4,6.5,-0.1,2.3,36.8,45.6,17.1,33.2,null],["2025-08-26","06960","SHUANGDENG GROUP CO., LTD.","Industrials","H-share",125.3,3876.2,0.06,31.3,55.1,-15.3,20.1,20.2,21.9,22.5,-3.0,null],["2025-08-28","03858","Jiaxin International Resources Investment Limited","Materials","Standard",176.8,2041.6,1.0,177.8,108.8,33.1,193.6,154.8,161.0,202.6,678.4,null],["2025-09-02","02580","AUX ELECTRIC CO., LTD.","Consumer Discretionary","Standard",532.1,null,10.0,-5.4,-7.6,2.4,-7.6,-17.7,-20.5,-10.8,-34.9,null],["2025-09-09","02543","DAHON TECH (SHENZHEN) CO., LTD.","Consumer Discretionary","H-share",57.4,7558.4,0.02,14.9,36.4,-15.7,30.0,2.7,2.7,-17.6,-39.9,null],["2025-09-16","02525","Hesai Group","Information Technology","Standard",613.4,null,30.0,10.0,7.7,2.1,8.1,-14.7,-14.7,-24.6,-8.8,null],["2025-09-17","02656","160 Health International Limited","Healthcare","Standard",51.3,751.8,8.0,137.3,152.1,-5.9,139.7,226.5,226.5,336.1,769.6,null],["2025-09-19","02595","GenFleet Therapeutics (Shanghai) Inc","Healthcare","18A biotech",268.3,2662.8,0.08,106.5,115.8,-4.3,87.3,44.1,53.9,32.8,41.9,null],["2025-09-23","06090","BUTONG GROUP","Consumer Discretionary","Standard",100.2,3317.5,1.0,44.0,41.0,2.1,46.1,35.4,35.4,46.8,4.8,null],["2025-09-25","09973","Chery Automobile Co., Ltd.","Consumer Discretionary","H-share",1335.5,308.2,0.67,3.8,11.2,-6.7,3.7,6.5,6.5,0.4,-12.1,null],["2025-09-30","02889","PATEO CONNECT Technology (Shanghai) Corporation","Consumer Discretionary","H-share",136.8,529.8,0.26,53.6,32.1,16.3,99.0,71.0,76.7,97.6,17.9,null],["2025-09-30","02583","Shenzhen Hiphine Precision Technology Co., Ltd.","Consumer Discretionary","H-share",40.2,2505.9,1.0,258.1,183.8,26.2,457.4,456.8,440.5,469.6,252.4,null],["2025-09-30","02259","Zijin Gold International Company Limited","Materials","Standard",3683.6,240.7,50.0,68.5,55.7,8.2,97.4,83.5,85.5,101.1,143.2,null],["2025-10-08","02652","CF PharmTech, Inc.","Healthcare","H-share",77.9,6697.8,1.0,161.0,218.6,-18.1,94.6,99.7,89.8,116.0,56.5,null],["2025-10-10","02650","Shanghai Zhida Technology Development Co., Ltd.","Industrials","H-share",51.3,5440.8,0.04,192.1,183.9,2.9,171.2,171.9,172.0,231.1,184.1,null],["2025-10-15","02575","Xuanzhu Biopharmaceutical Co., Ltd.","Healthcare","18A biotech",100.1,4908.3,1.0,126.7,154.0,-10.7,417.2,452.6,451.3,494.4,210.5,null],["2025-10-16","02670","Beijing Yunji Technology Co., Ltd.","Information Technology","H-share",97.3,5657.2,3.0,26.1,49.4,-15.6,29.2,19.7,18.2,21.0,150.8,null],["2025-10-20","02637","Fujian Haixi Pharmaceuticals Co., Ltd.","Healthcare","H-share",127.4,3165.1,1.0,20.6,18.1,2.2,19.4,37.2,20.6,43.9,75.7,null],["2025-10-21","06687","JST Group Corporation Limited","Information Technology","Standard",307.5,1953.0,0.13,23.9,24.2,-0.3,8.5,-14.2,-15.1,-7.6,-39.3,null],["2025-10-22","00638","Fibocom Wireless Inc.","Industrials","H-share",372.3,551.0,0.31,-11.7,0.0,-11.7,null,null,null,null,null,null],["2025-10-28","06980","Bama Tea Co., Ltd.","Consumer Staples","H-share",57.7,2680.0,0.8,86.7,60.2,16.5,46.0,5.8,5.0,-39.7,-45.1,null],["2025-10-28","06166","CIG SHANGHAI CO., LTD.",null,"H-share",680.5,338.7,5.0,33.9,36.5,-1.9,13.5,12.7,14.8,19.3,61.4,null],["2025-10-28","01384","Deepexi Technology Co., Ltd.","Information Technology","H-share",91.0,7569.8,3.0,150.6,111.9,18.2,278.8,198.6,169.5,197.6,82.5,null],["2025-10-28","06031","SANY HEAVY INDUSTRY CO., LTD.","Industrials","H-share",1967.8,52.9,50.0,2.8,-0.0,2.8,6.7,1.7,0.2,18.3,1.0,null],["2025-11-03","02718","Mininglamp Technology","Information Technology","Standard",150.1,4452.9,1.0,106.1,98.6,3.8,57.2,41.8,49.6,66.8,58.3,null],["2025-11-05","09927","Seres Group Co., Ltd.","Consumer Discretionary","H-share",1831.2,132.7,10.0,0.0,-2.0,2.0,-12.2,-11.4,-12.9,-25.6,-46.7,null],["2025-11-06","00699","NINGBO JOYSON ELECTRONIC CORP.","Consumer Discretionary","H-share",437.5,147.7,16.0,-8.0,-2.3,-5.9,null,null,null,null,null,null],["2025-11-06","02026","Pony AI Inc.","Information Technology","Standard",859.8,15.9,55.0,-9.3,-10.8,1.7,-22.3,-20.1,-19.2,-25.7,-42.5,null],["2025-11-06","02630","Vigonvita Life Sciences Co., Ltd.","Healthcare","18A biotech",75.3,6238.4,1.68,145.7,184.7,-13.7,65.0,128.1,126.6,213.5,132.1,null],["2025-11-06","00800","WeRide Inc.","Information Technology","Standard",306.6,73.4,6.64,-10.0,-7.8,-2.3,-23.6,-13.3,-12.0,-28.6,-25.8,null],["2025-11-10","02698","Softcare Limited","Consumer Staples","Standard",351.1,1813.8,1.0,25.9,33.5,-5.7,17.7,14.1,19.1,17.1,3.8,null],["2025-11-17","02579","CNGR Advanced Material Co., Ltd.","Materials","H-share",454.3,27.9,10.0,-0.1,0.0,-0.1,-10.9,-22.2,-20.9,5.0,8.8,null],["2025-11-24","02788","Chuangxin Industries Holdings Limited","Materials","Standard",810.2,447.2,10.0,32.8,38.3,-4.0,59.4,84.3,78.9,109.6,94.2,null],["2025-11-27","02685","Quantgroup Holding Limited","Consumer Discretionary","Standard",19.0,9366.3,0.6,88.8,165.3,-28.8,189.8,176.7,176.7,236.9,7.8,null],["2025-11-28","09609","Hebei Haiwei Electronic New Material Technology Co., Ltd.","Industrials","H-share",68.1,5426.3,1.0,-23.0,-5.5,-18.5,-21.5,-31.3,-28.9,-32.8,-56.6,null],["2025-12-03","02693","ANHUI JINYAN KAOLIN NEW MATERIALS CO., LTD.","Materials","H-share",22.7,6876.2,0.03,2.2,27.4,-19.8,-11.5,-40.3,-37.9,-37.8,-49.3,null],["2025-12-03","02539","Lemo Services Co., Ltd","Consumer Discretionary","H-share",28.5,7324.3,0.8,36.2,62.0,-15.9,66.8,-12.4,-7.5,-54.0,-63.3,null],["2025-12-05","02658","Guangdong Tianyu Semiconductor Co., Ltd.","Information Technology","H-share",223.6,60.6,10.0,-30.2,-34.5,6.6,-21.7,-19.0,-17.4,-17.2,-18.7,null],["2025-12-05","02408","Guangzhou Xiao Noodles Catering Management Co., Ltd.","Consumer Discretionary","H-share",87.9,426.0,2.0,-27.8,-29.0,1.6,-28.7,-35.6,-37.8,-32.4,-38.2,null],["2025-12-08","02687","SHANGHAI ABLE DIGITAL SCIENCE&TECH CO., LTD.","Information Technology","H-share",57.7,4813.4,1.0,87.3,23.9,51.2,140.0,136.7,128.1,105.2,93.2,null],["2025-12-08","02676","Suzhou Novosense Microelectronics Co., Ltd.",null,"H-share",298.8,25.3,4.32,-4.3,0.0,-4.3,-2.5,24.7,23.2,11.0,48.8,null],["2025-12-10","02659","Shanghai Bao Pharmaceuticals Co., Ltd.","Healthcare","18A biotech",128.2,3526.3,7.0,138.8,129.3,4.1,173.7,201.7,199.3,351.1,-27.6,null],["2025-12-11","07618","JINGDONG Industrials, Inc.","Industrials","Standard",389.0,60.5,35.0,0.0,-7.8,8.5,-1.3,0.7,0.9,2.6,-8.4,null],["2025-12-16","02655","Guoxia Technology Co., Ltd.","Industrials","H-share",115.4,1890.7,10.0,117.9,89.1,15.3,107.8,198.3,160.2,125.7,-11.5,null],["2025-12-17","03887","HashKey Holdings Limited","Financials","Standard",206.8,393.7,10.0,-0.1,0.3,-0.4,-14.4,12.3,16.0,-24.4,-57.9,null],["2025-12-19","03881","CiDi Inc.","Industrials","H-share",182.3,22.6,50.0,-13.7,0.0,-13.7,-15.2,-6.6,-0.8,-14.3,-15.5,null],["2025-12-19","02546","Xizang Zhihui Mining Co., Ltd.","Materials","H-share",70.5,5248.1,1.0,90.7,139.5,-20.4,109.3,157.2,123.5,228.6,220.6,null],["2025-12-22","02396","B&K CORPORATION LIMITED","Healthcare","18A biotech",86.4,792.0,2.5,-29.3,-11.5,-20.1,-57.7,-72.3,-71.3,-81.3,-88.0,null],["2025-12-22","02581","BenQ BM Holding Cayman Corp.","Healthcare","Standard",80.2,6.3,50.01,-49.5,-30.4,-27.4,-56.1,-56.3,-56.3,-63.1,-73.2,null],["2025-12-22","02695","Impression Dahongpao Co., Ltd.","Consumer Discretionary","H-share",16.7,3397.5,0.8,-35.3,-9.4,-28.5,-41.1,-35.3,-35.0,-48.9,-52.8,null],["2025-12-22","02691","Nanhua Futures Co., Ltd.","Financials","H-share",165.6,1.9,74.64,-24.2,-23.9,-0.3,-18.3,-11.4,-11.7,-4.2,-22.7,null],["2025-12-23","03378","Hanx Biopharmaceuticals (Wuhan) Co., Ltd.","Healthcare","18A biotech",75.2,3074.1,1.0,-46.2,-9.7,-40.5,-46.7,-46.6,-46.6,-15.6,-16.8,null],["2025-12-23","02635","Nuobikan Artificial Intelligence Technology (Chengdu) Co., Ltd.","Information Technology","H-share",38.8,188.7,3.0,363.8,299.8,16.0,331.8,381.0,375.2,574.4,73.7,null],["2025-12-23","02661","QingSong Health Corporation","Consumer Discretionary","Standard",77.2,1421.5,6.0,158.8,120.5,17.4,229.4,344.4,370.5,545.5,-38.5,null],["2025-12-30","02657","SHANGHAI FOREST CABIN COSMETICS GROUP CO., LTD.","Healthcare","H-share",160.1,1235.8,2.0,9.3,9.3,0.0,6.7,8.7,3.6,-25.3,-56.7,null],["2025-12-30","03317","Shenzhen Xunce Technology Co., Ltd.","Information Technology","H-share",139.7,7.2,12.78,1.0,0.0,1.0,1.5,20.0,23.8,316.0,153.8,null],["2025-12-30","06651","Beijing 51WORLD Digital Twin Technology Co., Ltd.","Information Technology","H-share",93.7,256.0,10.0,29.9,14.8,13.2,51.5,196.6,212.5,27.9,196.9,null],["2025-12-30","03696","InSilico Medicine Cayman TopCo","Healthcare","Standard",335.8,1427.4,1.0,24.7,45.5,-14.3,68.4,148.2,172.3,132.8,64.7,null],["2025-12-30","06600","OneRobotics (Shenzhen) Co., Ltd.",null,"H-share",239.9,254.5,7.0,0.1,0.0,0.1,40.2,148.8,129.3,24.7,-23.0,null],["2025-12-30","02671","USAS Building System (Shanghai) Co., Ltd.","Properties & Construction","H-share",22.4,146.2,0.75,7.6,15.6,-6.9,4.2,-29.6,-29.6,-42.7,-47.5,null],["2026-01-02","06082","Shanghai Biren Technology Co., Ltd.","Information Technology","H-share",823.1,2347.5,5.0,75.8,82.1,-3.5,73.8,77.5,67.3,66.6,null,null],["2026-01-08","02513","Knowledge Atlas Technology Joint Stock Company Limited","Information Technology","H-share",641.1,1159.5,5.0,13.2,3.3,9.6,107.4,86.1,138.2,699.9,null,null],["2026-01-08","09903","Shanghai Iluvatar CoreX Semiconductor Co., Ltd.","Information Technology","H-share",471.5,414.2,7.0,8.4,31.5,-17.6,21.7,16.4,18.3,104.7,null,null],["2026-01-08","02675","Shenzhen Edge Medical Co., Ltd.","Healthcare","18A biotech",176.7,1091.9,0.5,30.9,36.4,-4.1,55.5,36.0,34.7,25.9,null,null],["2026-01-09","00100","MiniMax Group Inc.","Information Technology","18C specialist tech",710.3,1837.2,2.81,109.1,42.7,46.6,null,null,212.1,504.8,null,null],["2026-01-09","06938","Suzhou Ribo Life Science Co., Ltd.","Healthcare","18A biotech",270.2,101.1,1.71,41.6,29.4,9.5,30.8,19.5,18.3,21.8,null,null],["2026-01-09","03636","Yunnan Jinxun Resources Co., Ltd.","Materials","H-share",162.6,143.5,7.0,26.0,26.7,-0.5,31.3,32.0,25.5,-13.0,null,null],["2026-01-12","00501","OmniVision Integrated Circuits Group, Inc.","Information Technology","H-share",681.8,9.3,100.0,16.2,3.1,12.8,null,null,null,null,null,null],["2026-01-13","03986","GigaDevice Semiconductor Inc.","Information Technology","H-share",690.6,542.2,2.0,37.5,45.1,-5.2,88.9,86.4,121.0,163.6,null,null],["2026-01-13","01641","Hongxing Coldchain (Hunan) Co., Ltd.",null,"H-share",36.6,2309.2,1.0,0.3,59.7,-37.2,-18.8,-30.8,-31.8,-44.6,null,null],["2026-01-22","09611","Shanghai Longcheer Technology Co., Ltd.","Information Technology","H-share",207.7,1149.8,0.2,3.5,12.9,-8.3,-1.6,-5.9,-1.4,-30.3,null,null],["2026-01-28","01768","BUSY MING GROUP CO., LTD.","Consumer Staples","H-share",541.1,1899.5,3.0,69.1,88.1,-10.1,68.8,72.4,79.3,89.0,null,null],["2026-02-03","09980","Eastroc Beverage (Group) Co., Ltd.","Consumer Staples","H-share",1423.0,57.5,15.0,1.5,0.0,1.5,0.8,-11.7,-9.8,-14.0,null,null],["2026-02-04","02768","Qingdao Gon Technology Co., Ltd.","Materials","H-share",138.5,2251.8,2.0,11.6,25.0,-10.8,27.2,36.0,32.0,30.7,null,null],["2026-02-06","02677","Distinct Healthcare Holdings Limited","Healthcare","Standard",38.0,2730.7,1.0,13.4,35.2,-16.2,-3.2,8.3,7.4,-51.8,null,null],["2026-02-06","02714","Muyuan Foods Co., Ltd.",null,"H-share",1551.1,5.9,100.0,3.9,0.0,3.9,0.5,17.3,18.1,7.1,null,null],["2026-02-06","03200","Shenzhen Han’s CNC Technology Co., Ltd.","Industrials","H-share",712.6,446.4,10.0,14.8,10.6,3.8,17.5,20.6,17.6,48.9,null,null],["2026-02-09","06809","Montage Technology Co., Ltd.","Information Technology","H-share",1038.4,707.3,5.0,63.7,57.2,4.2,97.4,73.5,67.4,291.6,null,null],["2026-02-10","00600","Axera Semiconductor Co., Ltd.","Information Technology","H-share",383.6,104.8,18.0,0.0,0.0,0.0,20.2,-10.6,-7.8,-19.9,null,null],["2026-02-10","02720","Ridge Outdoor International Limited","Consumer Discretionary","Standard",44.3,3654.2,1.0,102.3,96.1,3.2,124.5,118.0,119.6,97.1,null,null],["2026-02-11","00470","WUXI LEAD INTELLIGENT EQUIPMENT CO., LTD.","Industrials","H-share",634.5,79.5,18.0,-0.0,1.0,-1.0,0.6,-4.7,-0.2,18.7,null,null],["2026-02-13","02706","Beijing Haizhi Technology Group Co., Ltd.","Information Technology","H-share",97.2,5065.1,0.06,242.2,204.1,12.5,298.7,239.8,200.4,116.9,null,null],["2026-02-13","09981","Shenzhen Woer Heat-Shrinkable Material Co., Ltd.","Industrials","H-share",360.6,569.6,0.33,2.9,0.0,2.9,3.0,6.0,-0.3,-24.9,null,null],["2026-03-09","02649","ALSCO Pooling Service Co., Ltd.","Industrials","H-share",28.7,5297.2,0.04,-43.6,-31.8,-17.3,-53.1,-64.5,-64.5,-64.5,null,null],["2026-03-09","02715","ESTUN AUTOMATION CO., LTD","Industrials","H-share",190.6,19.7,4.99,-16.0,-0.0,-16.0,-16.4,-18.2,-16.2,32.8,null,null],["2026-03-09","02692","Shenzhen Zhaowei Machinery & Electronics Co., Ltd.","Industrials","H-share",244.4,1536.8,4.0,2.4,9.4,-6.4,11.4,-8.8,-6.4,-1.2,null,null],["2026-03-10","03268","MeiG Smart Technology Co., Ltd.","Information Technology","H-share",148.9,174.1,5.0,1.5,0.6,0.9,-10.1,-23.2,-24.5,-20.1,null,null],["2026-03-20","01989","Delton Technology (Guangzhou) Inc.","Industrials","H-share",423.9,1070.7,5.0,33.6,32.2,1.0,36.0,107.0,109.4,159.0,null,null],["2026-03-23","02701","Nsing Technologies Inc.","Information Technology","H-share",131.5,131.8,30.0,4.2,32.4,-21.3,21.1,19.4,15.6,0.7,null,null],["2026-03-23","03355","FS.COM Ltd.","Information Technology","H-share",243.6,1579.7,1.0,13.5,34.6,-15.7,3.9,12.0,21.6,-12.3,null,null],["2026-03-24","02632","Jiangsu New Vision Automotive Electronics Co., Ltd.","Consumer Discretionary","H-share",92.0,68.9,30.0,-36.9,-0.7,-36.5,1.8,94.2,96.4,176.0,null,null],["2026-03-24","02729","Zhejiang Galaxis Technology Group Co., Ltd.","Information Technology","H-share",78.6,2153.3,5.0,84.3,92.1,-4.1,80.2,128.1,127.6,65.4,null,null],["2026-03-30","01021","Guangdong Huayan Robotics Co., Ltd.","Industrials","H-share",231.8,null,5.0,8.2,-1.2,9.5,5.4,15.3,17.1,4.7,null,null],["2026-03-30","02526","Hangzhou Diagens Biotechnology Co., Ltd.","Healthcare","18A biotech",101.5,1073.4,3.0,111.7,121.2,-4.3,202.0,190.9,173.7,210.3,null,null],["2026-03-30","02726","Epiworld International Co., Ltd.","Information Technology","H-share",210.1,50.7,20.0,35.1,44.2,-6.4,51.2,35.9,36.6,50.4,null,null],["2026-03-30","06636","Shandong Extreme Vision Technology Co., Ltd.","Information Technology","H-share",64.0,4591.4,10.0,150.0,49.9,66.8,164.0,153.8,151.2,112.5,null,null],["2026-03-31","00664","Hangzhou Tongshifu Cultural and Creative (Group) Co., Ltd.","Consumer Discretionary","H-share",57.0,59.5,2.78,-49.2,-41.0,-13.9,-53.2,-62.1,-62.5,-72.0,null,null],["2026-03-31","03625","Shanghai FourSemi Semiconductor Co., Ltd.",null,"H-share",61.5,3118.4,5.0,100.0,112.6,-5.9,226.2,228.2,214.8,143.0,null,null],["2026-04-16","06656","Sigenergy Technology Co., Ltd.","Industrials","H-share",648.8,1102.0,2.0,103.4,79.2,13.5,73.7,60.1,64.4,null,null,null],["2026-04-17","03277","Gpixel Changchun Microelectronics Inc.","Information Technology","H-share",383.9,1138.2,1.0,75.5,80.5,-2.8,112.4,113.1,113.1,null,null,null],["2026-04-17","00068","Manycore Tech Inc.","Information Technology","Standard",180.4,1590.6,3.0,144.1,171.7,-10.1,273.8,153.9,153.9,null,null,null],["2026-04-21","02476","Victory Giant Technology (HuiZhou) Co., Ltd.","Industrials","H-share",2966.0,431.1,0.71,50.1,57.2,-4.5,42.9,67.3,65.0,null,null,null],["2026-04-23","03296","Huaqin Co., Ltd.","Information Technology","H-share",670.7,531.3,12.0,13.3,12.7,0.5,17.1,48.6,52.2,null,null,null],["2026-04-28","01879","Shanghai Xizhi Technology Co., Ltd.",null,"18C specialist tech",372.6,5784.7,6.0,383.6,380.3,0.7,385.0,253.4,253.4,null,null,null],["2026-04-28","02493","Mabwell (Shanghai) Bioscience Co., Ltd.","Healthcare","18A biotech",167.0,481.7,1.0,0.6,2.4,-1.8,-3.7,-5.3,-11.8,null,null,null],["2026-04-29","06810","Shanghai Sunmi Technology Co., Ltd.","Information Technology","H-share",135.9,2003.2,5.0,241.1,292.2,-13.0,216.6,199.3,199.3,null,null,null],["2026-05-05","01609","Star Sports Medicine Co., Ltd.","Healthcare","H-share",106.4,7823.1,1.5,118.3,192.4,-25.3,102.4,94.2,94.3,null,null,null],["2026-05-06","01187","Cofoe Medical Technology Co., Ltd.","Healthcare","H-share",136.1,399.1,5.0,-1.1,1.3,-2.4,-6.7,-20.9,-16.1,null,null,null],["2026-05-11","01236","SHENZHEN LDROBOT CO., LTD",null,"H-share",112.6,6707.7,0.8,127.6,103.0,12.1,56.7,52.1,54.9,null,null,null],["2026-05-13","07630","IMPACT Therapeutics, Inc","Healthcare","18A biotech",124.4,2282.4,1.5,108.3,76.6,17.9,86.3,84.1,81.1,null,null,null],["2026-05-13","07666","Metis TechBio Co., Ltd.","Healthcare","18C specialist tech",311.5,6911.0,0.14,126.7,173.1,-17.0,71.4,22.3,25.6,null,null,null],["2026-05-18","06871","Robotphoenix Intelligent Technology Co., Ltd.","Industrials","H-share",96.2,14855.4,3.0,76.2,79.2,-1.6,12.7,19.5,23.3,null,null,null],["2026-05-20","01511","UISEE Technologies (Beijing) Co., Ltd.","Information Technology","H-share",111.8,6777.3,5.0,-4.6,-7.1,2.7,22.3,59.2,68.7,null,null,null],["2026-05-20","07688","Shanghai Top Numerical Control Technology Co., Ltd.","Industrials","H-share",254.2,3764.6,8.0,80.0,40.2,28.4,35.7,9.1,11.3,null,null,null],["2026-05-22","06872","TenNor Therapeutics (Suzhou) Limited","Healthcare","18A biotech",85.9,9015.1,0.8,178.7,98.2,40.7,166.8,260.6,256.7,null,null,null],["2026-05-27","00901","Shenzhen SDMC Technology Co., Ltd.","Information Technology","H-share",80.8,null,2.0,86.6,100.6,-7.0,104.6,105.8,96.2,null,null,null],["2026-05-27","02723","Beijing DeepZero Technology Co., Ltd.","Consumer Discretionary","H-share",64.5,5480.2,1.0,265.8,179.3,31.0,543.2,539.3,484.1,null,null,null],["2026-05-27","03310","Viewtrix Technology Co., Ltd","Information Technology","H-share",162.2,3559.7,3.0,91.7,22.4,56.6,66.9,76.7,61.0,null,null,null],["2026-05-29","03388","Shenzhen Creality 3D Technology Co., Ltd.","Information Technology","H-share",203.5,3829.4,3.0,21.3,80.2,-32.7,11.2,33.0,33.0,null,null,null],["2026-06-03","02553","Beijing Shougang LanzaTech Technology Co., Ltd.","Materials","H-share",74.9,1421.5,2.0,44.2,91.8,-24.8,115.8,null,null,null,null,null],["2026-06-05","02290","Lung Fung Group Holdings Limited","Consumer Discretionary","Standard",83.0,664.9,5.0,-45.8,-16.6,-35.0,-47.5,null,null,null,null,null],["2026-06-05","01081","Dajin Heavy Industry Co., Ltd.","Industrials","H-share",851.4,134.4,3.0,0.0,0.0,0.0,-3.7,null,null,null,null,null],["2026-06-05","01779","LongBio Pharma (Suzhou) Co., Ltd.","Healthcare","18A biotech",174.8,4762.6,2.0,37.2,50.2,-8.7,49.8,null,null,null,null,null],["2026-06-15","06658","Liuliumei Co., Ltd.","Consumer Staples","H-share",64.1,6586.7,1.5,193.7,118.0,34.7,225.6,null,null,null,null,null],["2026-06-17","06675","SENASIC Electronics Technology Co., Ltd.","Information Technology","H-share",125.7,5145.0,2.0,127.1,72.1,32.0,105.9,null,null,null,null,null],["2026-06-22","01392","Shenzhen HQVT Technology Co., Ltd.",null,"H-share",78.6,7181.2,2.0,270.8,302.8,-7.9,143.8,null,null,null,null,null],["2026-06-23","06067","Shenzhen Senior Technology Material Co., Ltd.","Industrials","H-share",172.1,1563.2,0.1,22.5,38.4,-11.5,10.2,null,null,null,null,null],["2026-06-23","06132","HJ Science Co., Ltd.","Healthcare","18A biotech",142.6,2007.6,2.0,-56.9,0.0,-56.9,-56.1,null,null,null,null,null],["2026-06-24","02335","Shaanxi Micot Pharmaceutical Technology Co., Ltd.","Healthcare","18A biotech",135.5,1181.5,3.0,102.8,86.9,8.5,null,null,null,null,null,null],["2026-06-24","06106","Shanghai Seer Intelligent Technology Co., Ltd.","Information Technology","H-share",136.7,5934.6,5.0,4.3,-0.0,4.3,null,null,null,null,null,null],["2026-06-26","03661","SG Micro Corp","Information Technology","H-share",416.0,251.7,10.0,47.1,23.4,19.2,null,null,null,null,null,null],["2026-06-26","09630","Circuit Fabology Microelectronics Equipment Co., Ltd.","Industrials","H-share",416.0,1007.2,3.0,103.8,73.7,17.3,null,null,null,null,null,null],["2026-06-26","01956","Beijing Zhongke WengeAI Science and Technology Co., Ltd.","Information Technology","H-share",115.4,5966.8,0.15,84.0,81.2,1.5,null,null,null,null,null,null],["2026-06-26","02272","KEYTOP PARKING INC.","Information Technology","H-share",51.3,2115.2,2.0,203.9,178.4,9.2,null,null,null,null,null,null],["2026-06-26","06228","PT MERDEKA GOLD RESOURCES Tbk- DRS",null,"Standard",305.8,4.4,100.0,-6.5,0.0,-6.5,null,null,null,null,null,null],["2026-06-26","01688","LINGYI iTECH (GUANGDONG) COMPANY","Industrials","H-share",1059.5,96.2,1.23,-4.6,6.1,-10.1,null,null,null,null,null,null],["2026-06-29","02672","Baige Online Digital Technology Co., Ltd.","Financials","H-share",66.7,242.1,10.0,367.9,291.7,19.5,null,null,null,null,null,null],["2026-06-29","09637","Alebund Pharmaceuticals (Jiangsu) Limited","Healthcare","18A biotech",164.4,963.6,6.0,103.5,85.8,9.5,null,null,null,null,null,null],["2026-06-29","01191","Crealights Technology Co., Ltd.","Industrials","H-share",196.3,1296.9,4.0,44.7,75.4,-17.5,null,null,null,null,null,null],["2026-06-30","03952","Zhejiang Laifual Drive Co., Ltd.","Industrials","H-share",147.3,4572.0,5.0,-14.6,3.2,-17.2,null,null,null,null,null,null],["2026-06-30","02697","Guangdong True Health Medical Technology Development Co., Ltd.","Healthcare","18A biotech",57.7,1790.4,2.0,217.0,159.3,22.2,null,null,null,null,null,null],["2026-06-30","06915","Jiangxi Institute of Biological Products Inc.","Healthcare","H-share",52.0,476.6,2.0,-12.7,-33.9,32.2,null,null,null,null,null,null],["2026-06-30","06715","Hangzhou Qiandaohu Xunlong Sci-tech Co., Ltd.","Consumer Staples","H-share",158.1,2134.8,3.0,51.0,36.4,10.7,null,null,null,null,null,null]];
+const A={"wave":[{"quarter":"2023Q1","deals":17,"raised_usd_m":853.8},{"quarter":"2023Q2","deals":12,"raised_usd_m":1435.3},{"quarter":"2023Q3","deals":13,"raised_usd_m":900.0},{"quarter":"2023Q4","deals":26,"raised_usd_m":2749.6},{"quarter":"2024Q1","deals":12,"raised_usd_m":615.0},{"quarter":"2024Q2","deals":17,"raised_usd_m":1089.0},{"quarter":"2024Q3","deals":13,"raised_usd_m":5391.6},{"quarter":"2024Q4","deals":25,"raised_usd_m":4153.0},{"quarter":"2025Q1","deals":15,"raised_usd_m":2391.5},{"quarter":"2025Q2","deals":27,"raised_usd_m":11634.3},{"quarter":"2025Q3","deals":24,"raised_usd_m":10110.9},{"quarter":"2025Q4","deals":47,"raised_usd_m":12637.2},{"quarter":"2026Q1","deals":38,"raised_usd_m":14143.1},{"quarter":"2026Q2","deals":45,"raised_usd_m":12621.5}],"hyear":[{"year":2023,"Day 1":{"median":0.7649999999999999,"p25":-11.684999999999999,"p75":7.2675,"n":68},"5d":{"median":0.92,"p25":-9.015,"p75":14.715,"n":68},"20d":{"median":1.2850000000000001,"p25":-17.5475,"p75":16.857499999999998,"n":68},"1m":{"median":0.04166711460460434,"p25":-15.294887424296508,"p75":18.25669764198767,"n":68},"3m":{"median":-2.6683794239199807,"p25":-23.11965545527955,"p75":16.641803417467706,"n":68},"1y":{"median":-41.025,"p25":-59.7975,"p75":-3.5925,"n":68}},{"year":2024,"Day 1":{"median":2.76,"p25":-11.440000000000001,"p75":19.23,"n":67},"5d":{"median":0.38,"p25":-20.0,"p75":24.96,"n":67},"20d":{"median":1.39,"p25":-15.638890000000005,"p75":33.34188799999998,"n":67},"1m":{"median":0.0,"p25":-19.75331298025385,"p75":36.355463333782566,"n":67},"3m":{"median":-0.813949939816494,"p25":-23.318184505809434,"p75":75.58523409363745,"n":67},"1y":{"median":-15.18,"p25":-48.385,"p75":22.240000000000002,"n":67}},{"year":2025,"Day 1":{"median":9.3,"p25":-4.31,"p75":42.18,"n":113},"5d":{"median":8.5,"p25":-10.690000000000001,"p75":58.29,"n":111},"20d":{"median":14.09,"p25":-11.909750000000003,"p75":69.655,"n":111},"1m":{"median":14.76481279291204,"p25":-11.466159578904989,"p75":77.77518798841237,"n":111},"3m":{"median":21.02510141029519,"p25":-13.092343176893683,"p75":103.11614967754052,"n":111},"1y":{"median":-4.43,"p25":-41.2725,"p75":73.91,"n":42}},{"year":2026,"Day 1":{"median":37.53,"p25":3.245,"p75":103.48,"n":83},"5d":{"median":35.825,"p25":3.265,"p75":104.0375,"n":66},"20d":{"median":35.99719999999999,"p25":9.13,"p75":94.23,"n":57},"1m":{"median":44.39998532640103,"p25":12.352735475628988,"p75":112.19874844343829,"n":58},"3m":{"median":30.72221904330783,"p25":-12.999998728434248,"p75":112.5,"n":37},"1y":{"median":null,"p25":null,"p75":null,"n":0}}],"tier":[{"tier":"undersubscribed(<1x)","median":-0.055,"mean":-7.82,"n":12},{"tier":"1-15x","median":0.95,"mean":1.71,"n":81},{"tier":"15-50x","median":0.31,"mean":5.96,"n":43},{"tier":"50-100x","median":0.0,"mean":0.79,"n":19},{"tier":"100-500x","median":8.785,"mean":27.14,"n":56},{"tier":">500x","median":61.01,"mean":73.63,"n":112}],"lock":[{"offset":-2,"median":-1.67,"n":245},{"offset":-1,"median":-1.83,"n":245},{"offset":0,"median":-2.355,"n":246},{"offset":1,"median":-1.55,"n":240},{"offset":2,"median":-0.58,"n":240}],"p2y":[{"year":2023,"mean_bps":-138.3,"n":67},{"year":2024,"mean_bps":-86.1,"n":65},{"year":2025,"mean_bps":123.9,"n":110},{"year":2026,"mean_bps":208.3,"n":76}],"p3":[["S1: Subscribe all","day1_close",-5.1,208.3],["S1: Subscribe all","1m",272.3,254.8],["S1: Subscribe all","3m",863.0,495.9],["S2: Subscribe only if HSI 30d>0","day1_close",153.9,188.9],["S3: Buy open, sell close","day1",-191.3,-5.5],["S3: Buy close, sell 20d (if day1 pop>20%)","20d",1111.9,407.4],["S4: Short lockup expiry (-2d..+1d, ex-borrow)","event",6.5,null]],"eq":[["2023-01-16",0.9764],["2023-01-19",0.7222],["2023-03-30",0.3616],["2023-06-29",0.3337],["2023-07-13",0.3771],["2023-10-11",0.2989],["2023-10-12",0.3967],["2023-11-03",0.4366],["2023-11-09",0.6686],["2023-11-10",0.8469],["2023-11-17",0.9123],["2024-01-12",1.1391],["2024-03-08",1.1913],["2024-03-08",2.901],["2024-03-20",2.8094],["2024-03-28",1.979],["2024-05-27",3.0572],["2024-05-28",3.224],["2024-05-31",1.9771],["2024-06-07",3.1585],["2024-06-18",2.2068],["2024-06-28",2.5157],["2024-10-02",1.4144],["2024-10-31",1.8901],["2024-11-08",1.2884],["2024-12-10",1.4694],["2024-12-30",1.7625],["2025-01-10",1.8595],["2025-03-03",2.6914],["2025-03-27",2.437],["2025-04-15",2.2524],["2025-05-07",2.6574],["2025-05-08",2.0753],["2025-05-08",1.8698],["2025-05-23",2.1502],["2025-05-23",2.1843],["2025-05-27",2.1897],["2025-06-10",1.2008],["2025-06-10",0.7898],["2025-06-23",1.0479],["2025-06-23",1.1405],["2025-06-26",0.9236],["2025-06-26",1.1868],["2025-06-30",1.1312],["2025-06-30",2.2002],["2025-07-25",2.1975],["2025-08-11",3.1717],["2025-08-15",2.4527],["2025-08-26",2.2331],["2025-08-28",2.0364],["2025-09-17",2.7912],["2025-09-19",1.9339],["2025-09-23",1.8091],["2025-09-30",2.8037],["2025-09-30",3.0408],["2025-09-30",3.3703],["2025-10-08",2.5621],["2025-10-10",2.3722],["2025-10-15",5.7699],["2025-10-16",5.449],["2025-10-20",6.1699],["2025-10-21",4.2406],["2025-10-28",2.3819],["2025-10-28",1.994],["2025-10-28",2.3661],["2025-11-03",1.6165],["2025-11-06",1.4922],["2025-11-10",1.3445],["2025-11-24",1.8603],["2025-11-27",2.7177],["2025-12-03",1.7337],["2025-12-08",2.1831],["2025-12-10",2.7474],["2025-12-16",3.7467],["2025-12-19",5.035],["2025-12-23",5.1971],["2025-12-23",8.8984],["2025-12-30",20.2704],["2025-12-30",40.2621],["2026-01-02",40.457],["2026-01-08",41.8278],["2026-01-09",43.6105],["2026-01-09",36.5931],["2026-01-13",49.4185],["2026-01-28",50.1594],["2026-02-09",52.9172],["2026-02-10",56.7518],["2026-02-13",56.07],["2026-03-20",86.6248],["2026-03-24",106.7913],["2026-03-30",146.2007],["2026-03-30",146.3248],["2026-03-30",147.7881],["2026-03-31",241.8183],["2026-04-16",189.1],["2026-04-17",195.7855],["2026-04-17",236.7566],["2026-04-21",262.7677],["2026-04-28",190.7225],["2026-04-29",166.3808],["2026-05-05",147.2087],["2026-05-11",97.6445],["2026-05-13",85.8193],["2026-05-13",45.871],["2026-05-18",30.8858],["2026-05-20",18.572],["2026-05-22",23.9362],["2026-05-27",41.7151],["2026-05-27",38.2451],["2026-05-27",41.9893],["2026-05-29",45.8301]]};
+
+
+/* ================= palettes ================= */
+const PALETTES={
+ cinnabar:{light:{paper:'#f6f1e3','paper-2':'#efe8d5',panel:'#fcf8ec',ink:'#1d1812','ink-2':'#4e463a','ink-3':'#8a7f6a',
+   hairline:'#ddd3bc',rule:'#bfb192',accent:'#9e2b23','accent-soft':'#efd9d2',brass:'#a3742a',
+   gain:'#c3272b',loss:'#2f6e46',shadow:'rgba(60,40,20,.12)'},
+  dark:{paper:'#1a1512','paper-2':'#221c17',panel:'#201a15',ink:'#f0e8d8','ink-2':'#b5a996','ink-3':'#7f7462',
+   hairline:'#3a322a',rule:'#4d4234',accent:'#e05545','accent-soft':'#3a2420',brass:'#d0a34e',
+   gain:'#e26a5a',loss:'#6cbf8a',shadow:'rgba(0,0,0,.5)'}},
+ seal:{light:{paper:'#f7f5ef','paper-2':'#efece2',panel:'#fdfcf8',ink:'#141210','ink-2':'#454138','ink-3':'#837c6e',
+   hairline:'#ddd8cc',rule:'#b5ad9c',accent:'#c02719','accent-soft':'#f0d9d3',brass:'#6f6a5e',
+   gain:'#a8332e',loss:'#2f6e46',shadow:'rgba(30,25,15,.12)'},
+  dark:{paper:'#131211','paper-2':'#1b1a17',panel:'#181714',ink:'#eeeadf','ink-2':'#b0aca0','ink-3':'#7a766a',
+   hairline:'#34322c',rule:'#484539',accent:'#e04a38','accent-soft':'#3a2320',brass:'#a29b88',
+   gain:'#d9695f',loss:'#6cbf8a',shadow:'rgba(0,0,0,.5)'}},
+ imperial:{light:{paper:'#f3ecdd','paper-2':'#eae2cd',panel:'#faf5e8',ink:'#201510','ink-2':'#4f4235','ink-3':'#8b7c64',
+   hairline:'#dccfb5',rule:'#b9a26f',accent:'#6b1420','accent-soft':'#e8d3d0',brass:'#a67c00',
+   gain:'#b3342c',loss:'#33704a',shadow:'rgba(50,30,15,.13)'},
+  dark:{paper:'#191114','paper-2':'#211820',panel:'#1e161a',ink:'#efe6da','ink-2':'#b6a99c','ink-3':'#7f7266',
+   hairline:'#3a2e32',rule:'#4f3f44',accent:'#c95a6a','accent-soft':'#3a2228',brass:'#d4af37',
+   gain:'#dd6b5e',loss:'#6cbf8a',shadow:'rgba(0,0,0,.55)'}},
+ claret:{light:{paper:'#f4f1e7','paper-2':'#ece8da',panel:'#faf8f0',ink:'#191613','ink-2':'#4b473e','ink-3':'#847e6c',
+   hairline:'#d7d1bd',rule:'#b7af96',accent:'#71212e','accent-soft':'#e7d5d3',brass:'#8f6a28',
+   gain:'#a8332e',loss:'#2f6e46',shadow:'rgba(40,32,18,.12)'},
+  dark:{paper:'#171512','paper-2':'#1f1c18',panel:'#1c1916',ink:'#ece7d8','ink-2':'#b3ada0','ink-3':'#7d7768',
+   hairline:'#37332b',rule:'#4a4438',accent:'#cf6f78','accent-soft':'#3a2426',brass:'#c5a052',
+   gain:'#d9695f',loss:'#6cbf8a',shadow:'rgba(0,0,0,.5)'}}
+};
+const root=document.documentElement;
+let pal=localStorage.getItem('gong-pal')||'cinnabar';
+let mode=localStorage.getItem('gong-mode')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
+function applyPal(){
+  const v=PALETTES[pal][mode];
+  for(const k in v)root.style.setProperty('--'+k,v[k]);
+  document.querySelectorAll('.pal').forEach(b=>b.classList.toggle('on',b.dataset.p===pal));
+  paintToggle();
+  redrawAll();
+}
+const SUN='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4.4"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.1 5.1l1.6 1.6M17.3 17.3l1.6 1.6M18.9 5.1l-1.6 1.6M6.7 17.3l-1.6 1.6" stroke-linecap="round"/></svg>';
+const MOON='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20 14.6A8 8 0 1 1 9.4 4a6.3 6.3 0 0 0 10.6 10.6z" stroke-linejoin="round"/></svg>';
+function paintToggle(){document.getElementById('toggle').innerHTML=mode==='dark'?SUN:MOON;}
+document.getElementById('toggle').onclick=()=>{mode=mode==='dark'?'light':'dark';localStorage.setItem('gong-mode',mode);applyPal();};
+document.querySelectorAll('.pal').forEach(b=>b.onclick=()=>{pal=b.dataset.p;localStorage.setItem('gong-pal',pal);applyPal();});
+function cvar(n){return getComputedStyle(document.body).getPropertyValue('--'+n).trim();}
+
+/* ================= utils ================= */
+const NS='http://www.w3.org/2000/svg';
+function E(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e;}
+function median(a){const s=[...a].sort((x,y)=>x-y);if(!s.length)return null;const m=s.length>>1;return s.length%2?s[m]:(s[m-1]+s[m])/2;}
+const yearOf=r=>r[0].slice(0,4);
+const fmtpct=v=>(v>=0?'+':'')+(Math.abs(v)>=100?v.toFixed(0):v.toFixed(1))+'%';
+function txt(svg,x,y,s,a){const t=E('text',Object.assign({x,y},a||{}),svg);t.textContent=s;return t;}
+
+/* ================= ticker ================= */
+(function(){
+  const last=D.filter(r=>r[8]!=null).slice(-34);
+  const item=r=>{const up=r[8]>=0;
+    return `<span class="tk"><b>${r[1]}</b> ${r[2].length>22?r[2].slice(0,22)+'…':r[2]} <span class="${up?'up':'down'}">${up?'▲':'▼'} ${fmtpct(r[8])}</span></span>`;};
+  const html=last.map(item).join('');
+  document.getElementById('tickrun').innerHTML=html+html;
+})();
+
+/* ================= tape (canvas) ================= */
+const cv=document.getElementById('tape'), tip=document.getElementById('tip');
+let TP=[]; const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const CAP_UP=200,CAP_DN=60,t0=Date.parse('2023-01-01'),t1=Date.parse('2026-07-01');
+let tapeDone=false;
+function drawTape(prog){
+  const dpr=Math.min(2,devicePixelRatio||1),w=cv.clientWidth,h=cv.height;
+  if(!w)return;
+  cv.width=w*dpr;cv.height=h*dpr;
+  const x=cv.getContext('2d');x.setTransform(dpr,0,0,dpr,0,0);x.clearRect(0,0,w,h);
+  const padT=12,padB=10,plot=h-padT-padB,zf=CAP_UP/(CAP_UP+CAP_DN),zeroY=padT+plot*zf;
+  const gain=cvar('gain'),loss=cvar('loss'),rule=cvar('rule'),hair=cvar('hairline');
+  x.strokeStyle=hair;x.lineWidth=1;x.globalAlpha=.9;
+  ['2024-01-01','2025-01-01','2026-01-01'].forEach(d=>{const gx=((Date.parse(d)-t0)/(t1-t0))*w;
+    x.beginPath();x.moveTo(gx,padT);x.lineTo(gx,h-padB);x.stroke();});
+  x.globalAlpha=.55;
+  [[100],[50],[-25]].forEach(([v])=>{const yy=zeroY-(v/(v>=0?CAP_UP:CAP_DN))*(v>=0?plot*zf:plot*(1-zf));
+    x.beginPath();x.moveTo(0,yy);x.lineTo(w,yy);x.stroke();});
+  x.globalAlpha=1;x.strokeStyle=rule;x.lineWidth=1.3;
+  x.beginPath();x.moveTo(0,zeroY);x.lineTo(w,zeroY);x.stroke();
+  x.fillStyle=cvar('ink-3');x.font='9.5px ui-monospace,monospace';
+  x.fillText('+100%',4,zeroY-(100/CAP_UP)*plot*zf-3);
+  x.fillText('+50%',4,zeroY-(50/CAP_UP)*plot*zf-3);
+  x.fillText('−25%',4,zeroY+(25/CAP_DN)*plot*(1-zf)-3);
+  TP=[];
+  const rows=D.filter(r=>r[8]!=null),n=rows.length,shown=prog==null?n:Math.floor(n*prog);
+  for(let i=0;i<n;i++){
+    const r=rows[i],px=((Date.parse(r[0])-t0)/(t1-t0))*w;
+    const rr=Math.max(-CAP_DN,Math.min(CAP_UP,r[8]));
+    const py=rr>=0?zeroY-(rr/CAP_UP)*(plot*zf):zeroY+(-rr/CAP_DN)*(plot*(1-zf));
+    TP.push({x:px,y:py,up:r[8]>=0,rec:r});
+    if(i>=shown)continue;
+    x.strokeStyle=r[8]>=0?gain:loss;x.globalAlpha=.88;x.lineWidth=1.2;
+    x.beginPath();x.moveTo(px,zeroY);x.lineTo(px,py);x.stroke();
+  }
+  x.globalAlpha=1;
+}
+function animateTape(){
+  if(tapeDone){drawTape(1);return;}
+  tapeDone=true;
+  if(reduce){drawTape(1);return;}
+  let s=null;const dur=1200;
+  function step(ts){if(s==null)s=ts;const p=Math.min(1,(ts-s)/dur);drawTape(p*p*(3-2*p));if(p<1)requestAnimationFrame(step);}
+  requestAnimationFrame(step);
+}
+cv.addEventListener('mousemove',ev=>{
+  const rect=cv.getBoundingClientRect(),mx=ev.clientX-rect.left;
+  let best=null,bd=1e9;
+  for(const p of TP){const dd=Math.abs(p.x-mx);if(dd<bd){bd=dd;best=p;}}
+  if(best&&bd<7){
+    const r=best.rec;
+    tip.innerHTML=`<div class="nm">${r[2]||r[1]}</div><div class="mn">${r[1]} · ${r[0]}${r[3]?' · '+r[3]:''}</div><div class="rt" style="color:${best.up?cvar('gain'):cvar('loss')}">day one ${fmtpct(r[8])}</div>`;
+    tip.classList.add('on');
+    let tx=ev.clientX+15,ty=ev.clientY+15;if(tx+240>innerWidth)tx=ev.clientX-255;
+    tip.style.left=tx+'px';tip.style.top=ty+'px';
+  } else tip.classList.remove('on');
+});
+cv.addEventListener('mouseleave',()=>tip.classList.remove('on'));
+
+/* ================= chart primitives ================= */
+function chartSvg(host,W,H){host.innerHTML='';const s=E('svg',{viewBox:`0 0 ${W} ${H}`});host.appendChild(s);return s;}
+function vBars(svg,g,items,opts){
+  // items: [{label,val,color?}] ; g:{W,H,pl,pr,pt,pb} ; opts:{fmt,zero:boolean,labelEvery}
+  const o=opts||{},pw=g.W-g.pl-g.pr,ph=g.H-g.pt-g.pb;
+  const vals=items.map(d=>d.val);
+  let mx=Math.max(...vals,0),mn=Math.min(...vals,0);
+  if(mx===mn)mx=mn+1;
+  const pad=(mx-mn)*.12;mx+=pad;if(mn<0)mn-=pad;
+  const Y=v=>g.pt+ph*(1-(v-mn)/(mx-mn)),zy=Y(0);
+  E('line',{class:'zero',x1:g.pl,x2:g.W-g.pr,y1:zy,y2:zy},svg);
+  const step=pw/items.length,bw=Math.min(38,step*.62);
+  items.forEach((d,i)=>{
+    const cx=g.pl+i*step+step/2,y1=Y(d.val),top=Math.min(zy,y1),hh=Math.max(Math.abs(zy-y1),1);
+    E('rect',{x:cx-bw/2,y:top,width:bw,height:hh,fill:d.color||cvar('ink')},svg);
+    if(o.fmt&&(o.valEvery==null||i%o.valEvery===0))
+      txt(svg,cx,d.val>=0?y1-5:y1+11,o.fmt(d.val),{'text-anchor':'middle',class:'val'});
+    if(o.labelEvery==null||i%o.labelEvery===0)
+      txt(svg,cx,g.H-6,d.label,{'text-anchor':'middle'});
+  });
+}
+function hPairs(svg,g,items,c1,c2,opts){
+  // items: [{label,a,b}] horizontal paired bars (a=first series)
+  const o=opts||{},pw=g.W-g.pl-g.pr,ph=g.H-g.pt-g.pb;
+  const all=items.flatMap(d=>[d.a,d.b]).filter(v=>v!=null);
+  let mx=Math.max(...all,0),mn=Math.min(...all,0);
+  const pad=(mx-mn)*.14;mx+=pad;if(mn<0)mn-=pad;
+  const X=v=>g.pl+pw*((v-mn)/(mx-mn)),zx=X(0);
+  E('line',{class:'zero',x1:zx,x2:zx,y1:g.pt,y2:g.H-g.pb},svg);
+  const step=ph/items.length,bh=Math.min(11,step*.3);
+  items.forEach((d,i)=>{
+    const cy=g.pt+i*step+step/2;
+    txt(svg,g.pl-6,cy+3,d.label,{'text-anchor':'end'});
+    [[d.a,c1,-bh-1],[d.b,c2,1]].forEach(([v,c,dy])=>{
+      if(v==null)return;
+      const x1=X(v),left=Math.min(zx,x1),wd=Math.max(Math.abs(x1-zx),1);
+      E('rect',{x:left,y:cy+dy,width:wd,height:bh,fill:c},svg);
+      if(o.fmt)txt(svg,x1+(v>=0?4:-4),cy+dy+bh-2,o.fmt(v),{'text-anchor':v>=0?'start':'end'});
+    });
+  });
+}
+function lineChart(svg,g,series,opts){
+  // series: [{pts:[[x,y]], color, w}] with x in [0,1] domain already; opts:{ymin,ymax,fmt,xlabels:[[frac,label]]}
+  const o=opts||{},pw=g.W-g.pl-g.pr,ph=g.H-g.pt-g.pb;
+  let mn=o.ymin,mx=o.ymax;
+  if(mn==null||mx==null){
+    const all=series.flatMap(s=>s.pts.map(p=>p[1]));
+    mx=Math.max(...all);mn=Math.min(...all);const pad=(mx-mn)*.12||1;mx+=pad;mn-=pad;
+  }
+  const X=f=>g.pl+pw*f,Y=v=>g.pt+ph*(1-(v-mn)/(mx-mn));
+  if(mn<0&&mx>0){const zy=Y(0);E('line',{class:'zero',x1:g.pl,x2:g.W-g.pr,y1:zy,y2:zy},svg);txt(svg,g.pl-6,zy+3,'0',{'text-anchor':'end'});}
+  (o.xlabels||[]).forEach(([f,l])=>txt(svg,X(f),g.H-5,l,{'text-anchor':'middle'}));
+  series.forEach(s=>{
+    const d=s.pts.map((p,i)=>`${i?'L':'M'}${X(p[0]).toFixed(1)},${Y(p[1]).toFixed(1)}`).join(' ');
+    E('path',{d,fill:'none',stroke:s.color,'stroke-width':s.w||1.8,'stroke-linecap':'round','stroke-linejoin':'round'},svg);
+    if(s.dots)s.pts.forEach(p=>E('circle',{cx:X(p[0]),cy:Y(p[1]),r:2.8,fill:s.color,stroke:cvar('panel'),'stroke-width':1.5},svg));
+    if(s.endlabel)txt(svg,X(s.pts[s.pts.length-1][0])+5,Y(s.pts[s.pts.length-1][1])+3,s.endlabel,{class:'val',fill:s.color});
+  });
+  return {X,Y};
+}
+function scatter(svg,g,pts,opts){
+  // pts:[{x,y,up}] raw values; opts:{logx,logy,xmin..,fmt axes labels}
+  const o=opts||{},pw=g.W-g.pl-g.pr,ph=g.H-g.pt-g.pb;
+  const xs=pts.map(p=>p.x),ys=pts.map(p=>p.y);
+  let x0=o.xmin!=null?o.xmin:Math.min(...xs),x1=o.xmax!=null?o.xmax:Math.max(...xs);
+  let y0=o.ymin!=null?o.ymin:Math.min(...ys),y1=o.ymax!=null?o.ymax:Math.max(...ys);
+  const LX=v=>o.logx?Math.log10(Math.max(v,x0)):v, LY=v=>o.logy?Math.log10(Math.max(v,y0)):v;
+  const X=v=>g.pl+pw*((LX(v)-LX(x0))/(LX(x1)-LX(x0)));
+  const Y=v=>g.pt+ph*(1-(LY(v)-LY(y0))/(LY(y1)-LY(y0)));
+  if(!o.logy&&y0<0&&y1>0){const zy=Y(0);E('line',{class:'zero',x1:g.pl,x2:g.W-g.pr,y1:zy,y2:zy},svg);}
+  (o.xticks||[]).forEach(v=>{const gx=X(v);E('line',{class:'gl',x1:gx,x2:gx,y1:g.pt,y2:g.H-g.pb},svg);
+    txt(svg,gx,g.H-5,o.xtickfmt?o.xtickfmt(v):v,{'text-anchor':'middle'});});
+  (o.yticks||[]).forEach(v=>{const gy=Y(v);E('line',{class:'gl',x1:g.pl,x2:g.W-g.pr,y1:gy,y2:gy},svg);
+    txt(svg,g.pl-5,gy+3,o.ytickfmt?o.ytickfmt(v):v,{'text-anchor':'end'});});
+  pts.forEach(p=>{
+    const col=p.color||(p.up==null?cvar('ink'):p.up?cvar('gain'):cvar('loss'));
+    E('circle',{cx:X(Math.min(Math.max(p.x,x0),x1)),cy:Y(Math.min(Math.max(p.y,y0),y1)),r:2.4,fill:col,'fill-opacity':.68},svg);
+  });
+  return {X,Y};
+}
+
+/* ================= exhibits ================= */
+const G={W:520,H:250,pl:46,pr:16,pt:14,pb:26};
+const YEARS=['2023','2024','2025','2026'];
+const rowsOf=y=>D.filter(r=>yearOf(r)===y);
+function medOf(y,idx){return median(rowsOf(y).map(r=>r[idx]).filter(v=>v!=null));}
+const HOR=[['Day 1',8],['5d',11],['20d',12],['1m',13],['3m',14],['6m',15],['1y',16]];
+
+const EXHIBITS=[
+ {t:'Listings per quarter — the wave builds',c:'Deal count by listing quarter. The rush is a 2025–26 phenomenon stacked on a slow 2023–24 base.',
+  draw(h){const s=chartSvg(h,G.W,G.H);
+   vBars(s,G,A.wave.map(w=>({label:w.quarter.replace('20','’').replace('Q','·Q'),val:w.deals,color:cvar('ink')})),
+     {labelEvery:2,fmt:v=>v,valEvery:2});}},
+ {t:'Capital raised per quarter, US$m',c:'Proceeds concentrate even faster than the deal count — the rush is also a size story.',
+  draw(h){const s=chartSvg(h,G.W,G.H);
+   vBars(s,G,A.wave.map(w=>({label:w.quarter.replace('20','’').replace('Q','·Q'),val:Math.round(w.raised_usd_m/1000),color:cvar('brass')})),
+     {labelEvery:2,fmt:v=>v+'bn',valEvery:2});}},
+ {t:'Median first day, by year of striking',c:'From +0.8% to +37.5% in three years — a forty-fold escalation in the median debut.',
+  draw(h){const s=chartSvg(h,G.W,G.H);
+   vBars(s,G,YEARS.map(y=>{const v=medOf(y,8);return {label:y===' 2026'?'2026 H1':y,val:v,color:v>=0?cvar('gain'):cvar('loss')};}),
+     {fmt:fmtpct});}},
+ {t:'The distribution of first days',c:'All 331 debuts, binned. A long right tail pays for the crowd around zero; the worst decile still loses a quarter.',
+  draw(h){const s=chartSvg(h,G.W,G.H);
+   const bins=[[-60,-40],[-40,-20],[-20,0],[0,20],[20,40],[40,60],[60,80],[80,100],[100,150],[150,200]];
+   const vals=D.map(r=>r[8]).filter(v=>v!=null).map(v=>Math.max(-60,Math.min(200,v)));
+   vBars(s,G,bins.map(([a,b])=>({label:a+'…',val:vals.filter(v=>v>=a&&v<b).length,
+     color:a>=0?cvar('gain'):cvar('loss')})),{fmt:v=>v});}},
+ {t:'Every first day, year by year',c:'The same distribution as a strip — the widening after 2024 is the rush arriving.',
+  draw(h){const s=chartSvg(h,G.W,G.H);
+   const g=G,ph=g.H-g.pt-g.pb,pw=g.W-g.pl-g.pr;
+   const Y=v=>g.pt+ph*(1-(Math.max(-60,Math.min(200,v))+60)/260);
+   const zy=Y(0);E('line',{class:'zero',x1:g.pl,x2:g.W-g.pr,y1:zy,y2:zy},s);
+   txt(s,g.pl-6,zy+3,'0%',{'text-anchor':'end'});
+   txt(s,g.pl-6,Y(100)+3,'+100%',{'text-anchor':'end'});
+   YEARS.forEach((y,i)=>{
+     const cx=g.pl+pw*(i+0.5)/4;
+     txt(s,cx,g.H-6,y,{'text-anchor':'middle'});
+     rowsOf(y).forEach((r,j)=>{if(r[8]==null)return;
+       const jit=((j*2654435761)%1000)/1000-.5;
+       E('circle',{cx:cx+jit*pw*0.16,cy:Y(r[8]),r:2,fill:r[8]>=0?cvar('gain'):cvar('loss'),'fill-opacity':.55},s);});
+     const m=medOf(y,8);if(m!=null)E('line',{x1:cx-pw*0.09,x2:cx+pw*0.09,y1:Y(m),y2:Y(m),stroke:cvar('ink'),'stroke-width':2},s);});}},
+ {t:'The median path: pop, then fade',c:'Median return vs. offer across horizons. The peak is the first month; a year out, −22%.',
+  draw(h){const s=chartSvg(h,G.W,G.H);
+   const pts=HOR.map(([l,i],k)=>[k/(HOR.length-1),median(D.map(r=>r[i]).filter(v=>v!=null))]);
+   lineChart(s,G,[{pts,color:cvar('accent'),dots:true,endlabel:fmtpct(pts[pts.length-1][1])}],
+     {xlabels:HOR.map(([l],k)=>[k/(HOR.length-1),l])});}},
+ {t:'The same path, by vintage',c:'Every cohort decays; the rush vintages simply start higher. 1-year data exists only for 2023–24 (and part of 2025).',
+  draw(h){const s=chartSvg(h,G.W,G.H);
+   const labels=['Day 1','5d','20d','1m','3m','1y'];
+   const cols={2023:cvar('ink-3'),2024:cvar('brass'),2025:cvar('accent'),2026:cvar('gain')};
+   const series=A.hyear.map(row=>{
+     const pts=[];labels.forEach((l,k)=>{const c=row[l];if(c&&c.median!=null)pts.push([k/(labels.length-1),c.median]);});
+     return {pts,color:cols[row.year],w:1.6,endlabel:String(row.year)};}).filter(s=>s.pts.length>1);
+   lineChart(s,G,series,{xlabels:labels.map((l,k)=>[k/(labels.length-1),l])});}},
+ {t:'How oversubscribed is oversubscribed?',c:'Retail demand by order of magnitude. By 2026 the median book is covered 1,400 times.',
+  draw(h){const s=chartSvg(h,G.W,G.H);
+   const bins=[['<1×',v=>v<1],['1–10×',v=>v>=1&&v<10],['10–100×',v=>v>=10&&v<100],['100–500×',v=>v>=100&&v<500],['500–1k×',v=>v>=500&&v<1000],['≥1k×',v=>v>=1000]];
+   const vals=D.map(r=>r[6]).filter(v=>v!=null);
+   vBars(s,G,bins.map(([l,f])=>({label:l,val:vals.filter(f).length,color:cvar('ink')})),{fmt:v=>v});}},
+ {t:'Demand knows the pop is coming',c:'Retail oversubscription (log) against the first day. The book reads the deal before the market does.',
+  draw(h){const s=chartSvg(h,G.W,G.H);
+   scatter(s,G,D.filter(r=>r[6]!=null&&r[8]!=null).map(r=>({x:Math.max(r[6],.2),y:r[8],up:r[8]>=0})),
+     {logx:true,xmin:.2,xmax:9000,ymin:-60,ymax:200,xticks:[1,10,100,1000],xtickfmt:v=>v+'×',yticks:[0,100],ytickfmt:v=>(v>0?'+':'')+v+'%'});}},
+ {t:'First day by demand tier',c:'Median debut within each oversubscription band — monotonic once the book passes 100×.',
+  draw(h){const s=chartSvg(h,G.W,G.H);
+   vBars(s,G,A.tier.map(t=>({label:t.tier.replace('undersubscribed(<1x)','<1×').replace('x','×'),
+     val:t.median,color:t.median>=0?cvar('gain'):cvar('loss')})),{fmt:fmtpct});}},
+ {t:'The ballot gives you what nobody wants',c:'Allocation rate against oversubscription (both log). Hot books allocate in fractions of a per cent.',
+  draw(h){const s=chartSvg(h,G.W,G.H);
+   scatter(s,G,D.filter(r=>r[6]!=null&&r[7]!=null).map(r=>({x:Math.max(r[6],.2),y:Math.max(r[7],.05),up:null})),
+     {logx:true,logy:true,xmin:.2,xmax:9000,ymin:.05,ymax:100,xticks:[1,10,100,1000],xtickfmt:v=>v+'×',
+      yticks:[0.1,1,10,100],ytickfmt:v=>v+'%'});}},
+ {t:'Adverse selection, drawn',c:'Allocation rate against the first day: the deals you are given are the deals that do not pop (ρ ≈ −0.35).',
+  draw(h){const s=chartSvg(h,G.W,G.H);
+   scatter(s,G,D.filter(r=>r[7]!=null&&r[8]!=null).map(r=>({x:Math.max(r[7],.05),y:r[8],up:r[8]>=0})),
+     {logx:true,xmin:.05,xmax:100,ymin:-60,ymax:200,xticks:[0.1,1,10,100],xtickfmt:v=>v+'%',
+      yticks:[0,100],ytickfmt:v=>(v>0?'+':'')+v+'%'});}},
+ {t:'First day by deal size',c:'Median debut by offering size. The pop is strongest below US$500m; the megadeals behave.',
+  draw(h){const s=chartSvg(h,G.W,G.H);
+   const bins=[['<50m',0,50],['50–150m',50,150],['150–500m',150,500],['0.5–1.5bn',500,1500],['>1.5bn',1500,1e9]];
+   vBars(s,G,bins.map(([l,a,b])=>{
+     const v=median(D.filter(r=>r[5]!=null&&r[5]>=a&&r[5]<b&&r[8]!=null).map(r=>r[8]));
+     return {label:l,val:v,color:v>=0?cvar('gain'):cvar('loss')};}),{fmt:fmtpct});}},
+ {t:'Who came to list',c:'Share of listings by sector, the 2023 baseline against the rush. Technology doubles its share.',
+  draw(h){const s=chartSvg(h,{...G}.W,G.H);
+   const base=D.filter(r=>yearOf(r)==='2023'),rush=D.filter(r=>yearOf(r)!=='2023');
+   const secs={};D.forEach(r=>{if(r[3])secs[r[3]]=(secs[r[3]]||0)+1;});
+   const top=Object.keys(secs).sort((a,b)=>secs[b]-secs[a]).slice(0,6);
+   const g2={...G,pl:150};
+   hPairs(s,g2,top.map(sec=>({label:sec.length>20?sec.slice(0,20)+'…':sec,
+     a:100*base.filter(r=>r[3]===sec).length/base.length,
+     b:100*rush.filter(r=>r[3]===sec).length/rush.length})),cvar('ink-3'),cvar('accent'),
+     {fmt:v=>v.toFixed(0)+'%'});
+   txt(s,g2.pl,10,'grey = 2023 · red = 2024–26',{});}},
+ {t:'The H-share wave',c:'Listing regime mix, 2023 vs the rush: mainland-incorporated H-shares go from a third of strikes to six in ten.',
+  draw(h){const s=chartSvg(h,G.W,G.H);
+   const base=D.filter(r=>yearOf(r)==='2023'),rush=D.filter(r=>yearOf(r)!=='2023');
+   const regs=['H-share','Standard','18A biotech','19C secondary','18C specialist tech'];
+   const g2={...G,pl:150};
+   hPairs(s,g2,regs.map(rg=>({label:rg,
+     a:100*base.filter(r=>r[4]===rg).length/base.length,
+     b:100*rush.filter(r=>r[4]===rg).length/rush.length})),cvar('ink-3'),cvar('accent'),
+     {fmt:v=>v.toFixed(0)+'%'});
+   txt(s,g2.pl,10,'grey = 2023 · red = 2024–26',{});}},
+ {t:'The pop lives at the open',c:'Median open premium vs. median open-to-close, by year. Everything the day pays is paid by 9:30.',
+  draw(h){const s=chartSvg(h,G.W,G.H);
+   const g2={...G,pl:60};
+   hPairs(s,g2,YEARS.map(y=>({label:y,a:medOf(y,9),b:medOf(y,10)})),cvar('gain'),cvar('ink-3'),
+     {fmt:fmtpct});
+   txt(s,g2.pl,10,'red = open premium · grey = open→close',{});}},
+ {t:'Nothing happens at the lock-up',c:'Median cumulative return vs. offer, days around the six-month expiry. The overhang never arrives.',
+  draw(h){const s=chartSvg(h,G.W,G.H);
+   const pts=A.lock.map((p,i)=>[i/(A.lock.length-1),p.median]);
+   lineChart(s,G,[{pts,color:cvar('ink'),dots:true}],
+     {xlabels:A.lock.map((p,i)=>[i/(A.lock.length-1),(p.offset>0?'+':'')+p.offset+'d'])});}},
+ {t:'The retail seat, year by year',c:'Expected return per one-lot ballot at the first close, after odds, fees and carry. A 2025–26 phenomenon.',
+  draw(h){const s=chartSvg(h,G.W,G.H);
+   vBars(s,G,A.p2y.map(p=>({label:String(p.year),val:p.mean_bps,color:p.mean_bps>=0?cvar('gain'):cvar('loss')})),
+     {fmt:v=>(v>=0?'+':'')+Math.round(v)+'bp'});}},
+ {t:'Five strategies, trained and tested',c:'Mean return per deal, designed on 2023–25 (dark) and run once on 2026 H1 (red). Only the winners-momentum trade is large in both.',
+  draw(h){const s=chartSvg(h,G.W,G.H);
+   const names={'S1: Subscribe all':'Subscribe all','S2: Subscribe only if HSI 30d>0':'Subscribe · HSI gate',
+     'S3: Buy open, sell close':'Buy the open','S3: Buy close, sell 20d (if day1 pop>20%)':'Buy winners, hold 20d',
+     'S4: Short lockup expiry (-2d..+1d, ex-borrow)':'Short the lock-up'};
+   const seen={},items=[];
+   A.p3.forEach(p=>{const nm=names[p[0]]||p[0];if(seen[nm])return;seen[nm]=1;
+     items.push({label:nm,a:p[2],b:p[3]});});
+   const g2={...G,pl:170};
+   hPairs(s,g2,items,cvar('ink'),cvar('accent'),{fmt:v=>v==null?'':Math.round(v)});
+   txt(s,g2.pl,10,'dark = train (bps) · red = test 2026 H1',{});}},
+ {t:'Riding every winner: the equity curve',c:'One unit staked on each qualifying trade of the winners-momentum rule, compounded. The end point is high; the road is violent (max drawdown −93%).',
+  draw(h){const s=chartSvg(h,G.W,G.H);
+   const e0=Date.parse(A.eq[0][0]),e1=Date.parse(A.eq[A.eq.length-1][0]);
+   const pts=A.eq.map(p=>[(Date.parse(p[0])-e0)/(e1-e0),p[1]]);
+   lineChart(s,G,[{pts,color:cvar('accent'),w:1.6,endlabel:pts[pts.length-1][1].toFixed(1)+'×'}],
+     {ymin:0,xlabels:[[0,'2023'],[.5,'2025'],[1,'2026']]});
+   }},
+];
+let exDrawn=false;
+function drawExhibits(){
+  const grid=document.getElementById('exgrid');
+  if(!exDrawn){
+    grid.innerHTML=EXHIBITS.map((ex,i)=>`<div class="ex"><span class="exn">EXHIBIT ${i+1} / ${EXHIBITS.length}</span>
+      <div class="ext">${ex.t}</div><div class="exh" id="exh-${i}"></div><div class="exc">${ex.c}</div></div>`).join('');
+    exDrawn=true;
+  }
+  EXHIBITS.forEach((ex,i)=>{try{ex.draw(document.getElementById('exh-'+i));}catch(e){console.warn('exhibit',i+1,e);}});
+}
+function drawDeskCharts(){
+  const host=document.getElementById('deskcharts');
+  host.innerHTML=`<div class="chart-frame"><div class="chart-head"><span class="t">Strategies · train vs test</span></div><div id="dc1"></div></div>
+    <div class="chart-frame"><div class="chart-head"><span class="t">Winners-momentum · equity curve</span></div><div id="dc2"></div></div>`;
+  EXHIBITS[18].draw(document.getElementById('dc1'));
+  EXHIBITS[19].draw(document.getElementById('dc2'));
+}
+
+/* ================= ledger ================= */
+let sortK=0,sortAsc=true,ltblBuilt=false;
+function buildLedger(){
+  if(!ltblBuilt){
+    const ys=[...new Set(D.map(yearOf))].sort();
+    const fy=document.getElementById('f-year');
+    ys.forEach(y=>{const o=document.createElement('option');o.value=y;o.textContent=y;fy.appendChild(o);});
+    const secs=[...new Set(D.map(r=>r[3]).filter(Boolean))].sort();
+    const fs=document.getElementById('f-sector');
+    secs.forEach(sc=>{const o=document.createElement('option');o.value=sc;o.textContent=sc;fs.appendChild(o);});
+    fy.onchange=renderLedger;fs.onchange=renderLedger;
+    document.querySelectorAll('#ltbl th').forEach(th=>th.onclick=()=>{
+      const k=+th.dataset.k;
+      if(sortK===k)sortAsc=!sortAsc;else{sortK=k;sortAsc=k<4;}
+      renderLedger();});
+    ltblBuilt=true;
+  }
+  renderLedger();
+}
+function renderLedger(){
+  const fy=document.getElementById('f-year').value,fs=document.getElementById('f-sector').value;
+  let rows=D.filter(r=>(!fy||yearOf(r)===fy)&&(!fs||r[3]===fs));
+  rows=[...rows].sort((a,b)=>{
+    let av=a[sortK],bv=b[sortK];
+    if(av==null)av=sortAsc?Infinity:-Infinity;if(bv==null)bv=sortAsc?Infinity:-Infinity;
+    const c=(typeof av==='string')?String(av).localeCompare(String(bv)):av-bv;
+    return sortAsc?c:-c;});
+  document.querySelectorAll('#ltbl th').forEach(th=>{
+    th.classList.toggle('sorted',+th.dataset.k===sortK);
+    th.classList.toggle('asc',+th.dataset.k===sortK&&sortAsc);});
+  document.getElementById('f-cnt').textContent=rows.length+' / '+D.length+' LISTINGS';
+  const pc=(v,bold)=>v==null?'<td>—</td>':`<td class="${bold?'r ':''}${v>=0?'up':'down'}">${fmtpct(v)}</td>`;
+  document.querySelector('#ltbl tbody').innerHTML=rows.map(r=>
+    `<tr><td class="l">${r[0]}</td><td class="l">${r[1]}</td><td class="l co">${r[2]}</td><td class="l">${r[3]||'—'}</td>`+
+    `<td>${r[5]==null?'—':r[5].toLocaleString(undefined,{maximumFractionDigits:0})}</td>`+
+    `<td>${r[6]==null?'—':r[6].toLocaleString(undefined,{maximumFractionDigits:0})+'×'}</td>`+
+    pc(r[8],true)+pc(r[13])+pc(r[16])+`</tr>`).join('');
+}
+
+/* ================= router ================= */
+const ROUTES={'':'home','/':'home','/ledger':'ledger','/exhibits':'exhibits','/desk':'desk','/method':'method'};
+function route(){
+  const h=location.hash.replace(/^#/,''),r=ROUTES[h]||'home';
+  document.body.dataset.page=r;
+  document.querySelectorAll('section.pg').forEach(s=>s.classList.toggle('on',s.id==='pg-'+r));
+  document.querySelectorAll('#secnav a').forEach(a=>a.classList.toggle('here',a.dataset.r===r));
+  scrollTo(0,0);
+  if(r==='home'){requestAnimationFrame(()=>{drawTape(1);if(!tapeDone)animateTape();});}
+  if(r==='ledger')buildLedger();
+  if(r==='exhibits')drawExhibits();
+  if(r==='desk')drawDeskCharts();
+}
+addEventListener('hashchange',route);
+
+function redrawAll(){
+  const r=document.body.dataset.page;
+  if(r==='home')drawTape(1);
+  if(r==='exhibits')drawExhibits();
+  if(r==='desk')drawDeskCharts();
+}
+addEventListener('resize',()=>{clearTimeout(window._rz);window._rz=setTimeout(redrawAll,140);});
+
+/* ================= init ================= */
+document.getElementById('medal').classList.add('struck');
+applyPal();
+route();
+</script>

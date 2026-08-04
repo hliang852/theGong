@@ -1,0 +1,67 @@
+
+================================================================================================
+1. CONCENTRATION RISK -- per-deal contribution to the mean
+================================================================================================
+Train qualifying deals: n=79
+stock_code                                   company_name_en   ipo_date  day1_performance_pct      c20
+     02540                                Lesi Group Limited 2024-03-08                 36.36 1.435085
+     02575               Xuanzhu Biopharmaceutical Co., Ltd. 2025-10-15                126.72 1.432324
+     06651 Beijing 51WORLD Digital Twin Technology Co., Ltd. 2025-12-30                 29.90 1.277987
+     03696                    InSilico Medicine Cayman TopCo 2025-12-30                 24.66 0.986256
+     09678                  Unisound AI Technology Co., Ltd. 2025-06-30                 44.59 0.944997
+     02661                       QingSong Health Corporation 2025-12-23                158.82 0.712178
+     02550                 Easou Technology Holdings Limited 2024-06-07                 91.72 0.597545
+     02583   Shenzhen Hiphine Precision Technology Co., Ltd. 2025-09-30                258.11 0.549718
+...
+stock_code                              company_name_en   ipo_date  day1_performance_pct       c20
+     02443              Autostreets Development Limited 2024-05-31                 26.86 -0.386759
+     02549                                   Carote Ltd 2024-10-02                 58.30 -0.437786
+     06980                           Bama Tea Co., Ltd. 2025-10-28                 86.70 -0.438315
+     02573             Newtrend Group Holding Co., Ltd. 2025-06-10                 21.43 -0.451595
+     02433 Zhongtian Construction (Hunan) Group Limited 2023-03-30                126.27 -0.499365
+
+Top-3-of-79 deals' share of total summed return: 47%
+Mean with 2 highest & 2 lowest trimmed: +916 bps (untrimmed mean: +1112 bps)
+Median (robust to outliers by construction): +546 bps
+
+================================================================================================
+2. COST SENSITIVITY -- per-side round-trip cost assumption vs edge
+================================================================================================
+side cost 0.00%/leg | TRAIN mean   +1162 bps CI[+322,+2077]  |  TEST mean    +457 bps CI[-499,+1432]
+side cost 0.25%/leg | TRAIN mean   +1112 bps CI[+243,+2056]  |  TEST mean    +407 bps CI[-534,+1371]
+side cost 0.50%/leg | TRAIN mean   +1062 bps CI[+204,+1990]  |  TEST mean    +357 bps CI[-586,+1347]
+side cost 0.75%/leg | TRAIN mean   +1012 bps CI[+192,+1920]  |  TEST mean    +307 bps CI[-625,+1289]
+side cost 1.00%/leg | TRAIN mean    +962 bps CI[+101,+1863]  |  TEST mean    +257 bps CI[-650,+1244]
+side cost 2.00%/leg | TRAIN mean    +762 bps CI[-90,+1641]  |  TEST mean     +57 bps CI[-869,+1062]
+
+================================================================================================
+3. CAPACITY -- position size vs actual day-1 and 20-day turnover
+================================================================================================
+Position HK$   10,000: median = 0.017% of day-1 turnover; 0% of qualifying deals would have this position exceed 1% of day-1 turnover
+Position HK$  100,000: median = 0.172% of day-1 turnover; 11% of qualifying deals would have this position exceed 1% of day-1 turnover
+Position HK$1,000,000: median = 1.719% of day-1 turnover; 63% of qualifying deals would have this position exceed 1% of day-1 turnover
+Position HK$5,000,000: median = 8.594% of day-1 turnover; 93% of qualifying deals would have this position exceed 1% of day-1 turnover
+
+================================================================================================
+4. SUB-PERIOD STABILITY (within train, year by year)
+================================================================================================
+2023: n= 11  mean=+332 bps  CI=[-1346,+1904]  hit=55%
+2024: n= 16  mean=+1232 bps  CI=[-795,+3673]  hit=62%
+2025: n= 52  mean=+1240 bps  CI=[+165,+2382]  hit=54%
+2026H1 (test): n= 32  mean=+407 bps  CI=[-523,+1390]  hit=62%
+
+================================================================================================
+5. EARLIER-ENTRY VARIANT -- trigger on day-1-eve oversubscription instead of waiting for the confirmed pop
+================================================================================================
+Enter at OPEN if oversubscribed >100x, hold to 20d | TRAIN n=95 mean=+195 bps CI[-691,+1147]  |  TEST n=48 mean=+463 bps
+Enter at OPEN if oversubscribed >500x, hold to 20d | TRAIN n=54 mean=+203 bps CI[-902,+1381]  |  TEST n=38 mean=+790 bps
+
+Compare to S3b (enter at CLOSE after confirmed >20% pop, hold to 20d):
+  TRAIN n=79 mean=+1112 bps CI[+272,+2049]  |  TEST n=32 mean=+407 bps CI[-527,+1376]
+
+================================================================================================
+6. CHRONOLOGICAL EQUITY CURVE (1 unit staked per qualifying trade, compounding)
+================================================================================================
+Trades: 111  Final equity (from 1.0): 45.83
+Max drawdown: -92.9%  (at Shanghai Top Numerical Control Technology Co., Ltd., 2026-05-20)
+Longest losing streak (consecutive negative trades): 8

@@ -1,0 +1,23 @@
+Rows: 331   train(2023-25): 248   test(2026H1): 83
+
+Horizon coverage by listing year (non-null/total):
+  Day 1          2023:68/68  2024:67/67  2025:113/113  2026:83/83
+  3d             2023:68/68  2024:67/67  2025:111/113  2026:68/83
+  5d             2023:68/68  2024:67/67  2025:111/113  2026:66/83
+  20d            2023:68/68  2024:67/67  2025:111/113  2026:57/83
+  1m             2023:68/68  2024:67/67  2025:111/113  2026:58/83
+  3m             2023:68/68  2024:67/67  2025:111/113  2026:37/83
+  ~6m (lockup)   2023:68/68  2024:67/67  2025:111/113  2026:0/83
+  1y             2023:68/68  2024:67/67  2025:42/113  2026:0/83
+
+Key strategy-input coverage:
+  times_oversubscribed_retail          323/331
+  pool_a_1lot_allocation_rate_pct      331/331
+  cornerstone_allocation_pct           2/331
+  pricing_position                     131/331
+  hibor_1m_on_ipo_pct                  331/331
+  day1_open_hkd                        331/331
+  clawback_pct_triggered               230/331
+
+Day-1 QC: 0 rows where stored vs recomputed day-1 return differ by >0.5pp
+1y-return mask: 150 rows had a bogus '1y' value (horizon not yet elapsed; scraper had fallen back to latest price) -- now NaN

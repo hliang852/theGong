@@ -1,0 +1,32 @@
+[
+  {
+    "stock_code": "09690",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "06082",
+    "field": "lockup_window",
+    "error": "6-month lockup date is after available price history (too recent)"
+  },
+  {
+    "stock_code": "06082",
+    "field": "offer_price_range_low_hkd",
+    "error": "This offering only publicly disclosed a Maximum Offer Price cap, no low-high range -- high populated from the cap, low left NULL"
+  },
+  {
+    "stock_code": "00100",
+    "field": "a1_filing_date",
+    "error": "no_match (matched_name=None)"
+  },
+  {
+    "stock_code": "00100",
+    "field": "price_series",
+    "error": "Yahoo Finance returned no data for this ticker"
+  },
+  {
+    "stock_code": "00100",
+    "field": "company_name_zh",
+    "error": "HKEX widget returned no distinct Chinese name (issuer has none registered)"
+  }
+]

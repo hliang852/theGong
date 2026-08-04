@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.0",
+  "description": "Controlled vocabulary for the Latest feed. The classifier may ONLY assign values that appear here. The frontend pins `frequent` tags as chips and hides the rest behind the Advanced dropdown.",
+
+  "types": [
+    { "id": "a1",         "label": "A1 Filing",   "color": "accent", "desc": "A company filed an Application Proof (A1) to list on the Main Board." },
+    { "id": "rumor",      "label": "Rumour",      "color": "brass",  "desc": "A media/market report that a company may list; not an official filing." },
+    { "id": "rule",       "label": "Rule Change", "color": "ink-2",  "desc": "A listing / index / eligibility rule change or consultation." },
+    { "id": "hearing",    "label": "Hearing",     "color": "brass",  "desc": "Listing-committee hearing or approval milestone." },
+    { "id": "listing",    "label": "Listing",     "color": "accent", "desc": "A company began trading (debut)." },
+    { "id": "withdrawal", "label": "Withdrawal",  "color": "ink-2",  "desc": "An application lapsed, was withdrawn or rejected." }
+  ],
+
+  "facets": {
+    "regulatory": {
+      "label": "Regulatory theme",
+      "tags": [
+        "Listing Rules", "Chapter 18A", "Chapter 18C", "Chapter 19C",
+        "Index Inclusion", "Southbound", "Northbound", "Connect Eligibility",
+        "FINI", "Settlement", "Public Float", "Cornerstone", "Disclosure",
+        "SPAC", "De-SPAC", "Specialist Tech", "Biotech"
+      ]
+    },
+    "structure": {
+      "label": "Market / structure",
+      "tags": ["A-to-H", "Secondary Listing", "Dual-Primary", "Spin-off", "Refiling", "China Concept"]
+    },
+    "sector": {
+      "label": "Sector",
+      "tags": [
+        "Technology", "AI", "Semiconductors", "Robotics", "Auto / Mobility",
+        "Biotech / Healthcare", "Consumer", "Financials / Fintech",
+        "Industrials", "Batteries", "Energy / Materials", "Property"
+      ]
+    },
+    "provider": {
+      "label": "Source / provider",
+      "tags": ["HKEX", "SFC", "CSRC", "Hang Seng Indexes", "MSCI", "FTSE Russell"]
+    }
+  },
+
+  "frequent": ["Index Inclusion", "Listing Rules", "A-to-H"],
+
+  "aliases": {
+    "18A": "Chapter 18A",
+    "18C": "Chapter 18C",
+    "19C": "Chapter 19C",
+    "H share": "A-to-H",
+    "A+H": "A-to-H",
+    "southbound connect": "Southbound",
+    "stock connect": "Connect Eligibility",
+    "fintech": "Financials / Fintech",
+    "ev": "Auto / Mobility",
+    "healthcare": "Biotech / Healthcare"
+  }
+}

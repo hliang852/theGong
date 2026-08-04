@@ -1,0 +1,19 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Build scratch
+site_build/.syntax_check.js
+
+# Large / regenerable data artifacts — kept local, not in the repo
+output/pdfs/
+output/cache/
+
+# Editor
+.vscode/
+.idea/

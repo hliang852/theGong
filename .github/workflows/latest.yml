@@ -1,0 +1,61 @@
+name: Build Latest feed
+
+# Scrapes official sources, tags + summarises new items, and commits data/latest.json.
+# GitHub Pages then serves the committed file — the live site stays fully static.
+
+on:
+  schedule:
+    # once daily — 01:00 UTC = 09:00 HKT (cron is UTC; HKT = UTC+8)
+    - cron: "0 1 * * *"
+  workflow_dispatch: {}          # allow manual runs
+
+permissions:
+  contents: write                 # to commit the refreshed data files
+
+concurrency:                      # never let two builds race on the data files
+  group: latest-feed
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r latest_pipeline/requirements.txt
+
+      - name: Build the feed
+        env:
+          LATEST_ENGINE: ${{ vars.LATEST_ENGINE || 'llm' }}     # build-time LLM; falls back to rules if no key
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}                # required for the LLM engine
+          LLM_API_BASE: ${{ vars.LLM_API_BASE }}                # optional: OpenAI-compatible endpoint
+          LLM_MODEL: ${{ vars.LLM_MODEL }}                      # optional: model id
+          LATEST_OUT: site/data/latest.json
+        run: python -m latest_pipeline.pipeline.build
+
+      - name: Validate against schema
+        run: |
+          python - <<'PY'
+          import json, jsonschema
+          schema = json.load(open("latest_pipeline/schema/latest.schema.json"))
+          jsonschema.validate(json.load(open("site/data/latest.json")), schema)
+          print("latest.json valid")
+          PY
+
+      - name: Commit if changed
+        run: |
+          git config user.name  "gong-bot"
+          git config user.email "bot@thegong.hk"
+          git add site/data/*.json          # latest.json, seen.json, status.json, southbound_sse.json
+          if git diff --cached --quiet; then
+            echo "No changes."
+          else
+            git commit -m "latest: refresh feed [skip ci]"
+            git push
+          fi

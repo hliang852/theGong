@@ -1,0 +1,28 @@
+{
+  "generated_at": "2026-08-04T00:36:18+00:00",
+  "engine": "rules",
+  "sources": {
+    "HKEXnews": {
+      "ok": true,
+      "fetched": 346
+    },
+    "SSE / HKEX": {
+      "ok": true,
+      "fetched": 0
+    },
+    "Curated": {
+      "ok": true,
+      "fetched": 4
+    },
+    "HKEX / SFC": {
+      "ok": true,
+      "fetched": 0
+    },
+    "Index providers": {
+      "ok": true,
+      "fetched": 0
+    }
+  },
+  "new_items": 350,
+  "total_items": 350
+}

@@ -1,0 +1,34 @@
+Deals modeled: 318/331 (excluded: missing board lot / allocation rate / price)
+Capital per deal: median HK$3,745  p10 HK$2,412  p90 HK$8,135
+Median allocation probability (1 lot): 10.0%   mean: 30.3%
+
+=== EXPECTED RETURN ON COMMITTED CAPITAL, PER DEAL (1-lot cash subscription) ===
+      exit   n  mean_ret_bps  median_ret_bps  pct_deals_positive  total_E_pnl_hkd  mean_E_pnl_hkd
+ day1_open 318          54.4            20.1                57.5         18,083.7            56.9
+day1_close 318          45.9            22.1                58.8         19,509.7            61.4
+        5d 300         157.0            24.1                56.3         28,439.8            94.8
+        1m 293         269.2            37.0                57.3         41,788.1           142.6
+        3m 274         817.4            22.0                54.0         98,695.3           360.2
+
+=== DAY-1-CLOSE EXIT, BY YEAR ===
+        n  mean_ret_bps  pct_pos  total_E_pnl
+year                                         
+2023   67        -138.3     43.3      2,089.5
+2024   65         -86.1     52.3     -1,818.7
+2025  110         123.9     59.1     10,641.9
+2026   76         208.3     77.6      8,596.9
+
+=== DAY-1-CLOSE EXIT, BY DEMAND TIER ===
+                        n  mean_ret_bps  total_E_pnl
+tier                                                
+1-15x                  78        -169.4     -2,491.0
+100-500x               54         301.1     13,660.9
+15-50x                 40           8.6      1,514.7
+50-100x                19        -205.8     -1,637.5
+>500x                 107         238.7     11,567.7
+undersubscribed(<1x)   12        -906.7     -3,633.4
+
+=== HEADLINE vs REALITY (day-1 close) ===
+Headline mean day-1 return (full allocation fantasy): +28.8%
+Allocation-adjusted mean return on committed capital:  +46 bps per deal
+Correlation(allocation prob, day-1 return): -0.35  <- hot deals allocate least

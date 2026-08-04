@@ -1,0 +1,65 @@
+
+====================================================================================================
+S1: SUBSCRIBE EVERYTHING (1-lot cash), expected return on committed capital [bps]
+====================================================================================================
+TRAIN 2023-25 | exit day-1 close             n=242  mean=    -5.1  CI95=[  -175.5,  +181.5]  median=  +12.8  hit= 53%
+TEST  2026H1  | exit day-1 close             n= 76  mean=  +208.3  CI95=[  +106.6,  +337.3]  median=  +77.7  hit= 78%
+TRAIN 2023-25 | exit 1m                      n=240  mean=  +272.3  CI95=[   -30.9,  +610.7]  median=  +16.5  hit= 53%
+TEST  2026H1  | exit 1m                      n= 53  mean=  +254.8  CI95=[  +145.9,  +397.2]  median= +115.8  hit= 77%
+TRAIN 2023-25 | exit 3m                      n=240  mean=  +863.0  CI95=[  +396.6, +1363.1]  median=  +15.8  hit= 52%
+TEST  2026H1  | exit 3m                      n= 34  mean=  +495.9  CI95=[  +194.1,  +901.3]  median=  +75.0  hit= 65%
+
+====================================================================================================
+S2: CONDITIONAL SUBSCRIPTION -- pre-registered rules, chosen on train, frozen for test
+====================================================================================================
+TRAIN | R1 HSI30d>0                          n=122  mean=  +153.9  CI95=[   -47.4,  +353.7]  median=  +24.1  hit= 57%
+TEST  | R1 HSI30d>0                          n= 30  mean=  +188.9  CI95=[   +87.7,  +319.8]  median=  +71.1  hit= 83%
+
+TRAIN | R2 prior5 day1 mean>+10%             n=117  mean=   +21.2  CI95=[  -147.0,  +182.6]  median=  +14.1  hit= 56%
+TEST  | R2 prior5 day1 mean>+10%             n= 71  mean=  +209.3  CI95=[   +98.4,  +339.7]  median=  +70.2  hit= 76%
+
+TRAIN | R3 has cornerstone                   n=177  mean=   +19.1  CI95=[  -171.4,  +221.3]  median=  +14.1  hit= 53%
+TEST  | R3 has cornerstone                   n= 64  mean=  +214.8  CI95=[   +95.0,  +370.1]  median=  +68.1  hit= 78%
+
+TRAIN | R4 R2 & R3                           n= 83  mean=   -14.3  CI95=[  -193.6,  +149.2]  median=   +0.9  hit= 52%
+TEST  | R4 R2 & R3                           n= 60  mean=  +219.8  CI95=[   +93.1,  +387.8]  median=  +62.2  hit= 77%
+
+TRAIN | R5 R1 & R2                           n= 66  mean=  +108.7  CI95=[  -116.7,  +337.3]  median=   +9.0  hit= 55%
+TEST  | R5 R1 & R2                           n= 29  mean=  +184.8  CI95=[   +80.5,  +321.1]  median=  +70.2  hit= 83%
+
+>>> chosen on train: R1 HSI30d>0 (train mean +153.9 bps) -- its TEST row above is the honest out-of-sample read
+
+====================================================================================================
+S3: SECONDARY SEAT, day-1 entries [bps on notional]
+====================================================================================================
+TRAIN | buy open, sell close (all deals)     n=248  mean=  -191.3  CI95=[  -373.7,    -1.7]  median=  -79.6  hit= 41%
+TEST  | buy open, sell close (all deals)     n= 83  mean=    -5.5  CI95=[  -432.3,  +426.0]  median= -149.4  hit= 46%
+
+conditioned on allotment-results info (knowable pre-open):
+TRAIN | open->close | >500x oversubscribed   n= 55  mean=  -421.6  CI95=[  -874.1,   +57.5]  median= -540.6  hit= 38%
+TEST  | open->close | >500x oversubscribed   n= 57  mean=   +72.2  CI95=[  -499.4,  +669.8]  median= -214.7  hit= 49%
+TRAIN | open->close | clawback triggered     n= 84  mean=  -125.9  CI95=[  -472.7,  +252.4]  median= -205.4  hit= 44%
+TEST  | open->close | clawback triggered     n= 11  mean=  +559.5  CI95=[  -855.7, +2245.7]  median= -214.7  hit= 45%
+TRAIN | open->close | undersubscribed        n= 12  mean=  -294.9  CI95=[  -904.4,  +205.9]  median=  -55.4  hit= 25%
+TEST  | open->close | undersubscribed        n=0
+
+TRAIN | buy day1 close, sell 20d             n=246  mean=  +529.5  CI95=[   +85.1,  +963.2]  median=  -55.0  hit= 47%
+TEST  | buy day1 close, sell 20d             n= 57  mean=  +630.0  CI95=[  -256.2, +1747.2]  median= +100.0  hit= 54%
+TRAIN | ...only if day1 pop > +20%           n= 79  mean= +1111.9  CI95=[  +231.8, +2020.5]  median= +545.5  hit= 56%
+TEST  | ...only if day1 pop > +20%           n= 32  mean=  +407.4  CI95=[  -536.8, +1365.7]  median= +244.4  hit= 62%
+
+====================================================================================================
+S4: LOCKUP EXPIRY EVENT (6m) -- hypothetical short day-2 -> day+1, NO borrow costs modeled
+====================================================================================================
+TRAIN | short -2d..+1d around expiry         n=239  mean=    +6.5  CI95=[  -139.1,  +160.6]  median=  -50.0  hit= 47%
+TEST  | short -2d..+1d around expiry         n=0
+NOTE: gross of borrow fees; HK IPO borrow in month 6 typically expensive-to-unavailable -- treat as an upper bound.
+
+====================================================================================================
+S5: STABILIZATION-PERIOD (day1 close -> 20d, by whether a stabilization notice was later filed)
+====================================================================================================
+TRAIN | stabilized (weak-demand proxy)       n=174  mean=  +328.6  CI95=[  -160.4,  +843.6]  median= -108.6  hit= 44%
+TEST  | stabilized (weak-demand proxy)       n= 32  mean=  -141.8  CI95=[  -909.8,  +620.2]  median=  -64.3  hit= 50%
+TRAIN | never needed support                 n= 72  mean= +1015.0  CI95=[  +166.9, +1885.8]  median= +944.8  hit= 53%
+TEST  | never needed support                 n= 25  mean= +1618.0  CI95=[   -76.3, +3723.1]  median= +249.2  hit= 60%
+NOTE: the notice itself publishes ~30d post-listing; usable ex-ante only via its pre-listing proxy (pricing at floor, low oversubscription).

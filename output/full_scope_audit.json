@@ -1,0 +1,79 @@
+{
+  "excluded_listing_by_introduction": [
+    {
+      "stock_code": "02421",
+      "company_name_en": "KRP Development Holdings Limited",
+      "ipo_date_only": "2023-03-23"
+    },
+    {
+      "stock_code": "06623",
+      "company_name_en": "Lufax Holding Ltd",
+      "ipo_date_only": "2023-04-14"
+    },
+    {
+      "stock_code": "06887",
+      "company_name_en": "Sunshine Lake Pharma Co., Ltd.",
+      "ipo_date_only": "2025-08-07"
+    },
+    {
+      "stock_code": "07489",
+      "company_name_en": "VOYAH Automotive Technology Co., Ltd.",
+      "ipo_date_only": "2026-03-19"
+    }
+  ],
+  "excluded_despac_transaction": [
+    {
+      "stock_code": "02562",
+      "company_name_en": "Synagistics Limited",
+      "ipo_date_only": "2024-10-30"
+    },
+    {
+      "stock_code": "06676",
+      "company_name_en": "ZG Group",
+      "ipo_date_only": "2025-03-10"
+    },
+    {
+      "stock_code": "02665",
+      "company_name_en": "Seyond Holdings Ltd.",
+      "ipo_date_only": "2025-12-10"
+    }
+  ],
+  "excluded_gem_to_main_transfer": [
+    {
+      "stock_code": "09689",
+      "company_name_en": "JTF International Holdings Limited",
+      "ipo_date_only": "2023-05-17"
+    },
+    {
+      "stock_code": "00933",
+      "company_name_en": "VIVA Goods Company Limited",
+      "ipo_date_only": "2023-06-27"
+    },
+    {
+      "stock_code": "09882",
+      "company_name_en": "Best Linking Group Holdings Limited",
+      "ipo_date_only": "2023-09-29"
+    },
+    {
+      "stock_code": "09893",
+      "company_name_en": "Pizu Group Holdings Ltd.",
+      "ipo_date_only": "2025-02-18"
+    },
+    {
+      "stock_code": "09876",
+      "company_name_en": "Ocean One Holding Ltd.",
+      "ipo_date_only": "2025-11-03"
+    },
+    {
+      "stock_code": "06051",
+      "company_name_en": "Youzan Technology Limited",
+      "ipo_date_only": "2026-04-17"
+    },
+    {
+      "stock_code": "03774",
+      "company_name_en": "Fameglow Holdings Limited",
+      "ipo_date_only": "2026-06-30"
+    }
+  ],
+  "excluded_other_na_remark": []
+}

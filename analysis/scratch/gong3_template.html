@@ -1,0 +1,1650 @@
+<title>The GONG — A Record of Hong Kong Listing Days</title>
+<script>try{document.documentElement.setAttribute('data-theme',localStorage.getItem('gong-theme')||'light');}catch(e){document.documentElement.setAttribute('data-theme','light');}</script>
+<style>
+  /* THE GONG · edition III — deep cinnabar, single ink.
+     Gain prints red, loss prints green — as Hong Kong reads the tape. */
+  :root{
+    --paper:#ffffff; --paper-2:#f4f3f1; --panel:#ffffff;
+    --ink:#1d1812; --ink-2:#4e463a; --ink-3:#8a7f6a;
+    --hairline:#e2ddd3; --rule:#c3bbaa;
+    --accent:#871c14; --accent-soft:#f0dcd8; --brass:#96691f;
+    --gain:#b3231e; --loss:#2f6e46;
+    --shadow:rgba(40,30,20,.12);
+    --hed:'Didot','Bodoni 72','Bodoni MT','Playfair Display','Georgia',serif;
+    --serif:'Iowan Old Style','Palatino Linotype','Palatino','Georgia',serif;
+    --mono:ui-monospace,'SF Mono','Menlo','Roboto Mono',monospace;
+  }
+  :root[data-theme="dark"]{
+    --paper:#191410; --paper-2:#211b15; --panel:#1f1913;
+    --ink:#f0e8d8; --ink-2:#b5a996; --ink-3:#7f7462;
+    --hairline:#3a322a; --rule:#4d4234;
+    --accent:#d0503c; --accent-soft:#3a221c; --brass:#c99e46;
+    --gain:#e26a5a; --loss:#6cbf8a;
+    --shadow:rgba(0,0,0,.5);
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --paper:#191410; --paper-2:#211b15; --panel:#1f1913;
+      --ink:#f0e8d8; --ink-2:#b5a996; --ink-3:#7f7462;
+      --hairline:#3a322a; --rule:#4d4234;
+      --accent:#d0503c; --accent-soft:#3a221c; --brass:#c99e46;
+      --gain:#e26a5a; --loss:#6cbf8a;
+      --shadow:rgba(0,0,0,.5);
+    }
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:15px;line-height:1.62;
+    -webkit-font-smoothing:antialiased;transition:background .3s,color .3s;overflow-x:hidden;}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 26px;}
+  .mono{font-family:var(--mono);font-variant-numeric:tabular-nums;}
+  .up{color:var(--gain);} .down{color:var(--loss);}
+  .slug{font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);}
+
+  .toggle{position:fixed;top:12px;right:14px;z-index:70;width:36px;height:36px;border-radius:50%;
+    border:1px solid var(--rule);background:var(--panel);color:var(--ink);cursor:pointer;
+    display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px var(--shadow);}
+  .toggle svg{width:17px;height:17px;}
+
+
+  /* masthead */
+  .masthead{padding:32px 0 0;}
+  .mast-rules{border-top:3px solid var(--ink);border-bottom:1px solid var(--ink);height:5px;margin-bottom:18px;}
+  .nameplate{text-align:center;display:block;}
+  /* nameplate + nav are identical on every page */
+  .nameplate h1{font-family:var(--hed);font-weight:700;font-size:clamp(46px,7.5vw,84px);line-height:.9;
+    letter-spacing:.07em;text-transform:uppercase;white-space:nowrap;}
+  .nameplate h1 .the{display:block;font-family:var(--serif);font-size:.2em;font-weight:400;letter-spacing:.6em;
+    color:var(--ink-2);margin-bottom:5px;}
+  .subtitle{text-align:center;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--ink-3);margin-top:12px;}
+
+  .secnav{position:sticky;top:0;z-index:50;background:var(--paper);border-bottom:1px solid var(--rule);margin-top:16px;
+    box-shadow:0 1px 0 var(--rule);}
+  .secnav-in{max-width:1140px;margin:0 auto;padding:0 26px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;}
+  .secnav-links{grid-column:2;display:flex;justify-content:center;flex-wrap:wrap;}
+  .secnav-links>a,.navdrop-t{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--ink-2);text-decoration:none;padding:11px 18px;border-left:1px solid var(--hairline);display:block;}
+  .secnav-links>a:first-child{border-left:none;}
+  .secnav-links>a:hover,.navdrop-t:hover{color:var(--accent);}
+  .secnav-links>a.here,.navdrop-t.here{color:var(--accent);font-weight:600;box-shadow:inset 0 -2px 0 var(--accent);}
+  .secnav .ext{color:var(--ink-3);}
+  .subscribe-btn{grid-column:3;justify-self:end;display:inline-flex;align-items:center;gap:7px;
+    font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
+    background:var(--accent);color:#fff;text-decoration:none;padding:9px 18px;border:1px solid var(--accent);}
+  .subscribe-btn::before{content:"";width:6px;height:6px;border-radius:50%;background:#fff;opacity:.9;}
+  .subscribe-btn:hover{background:var(--ink);border-color:var(--ink);color:#fff;}
+  @media(max-width:820px){.secnav-in{grid-template-columns:1fr;justify-items:center;}
+    .secnav-links{grid-column:1;}.subscribe-btn{grid-column:1;justify-self:center;margin:8px 0;}}
+  /* about dropdown */
+  .navdrop{position:relative;border-left:1px solid var(--hairline);}
+  .navdrop-menu{position:absolute;top:100%;left:0;min-width:180px;background:var(--panel);border:1px solid var(--ink);
+    box-shadow:0 10px 28px var(--shadow);opacity:0;visibility:hidden;transform:translateY(-4px);
+    transition:opacity .12s,transform .12s,visibility .12s;z-index:60;}
+  .navdrop:hover .navdrop-menu,.navdrop:focus-within .navdrop-menu{opacity:1;visibility:visible;transform:translateY(0);}
+  .navdrop-menu a{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--ink-2);text-decoration:none;padding:11px 16px;border-top:1px solid var(--hairline);}
+  .navdrop-menu a:first-child{border-top:none;}
+  .navdrop-menu a:hover{color:var(--accent);background:var(--paper-2);}
+  .caret{font-size:8px;vertical-align:1px;opacity:.7;}
+
+  section.pg{display:none;}
+  section.pg.on{display:block;}
+  .pagehead{padding:26px 0 6px;}
+  .pagehead .slug{display:block;margin-bottom:8px;}
+  .pagehead h2{font-family:var(--hed);font-weight:700;font-size:clamp(28px,4.4vw,44px);line-height:1.04;letter-spacing:.005em;text-wrap:balance;}
+  .pagehead .dek{font-family:var(--serif);font-style:italic;font-size:16.5px;color:var(--ink-2);margin-top:10px;max-width:64ch;}
+
+  /* front */
+  .front-text{padding:36px 0 6px;}
+  .hed{font-family:var(--hed);font-weight:700;font-size:clamp(32px,5vw,52px);line-height:1.02;letter-spacing:.004em;text-wrap:balance;}
+  .prose{font-size:17px;line-height:1.78;color:var(--ink-2);max-width:900px;}
+  .prose::first-letter{font-family:var(--hed);font-size:60px;font-weight:700;float:left;line-height:.78;
+    padding:6px 11px 0 0;color:var(--accent);}
+  .hl{background:linear-gradient(transparent 58%,var(--accent-soft) 58%);color:var(--ink);font-weight:600;padding:0 2px;}
+  .ctarow{display:flex;flex-wrap:wrap;gap:12px;margin-top:14px;}
+  .front-cta{margin:22px 0 4px;justify-content:flex-start;align-items:stretch;}
+  @media(max-width:560px){.front-cta .simcta{flex:1 1 100%;justify-content:center;}}
+  /* hero lede: thesis + market card */
+  .hero-lede{display:grid;grid-template-columns:1.55fr 0.85fr;gap:40px;align-items:start;padding:34px 0 0;}
+  @media(max-width:820px){.hero-lede{grid-template-columns:1fr;gap:26px;}}
+  .hero-head .kicker{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--accent);margin-bottom:14px;}
+  .hero-title{font-family:var(--hed);font-weight:700;font-size:clamp(29px,4.1vw,46px);line-height:1.05;
+    letter-spacing:.004em;text-wrap:balance;margin-bottom:15px;}
+  .hero-dek{font-family:var(--serif);font-size:16.5px;line-height:1.62;color:var(--ink-2);max-width:52ch;margin-bottom:4px;}
+  .hero-mkt{align-self:start;}
+  /* kpi strip */
+  .kpi-strip{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);margin-top:34px;}
+  .kpi{padding:16px 20px;border-left:1px solid var(--hairline);}
+  .kpi:first-child{border-left:none;}
+  .kpi .n{display:block;font-family:var(--hed);font-weight:700;font-size:clamp(21px,2.7vw,30px);line-height:1;letter-spacing:.005em;}
+  .kpi .l{display:block;font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-top:9px;line-height:1.4;}
+  @media(max-width:760px){.kpi-strip{grid-template-columns:repeat(2,1fr);}.kpi:nth-child(2n+1){border-left:none;}
+    .kpi{border-top:1px solid var(--hairline);}.kpi:nth-child(1),.kpi:nth-child(2){border-top:none;}}
+  /* signature tape, full width */
+  .hero-signature{margin-top:34px;padding-bottom:36px;border-bottom:3px double var(--rule);}
+  .hero-signature .caption{margin-top:10px;}
+  .simcta{display:inline-flex;align-items:center;gap:12px;
+    font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--paper);background:var(--accent);text-decoration:none;padding:14px 22px;
+    border:1px solid var(--accent);}
+  .simcta:hover{background:transparent;color:var(--accent);}
+  .simcta.alt{background:transparent;color:var(--accent);}
+  .simcta.alt:hover{background:var(--accent);color:var(--paper);}
+  .simcta .arr{font-size:15px;}
+
+  /* narrative homepage sections */
+  .home-sec{padding:58px 0;border-bottom:1px solid var(--hairline);}
+  .home-sec.alt{background:var(--paper-2);}
+  .home-sec-in{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:center;}
+  .home-sec.flip .home-chart{order:-1;}
+  @media(max-width:760px){.home-sec-in{grid-template-columns:1fr;gap:24px;}.home-sec.flip .home-chart{order:0;}}
+  .home-txt .eyebrow{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;}
+  .home-txt h3{font-family:var(--hed);font-weight:700;font-size:clamp(23px,3.1vw,33px);line-height:1.1;margin-bottom:13px;text-wrap:balance;}
+  .home-txt p{font-size:15px;line-height:1.7;color:var(--ink-2);margin-bottom:18px;max-width:46ch;}
+  .home-cta{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--accent);text-decoration:none;border:1px solid var(--accent);padding:11px 18px;}
+  .home-cta:hover{background:var(--accent);color:var(--paper);}
+  .home-chart{border:1px solid var(--ink);background:var(--panel);padding:14px 15px 12px;}
+  .home-chart .cap{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-bottom:8px;}
+  .home-chart svg{width:100%;height:auto;overflow:visible;font-family:var(--mono);display:block;}
+  /* record peek */
+  .rec-peek{position:relative;overflow:hidden;height:236px;padding:0;}
+  .rec-peek table{width:100%;border-collapse:collapse;filter:blur(1.4px);opacity:.6;}
+  .rec-peek td{font-family:var(--mono);font-size:11px;padding:7px 10px;border-top:1px solid var(--hairline);text-align:right;white-space:nowrap;color:var(--ink-2);}
+  .rec-peek td.l{text-align:left;}
+  .rec-peek td.co{font-family:var(--serif);font-size:12.5px;color:var(--ink);}
+  .rec-peek .fade{position:absolute;left:0;right:0;bottom:0;height:130px;background:linear-gradient(180deg,transparent,var(--panel));}
+  .rec-peek .lock-tag{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);font-family:var(--mono);
+    font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--paper);background:var(--accent);padding:8px 15px;white-space:nowrap;}
+  /* subscribe band */
+  .home-sub{padding:62px 0;text-align:center;background:var(--accent-soft);border-bottom:3px double var(--rule);}
+  .home-sub h3{font-family:var(--hed);font-weight:700;font-size:clamp(26px,3.6vw,40px);line-height:1.05;margin-bottom:10px;}
+  .home-sub p{font-family:var(--serif);font-size:16px;color:var(--ink-2);margin-bottom:16px;}
+  .home-sub .price{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--ink);margin-bottom:18px;}
+  .home-sub .sub-lg{display:inline-block;font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+    background:var(--accent);color:var(--paper);padding:15px 30px;text-decoration:none;border:1px solid var(--accent);}
+  .home-sub .sub-lg:hover{background:var(--ink);}
+
+  .box{border:1px solid var(--ink);padding:16px 18px 15px;background:var(--panel);}
+  .box .bx-slug{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--paper);background:var(--ink);display:inline-block;padding:3px 9px;margin:-16px 0 12px -18px;}
+  .agate{list-style:none;}
+  .agate li{display:flex;align-items:baseline;gap:8px;font-size:13px;color:var(--ink-2);padding:5.5px 0;}
+  .agate .fill{flex:1;border-bottom:1px dotted var(--rule);transform:translateY(-3px);}
+  .agate .num{font-family:var(--mono);font-size:13.5px;font-weight:600;color:var(--ink);}
+  .idx li a{color:inherit;text-decoration:none;}
+  .idx li a:hover{color:var(--accent);}
+  .idx .pg-no{font-family:var(--mono);font-size:11px;color:var(--ink-3);}
+  .mkt .agate li{padding:6px 0;}
+  .mkt .arw{font-size:9px;margin-right:5px;}
+  .mkt .lvl{font-family:var(--mono);font-size:13px;font-weight:600;color:var(--ink);}
+  .mkt .dlt{font-family:var(--mono);font-size:11px;margin-left:8px;}
+  .mkt-note{font-family:var(--mono);font-size:9px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);
+    margin-top:10px;padding-top:8px;border-top:1px dotted var(--hairline);line-height:1.6;}
+
+  /* tape (SVG) */
+  .record{padding:30px 0 26px;}
+  .chart-frame{border:1px solid var(--ink);background:var(--panel);padding:16px 16px 12px;}
+  .chart-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;margin-bottom:8px;}
+  .chart-head .t{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);font-weight:600;}
+  .chart-head .legend{display:flex;gap:12px;font-family:var(--mono);font-size:10px;color:var(--ink-2);}
+  .chart-head .legend i{width:8px;height:8px;display:inline-block;margin-right:5px;}
+  #tapehost svg{width:100%;height:auto;display:block;overflow:visible;font-family:var(--mono);}
+  #tapehost svg .med{cursor:pointer;}
+  #tapehost svg .medline{transition:stroke-width .12s ease,stroke-opacity .12s ease;}
+  #tapehost svg .med:hover .medline{stroke-width:4.5;}
+  #tapehost svg .med:hover .medbg{fill-opacity:.95;}
+  .caption{font-family:var(--serif);font-style:italic;font-size:12.5px;color:var(--ink-3);margin-top:9px;line-height:1.55;}
+
+  /* exhibits */
+  .exgrid{display:grid;grid-template-columns:1fr 1fr;gap:22px;padding:22px 0 46px;}
+  @media(max-width:820px){.exgrid{grid-template-columns:1fr;}}
+  .ex{border:1px solid var(--ink);background:var(--panel);padding:15px 16px 11px;}
+  .ex .exn{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;color:var(--paper);background:var(--accent);
+    display:inline-block;padding:2px 8px;margin:-15px 0 9px -16px;}
+  .ex .ext{font-family:var(--serif);font-weight:600;font-size:15.5px;line-height:1.25;margin-bottom:8px;}
+  .ex svg{width:100%;height:auto;overflow:visible;font-family:var(--mono);display:block;}
+  .ex .exc{font-family:var(--serif);font-style:normal;font-size:13.5px;color:var(--ink);margin-top:10px;line-height:1.5;
+    padding-top:9px;border-top:1px solid var(--hairline);}
+  svg text{fill:var(--ink-3);font-size:9.5px;}
+  svg .val{fill:var(--ink);font-size:10px;font-weight:600;}
+  svg .axt{fill:var(--ink-2);font-size:10px;letter-spacing:.02em;text-transform:uppercase;}
+  svg .zero{stroke:var(--rule);stroke-width:1;}
+  svg .gl{stroke:var(--hairline);stroke-width:1;}
+
+  /* simulator */
+  .freebar{border:1px solid var(--rule);background:var(--paper-2);padding:11px 15px;margin-top:18px;
+    font-family:var(--mono);font-size:11px;letter-spacing:.03em;color:var(--ink-2);line-height:1.7;}
+  .freebar b{color:var(--accent);font-weight:600;}
+  .combo{position:relative;}
+  .combo input{width:100%;font-family:var(--mono);font-size:13px;padding:9px 30px 9px 10px;
+    background:var(--panel);border:1px solid var(--rule);color:var(--ink);border-radius:0;}
+  .combo-caret{position:absolute;right:11px;top:50%;transform:translateY(-50%);font-size:10px;color:var(--ink-3);pointer-events:none;}
+  .combo-list{position:absolute;top:100%;left:0;right:0;background:var(--panel);border:1px solid var(--ink);border-top:none;
+    max-height:360px;overflow-y:auto;z-index:40;display:none;box-shadow:0 12px 28px var(--shadow);scroll-padding-top:26px;}
+  .combo-list.on{display:block;}
+  .combo-group{position:sticky;top:0;z-index:1;font-family:var(--mono);font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--ink-3);background:var(--paper-2);padding:7px 11px;border-top:1px solid var(--rule);border-bottom:1px solid var(--hairline);}
+  .combo-opt{display:flex;align-items:baseline;gap:8px;padding:8px 11px;cursor:pointer;border-top:1px solid var(--hairline);}
+  .combo-opt:hover,.combo-opt.hi{background:var(--paper-2);}
+  .combo-opt.sel{background:var(--accent-soft);}
+  .combo-opt.sel .code{color:var(--accent);}
+  .combo-opt.sel .nm{font-weight:600;}
+  .combo-opt .code{font-family:var(--mono);font-size:11px;font-weight:600;color:var(--accent);min-width:52px;}
+  .combo-opt .nm{font-family:var(--serif);font-size:12.5px;color:var(--ink);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .combo-opt .lk{font-size:10px;opacity:.6;}
+  .combo-opt .free{font-family:var(--mono);font-size:8.5px;letter-spacing:.1em;color:var(--loss);text-transform:uppercase;}
+  .combo-empty{font-family:var(--mono);font-size:11px;color:var(--ink-3);padding:12px;text-align:center;}
+  .basket{display:flex;flex-direction:column;gap:6px;}
+  .brow{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;
+    background:var(--paper-2);border:1px solid var(--rule);padding:6px 8px;}
+  .brow .bcode{font-weight:600;color:var(--accent);min-width:46px;}
+  .brow .bnm{flex:1;color:var(--ink-2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:10.5px;}
+  .brow .blots{width:46px;font-family:var(--mono);font-size:11px;padding:3px 5px;text-align:right;
+    background:var(--panel);border:1px solid var(--rule);color:var(--ink);}
+  .brow .blab{font-size:9px;color:var(--ink-3);}
+  .brow .bx{cursor:pointer;color:var(--ink-3);font-size:14px;line-height:1;}
+  .brow .bx:hover{color:var(--accent);}
+  .basket-empty{font-family:var(--mono);font-size:10px;color:var(--ink-3);padding:4px 0;text-transform:uppercase;letter-spacing:.05em;}
+  .basket-hint{font-family:var(--mono);font-size:9.5px;letter-spacing:.05em;color:var(--ink-3);margin-top:8px;text-transform:uppercase;}
+  .simlock{border:2px solid var(--ink);background:var(--panel);padding:22px 24px;box-shadow:0 10px 30px var(--shadow);}
+  .simlock .pw-slug{font-family:var(--mono);font-size:10px;letter-spacing:.24em;text-transform:uppercase;
+    color:var(--paper);background:var(--accent);display:inline-block;padding:4px 10px;margin:-22px 0 14px -24px;}
+  .simlock h3{font-family:var(--hed);font-weight:700;font-size:23px;line-height:1.12;}
+  .simlock p{font-size:13.5px;color:var(--ink-2);margin-top:9px;line-height:1.6;}
+  .simlock .price{font-family:var(--mono);font-size:11.5px;color:var(--ink);margin-top:13px;letter-spacing:.04em;}
+  .simlock .pw-btn{display:inline-block;margin-top:13px;font-family:var(--mono);font-size:12px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--paper);background:var(--accent);border:1px solid var(--accent);padding:11px 20px;cursor:pointer;}
+  .simlock .pw-btn:hover{background:transparent;color:var(--accent);}
+  .simlock .signin{font-family:var(--mono);font-size:11px;color:var(--ink-3);margin-top:11px;}
+  .simlock .signin a{color:var(--accent);}
+  .sim{display:grid;grid-template-columns:340px 1fr;gap:30px;padding:24px 0 46px;align-items:start;}
+  @media(max-width:820px){.sim{grid-template-columns:1fr;}}
+  .sim .field{margin-bottom:15px;}
+  .sim label{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--ink-3);margin-bottom:6px;}
+  .sim select,.sim input[type=number]{width:100%;font-family:var(--mono);font-size:13px;padding:9px 10px;
+    background:var(--panel);border:1px solid var(--rule);color:var(--ink);border-radius:0;}
+  .simres{border:1px solid var(--ink);background:var(--panel);padding:20px 22px;}
+  .simres .bx-slug{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--paper);background:var(--ink);display:inline-block;padding:3px 9px;margin:-20px 0 14px -22px;}
+  .simres .big{font-family:var(--hed);font-weight:700;font-size:clamp(30px,4.5vw,44px);letter-spacing:.01em;line-height:1;}
+  .simres .rows{margin-top:16px;}
+  .simres .rows div{display:flex;align-items:baseline;gap:8px;font-size:13.5px;color:var(--ink-2);padding:6px 0;
+    border-top:1px dotted var(--hairline);}
+  .simres .rows .fill{flex:1;border-bottom:1px dotted var(--rule);transform:translateY(-3px);}
+  .simres .rows .v{font-family:var(--mono);font-size:13.5px;font-weight:600;color:var(--ink);}
+  .simnote{font-family:var(--serif);font-style:italic;font-size:12.5px;color:var(--ink-3);margin-top:14px;line-height:1.6;
+    border-left:3px solid var(--accent);padding-left:12px;}
+  .doclinks{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:baseline;margin-top:16px;padding-top:12px;border-top:1px solid var(--hairline);}
+  .doclinks .dl-lab{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);}
+  .doclinks a{font-family:var(--mono);font-size:11px;color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);}
+  .doclinks a:hover{color:var(--ink);border-color:var(--ink);}
+
+  /* ledger + paywall */
+  .tblwrap{overflow-x:auto;margin:12px 0 0;position:relative;}
+  .ledger{width:100%;border-collapse:collapse;border:1px solid var(--ink);background:var(--panel);}
+  .ledger th{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--paper);
+    background:var(--ink);text-align:right;padding:7px 9px;font-weight:600;white-space:nowrap;}
+  .ledger th.l{text-align:left;}
+  .ledger td{font-family:var(--mono);font-size:11.5px;padding:6px 9px;text-align:right;border-top:1px solid var(--hairline);
+    white-space:nowrap;color:var(--ink-2);}
+  .ledger td.l{text-align:left;}
+  .ledger td.co{font-family:var(--serif);font-size:13px;color:var(--ink);max-width:280px;overflow:hidden;text-overflow:ellipsis;}
+  .ledger .r{font-weight:600;}
+  .fadeout{position:absolute;left:0;right:0;bottom:0;height:130px;
+    background:linear-gradient(180deg,transparent,var(--paper));pointer-events:none;}
+  .paywall{max-width:560px;margin:-30px auto 50px;position:relative;z-index:3;
+    border:2px solid var(--ink);background:var(--panel);padding:26px 30px 24px;box-shadow:0 14px 40px var(--shadow);}
+  .paywall .pw-slug{font-family:var(--mono);font-size:10px;letter-spacing:.24em;text-transform:uppercase;
+    color:var(--paper);background:var(--accent);display:inline-block;padding:4px 10px;margin:-26px 0 14px -30px;}
+  .paywall h3{font-family:var(--hed);font-weight:700;font-size:26px;line-height:1.1;}
+  .paywall p{font-size:14px;color:var(--ink-2);margin-top:10px;line-height:1.6;}
+  .paywall .price{font-family:var(--mono);font-size:12px;color:var(--ink);margin-top:14px;letter-spacing:.04em;}
+  .paywall .pw-btn{display:inline-block;margin-top:14px;font-family:var(--mono);font-size:12px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--paper);background:var(--accent);border:1px solid var(--accent);
+    padding:12px 22px;cursor:pointer;}
+  .paywall .pw-btn:hover{background:transparent;color:var(--accent);}
+  .paywall .signin{font-family:var(--mono);font-size:11px;color:var(--ink-3);margin-top:12px;}
+  .paywall .signin a{color:var(--accent);}
+
+  /* desk */
+  .desk{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;margin:22px 0 10px;}
+  @media(max-width:820px){.desk{grid-template-columns:1fr;}}
+  .desk .col{padding:6px 24px 10px;border-left:1px solid var(--hairline);}
+  .desk .col:first-child{border-left:none;padding-left:0;}
+  @media(max-width:820px){.desk .col{border-left:none;padding:16px 0;border-top:1px solid var(--hairline);}
+    .desk .col:first-child{border-top:none;}}
+  .verdict{font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;
+    display:inline-block;padding:3px 8px;border:1px solid currentColor;margin-bottom:10px;}
+  .v-live{color:var(--loss);} .v-dead{color:var(--accent);} .v-cond{color:var(--brass);}
+  .desk h3{font-family:var(--hed);font-weight:700;font-size:20px;line-height:1.14;margin-bottom:8px;}
+  .desk p{font-size:13.5px;line-height:1.62;color:var(--ink-2);}
+  .desk .fig{font-family:var(--mono);font-size:11.5px;color:var(--ink);margin-top:10px;line-height:1.8;}
+  .deskcharts{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:26px 0 46px;}
+  @media(max-width:820px){.deskcharts{grid-template-columns:1fr;}}
+
+  .method p{font-family:var(--mono);font-size:11.5px;line-height:2;color:var(--ink-2);max-width:840px;letter-spacing:.01em;margin-bottom:16px;}
+  .fromdesk{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;
+    border:1px solid var(--ink);background:var(--panel);padding:18px 22px;margin:24px 0 46px;}
+  .fromdesk .l h3{font-family:var(--hed);font-weight:700;font-size:20px;}
+  .fromdesk .l p{font-size:13px;color:var(--ink-2);margin-top:4px;}
+  .fromdesk a.visit{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--accent);text-decoration:none;border:1px solid var(--accent);padding:9px 16px;white-space:nowrap;}
+  .fromdesk a.visit:hover{background:var(--accent);color:var(--paper);}
+
+  /* executive summary */
+  .execsum{border-top:3px double var(--rule);border-bottom:1px solid var(--hairline);padding:22px 0 24px;margin-top:6px;}
+  /* charts landing: summary text left, exhibits 1 & 2 stacked right */
+  .charts-intro{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:start;margin-top:6px;padding-bottom:22px;border-bottom:1px solid var(--hairline);}
+  @media(max-width:860px){.charts-intro{grid-template-columns:1fr;gap:22px;}}
+  .charts-intro .execsum{border-top:none;border-bottom:none;padding:0;margin:0;}
+  .charts-intro .es-body{column-count:1;margin-top:12px;}
+  .charts-intro .es-body p{max-width:none;}
+  .ci-charts{display:flex;flex-direction:column;gap:22px;}
+  .execsum .es-slug{font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);}
+  .execsum h3{font-family:var(--hed);font-weight:700;font-size:clamp(22px,3vw,30px);line-height:1.1;margin:9px 0 4px;text-wrap:balance;max-width:24ch;}
+  .execsum .es-body{column-count:2;column-gap:36px;margin-top:14px;}
+  @media(max-width:760px){.execsum .es-body{column-count:1;}}
+  .execsum .es-body p{font-size:14px;line-height:1.7;color:var(--ink-2);margin-bottom:12px;break-inside:avoid;}
+  .execsum .es-body p b, .execsum .es-body p .hl{color:var(--ink);}
+  .execsum .es-body a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);}
+  .exref{color:var(--accent);border-bottom:1px dotted var(--accent);cursor:help;white-space:nowrap;}
+  .exref:hover{background:var(--accent-soft);}
+  .expop{position:fixed;z-index:90;width:380px;max-width:92vw;background:var(--panel);border:1px solid var(--ink);
+    box-shadow:0 16px 44px var(--shadow);padding:12px 13px;opacity:0;visibility:hidden;transition:opacity .12s;pointer-events:none;}
+  .expop.on{opacity:1;visibility:visible;}
+  .expop .epc{margin-bottom:10px;}
+  .expop .epc:last-child{margin-bottom:0;}
+  .expop .ept{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:5px;}
+  .expop .epn{font-family:var(--serif);font-weight:600;font-size:13px;color:var(--ink);margin-bottom:6px;line-height:1.2;}
+  .expop svg{width:100%;height:auto;overflow:visible;font-family:var(--mono);display:block;}
+
+  /* terms */
+  .terms{max-width:74ch;padding:8px 0 40px;}
+  .terms h3{font-family:var(--hed);font-weight:700;font-size:19px;line-height:1.15;margin:22px 0 7px;}
+  .terms p{font-size:14px;line-height:1.72;color:var(--ink-2);margin-bottom:6px;}
+  .terms p strong{color:var(--ink);}
+  .terms p em{font-style:italic;}
+  .terms a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);}
+  .about-list{margin:8px 0 12px;padding-left:0;list-style:none;max-width:74ch;}
+  .about-list li{font-size:14px;line-height:1.6;color:var(--ink-2);margin-bottom:9px;padding-left:20px;position:relative;}
+  .about-list li::before{content:"—";position:absolute;left:0;color:var(--accent);}
+  .about-list li strong{color:var(--ink);}
+  .terms .terms-foot{font-family:var(--mono);font-size:11px;letter-spacing:.02em;color:var(--ink-3);
+    border-left:3px solid var(--accent);padding-left:12px;margin-top:26px;line-height:1.7;}
+
+  /* account / login-subscribe */
+  .acct-cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:20px;max-width:820px;padding-bottom:40px;}
+  @media(max-width:680px){.acct-cols{grid-template-columns:1fr;}}
+  .acct-card{border:1px solid var(--ink);background:var(--panel);padding:26px 26px 24px;display:flex;flex-direction:column;}
+  .acct-card.sub{background:var(--paper-2);}
+  .acct-card .ac-slug{font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--paper);background:var(--ink);display:inline-block;align-self:flex-start;padding:4px 10px;margin:-26px 0 18px -26px;}
+  .acct-card.sub .ac-slug{background:var(--accent);}
+  .acct-card label{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin:12px 0 6px;}
+  .acct-card input{font-family:var(--mono);font-size:13px;padding:11px 12px;background:var(--paper);border:1px solid var(--rule);color:var(--ink);}
+  .acct-card input:focus{outline:2px solid var(--accent-soft);border-color:var(--accent);}
+  .pw-btn.ghost{background:transparent;color:var(--accent);}
+  .acct-card .pw-btn{margin-top:18px;align-self:flex-start;}
+  .ac-note{font-family:var(--mono);font-size:10px;letter-spacing:.03em;color:var(--ink-3);margin-top:12px;line-height:1.6;}
+  .plan{display:flex;align-items:baseline;margin-bottom:14px;}
+  .plan-price{font-family:var(--hed);font-weight:700;font-size:40px;line-height:1;color:var(--ink);}
+  .plan-per{font-family:var(--mono);font-size:12px;color:var(--ink-3);}
+  .plan-list{list-style:none;margin:0 0 8px;}
+  .plan-list li{font-size:13.5px;line-height:1.5;color:var(--ink-2);padding:6px 0 6px 20px;position:relative;border-top:1px dotted var(--hairline);}
+  .plan-list li:first-child{border-top:none;}
+  .plan-list li::before{content:"✓";position:absolute;left:0;color:var(--accent);font-weight:700;}
+  .acct-in{max-width:560px;margin-top:20px;}
+  .acct-who{font-family:var(--hed);font-weight:700;font-size:22px;color:var(--ink);}
+  .acct-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:18px;}
+
+  /* latest feed */
+  .lat-banner{border:1px solid var(--rule);border-left:3px solid var(--brass);background:var(--paper-2);
+    padding:12px 16px;margin-top:16px;font-size:13px;line-height:1.6;color:var(--ink-2);}
+  .lat-banner strong{color:var(--ink);}
+  .lat-controls{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-top:22px;}
+  .lat-types{display:flex;flex-wrap:wrap;gap:0;border:1px solid var(--rule);}
+  .lat-chip{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2);
+    background:var(--panel);border:none;border-left:1px solid var(--hairline);padding:9px 14px;cursor:pointer;}
+  .lat-chip:first-child{border-left:none;}
+  .lat-chip.on{background:var(--ink);color:var(--paper);}
+  .lat-chip .dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:6px;vertical-align:1px;}
+  .lat-search{flex:1;min-width:200px;max-width:340px;font-family:var(--mono);font-size:12px;padding:9px 12px;
+    background:var(--panel);border:1px solid var(--rule);color:var(--ink);}
+  .lat-tagbar{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;align-items:center;}
+  .lat-tagbar .tf-lab{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-right:4px;}
+  .tagf{font-family:var(--mono);font-size:10px;letter-spacing:.04em;color:var(--ink-2);background:var(--paper-2);
+    border:1px solid var(--hairline);padding:4px 9px;cursor:pointer;border-radius:2px;}
+  .tagf:hover{border-color:var(--accent);color:var(--accent);}
+  .tagf.on{background:var(--accent);color:#fff;border-color:var(--accent);}
+  .lat-advsel{font-family:var(--mono);font-size:10px;letter-spacing:.04em;color:var(--ink-2);background:var(--panel);
+    border:1px solid var(--rule);padding:4px 8px;border-radius:2px;cursor:pointer;max-width:230px;}
+  .lat-advsel:hover{border-color:var(--accent);}
+  .tag-clear{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);
+    background:transparent;border:none;cursor:pointer;padding:4px 6px;}
+  .tag-clear:hover{color:var(--ink);}
+  .lat-count{font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;color:var(--ink-3);margin:16px 0 8px;text-transform:uppercase;}
+  .lat-feed{display:flex;flex-direction:column;border-top:1px solid var(--hairline);}
+  .lat-item{display:grid;grid-template-columns:74px 1fr;gap:18px;padding:18px 0;border-bottom:1px solid var(--hairline);}
+  .lat-date{font-family:var(--mono);font-size:11px;color:var(--ink-3);line-height:1.35;text-align:right;padding-top:2px;}
+  .lat-date b{display:block;font-size:18px;color:var(--ink);font-weight:700;}
+  .lat-body{border-left:3px solid var(--rule);padding-left:16px;}
+  .lat-item.t-a1 .lat-body{border-color:var(--accent);}
+  .lat-item.t-rumor .lat-body{border-color:var(--brass);}
+  .lat-item.t-rule .lat-body{border-color:var(--ink-2);}
+  .lat-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:6px;}
+  .lat-badge{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--paper);padding:3px 8px;}
+  .t-a1 .lat-badge{background:var(--accent);}
+  .t-rumor .lat-badge{background:var(--brass);}
+  .t-rule .lat-badge{background:var(--ink-2);}
+  .lat-entity{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);}
+  .lat-title{font-family:var(--hed);font-weight:700;font-size:19px;line-height:1.2;margin-bottom:6px;text-wrap:balance;}
+  .lat-sum{font-size:14px;line-height:1.62;color:var(--ink-2);max-width:70ch;margin-bottom:11px;}
+  .lat-foot{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;justify-content:space-between;}
+  .lat-tags{display:flex;flex-wrap:wrap;gap:6px;}
+  .lat-src{font-family:var(--mono);font-size:10.5px;color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);white-space:nowrap;}
+  .lat-src:hover{color:var(--ink);border-color:var(--ink);}
+  .lat-empty{font-family:var(--mono);font-size:12px;color:var(--ink-3);padding:30px 0;text-align:center;}
+  @media(max-width:560px){.lat-item{grid-template-columns:56px 1fr;gap:12px;}.lat-date b{font-size:15px;}}
+
+  footer.colophon{padding:10px 0 60px;}
+  footer .endrule{border-top:1px solid var(--ink);border-bottom:3px solid var(--ink);height:6px;margin-bottom:16px;}
+  footer p{font-family:var(--mono);font-size:10.5px;color:var(--ink-3);line-height:2;letter-spacing:.05em;text-transform:uppercase;}
+  footer .footlinks{margin-bottom:6px;}
+  footer a{color:var(--ink-2);text-decoration:none;}
+  footer a:hover{color:var(--accent);}
+
+  .tip{position:fixed;pointer-events:none;z-index:80;background:var(--ink);color:var(--paper);
+    font-size:11.5px;padding:8px 11px;border-radius:3px;line-height:1.5;max-width:240px;
+    box-shadow:0 6px 20px rgba(0,0,0,.35);opacity:0;transition:opacity .1s;}
+  .tip.on{opacity:1;}
+  .tip .nm{font-family:var(--serif);font-size:13px;}
+  .tip .mn{font-family:var(--mono);font-size:10.5px;opacity:.75;margin-top:1px;}
+  .tip .rt{font-family:var(--mono);margin-top:5px;}
+</style>
+
+<button class="toggle" id="toggle" aria-label="Toggle light or dark theme"></button>
+
+<header class="masthead"><div class="wrap">
+  <div class="mast-rules"></div>
+  <a class="nameplate" href="#/" style="text-decoration:none;color:inherit;">
+    <h1><span class="the">The</span>GONG</h1>
+  </a>
+  <div class="subtitle">Hong Kong Main Board Listing Record · Jan ’23 – Jun ’26</div>
+</div></header>
+
+<nav class="secnav" id="secnav"><div class="secnav-in">
+  <div class="secnav-links">
+    <a href="#/" data-r="home">Home</a>
+    <a href="#/latest" data-r="latest">Latest</a>
+    <a href="#/exhibits" data-r="exhibits">Charts</a>
+    <a href="#/desk" data-r="desk">Strategy</a>
+    <a href="#/simulator" data-r="simulator">Simulator</a>
+    <a href="#/ledger" data-r="ledger">Data</a>
+    <div class="navdrop">
+      <a href="#/about" data-r="about" class="navdrop-t">About <span class="caret">▾</span></a>
+      <div class="navdrop-menu">
+        <a href="#/about">About</a>
+        <a href="#/terms">Terms &amp; Disclaimer</a>
+        <a href="#" class="ext" onclick="alert('Prototype — the Atlas links to the published Precedent Atlas site in the full build.');return false;">Atlas — Japan Special Situations ↗</a>
+      </div>
+    </div>
+  </div>
+  <a href="#/account" class="subscribe-btn">Subscribe</a>
+</div></nav>
+
+<main>
+<!-- ============ FRONT ============ -->
+<section class="pg" id="pg-home"><div class="wrap">
+  <div class="hero-lede">
+    <div class="hero-head">
+      <span class="kicker">The offshore listing rush · 2023–2026</span>
+      <h2 class="hero-title">The gong keeps ringing. The pop is gone by the bell.</h2>
+      <p class="hero-dek">A verified record of every Hong Kong Main Board listing since January 2023: the returns, the demand, the allocation math, and a ballot simulator to test participation.</p>
+      <div class="ctarow front-cta">
+        <a class="simcta" href="#/simulator"><span>Run a ballot</span><span class="arr">→</span></a>
+        <a class="simcta" href="#/exhibits"><span>See charts</span><span class="arr">→</span></a>
+      </div>
+    </div>
+    <aside class="box mkt hero-mkt">
+      <span class="bx-slug">Market Snapshot (07-23, 2026)</span>
+      <ul class="agate" id="mktlist"></ul>
+      <div class="mkt-note" id="mktnote"></div>
+    </aside>
+  </div>
+
+  <div class="kpi-strip">
+    <div class="kpi"><span class="n">331</span><span class="l">Listings recorded</span></div>
+    <div class="kpi"><span class="n">US$80.7bn</span><span class="l">Capital raised</span></div>
+    <div class="kpi"><span class="n up">+37.5%</span><span class="l">Median day one · '26 H1</span></div>
+    <div class="kpi"><span class="n down">−0.3%</span><span class="l">Open → close, day one</span></div>
+    <div class="kpi"><span class="n down">34%</span><span class="l">Above water at one year</span></div>
+  </div>
+
+  <section class="record hero-signature">
+    <div class="chart-frame">
+      <div class="chart-head">
+        <span class="t">The tape · first-day return of every listing, offer to close</span>
+        <span class="legend"><span><i style="background:var(--gain)"></i>GAIN</span><span><i style="background:var(--loss)"></i>LOSS</span></span>
+      </div>
+      <div id="tapehost"></div>
+      <p class="caption">Each bar is one listing; its height, the first day against the offer, clamped at +200% / −60%. The dashed cinnabar lines mark each year's median. Hover any bar for the name.</p>
+    </div>
+  </section>
+  </div><!-- /hero wrap -->
+
+  <!-- ===== narrative overview ===== -->
+  <section class="home-sec" id="s-wave"><div class="wrap"><div class="home-sec-in">
+    <div class="home-txt">
+      <span class="eyebrow">01 · The wave</span>
+      <h3>Two quiet years, then the gong would not stop.</h3>
+      <p>331 Main Board listings and US$80.7bn of proceeds since January 2023. The volume, and the money, arrived almost entirely in 2025 and 2026.</p>
+      <a class="home-cta" href="#/exhibits">See data visualization →</a>
+    </div>
+    <div class="home-chart"><div class="cap">Listings per quarter</div><div id="hs-wave"></div></div>
+  </div></div></section>
+
+  <section class="home-sec alt flip" id="s-pop"><div class="wrap"><div class="home-sec-in">
+    <div class="home-txt">
+      <span class="eyebrow">02 · The pop</span>
+      <h3>The debut is real. It is also spent by the opening bell.</h3>
+      <p>The median first day reached +37.5% in 2026 H1. Offer to first close it is about +7%; from the opening print to the close it is −0.3%. The auction takes the pop.</p>
+      <a class="home-cta" href="#/desk">How did IPO strategy perform →</a>
+    </div>
+    <div class="home-chart"><div class="cap">Median offer→open vs open→close, by year</div><div id="hs-pop"></div></div>
+  </div></div></section>
+
+  <section class="home-sec" id="s-run"><div class="wrap"><div class="home-sec-in">
+    <div class="home-txt">
+      <span class="eyebrow">03 · Does it pay?</span>
+      <h3>Put a ballot through the record.</h3>
+      <p>After allocation odds, fees and financing carry, the retail seat only began to pay in 2025–26. Run any listing, or a basket, through the simulator to see the expected P&amp;L.</p>
+      <a class="home-cta" href="#/simulator">Open the Simulator →</a>
+    </div>
+    <div class="home-chart"><div class="cap">Expected return per ballot, by year</div><div id="hs-seat"></div></div>
+  </div></div></section>
+
+  <section class="home-sec alt flip" id="s-record"><div class="wrap"><div class="home-sec-in">
+    <div class="home-txt">
+      <span class="eyebrow">04 · The record</span>
+      <h3>Every listing day, read from the filings.</h3>
+      <p>All 331 listings with oversubscription, allocation, pricing band and lock-up detail. Verified against the raw exchange tape, and updated as each new deal lands.</p>
+      <a class="home-cta" href="#/ledger">See the data →</a>
+    </div>
+    <div class="home-chart rec-peek" id="hs-record"></div>
+  </div></div></section>
+
+  <section class="home-sub"><div class="wrap">
+    <h3>Read every listing day.</h3>
+    <p>The full record, the ballot simulator, and each new strike as it lands.</p>
+    <div class="price">HK$88 / MONTH · FIRST MONTH HK$8 · CANCEL ANY TIME</div>
+    <a class="sub-lg" href="#" onclick="openSubscribe();return false;">Subscribe</a>
+  </div></section>
+</section>
+
+<!-- ============ LATEST (pipeline & rules feed) ============ -->
+<section class="pg" id="pg-latest"><div class="wrap">
+  <div class="pagehead">
+    <span class="slug">Latest</span>
+    <h2>The pipeline &amp; the rules</h2>
+    <p class="dek">A running log of what is entering the Hong Kong market and what is changing around it — A1 application proofs, listing rumours, and rule changes across listing, index-inclusion and Southbound eligibility. Tagged and filterable.</p>
+  </div>
+  <div class="lat-banner" id="lat-banner">
+    <strong>Sample feed.</strong> These entries are illustrative placeholders to show the layout and tag scheme. They are not real filings or announcements. When served from GitHub Pages the page loads the live <code>data/latest.json</code> that the scheduled pipeline generates from HKEXnews and curated sources, replacing these samples automatically.
+  </div>
+  <div class="lat-controls">
+    <div class="lat-types" id="lat-types"></div>
+    <input class="lat-search" id="lat-search" type="text" placeholder="Search title, company or summary…">
+  </div>
+  <div class="lat-tagbar" id="lat-tagbar"></div>
+  <div class="lat-count" id="lat-count"></div>
+  <div class="lat-feed" id="lat-feed"></div>
+</div></section>
+
+<!-- ============ SIMULATOR ============ -->
+<section class="pg" id="pg-simulator"><div class="wrap">
+  <div class="pagehead">
+    <span class="slug">Simulator</span>
+    <h2>Run a ballot through the record</h2>
+    <p class="dek">The allocation-adjusted arithmetic of the retail seat — ballot odds, fees and financing carry included. Explore Single Stock, and participation through a portfolio of IPOs.</p>
+  </div>
+  <div class="freebar">Free preview — CATL, Midea, Zijin Gold, Victory Giant, Sany Heavy. Other listings and portfolio mode requires a subscription.</div>
+  <div class="sim">
+    <div>
+      <div class="field"><label>Mode</label>
+        <select id="s-mode"><option value="single">Single stock</option><option value="portfolio">Portfolio of IPOs 🔒</option></select></div>
+      <div class="field" id="s-pickf">
+        <label id="s-searchlab">Listing — search by code or name</label>
+        <div class="combo">
+          <input id="s-search" type="text" autocomplete="off" placeholder="e.g. 3750 or CATL">
+          <span class="combo-caret">▾</span>
+          <div class="combo-list" id="s-list"></div>
+        </div>
+        <div class="basket-hint" id="s-hint"></div>
+      </div>
+      <div class="field" id="s-basketf" style="display:none">
+        <label>Basket — set lots per IPO</label>
+        <div class="basket" id="s-basket"></div>
+      </div>
+      <div class="field"><label>Exit</label>
+        <select id="s-exit">
+          <option value="open">Day-one open</option>
+          <option value="close" selected>Day-one close</option>
+          <option value="11">5 trading days</option>
+          <option value="13">1 month</option>
+          <option value="14">3 months</option>
+          <option value="6m">6-month VWAP</option>
+          <option value="1y">1-year VWAP</option>
+        </select></div>
+      <div class="field" id="s-lotsf"><label>One-lot ballots submitted</label><input id="s-lots" type="number" min="1" value="1"></div>
+    </div>
+    <div id="s-out"></div>
+  </div>
+</div></section>
+
+<!-- ============ EXHIBITS ============ -->
+<section class="pg" id="pg-exhibits"><div class="wrap">
+  <div class="pagehead">
+    <span class="slug">Charts</span>
+    <h2>The rush, in 20+ charts</h2>
+    <p class="dek">The structure of 331 listings. Issuance, demand, first-day behaviour, decay, and what the desk trades made of it.</p>
+  </div>
+  <div class="charts-intro">
+  <section class="execsum ci-text">
+    <span class="es-slug">Executive summary</span>
+    <h3>The pop is real</h3>
+    <div class="es-body">
+      <p>There were 331 Main Board listings and <span class="hl">US$80.7bn</span> of proceeds between January 2023 and June 2026, though most were concentrated sharply into 2025–26 (<span class="exref" data-ex="1,2">Exhibits 1–2</span>). The mix shifted with the volume: mainland-incorporated H-shares rose from about a third of listings to <span class="hl">six in ten</span>, and technology roughly doubled its share (<span class="exref" data-ex="3,4">Exhibits 3–4</span>).</p>
+      <p>The median first day climbed from <span class="hl">+0.8%</span> in 2023 to <span class="hl">+37.5%</span> in 2026 H1 (<span class="exref" data-ex="5">Exhibit 5</span>), a long right tail pulling the average above a crowded cluster near zero (<span class="exref" data-ex="6,7">Exhibits 6–7</span>). Yet the gain is almost entirely a subscription phenomenon. Offer to first close the median is about <span class="hl">+7%</span>; from the opening print to the close it is <span class="hl">−0.3%</span> (<span class="exref" data-ex="8">Exhibit 8</span>). The pop is settled in the opening auction — whoever holds allocation at the bell owns the day; whoever chases the open buys, on average: <span class="hl">nothing</span>.</p>
+      <p>Demand anticipates the pop: retail oversubscription, which by 2026 routinely exceeds <span class="hl">1,000×</span> (<span class="exref" data-ex="9">Exhibit 9</span>), tracks the debut (<span class="exref" data-ex="11,12,13">Exhibits 11–13</span>). But allocation works against the buyer — the hotter the book, the smaller the fill, and the deals actually allotted are disproportionately the ones that do not pop (<span class="exref" data-ex="14,15">Exhibits 14–15</span>, ρ ≈ −0.35). The effect is strongest in smaller deals; the megacaps behave (<span class="exref" data-ex="16">Exhibit 16</span>).</p>
+      <p>Whatever the debut, the path fades. The median listing peaks within the first month and then declines; a year out it sits about <span class="hl">22% below</span> its offer price, with only <span class="hl">~34%</span> of listings above water (<span class="exref" data-ex="17,18">Exhibits 17–18</span>). For the retail seat, primary strategy has been a <span class="hl">2025–26 trade</span>, not a 2023–24 one (<span class="exref" data-ex="22">Exhibit 22</span>).</p>
+      <p>Take a look at the <a href="#/simulator">Simulator</a> and <a href="#/desk">Strategy</a> pages as well on historical return on IPO participation based on various exit strategies.</p>
+    </div>
+  </section>
+  <div class="ci-charts" id="ci-charts"></div>
+  </div>
+  <div class="exgrid" id="exgrid"></div>
+</div></section>
+
+<!-- ============ DESK ============ -->
+<section class="pg" id="pg-desk"><div class="wrap">
+  <div class="pagehead">
+    <span class="slug">Strategy</span>
+    <h2>Three trades, taken to the tape</h2>
+    <p class="dek">Designed on 2023–25, tested once on 2026 H1. Verdicts as printed; details in Charts, exhibits 19–20.</p>
+  </div>
+  <div class="desk">
+    <div class="col">
+      <span class="verdict v-cond">Conditional · live since '25</span>
+      <h3>Subscribe when the tape is up</h3>
+      <p>Balloting every deal lost money through 2023–24 and paid through the rush. One gate — subscribe only when the Hang Seng's trailing month is positive — kept the seat out of the losing years and cost nothing in the hot ones.</p>
+      <div class="fig">train +154 bps · test +189 bps<br>per ballot, day-one exit</div>
+    </div>
+    <div class="col">
+      <span class="verdict v-live">Live · both periods</span>
+      <h3>Buy the winners, not the open</h3>
+      <p>Chasing the opening print is reliably unprofitable. Buying the first close — only after a confirmed pop above twenty per cent — and holding twenty days is the one secondary trade that survived the untouched test period. Capacity is small; size accordingly.</p>
+      <div class="fig">train +1,112 bps · test +407 bps<br>median +546 · max drawdown −93%</div>
+    </div>
+    <div class="col">
+      <span class="verdict v-dead">Dead · do not run</span>
+      <h3>Leave the lock-up alone</h3>
+      <p>The six-month expiry, shorted into and through, returns six basis points before borrow — and borrow on a six-month-old listing in Hong Kong is scarce to prohibitive. The overhang story does not survive contact with the tape.</p>
+      <div class="fig">+6.5 bps gross · borrow unmodelled<br>median −0.1% on the day</div>
+    </div>
+  </div>
+  <div class="deskcharts" id="deskcharts"></div>
+</div></section>
+
+<!-- ============ LEDGER (paywalled) ============ -->
+<section class="pg" id="pg-ledger"><div class="wrap">
+  <div class="pagehead">
+    <span class="slug">Data · Subscribers</span>
+    <h2>Every strike on record</h2>
+    <p class="dek">All 331 Main Board listings with allocation, pricing band and lock-up detail — sortable, filterable, downloadable, and reserved for subscribers.</p>
+  </div>
+  <div class="tblwrap">
+    <table class="ledger" id="ltbl">
+      <thead><tr>
+        <th class="l">Struck</th><th class="l">Code</th><th class="l">Company</th>
+        <th class="l">Sector</th><th>Size US$M</th><th>O/Sub</th><th>Day 1</th><th>1M</th><th>1Y</th>
+      </tr></thead><tbody></tbody>
+    </table>
+    <div class="fadeout"></div>
+  </div>
+  <div class="paywall">
+    <span class="pw-slug">Subscribers only</span>
+    <h3>The ledger continues for 323 more rows.</h3>
+    <p>A subscription opens the complete record — every listing since January 2023 with oversubscription, allocation rate, pricing band, lock-up dates and the full return path — plus each new strike as it lands.</p>
+    <div class="price">HK$88 / MONTH · FIRST MONTH HK$8 · CANCEL ANY TIME</div>
+    <button class="pw-btn" onclick="alert('Prototype — subscriptions are wired in the full build.')">Subscribe</button>
+    <div class="signin">Already a subscriber? <a href="#" onclick="alert('Prototype — sign-in arrives with the full build.');return false;">Sign in</a></div>
+  </div>
+</div></section>
+
+<!-- ============ ABOUT ============ -->
+<section class="pg" id="pg-about"><div class="wrap">
+  <div class="pagehead">
+    <span class="slug">About</span>
+    <h2>Sources, method &amp; the desk</h2>
+    <p class="dek">The GONG is an independent record of Hong Kong Main Board listing days, read from primary filings and verified against the raw exchange tape.</p>
+  </div>
+  <div class="terms">
+    <h3>What this covers</h3>
+    <p>The GONG tracks every <strong>Main Board</strong> initial public offering on the Hong Kong Stock Exchange listed between <strong>1 January 2023 and 30 June 2026</strong> — 331 companies in all. It deliberately excludes cases that are not fresh capital-raising IPOs: transfers up from GEM, listings by introduction (no offer), and de-SPAC business combinations. Each company is followed from its prospectus through to its trading record.</p>
+
+    <h3>What we read, and where it comes from</h3>
+    <p>The primary source is the exchange’s own filing system, <strong>HKEXnews</strong>. For every deal we collect and read the full set of statutory documents:</p>
+    <ul class="about-list">
+      <li><strong>Prospectus / listing document</strong> — offer structure, price range, use of proceeds, cornerstone investors, lock-ups and risk factors.</li>
+      <li><strong>Allotment results announcement</strong> — the final offer price, retail and placing subscription rates, clawback, and the one-lot allocation odds.</li>
+      <li><strong>Over-allotment and stabilisation notices</strong> — whether the greenshoe was exercised and how the aftermarket was supported.</li>
+    </ul>
+    <p>Around a thousand of these filings were retrieved directly as source PDFs and parsed; on each single-stock view we link straight back to the original prospectus and allotment result on HKEXnews so any figure can be checked against the primary document.</p>
+
+    <h3>How the returns are measured</h3>
+    <p>Prices and volumes are taken from <strong>daily exchange bars</strong>, not from a retail data feed. This matters: retail feeds routinely <em>back-adjust</em> a company’s entire price history after a split or bonus issue, which silently corrupts every return computed against the original offer price. We cross-checked all 331 series against <strong>unadjusted</strong> exchange bars and repaired the 20 names where the feed had restated history, so a “+70%” debut that was really +8% reads correctly.</p>
+    <p>First-day figures are split into offer→open, open→close and offer→close so the debut can be separated from the auction. Longer horizons (5-day, 1-month, 3-month, and the 6-month and 1-year <strong>volume-weighted average price</strong>) are computed the same way, weighting each day’s typical price by that day’s volume. Where a horizon has not yet elapsed for a recent listing, the figure is shown as unavailable rather than filled with a placeholder.</p>
+
+    <h3>How the strategies are tested</h3>
+    <p>Every trading rule is <strong>designed on 2023–2025 data and then run once, untouched, on the first half of 2026</strong> — a genuine out-of-sample test rather than a curve fit. All results are net of realistic frictions: the 1.01% subscription cost, 0.25% per side on secondary sales, and HIBOR financing carry on capital locked up during the subscription period. Expected values are weighted by each deal’s actual allocation odds, because winning the ballot on a hot deal is the exception, not the rule.</p>
+
+    <h3>Independence &amp; limitations</h3>
+    <p>The GONG is an independent research record, not affiliated with the exchange, any issuer, or any sponsor. Data is compiled with care but may still contain errors or gaps, and nothing here is investment advice. Please read the full <a href="#/terms">Terms &amp; Disclaimer</a> before relying on anything published.</p>
+  </div>
+  <div class="fromdesk">
+    <div class="l">
+      <h3>Precedent Atlas — Japan Special Situations</h3>
+      <p>110 landmark takeover, activism and take-private cases, mapped by what they share. From the same desk.</p>
+    </div>
+    <a class="visit" href="#" onclick="alert('Prototype — links to the published Precedent Atlas in the full build.');return false;" aria-label="Visit the Precedent Atlas">Visit the Atlas →</a>
+  </div>
+</div></section>
+
+<!-- ============ TERMS ============ -->
+<section class="pg" id="pg-terms"><div class="wrap">
+  <div class="pagehead">
+    <span class="slug">Terms &amp; Disclaimer</span>
+    <h2>Terms of use &amp; disclaimer</h2>
+    <p class="dek">Please read these terms before relying on anything published here. Using this site means you accept them.</p>
+  </div>
+  <div class="terms">
+    <h3>Not investment advice</h3>
+    <p>The GONG (“the site”) is published for general information, research and educational purposes only. Nothing on the site is, or should be construed as, investment, financial, legal, tax or accounting advice, a research report, or a personal recommendation. No content takes account of your particular objectives, financial situation or needs. You are solely responsible for your own investment decisions and should obtain independent professional advice before acting.</p>
+
+    <h3>No offer or solicitation</h3>
+    <p>Nothing on the site constitutes, or forms part of, an offer, invitation or solicitation to buy, sell, subscribe for or deal in any security, financial instrument or product, in any jurisdiction, nor an inducement to enter into any transaction. Securities described are not being offered to you. The site is not directed at any person in any jurisdiction where its publication or availability is contrary to local law or regulation.</p>
+
+    <h3>Not a licensed or regulated entity</h3>
+    <p>The publisher is not a licensed or registered securities dealer, investment adviser, fund manager or financial institution, and is not authorised or regulated by the Securities and Futures Commission of Hong Kong or by any other regulator. No fiduciary, advisory or client relationship is created between you and the publisher by your use of the site.</p>
+
+    <h3>Data, accuracy &amp; “as is”</h3>
+    <p>Figures are compiled from public filings and third-party market data and may contain errors, omissions, restatements, survivorship effects or gaps; certain historical price series have been adjusted or repaired and may differ from other sources. The site, and all data, analysis, backtests and tools on it, are provided <strong>“as is” and “as available”</strong> without warranty of any kind, express or implied, including accuracy, completeness, timeliness, merchantability or fitness for a particular purpose. Any figure may be revised or withdrawn without notice.</p>
+
+    <h3>Past performance &amp; forward-looking material</h3>
+    <p>Past performance is not a reliable indicator of, and does not guarantee, future results. Backtested, simulated and hypothetical results have inherent limitations, do not represent actual trading, do not reflect the impact that market conditions or your own trades may have had, and are generally prepared with the benefit of hindsight. Expected-value and simulator outputs are illustrative estimates based on stated assumptions, allocation odds, fees and financing costs, and actual outcomes will differ, potentially to the point of total loss.</p>
+
+    <h3>Limitation of liability</h3>
+    <p>To the fullest extent permitted by law, the publisher and its contributors accept no liability whatsoever for any direct, indirect, incidental, consequential, special or exemplary loss or damage — including any loss of profit, capital, trading loss, or loss of data or goodwill — arising from or in connection with your access to, use of, or reliance on the site or its content, whether in contract, tort (including negligence) or otherwise, even if advised of the possibility of such loss.</p>
+
+    <h3>Third-party links &amp; marks</h3>
+    <p>The site may reference or link to third-party sites, data and trademarks. Such references are for identification and convenience only, do not imply endorsement or affiliation, and the publisher is not responsible for third-party content. All trademarks are the property of their respective owners.</p>
+
+    <h3>Intellectual property &amp; permitted use</h3>
+    <p>Original text, analysis, charts and design are the publisher’s intellectual property and provided for personal, non-commercial use. You may not scrape, redistribute, resell or create derivative commercial products from the content without prior written permission.</p>
+
+    <h3>Changes &amp; governing law</h3>
+    <p>These terms may be updated at any time; continued use constitutes acceptance of the current version. To the extent a governing law is required, these terms are intended to be governed by the laws of the Hong Kong Special Administrative Region, without regard to conflict-of-laws principles. If any provision is held unenforceable, the remainder continues in effect.</p>
+
+    <p class="terms-foot">This is a prototype. Placeholder legal text is provided for demonstration and must be reviewed and adapted by a qualified lawyer before any public launch.</p>
+  </div>
+</div></section>
+
+<!-- ============ ACCOUNT (login / subscribe) ============ -->
+<section class="pg" id="pg-account"><div class="wrap">
+  <div class="pagehead">
+    <span class="slug">Account</span>
+    <h2 id="acct-h">Sign in to The GONG</h2>
+    <p class="dek" id="acct-dek">One account unlocks the full record, the ballot simulator and every new strike. Your session persists across every page until you sign out.</p>
+  </div>
+  <div class="acct-cols" id="acct-out">
+    <form class="acct-card" id="acct-login" onsubmit="return doLogin(event)">
+      <span class="ac-slug">Sign in</span>
+      <label for="lg-email">Email</label>
+      <input id="lg-email" type="email" autocomplete="username" placeholder="you@firm.com" required>
+      <label for="lg-pass">Password</label>
+      <input id="lg-pass" type="password" autocomplete="current-password" placeholder="••••••••" required>
+      <button class="pw-btn" type="submit">Sign in</button>
+      <div class="ac-note">Prototype — any email and password signs you in; real authentication wires in the full build.</div>
+    </form>
+    <div class="acct-card sub">
+      <span class="ac-slug">Subscribe</span>
+      <div class="plan"><span class="plan-price">HK$88</span><span class="plan-per"> / month</span></div>
+      <ul class="plan-list">
+        <li>The complete 331-listing record</li>
+        <li>The ballot simulator — single stock &amp; portfolio</li>
+        <li>Six-month and one-year VWAP exits</li>
+        <li>Every new strike as it lands</li>
+      </ul>
+      <div class="ac-note">First month HK$8 · cancel any time</div>
+      <button class="pw-btn" onclick="doLogin(event,true)">Subscribe &amp; create account</button>
+    </div>
+  </div>
+  <div class="acct-card acct-in" id="acct-in" style="display:none">
+    <span class="ac-slug">Signed in</span>
+    <div class="acct-who" id="acct-who"></div>
+    <p style="margin:10px 0 16px">Your subscription is active. The full record, both simulator modes, the VWAP exits and the data table are unlocked across every page of the site.</p>
+    <div class="acct-actions">
+      <a class="home-cta" href="#/simulator">Open the Simulator →</a>
+      <a class="home-cta" href="#/ledger">See the full data →</a>
+    </div>
+    <button class="pw-btn ghost" id="logout-btn" onclick="doLogout()">Sign out</button>
+  </div>
+</div></section>
+</main>
+
+<footer class="colophon"><div class="wrap">
+  <div class="endrule"></div>
+  <p class="footlinks"><a href="#/">Home</a> · <a href="#/simulator">Simulator</a> · <a href="#/exhibits">Data Visualization</a> · <a href="#/desk">Strategy</a> · <a href="#/ledger">Data</a> · <a href="#/about">About</a> · <a href="#/terms">Terms &amp; Disclaimer</a></p>
+  <p>THE GONG · A RECORD OF HONG KONG LISTING DAYS · EDITION III PROTOTYPE · GAIN PRINTS RED, LOSS PRINTS GREEN, AS HONG KONG READS THE TAPE · INFORMATION ONLY · NOT INVESTMENT ADVICE</p>
+</div></footer>
+
+<div class="tip" id="tip"></div>
+<div class="expop" id="expop"></div>
+
+<script>
+__DATA__
+
+/* ================= theme ================= */
+const root=document.documentElement;
+const SUN='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4.4"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.1 5.1l1.6 1.6M17.3 17.3l1.6 1.6M18.9 5.1l-1.6 1.6M6.7 17.3l-1.6 1.6" stroke-linecap="round"/></svg>';
+const MOON='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20 14.6A8 8 0 1 1 9.4 4a6.3 6.3 0 0 0 10.6 10.6z" stroke-linejoin="round"/></svg>';
+function curTheme(){return root.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');}
+function paintToggle(){document.getElementById('toggle').innerHTML=curTheme()==='dark'?SUN:MOON;}
+document.getElementById('toggle').onclick=()=>{const nt=curTheme()==='dark'?'light':'dark';root.setAttribute('data-theme',nt);try{localStorage.setItem('gong-theme',nt);}catch(e){}paintToggle();redrawAll();};
+paintToggle();
+/* ================= auth (prototype, persisted) ================= */
+function isAuthed(){try{return localStorage.getItem('gong-auth')==='1';}catch(e){return false;}}
+function applyAuth(){
+  const on=isAuthed();
+  document.querySelectorAll('.subscribe-btn').forEach(b=>b.textContent=on?'Account':'Subscribe');
+  const ao=document.getElementById('acct-out'),ai=document.getElementById('acct-in');
+  if(ao&&ai){ao.style.display=on?'none':'grid';ai.style.display=on?'flex':'none';
+    const h=document.getElementById('acct-h');if(h)h.textContent=on?'Your account':'Sign in to The GONG';
+    const who=document.getElementById('acct-who');if(who&&on){let em='Subscriber';try{em=localStorage.getItem('gong-email')||em;}catch(e){}who.textContent=em;}}
+  // refresh any gated view currently on screen
+  const pg=document.body.dataset.page;
+  if(pg==='simulator'&&simBuilt){updateControls();runSim();}
+  if(pg==='ledger')buildLedger(true);
+}
+function doLogin(ev,sub){if(ev&&ev.preventDefault)ev.preventDefault();
+  let em='';try{em=(document.getElementById('lg-email')||{}).value||(sub?'subscriber@thegong':'you@firm.com');
+    localStorage.setItem('gong-auth','1');localStorage.setItem('gong-email',em);}catch(e){}
+  applyAuth();scrollTo(0,0);return false;}
+function doLogout(){try{localStorage.removeItem('gong-auth');}catch(e){}applyAuth();}
+function openSubscribe(){location.hash='#/account';}
+function cvar(n){return getComputedStyle(document.body).getPropertyValue('--'+n).trim();}
+
+/* ================= utils ================= */
+const NS='http://www.w3.org/2000/svg';
+function E(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e;}
+function median(a){const s=[...a].sort((x,y)=>x-y);if(!s.length)return null;const m=s.length>>1;return s.length%2?s[m]:(s[m-1]+s[m])/2;}
+const yearOf=r=>r[0].slice(0,4);
+const fmtpct=v=>(v>=0?'+':'')+(Math.abs(v)>=100?v.toFixed(0):v.toFixed(1))+'%';
+const fmtHKD=v=>(v<0?'−':'')+'HK$'+Math.abs(v).toLocaleString(undefined,{maximumFractionDigits:0});
+function txt(svg,x,y,s,a){const t=E('text',Object.assign({x,y},a||{}),svg);t.textContent=s;return t;}
+function labelBg(svg,x,y,s,fill,a){
+  const t=txt(svg,x,y,s,Object.assign({class:'val',fill},a||{}));
+  const bb=t.getBBox(),pad=4;
+  const r=E('rect',{class:'medbg',x:bb.x-pad,y:bb.y-1.5,width:bb.width+pad*2,height:bb.height+3,rx:2.5,
+    fill:cvar('paper'),'fill-opacity':.8,stroke:cvar('hairline'),'stroke-width':.5},svg);
+  t.parentNode.insertBefore(r,t);
+  return t;
+}
+
+/* ================= the tape — static SVG, always renders ================= */
+const tip=document.getElementById('tip');
+function buildTape(){
+  const host=document.getElementById('tapehost');host.innerHTML='';
+  const W=1100,H=300,padT=18,padB=24,padL=8,padR=50;
+  const svg=E('svg',{viewBox:`0 0 ${W} ${H}`},host);
+  const plot=H-padT-padB,CAP_UP=200,CAP_DN=60,zf=CAP_UP/(CAP_UP+CAP_DN),zeroY=padT+plot*zf;
+  const t0=Date.parse('2023-01-01'),t1=Date.parse('2026-07-01');
+  const X=d=>padL+((Date.parse(d)-t0)/(t1-t0))*(W-padL-padR);
+  const Y=v=>{const r=Math.max(-CAP_DN,Math.min(CAP_UP,v));
+    return r>=0?zeroY-(r/CAP_UP)*(plot*zf):zeroY+(-r/CAP_DN)*(plot*(1-zf));};
+  // year separators + labels
+  ['2024-01-01','2025-01-01','2026-01-01'].forEach(d=>E('line',{class:'gl',x1:X(d),x2:X(d),y1:padT,y2:H-padB},svg));
+  [['2023','2023-07-01'],['2024','2024-07-01'],['2025','2025-07-01'],['2026 H1','2026-04-01']].forEach(([l,d])=>
+    txt(svg,X(d),H-8,l,{'text-anchor':'middle'}));
+  // guides
+  [[100,'+100%'],[50,'+50%'],[0,'0%'],[-25,'−25%']].forEach(([v,l])=>{
+    const yy=Y(v);
+    E('line',{class:v===0?'zero':'gl',x1:padL,x2:W-padR,y1:yy,y2:yy},svg);
+    txt(svg,W-padR+6,yy+3,l,{});});
+  // bars
+  const rows=D.filter(r=>r[8]!=null);
+  const gain=cvar('gain'),loss=cvar('loss');
+  rows.forEach(r=>{
+    const x=X(r[0]),y1=Y(r[8]);
+    const top=Math.min(zeroY,y1),hh=Math.max(Math.abs(zeroY-y1),1.5);
+    const b=E('rect',{x:x-1.1,y:top,width:2.2,height:hh,fill:r[8]>=0?gain:loss,'fill-opacity':.88},svg);
+    b._rec=r;
+  });
+  // year median dashes + callouts — translucent label, hover thickens the line
+  const acc=cvar('accent');
+  [['2023',0.8],['2024',2.8],['2025',9.3],['2026',37.5]].forEach(([y,m])=>{
+    const xa=X(y+'-01-15'),xb=X(y==='2026'?'2026-06-15':y+'-12-15');
+    const medG=E('g',{class:'med'},svg);
+    E('line',{class:'medline',x1:xa,x2:xb,y1:Y(m),y2:Y(m),stroke:acc,'stroke-width':2.5,'stroke-dasharray':'7 4'},medG);
+    labelBg(medG,(xa+xb)/2,Y(m)-8,'median '+fmtpct(m),acc,{'text-anchor':'middle'});
+    E('line',{x1:xa,x2:xb,y1:Y(m),y2:Y(m),stroke:'transparent','stroke-width':16},medG);
+  });
+  // hover: nearest bar by x
+  svg.addEventListener('mousemove',ev=>{
+    const pt=svg.createSVGPoint();pt.x=ev.clientX;pt.y=ev.clientY;
+    const q=pt.matrixTransform(svg.getScreenCTM().inverse());
+    let best=null,bd=1e9;
+    rows.forEach(r=>{const dd=Math.abs(X(r[0])-q.x);if(dd<bd){bd=dd;best=r;}});
+    if(best&&bd<8){
+      tip.innerHTML=`<div class="nm">${best[2]||best[1]}</div><div class="mn">${best[1]} · ${best[0]}${best[3]?' · '+best[3]:''}</div><div class="rt" style="color:${best[8]>=0?gain:loss}">day one ${fmtpct(best[8])}</div>`;
+      tip.classList.add('on');
+      let tx=ev.clientX+15,ty=ev.clientY+15;if(tx+240>innerWidth)tx=ev.clientX-255;
+      tip.style.left=tx+'px';tip.style.top=ty+'px';
+    } else tip.classList.remove('on');
+  });
+  svg.addEventListener('mouseleave',()=>tip.classList.remove('on'));
+}
+
+/* ================= chart primitives (unchanged core) ================= */
+function chartSvg(host,W,H){host.innerHTML='';const s=E('svg',{viewBox:`0 0 ${W} ${H}`});host.appendChild(s);return s;}
+function vBars(svg,g,items,opts){
+  const o=opts||{},pw=g.W-g.pl-g.pr,ph=g.H-g.pt-g.pb;
+  const vals=items.map(d=>d.val);
+  let mx=Math.max(...vals,0),mn=Math.min(...vals,0);
+  if(mx===mn)mx=mn+1;
+  const pad=(mx-mn)*.12;mx+=pad;if(mn<0)mn-=pad;
+  const Y=v=>g.pt+ph*(1-(v-mn)/(mx-mn)),zy=Y(0);
+  E('line',{class:'zero',x1:g.pl,x2:g.W-g.pr,y1:zy,y2:zy},svg);
+  const step=pw/items.length,bw=Math.min(38,step*.62);
+  items.forEach((d,i)=>{
+    const cx=g.pl+i*step+step/2,y1=Y(d.val),top=Math.min(zy,y1),hh=Math.max(Math.abs(zy-y1),1);
+    E('rect',{x:cx-bw/2,y:top,width:bw,height:hh,fill:d.color||cvar('ink')},svg);
+    if(o.fmt&&(o.valEvery==null||i%o.valEvery===0))
+      txt(svg,cx,d.val>=0?y1-5:y1+11,o.fmt(d.val),{'text-anchor':'middle',class:'val'});
+    if(o.labelEvery==null||i%o.labelEvery===0)
+      txt(svg,cx,g.H-(o.xlab?16:6),d.label,{'text-anchor':'middle'});
+  });
+  axisTitles(svg,g,o);
+}
+function hPairs(svg,g,items,c1,c2,opts){
+  const o=opts||{},pw=g.W-g.pl-g.pr,ph=g.H-g.pt-g.pb;
+  const all=items.flatMap(d=>[d.a,d.b]).filter(v=>v!=null);
+  let mx=Math.max(...all,0),mn=Math.min(...all,0);
+  const pad=(mx-mn)*.14;mx+=pad;if(mn<0)mn-=pad;
+  const X=v=>g.pl+pw*((v-mn)/(mx-mn)),zx=X(0);
+  E('line',{class:'zero',x1:zx,x2:zx,y1:g.pt,y2:g.H-g.pb},svg);
+  const step=ph/items.length,bh=Math.min(11,step*.3);
+  items.forEach((d,i)=>{
+    const cy=g.pt+i*step+step/2;
+    txt(svg,g.pl-6,cy+3,d.label,{'text-anchor':'end'});
+    [[d.a,c1,-bh-1],[d.b,c2,1]].forEach(([v,c,dy])=>{
+      if(v==null)return;
+      const x1=X(v),left=Math.min(zx,x1),wd=Math.max(Math.abs(x1-zx),1);
+      E('rect',{x:left,y:cy+dy,width:wd,height:bh,fill:c},svg);
+      if(o.fmt)txt(svg,x1+(v>=0?4:-4),cy+dy+bh-2,o.fmt(v),{'text-anchor':v>=0?'start':'end'});
+    });
+  });
+}
+function lineChart(svg,g,series,opts){
+  const o=opts||{},pw=g.W-g.pl-g.pr,ph=g.H-g.pt-g.pb;
+  let mn=o.ymin,mx=o.ymax;
+  if(mn==null&&mx==null){
+    const all=series.flatMap(s=>s.pts.map(p=>p[1]));
+    mx=Math.max(...all);mn=Math.min(...all);const pad=(mx-mn)*.12||1;mx+=pad;mn-=pad;
+  } else {
+    const all=series.flatMap(s=>s.pts.map(p=>p[1]));
+    if(mx==null){mx=Math.max(...all);mx+=(mx-mn)*.1||1;}
+    if(mn==null){mn=Math.min(...all);mn-=(mx-mn)*.1||1;}
+  }
+  const X=f=>g.pl+pw*f,Y=v=>g.pt+ph*(1-(v-mn)/(mx-mn));
+  if(mn<0&&mx>0){const zy=Y(0);E('line',{class:'zero',x1:g.pl,x2:g.W-g.pr,y1:zy,y2:zy},svg);txt(svg,g.pl-6,zy+3,'0',{'text-anchor':'end'});}
+  (o.xlabels||[]).forEach(([f,l])=>txt(svg,X(f),g.H-5,l,{'text-anchor':'middle'}));
+  series.forEach(s=>{
+    const d=s.pts.map((p,i)=>`${i?'L':'M'}${X(p[0]).toFixed(1)},${Y(p[1]).toFixed(1)}`).join(' ');
+    E('path',{d,fill:'none',stroke:s.color,'stroke-width':s.w||1.8,'stroke-linecap':'round','stroke-linejoin':'round'},svg);
+    if(s.dots)s.pts.forEach(p=>E('circle',{cx:X(p[0]),cy:Y(p[1]),r:2.8,fill:s.color,stroke:cvar('panel'),'stroke-width':1.5},svg));
+    if(s.endlabel)txt(svg,X(s.pts[s.pts.length-1][0])+5,Y(s.pts[s.pts.length-1][1])+3,s.endlabel,{class:'val',fill:s.color});
+  });
+}
+function axisTitles(svg,g,o){
+  const pw=g.W-g.pl-g.pr,ph=g.H-g.pt-g.pb;
+  if(o.xlab)txt(svg,g.pl+pw/2,g.H-2,o.xlab,{'text-anchor':'middle',class:'axt'});
+  if(o.ylab){const t=txt(svg,0,0,o.ylab,{'text-anchor':'middle',class:'axt'});
+    t.setAttribute('transform',`translate(12,${g.pt+ph/2}) rotate(-90)`);}
+}
+function scatter(svg,g,pts,opts){
+  const o=opts||{},pw=g.W-g.pl-g.pr,ph=g.H-g.pt-g.pb,by=g.pt+ph;
+  const xs=pts.map(p=>p.x),ys=pts.map(p=>p.y);
+  let x0=o.xmin!=null?o.xmin:Math.min(...xs),x1=o.xmax!=null?o.xmax:Math.max(...xs);
+  let y0=o.ymin!=null?o.ymin:Math.min(...ys),y1=o.ymax!=null?o.ymax:Math.max(...ys);
+  const LX=v=>o.logx?Math.log10(Math.max(v,x0)):v, LY=v=>o.logy?Math.log10(Math.max(v,y0)):v;
+  const X=v=>g.pl+pw*((LX(v)-LX(x0))/(LX(x1)-LX(x0)));
+  const Y=v=>g.pt+ph*(1-(LY(v)-LY(y0))/(LY(y1)-LY(y0)));
+  if(!o.logy&&y0<0&&y1>0){const zy=Y(0);E('line',{class:'zero',x1:g.pl,x2:g.W-g.pr,y1:zy,y2:zy},svg);}
+  (o.xticks||[]).forEach(v=>{const gx=X(v);E('line',{class:'gl',x1:gx,x2:gx,y1:g.pt,y2:by},svg);
+    txt(svg,gx,by+13,o.xtickfmt?o.xtickfmt(v):v,{'text-anchor':'middle'});});
+  (o.yticks||[]).forEach(v=>{const gy=Y(v);E('line',{class:'gl',x1:g.pl,x2:g.W-g.pr,y1:gy,y2:gy},svg);
+    txt(svg,g.pl-5,gy+3,o.ytickfmt?o.ytickfmt(v):v,{'text-anchor':'end'});});
+  pts.forEach(p=>{
+    const col=p.color||(p.up==null?cvar('ink'):p.up?cvar('gain'):cvar('loss'));
+    E('circle',{cx:X(Math.min(Math.max(p.x,x0),x1)),cy:Y(Math.min(Math.max(p.y,y0),y1)),r:2.4,fill:col,'fill-opacity':o.dim?.34:.68},svg);
+  });
+  if(o.trend&&o.trend.length){
+    const cl=v=>({x:Math.min(Math.max(v.x,x0),x1),y:Math.min(Math.max(v.y,y0),y1)});
+    const d=o.trend.map((p,k)=>{const c=cl(p);return `${k?'L':'M'}${X(c.x).toFixed(1)},${Y(c.y).toFixed(1)}`;}).join(' ');
+    E('path',{d,fill:'none',stroke:cvar('ink'),'stroke-width':2.4,'stroke-linejoin':'round'},svg);
+    o.trend.forEach(p=>{const c=cl(p);E('circle',{cx:X(c.x),cy:Y(c.y),r:3.2,fill:cvar('accent'),stroke:cvar('panel'),'stroke-width':1.4},svg);});
+  }
+  axisTitles(svg,g,o);
+}
+function vStack(svg,g,cats,segs,opts){
+  const o=opts||{},pw=g.W-g.pl-g.pr,ph=g.H-g.pt-g.pb,by=g.pt+ph;
+  const totals=segs.map(s=>s.reduce((a,x)=>a+x.val,0)),mx=Math.max(...totals,1)*1.12;
+  const Y=v=>g.pt+ph*(1-v/mx);
+  E('line',{class:'zero',x1:g.pl,x2:g.W-g.pr,y1:by,y2:by},svg);
+  const step=pw/cats.length,bw=Math.min(50,step*.6);
+  cats.forEach((c,i)=>{
+    const cx=g.pl+i*step+step/2;let acc=0;
+    segs[i].forEach(seg=>{if(seg.val>0){const yA=Y(acc),yB=Y(acc+seg.val);
+      E('rect',{x:cx-bw/2,y:yB,width:bw,height:Math.max(yA-yB-0.6,0.6),fill:seg.color},svg);}acc+=seg.val;});
+    txt(svg,cx,by+13,c,{'text-anchor':'middle'});
+    if(totals[i]>0)txt(svg,cx,Y(totals[i])-4,totals[i],{'text-anchor':'middle',class:'val'});
+  });
+  if(o.legend){let lx=g.pl;o.legend.forEach(l=>{E('rect',{x:lx,y:1,width:8,height:8,fill:l.color},svg);
+    txt(svg,lx+11,9,l.key,{});lx+=Math.max(44,l.key.length*7+16);});}
+  axisTitles(svg,g,o);
+}
+
+/* ================= exhibits ================= */
+const G={W:520,H:250,pl:46,pr:16,pt:14,pb:26};
+const YEARS=['2023','2024','2025','2026'];
+const rowsOf=y=>D.filter(r=>yearOf(r)===y);
+function medOf(y,idx){return median(rowsOf(y).map(r=>r[idx]).filter(v=>v!=null));}
+const HOR=[['Day 1',8],['5d',11],['20d',12],['1m',13],['3m',14],['6m',15],['1y',16]];
+const GS={W:520,H:284,pl:62,pr:18,pt:16,pb:48};   // labelled scatters
+const GST={W:520,H:264,pl:48,pr:16,pt:26,pb:30};  // stacked bar (legend room)
+const OSBINS=[['<1×',v=>v<1],['1–10×',v=>v>=1&&v<10],['10–100×',v=>v>=10&&v<100],['100–500×',v=>v>=100&&v<500],['500–1k×',v=>v>=500&&v<1000],['≥1k×',v=>v>=1000]];
+const YRCOL=()=>({'2023':cvar('ink-3'),'2024':cvar('brass'),'2025':cvar('gain'),'2026':cvar('accent')});
+const SIZEBINS=[['<50m',0,50],['50–150m',50,150],['150–500m',150,500],['0.5–1.5bn',500,1500],['>1.5bn',1500,1e9]];
+const EXHIBITS=[
+ // ---- A. The wave: issuance & mix ----
+ {t:'Listings per quarter — the wave builds',c:'Deal count by listing quarter. The rush is a 2025–26 phenomenon stacked on a slow 2023–24 base.',
+  draw(h){const s=chartSvg(h,G.W,G.H);
+   vBars(s,G,A.wave.map(w=>({label:w.quarter.replace('20','’').replace('Q','·Q'),val:w.deals,color:cvar('ink')})),
+     {labelEvery:2,fmt:v=>v,valEvery:2,ylab:'Listings'});}},
+ {t:'Capital raised per quarter, US$bn',c:'Proceeds concentrate even faster than the deal count. The rush is also a size story.',
+  draw(h){const s=chartSvg(h,G.W,G.H);
+   vBars(s,G,A.wave.map(w=>({label:w.quarter.replace('20','’').replace('Q','·Q'),val:Math.round(w.raised_usd_m/1000),color:cvar('brass')})),
+     {labelEvery:2,fmt:v=>v,valEvery:2,ylab:'US$bn'});}},
+ {t:'Who came to list — by sector',c:'Share of listings by sector, the 2023 baseline (grey) against the 2024–26 rush (red). Technology roughly doubles its share.',
+  draw(h){const s=chartSvg(h,G.W,G.H);
+   const base=D.filter(r=>yearOf(r)==='2023'),rush=D.filter(r=>yearOf(r)!=='2023');
+   const secs={};D.forEach(r=>{if(r[3])secs[r[3]]=(secs[r[3]]||0)+1;});
+   const top=Object.keys(secs).sort((a,b)=>secs[b]-secs[a]).slice(0,6);
+   const g2={...G,pl:150};
+   hPairs(s,g2,top.map(sec=>({label:sec.length>20?sec.slice(0,20)+'…':sec,
+     a:100*base.filter(r=>r[3]===sec).length/base.length,
+     b:100*rush.filter(r=>r[3]===sec).length/rush.length})),cvar('ink-3'),cvar('accent'),
+     {fmt:v=>v.toFixed(0)+'%'});
+   txt(s,g2.pl,10,'grey = 2023 · red = 2024–26 · share of listings',{});}},
+ {t:'The H-share wave — by listing regime',c:'Listing regime mix, 2023 vs the rush: mainland-incorporated H-shares go from about a third of listings to six in ten.',
+  draw(h){const s=chartSvg(h,G.W,G.H);
+   const base=D.filter(r=>yearOf(r)==='2023'),rush=D.filter(r=>yearOf(r)!=='2023');
+   const regs=['H-share','Standard','18A biotech','19C secondary','18C specialist tech'];
+   const g2={...G,pl:150};
+   hPairs(s,g2,regs.map(rg=>({label:rg,
+     a:100*base.filter(r=>r[4]===rg).length/base.length,
+     b:100*rush.filter(r=>r[4]===rg).length/rush.length})),cvar('ink-3'),cvar('accent'),
+     {fmt:v=>v.toFixed(0)+'%'});
+   txt(s,g2.pl,10,'grey = 2023 · red = 2024–26 · share of listings',{});}},
+ // ---- B. The first day ----
+ {t:'Median first day, by year of striking',c:'Median return from the offer price to the first-day close. From +0.8% to +37.5% in three years. A forty-fold escalation.',
+  draw(h){const s=chartSvg(h,G.W,G.H);
+   vBars(s,G,YEARS.map(y=>{const v=medOf(y,8);return {label:y==='2026'?'2026 H1':y,val:v,color:v>=0?cvar('gain'):cvar('loss')};}),
+     {fmt:fmtpct,ylab:'Median day-1, offer→close'});}},
+ {t:'The distribution of first days',c:'Every listing’s offer→close first day sorted into 20-point buckets. Bars left of zero are losses (green); the long right tail (red) is the pop. Height is the number of listings.',
+  draw(h){const s=chartSvg(h,G.W,G.H);
+   const bins=[[-60,-40],[-40,-20],[-20,0],[0,20],[20,40],[40,60],[60,80],[80,100],[100,150],[150,200]];
+   const lab=['−60','−40','−20','0','+20','+40','+60','+80','+100','+150'];
+   const vals=D.map(r=>r[8]).filter(v=>v!=null).map(v=>Math.max(-60,Math.min(200,v)));
+   vBars(s,G,bins.map(([a,b],k)=>({label:lab[k],val:vals.filter(v=>v>=a&&v<b).length,
+     color:a>=0?cvar('gain'):cvar('loss')})),{fmt:v=>v,xlab:'First-day return, offer→close (%)',ylab:'Number of listings'});}},
+ {t:'Every first day, year by year',c:'The same first days as a strip plot. One dot per listing, the black bar each year’s median. The spread widens sharply as the rush arrives.',
+  draw(h){const s=chartSvg(h,G.W,G.H);
+   const g=G,ph=g.H-g.pt-g.pb,pw=g.W-g.pl-g.pr;
+   const Y=v=>g.pt+ph*(1-(Math.max(-60,Math.min(200,v))+60)/260);
+   const zy=Y(0);E('line',{class:'zero',x1:g.pl,x2:g.W-g.pr,y1:zy,y2:zy},s);
+   txt(s,g.pl-6,zy+3,'0%',{'text-anchor':'end'});
+   txt(s,g.pl-6,Y(100)+3,'+100%',{'text-anchor':'end'});
+   YEARS.forEach((y,i)=>{
+     const cx=g.pl+pw*(i+0.5)/4;
+     txt(s,cx,g.H-6,y==='2026'?'2026 H1':y,{'text-anchor':'middle'});
+     rowsOf(y).forEach((r,j)=>{if(r[8]==null)return;
+       const jit=((j*2654435761)%1000)/1000-.5;
+       E('circle',{cx:cx+jit*pw*0.16,cy:Y(r[8]),r:2,fill:r[8]>=0?cvar('gain'):cvar('loss'),'fill-opacity':.55},s);});
+     const m=medOf(y,8);if(m!=null)E('line',{x1:cx-pw*0.09,x2:cx+pw*0.09,y1:Y(m),y2:Y(m),stroke:cvar('ink'),'stroke-width':2},s);});}},
+ {t:'The pop lives at the open',c:'Median offer→open premium (red) vs. median open→close (grey), by year. Everything the day pays is paid in the opening auction.',
+  draw(h){const s=chartSvg(h,G.W,G.H);
+   const g2={...G,pl:60};
+   hPairs(s,g2,YEARS.map(y=>({label:y==='2026'?'’26 H1':y,a:medOf(y,9),b:medOf(y,10)})),cvar('gain'),cvar('ink-3'),
+     {fmt:fmtpct});
+   txt(s,g2.pl,10,'red = offer→open · grey = open→close',{});}},
+ // ---- C. Demand & the pop ----
+ {t:'How oversubscribed is oversubscribed?',c:'Retail books by order of magnitude, all years pooled. By 2026 the median book is covered well over a thousand times.',
+  draw(h){const s=chartSvg(h,G.W,G.H);
+   const vals=D.map(r=>r[6]).filter(v=>v!=null);
+   vBars(s,G,OSBINS.map(([l,f])=>({label:l,val:vals.filter(f).length,color:cvar('ink')})),{fmt:v=>v,ylab:'Listings'});}},
+ {t:'Oversubscription by year — the heat is recent',c:'The same demand buckets, each bar split by listing year. The heavily-covered books (100×+) are almost entirely a 2025–26 story.',
+  draw(h){const s=chartSvg(h,GST.W,GST.H);
+   const yc=YRCOL();
+   const segs=OSBINS.map(([l,f])=>YEARS.map(y=>({val:D.filter(r=>yearOf(r)===y&&r[6]!=null&&f(r[6])).length,color:yc[y],key:y})));
+   vStack(s,GST,OSBINS.map(b=>b[0]),segs,{ylab:'Listings',xlab:'Retail oversubscription',
+     legend:YEARS.map(y=>({key:y==='2026'?'’26H1':y,color:yc[y]}))});}},
+ {t:'Demand vs. first day — the cloud',c:'Every listing: retail oversubscription (log scale) against its offer→close first day. Hotter books cluster higher. The book reads the deal before the market does.',
+  draw(h){const s=chartSvg(h,GS.W,GS.H);
+   scatter(s,GS,D.filter(r=>r[6]!=null&&r[8]!=null).map(r=>({x:Math.max(r[6],.2),y:r[8],up:r[8]>=0})),
+     {logx:true,xmin:.2,xmax:9000,ymin:-60,ymax:200,xticks:[1,10,100,1000],xtickfmt:v=>v+'×',yticks:[0,100,200],ytickfmt:v=>(v>0?'+':'')+v+'%',
+      xlab:'Retail oversubscription (×, log scale)',ylab:'First-day return, offer→close (%)'});}},
+ {t:'Subscription vs. day-one close — the trend',c:'The same points, muted, with the black line the median first day within each demand decade. The hotter the retail book, the better the day-one close. Monotonically past 10×.',
+  draw(h){const s=chartSvg(h,GS.W,GS.H);
+   const rows=D.filter(r=>r[6]!=null&&r[8]!=null);
+   const edges=[0.2,1,10,100,500,1000,9000],trend=[];
+   for(let k=0;k<edges.length-1;k++){const seg=rows.filter(r=>r[6]>=edges[k]&&r[6]<edges[k+1]);
+     const m=median(seg.map(r=>r[8]));if(m!=null&&seg.length>=3)trend.push({x:Math.sqrt(edges[k]*Math.min(edges[k+1],9000)),y:m});}
+   scatter(s,GS,rows.map(r=>({x:Math.max(r[6],.2),y:r[8],up:r[8]>=0})),
+     {dim:true,logx:true,xmin:.2,xmax:9000,ymin:-60,ymax:200,xticks:[1,10,100,1000],xtickfmt:v=>v+'×',yticks:[0,100,200],ytickfmt:v=>(v>0?'+':'')+v+'%',
+      trend,xlab:'Retail oversubscription (×, log scale)',ylab:'First-day return, offer→close (%)'});}},
+ {t:'First day by demand tier',c:'Median offer→close first day within each retail-demand band. Flat-to-negative until the book is many times covered, then it climbs. Hotter demand, bigger pop.',
+  draw(h){const s=chartSvg(h,G.W,G.H);
+   vBars(s,G,A.tier.map(t=>({label:t.tier.replace('undersubscribed(<1x)','<1×').replace('x','×').replace('oversubscribed',''),
+     val:t.median,color:t.median>=0?cvar('gain'):cvar('loss')})),{fmt:fmtpct,ylab:'Median day-1, offer→close'});}},
+ // ---- D. Allocation: the catch ----
+ {t:'The ballot gives you what nobody wants',c:'Allocation rate against oversubscription, both log. Hot books allocate in fractions of a per cent. You get a full fill only where nobody else wants in.',
+  draw(h){const s=chartSvg(h,GS.W,GS.H);
+   scatter(s,GS,D.filter(r=>r[6]!=null&&r[7]!=null).map(r=>({x:Math.max(r[6],.2),y:Math.max(r[7],.05),up:null})),
+     {logx:true,logy:true,xmin:.2,xmax:9000,ymin:.05,ymax:100,xticks:[1,10,100,1000],xtickfmt:v=>v+'×',
+      yticks:[0.1,1,10,100],ytickfmt:v=>v+'%',xlab:'Retail oversubscription (×, log scale)',ylab:'1-lot allocation rate (%, log scale)'});}},
+ {t:'Adverse selection, drawn',c:'Allocation rate against the first day. The deals you are actually given a full fill of are disproportionately the ones that do not pop (ρ ≈ −0.35).',
+  draw(h){const s=chartSvg(h,GS.W,GS.H);
+   scatter(s,GS,D.filter(r=>r[7]!=null&&r[8]!=null).map(r=>({x:Math.max(r[7],.05),y:r[8],up:r[8]>=0})),
+     {logx:true,xmin:.05,xmax:100,ymin:-60,ymax:200,xticks:[0.1,1,10,100],xtickfmt:v=>v+'%',
+      yticks:[0,100,200],ytickfmt:v=>(v>0?'+':'')+v+'%',xlab:'1-lot allocation rate (%, log scale)',ylab:'First-day return, offer→close (%)'});}},
+ {t:'First day by deal size',c:'Median offer→close first day by offering size in US$. The pop is strongest below US$500m; the megadeals behave.',
+  draw(h){const s=chartSvg(h,G.W,G.H);
+   vBars(s,G,SIZEBINS.map(([l,a,b])=>{
+     const v=median(D.filter(r=>r[5]!=null&&r[5]>=a&&r[5]<b&&r[8]!=null).map(r=>r[8]));
+     return {label:l,val:v,color:v>=0?cvar('gain'):cvar('loss')};}),{fmt:fmtpct,ylab:'Median day-1, offer→close'});}},
+ // ---- E. After the debut: decay & lock-up ----
+ {t:'The median path: pop, then fade',c:'Median return vs. the offer across horizons. The peak is the first month; a year out, about −22%.',
+  draw(h){const s=chartSvg(h,G.W,G.H);
+   const pts=HOR.map(([l,i],k)=>[k/(HOR.length-1),median(D.map(r=>r[i]).filter(v=>v!=null))]);
+   lineChart(s,G,[{pts,color:cvar('accent'),dots:true,endlabel:fmtpct(pts[pts.length-1][1])}],
+     {xlabels:HOR.map(([l],k)=>[k/(HOR.length-1),l])});}},
+ {t:'The same path, by vintage',c:'Every cohort decays; the rush vintages simply start higher. 1-year data exists only where the horizon has elapsed.',
+  draw(h){const s=chartSvg(h,G.W,G.H);
+   const labels=['Day 1','5d','20d','1m','3m','1y'];
+   const cols={2023:cvar('ink-3'),2024:cvar('brass'),2025:cvar('accent'),2026:cvar('gain')};
+   const series=A.hyear.map(row=>{
+     const pts=[];labels.forEach((l,k)=>{const c=row[l];if(c&&c.median!=null)pts.push([k/(labels.length-1),c.median]);});
+     return {pts,color:cols[row.year],w:1.6,endlabel:String(row.year)};}).filter(s=>s.pts.length>1);
+   lineChart(s,G,series,{xlabels:labels.map((l,k)=>[k/(labels.length-1),l])});}},
+ {t:'Nothing happens at the lock-up',c:'Median cumulative return vs. offer, days around the six-month expiry. The feared overhang never really arrives.',
+  draw(h){const s=chartSvg(h,G.W,G.H);
+   const pts=A.lock.map((p,i)=>[i/(A.lock.length-1),p.median]);
+   lineChart(s,G,[{pts,color:cvar('ink'),dots:true}],
+     {xlabels:A.lock.map((p,i)=>[i/(A.lock.length-1),(p.offset>0?'+':'')+p.offset+'d'])});}},
+ {t:'Lock-up expiry return, by deal size',c:'Median share-price move on the six-month unlock day, by offering size. Small and large alike drift only slightly. No size shows a systematic expiry drop.',
+  draw(h){const s=chartSvg(h,G.W,G.H);
+   vBars(s,G,SIZEBINS.map(([l,a,b])=>{
+     const v=median(D.filter(r=>r[5]!=null&&r[5]>=a&&r[5]<b&&r[21]!=null).map(r=>r[21]));
+     return {label:l,val:v==null?0:v,color:(v||0)>=0?cvar('gain'):cvar('loss')};}),{fmt:fmtpct,ylab:'Median unlock-day return'});}},
+ {t:'Lock-up expiry return, by year',c:'Median unlock-day move by vintage. 2026 listings have not yet reached their six-month expiry, so they are excluded.',
+  draw(h){const s=chartSvg(h,G.W,G.H);
+   vBars(s,G,['2023','2024','2025'].map(y=>{const v=median(rowsOf(y).map(r=>r[21]).filter(x=>x!=null));
+     return {label:y,val:v==null?0:v,color:(v||0)>=0?cvar('gain'):cvar('loss')};}),{fmt:fmtpct,ylab:'Median unlock-day return'});}},
+ // ---- F. The trade ----
+ {t:'The retail seat, year by year',c:'Expected return per one-lot ballot at the first close, after allocation odds, fees and carry. Primary strategy has been a 2025–26 phenomenon.',
+  draw(h){const s=chartSvg(h,G.W,G.H);
+   vBars(s,G,A.p2y.map(p=>({label:String(p.year),val:p.mean_bps,color:p.mean_bps>=0?cvar('gain'):cvar('loss')})),
+     {fmt:v=>(v>=0?'+':'')+Math.round(v)+'bp',ylab:'Expected bps / ballot'});}},
+ {t:'Five strategies, trained and tested',c:'Mean return per deal, designed on 2023–25 (dark) and run once on the untouched 2026 H1 test (red). Only the winners-momentum trade is large in both.',
+  draw(h){const s=chartSvg(h,G.W,G.H);
+   const names={'S1: Subscribe all':'Subscribe all','S2: Subscribe only if HSI 30d>0':'Subscribe · HSI gate',
+     'S3: Buy open, sell close':'Buy the open','S3: Buy close, sell 20d (if day1 pop>20%)':'Buy winners, hold 20d',
+     'S4: Short lockup expiry (-2d..+1d, ex-borrow)':'Short the lock-up'};
+   const seen={},items=[];
+   A.p3.forEach(p=>{const nm=names[p[0]]||p[0];if(seen[nm])return;seen[nm]=1;
+     items.push({label:nm,a:p[2],b:p[3]});});
+   const g2={...G,pl:170};
+   hPairs(s,g2,items,cvar('ink'),cvar('accent'),{fmt:v=>v==null?'':Math.round(v)});
+   txt(s,g2.pl,10,'dark = train (bps) · red = test 2026 H1',{});}},
+ {t:'Riding every winner: the equity curve',c:'One unit staked on each qualifying trade of the winners-momentum rule, compounded. The end is high; the road is violent (max drawdown −93%).',
+  draw(h){const s=chartSvg(h,G.W,G.H);
+   const e0=Date.parse(A.eq[0][0]),e1=Date.parse(A.eq[A.eq.length-1][0]);
+   const pts=A.eq.map(p=>[(Date.parse(p[0])-e0)/(e1-e0),p[1]]);
+   lineChart(s,G,[{pts,color:cvar('accent'),w:1.6,endlabel:pts[pts.length-1][1].toFixed(1)+'×'}],
+     {ymin:0,xlabels:[[0,'2023'],[.5,'2025'],[1,'2026']]});}},
+];
+let exDrawn=false;
+function exCard(ex,i){return `<div class="ex"><span class="exn">EXHIBIT ${i+1} / ${EXHIBITS.length}</span>`+
+  `<div class="ext">${ex.t}</div><div class="exh" id="exh-${i}"></div><div class="exc">${ex.c}</div></div>`;}
+function drawExhibits(){
+  const grid=document.getElementById('exgrid'),intro=document.getElementById('ci-charts');
+  if(!exDrawn){
+    intro.innerHTML=[0,1].map(i=>exCard(EXHIBITS[i],i)).join('');       // exhibits 1 & 2 beside the summary
+    grid.innerHTML=EXHIBITS.slice(2).map((ex,k)=>exCard(ex,k+2)).join('');  // exhibits 3+ below
+    exDrawn=true;
+  }
+  EXHIBITS.forEach((ex,i)=>{try{ex.draw(document.getElementById('exh-'+i));}catch(e){console.warn('exhibit',i+1,e);}});
+  wireExrefs();
+}
+/* hover an (Exhibit N) reference in the summary → floating chart preview */
+let exrefsWired=false;
+function positionPop(el){
+  const pop=document.getElementById('expop');
+  const r=el.getBoundingClientRect(),w=pop.offsetWidth||380,h=pop.offsetHeight||300;
+  let left=r.left;if(left+w>innerWidth-12)left=innerWidth-12-w;if(left<12)left=12;
+  let top=r.bottom+8;if(top+h>innerHeight-12)top=r.top-8-h;if(top<12)top=12;
+  pop.style.left=left+'px';pop.style.top=top+'px';
+}
+function showExPop(el){
+  const pop=document.getElementById('expop');
+  const nums=el.dataset.ex.split(',').map(n=>+n).filter(n=>EXHIBITS[n-1]);
+  pop.innerHTML=nums.map((n,k)=>`<div class="epc"><div class="ept">Exhibit ${n}</div><div class="epn">${EXHIBITS[n-1].t}</div><div class="eph" id="eph-${k}"></div></div>`).join('');
+  nums.forEach((n,k)=>{try{EXHIBITS[n-1].draw(document.getElementById('eph-'+k));}catch(e){}});
+  pop.classList.add('on');positionPop(el);
+}
+function wireExrefs(){
+  if(exrefsWired)return;
+  const pop=document.getElementById('expop');
+  document.querySelectorAll('.exref').forEach(el=>{
+    el.addEventListener('mouseenter',()=>showExPop(el));
+    el.addEventListener('mouseleave',()=>pop.classList.remove('on'));
+    el.addEventListener('focus',()=>showExPop(el));
+    el.addEventListener('blur',()=>pop.classList.remove('on'));
+    el.tabIndex=0;
+  });
+  exrefsWired=true;
+}
+function drawDeskCharts(){
+  const host=document.getElementById('deskcharts');
+  host.innerHTML=`<div class="chart-frame"><div class="chart-head"><span class="t">Strategies · train vs test</span></div><div id="dc1"></div></div>
+    <div class="chart-frame"><div class="chart-head"><span class="t">Winners-momentum · equity curve</span></div><div id="dc2"></div></div>`;
+  EXHIBITS[22].draw(document.getElementById('dc1'));
+  EXHIBITS[23].draw(document.getElementById('dc2'));
+}
+
+/* ================= simulator ================= */
+const FEE_SUB=0.010084, SIDE=0.0025;
+const SIMOK=r=>r[17]!=null&&r[18]!=null&&r[7]!=null;
+function exitPx(r,mode){
+  if(mode==='open')return r[9]==null?null:r[17]*(1+r[9]/100);
+  if(mode==='close')return r[8]==null?null:r[17]*(1+r[8]/100);
+  if(mode==='6m')return r[22]==null?null:r[17]*(1+r[22]/100);   // 6-month VWAP vs offer
+  if(mode==='1y')return r[23]==null?null:r[17]*(1+r[23]/100);   // 1-year VWAP vs offer
+  const perf=r[+mode];return perf==null?null:r[17]*(1+perf/100);
+}
+function exitUnavail(r,exit){
+  if(exit==='6m'||exit==='1y'){
+    const days=exit==='6m'?182:365,end=new Date(Date.parse(r[0])+days*864e5).toISOString().slice(0,10);
+    return `The ${exit==='6m'?'6-month':'1-year'} VWAP window for this listing completes around ${end}. As that is a future date, no trading data is available yet.`;
+  }
+  return 'No simulatable data for this listing and exit.';
+}
+function docLinks(r){
+  const code=r[1],pros=r[24],allot=r[25];
+  const quote=`https://www.hkex.com.hk/Market-Data/Securities-Prices/Equities/Equities-Quote?sym=${(+code)||code}&sc_lang=en`;
+  const news=`https://www1.hkexnews.hk/search/titlesearch.xhtml?lang=en&category=0&market=SEHK&stockId=&stockCode=${code}`;
+  let items=[];
+  if(pros)items.push(`<a href="${pros}" target="_blank" rel="noopener">Prospectus (PDF)</a>`);
+  if(allot)items.push(`<a href="${allot}" target="_blank" rel="noopener">Allotment results</a>`);
+  items.push(`<a href="${news}" target="_blank" rel="noopener">All filings · HKEXnews</a>`);
+  items.push(`<a href="${quote}" target="_blank" rel="noopener">Exchange quote</a>`);
+  return `<div class="doclinks"><span class="dl-lab">Filings &amp; exchange</span>${items.join('')}</div>`;
+}
+function simDeal(r,mode){
+  if(!SIMOK(r))return null;
+  const px=exitPx(r,mode);if(px==null)return null;
+  const p=r[7]/100, capital=r[18]*r[17]*(1+FEE_SUB);
+  const lockDays=r[20]?2:6, carry=capital*((r[19]||0)/100)*lockDays/365;
+  const win=r[18]*(px*(1-SIDE)-r[17]*(1+FEE_SUB));
+  return {p,capital,carry,win,epnl:p*win-carry};
+}
+// free preview — five largest listings by offering size (proxy for market cap)
+const FREE=new Set(
+  D.map((r,i)=>[i,r]).filter(([i,r])=>SIMOK(r)&&r[5]!=null)
+   .sort((a,b)=>b[1][5]-a[1][5]).slice(0,5).map(([i])=>i));
+const MAX_BASKET=10;
+// simulator state
+let simSel=null, basket=[], comboHi=-1, simBuilt=false, portfolioUnlocked=false;
+const simMode=()=>document.getElementById('s-mode').value;
+function lockPanel(kind){
+  if(kind==='portfolio'){
+    return `<div class="simlock"><span class="pw-slug">Subscribers only</span>`+
+      `<h3>Portfolio of IPOs is a subscriber tool.</h3>`+
+      `<p>Build a basket of up to ten IPOs from the full record — pick each by stock code, set the lot size per participation, and generate the combined expected P&amp;L, capital and return on capital.</p>`+
+      `<div class="price">HK$88 / MONTH · FIRST MONTH HK$8 · CANCEL ANY TIME</div>`+
+      `<a class="pw-btn" href="#/account">Subscribe or sign in</a>`+
+      `<div class="signin">A subscriber account unlocks portfolio mode across every page.</div></div>`;
+  }
+  return `<div class="simlock"><span class="pw-slug">Subscribers only</span>`+
+    `<h3>This listing is in the subscriber record.</h3>`+
+    `<p>The free preview covers the five largest listings — CATL, Midea, Zijin Gold, Victory Giant and Sany Heavy. A subscription opens the ballot simulator across all 331, at any exit horizon.</p>`+
+    `<div class="price">HK$88 / MONTH · FIRST MONTH HK$8 · CANCEL ANY TIME</div>`+
+    `<a class="pw-btn" href="#/account">Subscribe or sign in</a>`+
+    `<div class="signin">Already a subscriber? <a href="#/account">Sign in</a></div></div>`;
+}
+function matchDeals(q){
+  q=q.trim().toLowerCase();
+  let res=[...D.keys()].filter(i=>SIMOK(D[i]));
+  if(q)res=res.filter(i=>D[i][1].toLowerCase().includes(q)||(D[i][2]||'').toLowerCase().includes(q));
+  return res;
+}
+function renderList(q){
+  const list=document.getElementById('s-list');comboHi=-1;
+  const ids=matchDeals(q),single=simMode()==='single',searching=!!q.trim();
+  if(!ids.length){list.innerHTML='<div class="combo-empty">No listing matches that code or name.</div>';list.classList.add('on');return;}
+  const free=ids.filter(i=>FREE.has(i)).sort((a,b)=>D[b][5]-D[a][5]);
+  const rest=ids.filter(i=>!FREE.has(i)).sort((a,b)=>D[a][0]<D[b][0]?1:-1);   // newest first
+  const authed=isAuthed();
+  const opt=i=>{const r=D[i],sel=(single&&i===simSel)?' sel':'';
+    const tag=(single&&!authed)?(FREE.has(i)?'<span class="free">Free</span>':'<span class="lk">🔒</span>'):'';
+    return `<div class="combo-opt${sel}" data-i="${i}"><span class="code">${r[1]}</span><span class="nm">${r[2]||r[1]}</span>${tag}</div>`;};
+  let html='';
+  if(free.length)html+=`<div class="combo-group">${single?'Free preview · five largest':'Five largest'}</div>`+free.map(opt).join('');
+  if(rest.length)html+=`<div class="combo-group">Full record · newest first ${single?'· subscribers':''} (${rest.length})</div>`+rest.map(opt).join('');
+  list.innerHTML=html;
+  list.classList.add('on');
+  list.querySelectorAll('.combo-opt').forEach(el=>el.onmousedown=ev=>{ev.preventDefault();pick(+el.dataset.i);});
+  if(!searching){const s=list.querySelector('.combo-opt.sel');if(s)s.scrollIntoView({block:'center'});else list.scrollTop=0;}
+  else list.scrollTop=0;
+}
+function pick(i){
+  const list=document.getElementById('s-list'),inp=document.getElementById('s-search');
+  if(simMode()==='single'){simSel=i;inp.value=`${D[i][1]} · ${D[i][2]}`;}
+  else{if(!basket.some(b=>b.i===i)&&basket.length<MAX_BASKET)basket.push({i,lots:1});inp.value='';renderBasket();}
+  list.classList.remove('on');runSim();
+}
+function renderBasket(){
+  const host=document.getElementById('s-basket'),hint=document.getElementById('s-hint');
+  if(!basket.length){host.innerHTML='<div class="basket-empty">No IPOs selected — search above to add.</div>';}
+  else{
+    host.innerHTML=basket.map((b,k)=>{const r=D[b.i];
+      return `<div class="brow"><span class="bcode">${r[1]}</span><span class="bnm">${r[2]||''}</span>`+
+        `<input class="blots" type="number" min="1" value="${b.lots}" data-k="${k}"><span class="blab">lots</span>`+
+        `<span class="bx" data-k="${k}">×</span></div>`;}).join('');
+    host.querySelectorAll('.blots').forEach(inp=>inp.oninput=()=>{basket[+inp.dataset.k].lots=Math.max(1,+inp.value||1);runSim();});
+    host.querySelectorAll('.bx').forEach(x=>x.onclick=()=>{basket.splice(+x.dataset.k,1);renderBasket();runSim();});
+  }
+  hint.textContent=`${basket.length} / ${MAX_BASKET} selected`;
+}
+function updateControls(){
+  const p=simMode()==='portfolio';
+  const show=(id,on)=>{document.getElementById(id).style.display=on?'':'none';};
+  const inp=document.getElementById('s-search');
+  if(!p){
+    show('s-pickf',true);show('s-basketf',false);show('s-lotsf',true);
+    document.getElementById('s-searchlab').textContent='Listing — search by code or name';
+    inp.placeholder='e.g. 3750 or CATL';
+    if(simSel!=null)inp.value=`${D[simSel][1]} · ${D[simSel][2]}`;
+  } else if(!(portfolioUnlocked||isAuthed())){
+    show('s-pickf',false);show('s-basketf',false);show('s-lotsf',false);
+  } else {
+    show('s-pickf',true);show('s-basketf',true);show('s-lotsf',false);
+    document.getElementById('s-searchlab').textContent='Add IPOs — search by code or name (up to 10)';
+    inp.placeholder='Add an IPO to the basket…';inp.value='';
+    renderBasket();
+  }
+}
+function buildSim(){
+  if(!simBuilt){
+    simSel=[...FREE].sort((a,b)=>D[b][5]-D[a][5])[0];
+    const inp=document.getElementById('s-search');
+    document.getElementById('s-mode').onchange=()=>{updateControls();runSim();};
+    inp.oninput=()=>renderList(inp.value);
+    inp.onfocus=()=>{inp.select();renderList('');};   // open the full list to browse
+    inp.onblur=()=>setTimeout(()=>{document.getElementById('s-list').classList.remove('on');
+      if(simMode()==='single'&&simSel!=null)inp.value=`${D[simSel][1]} · ${D[simSel][2]}`;else if(simMode()==='portfolio')inp.value='';},140);
+    inp.onkeydown=ev=>{
+      const opts=[...document.getElementById('s-list').querySelectorAll('.combo-opt')];
+      if(ev.key==='ArrowDown')comboHi=Math.min(opts.length-1,comboHi+1);
+      else if(ev.key==='ArrowUp')comboHi=Math.max(0,comboHi-1);
+      else if(ev.key==='Enter'){if(opts[comboHi]){ev.preventDefault();pick(+opts[comboHi].dataset.i);}return;}
+      else if(ev.key==='Escape'){document.getElementById('s-list').classList.remove('on');return;}
+      else return;
+      ev.preventDefault();opts.forEach((o,k)=>o.classList.toggle('hi',k===comboHi));
+      if(opts[comboHi])opts[comboHi].scrollIntoView({block:'nearest'});};
+    document.getElementById('s-exit').oninput=runSim;
+    document.getElementById('s-lots').oninput=runSim;
+    simBuilt=true;
+  }
+  updateControls();runSim();
+}
+const srow=(k,v)=>`<div>${k}<span class="fill"></span><span class="v">${v}</span></div>`;
+function noteBase(multi){
+  let n='Expected values weight each outcome by the ballot’s actual allocation odds, net of subscription fees (1.01%), sale costs (0.25%) and HIBOR carry on the locked capital.';
+  if(multi)n+=' Multi-ballot figures treat each ballot as an independent draw at the smallest tier’s rate — larger applications allocate at equal-or-lower rates, so read them as optimistic.';
+  return n;
+}
+function runSim(){
+  const out=document.getElementById('s-out');
+  const exit=document.getElementById('s-exit').value;
+  if(simMode()==='single'){
+    const lots=Math.max(1,+document.getElementById('s-lots').value||1);
+    const i=simSel;
+    if(i==null){out.innerHTML='';return;}
+    if(!isAuthed()&&!FREE.has(i)){out.innerHTML=lockPanel('single');return;}
+    const r=D[i],res=simDeal(r,exit);
+    if(!res){out.innerHTML=`<div class="simres"><span class="bx-slug">Expected profit &amp; loss</span><div class="big" style="font-size:20px;font-family:var(--serif);color:var(--ink-3)">${exitUnavail(r,exit)}</div><div class="rows"></div>${docLinks(r)}</div>`;return;}
+    const tot=res.epnl*lots;
+    out.innerHTML=
+      `<div class="simres"><span class="bx-slug">Expected P&amp;L · ${r[1]} ${r[2].length>20?r[2].slice(0,20)+'…':r[2]}</span>`+
+      `<div class="big"><span class="${tot>=0?'up':'down'}">${tot>=0?'+':''}${fmtHKD(tot)}</span></div>`+
+      `<div class="rows">`+
+        srow('Capital committed',fmtHKD(res.capital*lots))+
+        srow('Allocation odds',(res.p*100).toFixed(1)+'%')+
+        srow('P&amp;L if allotted',fmtHKD(res.win*lots))+
+        srow('Financing carry',fmtHKD(res.carry*lots))+
+        srow('Return on capital',((tot/(res.capital*lots))*1e4).toFixed(0)+' bps')+
+      `</div></div>${docLinks(r)}<div class="simnote">${noteBase(lots>1)}${(exit==='6m'||exit==='1y')?' The VWAP exit assumes the position is sold evenly across the window at the volume-weighted average price, versus the offer.':''}</div>`;
+    return;
+  }
+  // portfolio — subscriber tool
+  if(!(portfolioUnlocked||isAuthed())){out.innerHTML=lockPanel('portfolio');return;}
+  if(!basket.length){
+    out.innerHTML=`<div class="simres"><span class="bx-slug">Portfolio of IPOs · subscriber</span><div class="big" style="font-size:21px;color:var(--ink-3);font-family:var(--serif)">Add IPOs to your basket</div><div class="rows"><div style="border:none">Search by code or name, add up to ten listings, and set the lot size on each to see the combined expected outcome.</div></div></div>`;
+    return;}
+  let tot=0,cap=0,n=0,multi=false;
+  basket.forEach(b=>{const res=simDeal(D[b.i],exit);if(res){tot+=res.epnl*b.lots;cap+=res.capital*b.lots;n++;if(b.lots>1)multi=true;}});
+  const totalLots=basket.reduce((s,b)=>s+b.lots,0);
+  out.innerHTML=
+    `<div class="simres"><span class="bx-slug">Portfolio of ${n} IPO${n>1?'s':''} · subscriber</span>`+
+    `<div class="big"><span class="${tot>=0?'up':'down'}">${tot>=0?'+':''}${fmtHKD(tot)}</span></div>`+
+    `<div class="rows">`+
+      srow('IPOs balloted',n)+
+      srow('Total ballots (lots)',totalLots)+
+      srow('Total capital committed',fmtHKD(cap))+
+      srow('Mean return on capital',((tot/cap)*1e4).toFixed(0)+' bps')+
+      srow('Average P&amp;L per IPO',fmtHKD(tot/n))+
+    `</div></div><div class="simnote">${noteBase(multi)} Each IPO applies your chosen number of lots at the selected exit; outcomes across listings are treated as independent.</div>`;
+}
+/* ================= market snapshot ================= */
+const MKT=[
+  ['Hang Seng (HSI)','24,180','+0.9%',1],
+  ['HSCEI','8,742','+1.2%',1],
+  ['Southbound net','+HK$4.8bn','net buy',1],
+  ['HIBOR 1M','3.42%','+3bp',1],
+  ['US 10-year','4.18%','−2bp',-1],
+];
+function renderMarket(){
+  const el=document.getElementById('mktlist');if(!el)return;
+  el.innerHTML=MKT.map(([nm,lvl,dlt,dir])=>{
+    const cl=dir>=0?'up':'down',ar=dir>=0?'▲':'▼';
+    return `<li>${nm}<span class="fill"></span><span class="arw ${cl}">${ar}</span><span class="lvl">${lvl}</span><span class="dlt ${cl}">${dlt}</span></li>`;}).join('');
+  document.getElementById('mktnote').textContent='Indicative · prototype — live feed wires in the full build';
+}
+/* ================= narrative homepage ================= */
+function renderHome(){
+  buildTape();renderMarket();
+  [['hs-wave',0],['hs-pop',7],['hs-seat',21]].forEach(([id,i])=>{
+    const el=document.getElementById(id);
+    if(el&&EXHIBITS[i]){try{EXHIBITS[i].draw(el);}catch(e){}}});
+  const rp=document.getElementById('hs-record');
+  if(rp){
+    const rows=[...D].reverse().filter(r=>r[8]!=null).slice(0,7);
+    const pc=v=>v==null?'<td>—</td>':`<td class="${v>=0?'up':'down'}">${fmtpct(v)}</td>`;
+    rp.innerHTML=`<table><tbody>${rows.map(r=>
+      `<tr><td class="l">${r[0]}</td><td class="l">${r[1]}</td><td class="l co">${(r[2]||'').slice(0,22)}</td>${pc(r[8])}${pc(r[13])}</tr>`).join('')}</tbody></table>`+
+      `<div class="fade"></div><div class="lock-tag">🔒 323 more rows · subscribers</div>`;
+  }
+}
+
+/* ================= ledger teaser (paywalled) ================= */
+function buildLedger(){
+  const tb=document.querySelector('#ltbl tbody');if(!tb)return;
+  const authed=isAuthed();
+  const fade=document.querySelector('#pg-ledger .fadeout'),wall=document.querySelector('#pg-ledger .paywall');
+  const rows=authed?[...D].reverse():[...D].reverse().slice(0,8);
+  const pc=(v,bold)=>v==null?'<td>—</td>':`<td class="${bold?'r ':''}${v>=0?'up':'down'}">${fmtpct(v)}</td>`;
+  tb.innerHTML=rows.map(r=>
+    `<tr><td class="l">${r[0]}</td><td class="l">${r[1]}</td><td class="l co">${r[2]}</td><td class="l">${r[3]||'—'}</td>`+
+    `<td>${r[5]==null?'—':r[5].toLocaleString(undefined,{maximumFractionDigits:0})}</td>`+
+    `<td>${r[6]==null?'—':r[6].toLocaleString(undefined,{maximumFractionDigits:0})+'×'}</td>`+
+    pc(r[8],true)+pc(r[13])+pc(r[16])+`</tr>`).join('');
+  if(fade)fade.style.display=authed?'none':'';
+  if(wall)wall.style.display=authed?'none':'';
+}
+
+/* ================= latest feed (prototype / sample data) ================= */
+/* schema the crawler will target: {date, type, title, entity, source, url, tags[], summary} */
+const LTYPES={a1:'A1 Filing',rumor:'Rumour',rule:'Rule Change'};
+const LATEST_SAMPLE=[
+ {date:'2026-07-24',type:'rule',title:'HKEX consults on lowering the 18C market-cap threshold for specialist tech',entity:'HKEX',source:'HKEX Consultation Paper',url:'#',tags:['Listing Rules','Chapter 18C','Specialist Tech'],summary:'A consultation proposes cutting the minimum market cap for commercial-stage specialist-tech applicants under Chapter 18C, aiming to widen the pipeline. Comment period runs to September.'},
+ {date:'2026-07-23',type:'a1',title:'Mainland battery maker files Application Proof for a Main Board dual listing',entity:'Sample Battery Co.',source:'HKEXnews',url:'#',tags:['Industrials','Batteries','A-to-H','Cornerstone'],summary:'The company submitted its A1 application proof, sponsored by two global banks, seeking a Hong Kong listing alongside its existing A-share line, with cornerstones said to be in discussion.'},
+ {date:'2026-07-22',type:'rule',title:'Southbound Stock Connect eligibility widened to include qualifying 18C names',entity:'CSRC / HKEX',source:'Joint Announcement',url:'#',tags:['Southbound','Connect','Eligibility','Chapter 18C'],summary:'Specialist-tech companies meeting size and liquidity tests become eligible for Southbound trading, opening mainland demand to a segment previously excluded from the Connect scheme.'},
+ {date:'2026-07-21',type:'rumor',title:'Consumer-robotics unit of a large appliance group said to weigh a Hong Kong spin-off',entity:'Sample Robotics (placeholder)',source:'Wire report',url:'#',tags:['Technology','Robotics','Spin-off','Rumour'],summary:'People familiar with the matter say the group is exploring a separate listing of its robotics arm; no filing has been made and terms are not set.'},
+ {date:'2026-07-18',type:'rule',title:'Hang Seng Index consultation floats a fast-entry rule for mega-IPOs',entity:'Hang Seng Indexes',source:'Index Consultation',url:'#',tags:['Index Inclusion','HSI','Fast Entry'],summary:'A proposal would fast-track constituents for IPOs above a market-cap threshold, shortening the wait between listing and index inclusion from the usual quarterly review cycle.'},
+ {date:'2026-07-16',type:'a1',title:'AI infrastructure company submits Application Proof under Chapter 18C',entity:'Sample AI Inc. (placeholder)',source:'HKEXnews',url:'#',tags:['Technology','AI','Chapter 18C','Specialist Tech'],summary:'The company filed as a commercial-stage specialist-tech applicant, disclosing sophisticated-investor backing and a revenue history above the 18C floor.'},
+ {date:'2026-07-14',type:'rule',title:'SFC and HKEX confirm FINI T+1 settlement now applies to all new listings',entity:'SFC / HKEX',source:'Regulatory Notice',url:'#',tags:['FINI','Settlement','Listing Rules'],summary:'The shortened settlement cycle, which cuts the gap between pricing and trading, is now mandatory for every new Main Board listing, reducing the capital-lock window for subscribers.'},
+ {date:'2026-07-10',type:'rumor',title:'Overseas fast-fashion group said to revive Hong Kong listing talks',entity:'Placeholder Retail Group',source:'Wire report',url:'#',tags:['Consumer','Secondary Listing','Rumour'],summary:'Sources suggest the group is reconsidering Hong Kong after a stalled process elsewhere; the company has not commented and no sponsor has been confirmed.'},
+ {date:'2026-07-08',type:'a1',title:'Autonomous-driving firm files for a dual-primary Hong Kong listing',entity:'Sample Mobility Ltd. (placeholder)',source:'HKEXnews',url:'#',tags:['Technology','Autonomous','Secondary Listing'],summary:'The A1 proof sets out a dual-primary structure that would make the shares Southbound-eligible in time, subject to the eligibility review.'},
+ {date:'2026-07-04',type:'rule',title:'Index provider consults on China A/H inclusion-factor adjustments',entity:'Global Index Provider',source:'Index Consultation',url:'#',tags:['Index Inclusion','China Concept'],summary:'Proposed changes to the inclusion factor for dual-listed China names could shift passive demand between the A-share and H-share lines of affected issuers.'},
+ {date:'2026-06-30',type:'rule',title:'HKEX guidance raises public-float disclosure for cornerstone-heavy deals',entity:'HKEX',source:'Guidance Letter',url:'#',tags:['Listing Rules','Cornerstone','Public Float'],summary:'A new guidance letter asks sponsors to disclose free-float sensitivity where cornerstone and lock-up commitments absorb a large share of the offering.'},
+ {date:'2026-06-27',type:'a1',title:'Industrial-equipment group refiles Application Proof after a prior lapse',entity:'Sample Industrial Co. (placeholder)',source:'HKEXnews',url:'#',tags:['Industrials','China Concept','Refiling'],summary:'The company returned with an updated A1 proof after its earlier application lapsed, refreshing its financials and sponsor line-up.'},
+ {date:'2026-06-24',type:'rumor',title:'Fintech arm of a payments group mulls a Hong Kong listing, sources say',entity:'Placeholder Fintech',source:'Wire report',url:'#',tags:['Financials','Fintech','Rumour'],summary:'Early-stage discussions are said to be underway; any deal would be subject to regulatory clearance on both sides of the border.'},
+ {date:'2026-06-20',type:'rule',title:'Southbound eligibility review adds newly-included large-cap H-shares',entity:'SSE / SZSE / HKEX',source:'Eligibility Notice',url:'#',tags:['Southbound','Eligibility','Connect'],summary:'The semi-annual eligibility update adds several recently-listed large-caps to the Southbound universe, effective after the next rebalance.'},
+];
+let LATEST=LATEST_SAMPLE, feedTried=false;   // swapped for the live feed once fetched
+let latState={type:'all',tag:null,q:''};
+const PINNED=['Index Inclusion','Listing Rules','A-to-H'];   // frequently-used, kept as chips
+const MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+function setTag(t){latState.tag=t;syncTagUI();renderLatest();}
+function syncTagUI(){
+  const t=latState.tag;
+  document.querySelectorAll('#lat-tagbar .tagf').forEach(x=>x.classList.toggle('on',x.dataset.tag===t));
+  const sel=document.getElementById('lat-tagsel');if(sel)sel.value=(t&&!PINNED.includes(t))?t:'';
+  const clr=document.getElementById('lat-tagclear');if(clr)clr.style.display=t?'':'none';
+}
+let latBuilt=false;
+function buildLatest(){
+  if(!feedTried){                              // try the live feed once; fall back to the sample
+    feedTried=true;
+    fetch('data/latest.json',{cache:'no-store'}).then(r=>r.ok?r.json():null).then(d=>{
+      if(d&&Array.isArray(d.items)&&d.items.length){
+        LATEST=d.items;latBuilt=false;
+        const b=document.getElementById('lat-banner');
+        if(b)b.innerHTML='<strong>Live feed.</strong> Auto-generated from HKEXnews and curated sources'+
+          (d.generated_at?' · updated '+d.generated_at.slice(0,10):'')+' · '+d.items.length+' entries.';
+        buildLatest();
+      }
+    }).catch(()=>{});
+  }
+  if(!latBuilt){
+    const tw=document.getElementById('lat-types');
+    const chips=[['all','All',null],['a1','A1 Filings','var(--accent)'],['rumor','Rumours','var(--brass)'],['rule','Rule Changes','var(--ink-2)']];
+    tw.innerHTML=chips.map(([v,l,c])=>`<button class="lat-chip${v==='all'?' on':''}" data-t="${v}">${c?`<span class="dot" style="background:${c}"></span>`:''}${l}</button>`).join('');
+    tw.querySelectorAll('.lat-chip').forEach(b=>b.onclick=()=>{latState.type=b.dataset.t;
+      tw.querySelectorAll('.lat-chip').forEach(x=>x.classList.toggle('on',x===b));renderLatest();});
+    const allTags=[...new Set(LATEST.flatMap(e=>e.tags))].sort();
+    const adv=allTags.filter(t=>!PINNED.includes(t));
+    const tb=document.getElementById('lat-tagbar');
+    tb.innerHTML=`<span class="tf-lab">Tags</span>`+
+      PINNED.map(t=>`<span class="tagf" data-tag="${t}">${t}</span>`).join('')+
+      `<select id="lat-tagsel" class="lat-advsel" aria-label="More tags"><option value="">Advanced options — more tags…</option>`+
+      adv.map(t=>`<option value="${t}">${t}</option>`).join('')+`</select>`+
+      `<button class="tag-clear" id="lat-tagclear" style="display:none">Clear filter ×</button>`;
+    tb.querySelectorAll('.tagf').forEach(el=>el.onclick=()=>setTag(el.dataset.tag===latState.tag?null:el.dataset.tag));
+    document.getElementById('lat-tagsel').onchange=e=>setTag(e.target.value||null);
+    document.getElementById('lat-tagclear').onclick=()=>setTag(null);
+    document.getElementById('lat-search').oninput=e=>{latState.q=e.target.value;renderLatest();};
+    latBuilt=true;
+  }
+  renderLatest();
+}
+function renderLatest(){
+  const q=latState.q.trim().toLowerCase();
+  let rows=LATEST.filter(e=>(latState.type==='all'||e.type===latState.type)
+    &&(!latState.tag||(e.tags||[]).includes(latState.tag))
+    &&(!q||(e.title+' '+(e.entity||'')+' '+(e.summary||'')).toLowerCase().includes(q)));
+  rows=rows.slice().sort((a,b)=>a.date<b.date?1:-1);
+  document.getElementById('lat-count').textContent=`${rows.length} of ${LATEST.length} entries`+(latState.tag?` · tagged “${latState.tag}”`:'');
+  const feed=document.getElementById('lat-feed');
+  if(!rows.length){feed.innerHTML='<div class="lat-empty">No entries match these filters.</div>';return;}
+  feed.innerHTML=rows.map(e=>{
+    const d=e.date.split('-'),mon=MON[+d[1]-1];
+    const tags=(e.tags||[]).map(t=>`<span class="tagf" data-tag="${t}">${t}</span>`).join('');
+    const live=e.url&&e.url!=='#';
+    const src=live?`<a class="lat-src" href="${e.url}" target="_blank" rel="noopener">Source · ${e.source} →</a>`
+      :`<a class="lat-src" href="#" onclick="alert('Prototype — links to the source document in the full build.');return false;">Source · ${e.source} →</a>`;
+    return `<article class="lat-item t-${e.type}">`+
+      `<div class="lat-date">${mon}<b>${+d[2]}</b>${d[0]}</div>`+
+      `<div class="lat-body">`+
+        `<div class="lat-head"><span class="lat-badge">${LTYPES[e.type]||e.type}</span><span class="lat-entity">${e.entity||''}</span></div>`+
+        `<h3 class="lat-title">${e.title}</h3>`+
+        `<p class="lat-sum">${e.summary||''}</p>`+
+        `<div class="lat-foot"><div class="lat-tags">${tags}</div>${src}</div>`+
+      `</div></article>`;}).join('');
+  feed.querySelectorAll('.lat-tags .tagf').forEach(el=>el.onclick=()=>{
+    setTag(el.dataset.tag===latState.tag?null:el.dataset.tag);scrollTo(0,0);});
+}
+
+/* ================= router ================= */
+const ROUTES={'':'home','/':'home','/latest':'latest','/simulator':'simulator','/exhibits':'exhibits','/desk':'desk','/ledger':'ledger','/about':'about','/terms':'terms','/account':'account'};
+function route(){
+  const h=location.hash.replace(/^#/,''),r=ROUTES[h]||'home';
+  document.body.dataset.page=r;
+  document.querySelectorAll('section.pg').forEach(s=>s.classList.toggle('on',s.id==='pg-'+r));
+  document.querySelectorAll('#secnav a').forEach(a=>a.classList.toggle('here',a.dataset.r===r));
+  scrollTo(0,0);
+  applyAuth();
+  if(r==='home')renderHome();
+  if(r==='latest')buildLatest();
+  if(r==='simulator')buildSim();
+  if(r==='exhibits')drawExhibits();
+  if(r==='desk')drawDeskCharts();
+  if(r==='ledger')buildLedger();
+}
+addEventListener('hashchange',route);
+function redrawAll(){
+  const r=document.body.dataset.page;
+  if(r==='home')renderHome();
+  if(r==='exhibits')drawExhibits();
+  if(r==='desk')drawDeskCharts();
+}
+addEventListener('resize',()=>{clearTimeout(window._rz);window._rz=setTimeout(redrawAll,140);});
+route();
+</script>

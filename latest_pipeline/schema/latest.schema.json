@@ -1,0 +1,74 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://thegong.hk/schema/latest.schema.json",
+  "title": "The GONG — Latest feed",
+  "description": "The published feed the site's Latest tab consumes. Emitted by the scheduled build pipeline.",
+  "type": "object",
+  "required": ["generated_at", "items"],
+  "additionalProperties": false,
+  "properties": {
+    "generated_at": { "type": "string", "format": "date-time", "description": "When this feed file was built." },
+    "count": { "type": "integer", "minimum": 0 },
+    "schema_version": { "type": "string", "default": "1.0" },
+    "items": { "type": "array", "items": { "$ref": "#/definitions/item" } }
+  },
+  "definitions": {
+    "item": {
+      "type": "object",
+      "required": ["id", "date", "type", "title", "source", "url", "tags"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Stable dedupe key, 'source:documentId'. Never changes for a given document.",
+          "examples": ["hkexnews:2026072400012"]
+        },
+        "date": {
+          "type": "string",
+          "format": "date",
+          "description": "Event / publication date (YYYY-MM-DD), used for chronological ordering."
+        },
+        "type": {
+          "type": "string",
+          "description": "Top-level category — drives the coloured badge. Closed enum.",
+          "enum": ["a1", "rumor", "rule", "hearing", "listing", "withdrawal"]
+        },
+        "title": { "type": "string", "minLength": 1, "maxLength": 240 },
+        "entity": {
+          "type": "string",
+          "description": "Issuer, regulator or index provider the item concerns.",
+          "maxLength": 160
+        },
+        "stock_code": {
+          "type": ["string", "null"],
+          "description": "HKEX stock code when the item concerns a listed/applying company.",
+          "pattern": "^[0-9]{4,5}$"
+        },
+        "source": {
+          "type": "string",
+          "description": "Human-readable source name.",
+          "examples": ["HKEXnews", "SFC", "HKEX", "Hang Seng Indexes", "MSCI"]
+        },
+        "url": { "type": "string", "format": "uri", "description": "Canonical link to the primary document." },
+        "tags": {
+          "type": "array",
+          "description": "Controlled-vocabulary tags only (see taxonomy.json). No free-form values.",
+          "items": { "type": "string" },
+          "uniqueItems": true,
+          "maxItems": 8
+        },
+        "summary": {
+          "type": "string",
+          "description": "Our own neutral 1-2 sentence summary. Never the copyrighted source text.",
+          "maxLength": 600
+        },
+        "ingested_at": { "type": "string", "format": "date-time" },
+        "confidence": {
+          "type": "number",
+          "minimum": 0, "maximum": 1,
+          "description": "Classifier confidence for type/tags; low values can be flagged for review."
+        }
+      }
+    }
+  }
+}
