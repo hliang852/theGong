@@ -1,8 +1,24 @@
 {
-  "generated_at": "2026-08-04T00:36:35+00:00",
+  "generated_at": "2026-08-05T04:12:44+00:00",
   "schema_version": "1.0",
-  "count": 350,
+  "count": 351,
   "items": [
+    {
+      "id": "hkexnews:108786",
+      "date": "2026-08-04",
+      "type": "a1",
+      "title": "Hangzhou Yodosmart Automotive Technology Co., Ltd. — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108786/documents/sehk26080402104.pdf",
+      "source": "HKEXnews",
+      "tags": [
+        "Technology",
+        "Auto / Mobility"
+      ],
+      "entity": "Hangzhou Yodosmart Automotive Technology Co., Ltd.",
+      "summary": "Hangzhou Yodosmart Automotive Technology Co., Ltd. submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-08-05T04:12:41+00:00",
+      "confidence": 0.5
+    },
     {
       "id": "hkexnews:108747",
       "date": "2026-08-02",
