@@ -1,8 +1,59 @@
 {
-  "generated_at": "2026-08-05T04:12:44+00:00",
+  "generated_at": "2026-08-06T04:14:59+00:00",
   "schema_version": "1.0",
-  "count": 351,
+  "count": 354,
   "items": [
+    {
+      "id": "sse:sbadd:06951:2026-08-06",
+      "date": "2026-08-06",
+      "type": "rule",
+      "title": "Cctc (06951) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Cctc",
+      "stock_code": "06951",
+      "summary": "Cctc (06951) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-08-06T04:14:59+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:02475:2026-08-06",
+      "date": "2026-08-06",
+      "type": "rule",
+      "title": "Luxshare Ict (02475) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Luxshare Ict",
+      "stock_code": "02475",
+      "summary": "Luxshare Ict (02475) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-08-06T04:14:59+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:00100:2026-08-06",
+      "date": "2026-08-06",
+      "type": "rule",
+      "title": "Minimax-W (00100) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Minimax-W",
+      "stock_code": "00100",
+      "summary": "Minimax-W (00100) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-08-06T04:14:59+00:00",
+      "confidence": 0.5
+    },
     {
       "id": "hkexnews:108786",
       "date": "2026-08-04",
