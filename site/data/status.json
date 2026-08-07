@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-08-06T04:14:54+00:00",
+  "generated_at": "2026-08-07T03:51:22+00:00",
   "engine": "llm",
   "sources": {
     "HKEXnews": {
       "ok": true,
-      "fetched": 346
+      "fetched": 347
     },
     "SSE / HKEX": {
       "ok": true,
-      "fetched": 3
+      "fetched": 1
     },
     "Curated": {
       "ok": true,
@@ -23,6 +23,6 @@
       "fetched": 0
     }
   },
-  "new_items": 3,
-  "total_items": 354
+  "new_items": 2,
+  "total_items": 356
 }

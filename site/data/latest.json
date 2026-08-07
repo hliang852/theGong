@@ -1,8 +1,25 @@
 {
-  "generated_at": "2026-08-06T04:14:59+00:00",
+  "generated_at": "2026-08-07T03:51:28+00:00",
   "schema_version": "1.0",
-  "count": 354,
+  "count": 356,
   "items": [
+    {
+      "id": "sse:sbadd:02249:2026-08-07",
+      "date": "2026-08-07",
+      "type": "rule",
+      "title": "Nexchip (02249) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Nexchip",
+      "stock_code": "02249",
+      "summary": "Nexchip (02249) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-08-07T03:51:28+00:00",
+      "confidence": 0.5
+    },
     {
       "id": "sse:sbadd:06951:2026-08-06",
       "date": "2026-08-06",
@@ -52,6 +69,22 @@
       "stock_code": "00100",
       "summary": "Minimax-W (00100) added to Southbound trading (Shanghai Connect)",
       "ingested_at": "2026-08-06T04:14:59+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "hkexnews:108787",
+      "date": "2026-08-06",
+      "type": "a1",
+      "title": "Sichuan Biokin Pharmaceutical Co., Ltd. - B — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108787/documents/sehk26080601694.pdf",
+      "source": "HKEXnews",
+      "tags": [
+        "Chapter 18A",
+        "Biotech / Healthcare"
+      ],
+      "entity": "Sichuan Biokin Pharmaceutical Co., Ltd. - B",
+      "summary": "Sichuan Biokin Pharmaceutical Co., Ltd. - B submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-08-07T03:51:25+00:00",
       "confidence": 0.5
     },
     {
