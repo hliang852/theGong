@@ -1,8 +1,23 @@
 {
-  "generated_at": "2026-08-12T03:23:54+00:00",
+  "generated_at": "2026-08-13T03:27:26+00:00",
   "schema_version": "1.0",
-  "count": 361,
+  "count": 362,
   "items": [
+    {
+      "id": "hkexnews:108793",
+      "date": "2026-08-12",
+      "type": "a1",
+      "title": "Suzhou Zelgen Biopharmaceuticals Co., Ltd. — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108793/documents/sehk26081201416.pdf",
+      "source": "HKEXnews",
+      "tags": [
+        "Biotech / Healthcare"
+      ],
+      "entity": "Suzhou Zelgen Biopharmaceuticals Co., Ltd.",
+      "summary": "Suzhou Zelgen Biopharmaceuticals Co., Ltd. submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-08-13T03:27:25+00:00",
+      "confidence": 0.5
+    },
     {
       "id": "hkexnews:108792",
       "date": "2026-08-11",
