@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-08-13T03:27:23+00:00",
+  "generated_at": "2026-08-14T03:25:21+00:00",
   "engine": "llm",
   "sources": {
     "HKEXnews": {
       "ok": true,
-      "fetched": 333
+      "fetched": 334
     },
     "SSE / HKEX": {
-      "ok": false,
-      "error": "('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))"
+      "ok": true,
+      "fetched": 1
     },
     "Curated": {
       "ok": true,
@@ -23,6 +23,6 @@
       "fetched": 0
     }
   },
-  "new_items": 1,
-  "total_items": 362
+  "new_items": 2,
+  "total_items": 364
 }

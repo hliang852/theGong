@@ -1,8 +1,38 @@
 {
-  "generated_at": "2026-08-13T03:27:26+00:00",
+  "generated_at": "2026-08-14T03:25:27+00:00",
   "schema_version": "1.0",
-  "count": 362,
+  "count": 364,
   "items": [
+    {
+      "id": "sse:sbdrop:02983:2026-08-14",
+      "date": "2026-08-14",
+      "type": "rule",
+      "title": "Hesai-W-Old (02983) removed from Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Hesai-W-Old",
+      "stock_code": "02983",
+      "summary": "Hesai-W-Old (02983) removed from Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-08-14T03:25:27+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "hkexnews:108794",
+      "date": "2026-08-13",
+      "type": "a1",
+      "title": "Hunan Junxin Environmental Protection Co., Ltd. — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108794/documents/sehk26081301489.pdf",
+      "source": "HKEXnews",
+      "tags": [],
+      "entity": "Hunan Junxin Environmental Protection Co., Ltd.",
+      "summary": "Hunan Junxin Environmental Protection Co., Ltd. submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-08-14T03:25:25+00:00",
+      "confidence": 0.5
+    },
     {
       "id": "hkexnews:108793",
       "date": "2026-08-12",
