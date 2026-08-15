@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-08-14T03:25:27+00:00",
+  "generated_at": "2026-08-15T02:14:39+00:00",
   "schema_version": "1.0",
-  "count": 364,
+  "count": 365,
   "items": [
     {
       "id": "sse:sbdrop:02983:2026-08-14",
@@ -18,6 +18,21 @@
       "stock_code": "02983",
       "summary": "Hesai-W-Old (02983) removed from Southbound trading (Shanghai Connect)",
       "ingested_at": "2026-08-14T03:25:27+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "hkexnews:108795",
+      "date": "2026-08-14",
+      "type": "a1",
+      "title": "SHENZHEN WOKE TECHNOLOGY Co., LTD — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108795/documents/sehk26081402024.pdf",
+      "source": "HKEXnews",
+      "tags": [
+        "Technology"
+      ],
+      "entity": "SHENZHEN WOKE TECHNOLOGY Co., LTD",
+      "summary": "SHENZHEN WOKE TECHNOLOGY Co., LTD submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-08-15T02:14:37+00:00",
       "confidence": 0.5
     },
     {
