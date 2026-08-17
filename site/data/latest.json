@@ -1,8 +1,24 @@
 {
-  "generated_at": "2026-08-16T02:21:38+00:00",
+  "generated_at": "2026-08-17T02:20:44+00:00",
   "schema_version": "1.0",
-  "count": 365,
+  "count": 366,
   "items": [
+    {
+      "id": "hkexnews:108797",
+      "date": "2026-08-17",
+      "type": "a1",
+      "title": "Hunan Yuneng New Energy Battery Material Co., Ltd. — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108797/documents/sehk26081700010.pdf",
+      "source": "HKEXnews",
+      "tags": [
+        "Auto / Mobility",
+        "Energy / Materials"
+      ],
+      "entity": "Hunan Yuneng New Energy Battery Material Co., Ltd.",
+      "summary": "Hunan Yuneng New Energy Battery Material Co., Ltd. submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-08-17T02:20:42+00:00",
+      "confidence": 0.5
+    },
     {
       "id": "sse:sbdrop:02983:2026-08-14",
       "date": "2026-08-14",
