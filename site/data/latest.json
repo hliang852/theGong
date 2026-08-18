@@ -1,8 +1,25 @@
 {
-  "generated_at": "2026-08-17T02:20:44+00:00",
+  "generated_at": "2026-08-18T02:16:17+00:00",
   "schema_version": "1.0",
-  "count": 366,
+  "count": 367,
   "items": [
+    {
+      "id": "hkexnews:108798",
+      "date": "2026-08-18",
+      "type": "a1",
+      "title": "Shenzhen Immunofoco Biotechnology Co., Ltd. - B — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108798/documents/sehk26081800036.pdf",
+      "source": "HKEXnews",
+      "tags": [
+        "Chapter 18A",
+        "Biotech / Healthcare",
+        "Technology"
+      ],
+      "entity": "Shenzhen Immunofoco Biotechnology Co., Ltd. - B",
+      "summary": "Shenzhen Immunofoco Biotechnology Co., Ltd. - B submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-08-18T02:16:15+00:00",
+      "confidence": 0.5
+    },
     {
       "id": "hkexnews:108797",
       "date": "2026-08-17",
