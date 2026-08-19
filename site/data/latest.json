@@ -1,8 +1,37 @@
 {
-  "generated_at": "2026-08-18T02:16:17+00:00",
+  "generated_at": "2026-08-19T02:18:55+00:00",
   "schema_version": "1.0",
-  "count": 367,
+  "count": 369,
   "items": [
+    {
+      "id": "hkexnews:108800",
+      "date": "2026-08-19",
+      "type": "a1",
+      "title": "Direct Drive Tech Limited — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108800/documents/sehk26081900032.pdf",
+      "source": "HKEXnews",
+      "tags": [],
+      "entity": "Direct Drive Tech Limited",
+      "summary": "Direct Drive Tech Limited submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-08-19T02:18:53+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "hkexnews:108799",
+      "date": "2026-08-18",
+      "type": "a1",
+      "title": "Tianjin Chenxing Technology Co., Ltd. (formerly known as Tianjin Atomrobot Co., Ltd.) — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108799/documents/sehk26081801658.pdf",
+      "source": "HKEXnews",
+      "tags": [
+        "Robotics",
+        "Technology"
+      ],
+      "entity": "Tianjin Chenxing Technology Co., Ltd. (formerly known as Tianjin Atomrobot Co., Ltd.)",
+      "summary": "Tianjin Chenxing Technology Co., Ltd. (formerly known as Tianjin Atomrobot Co., Ltd.) submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-08-19T02:18:53+00:00",
+      "confidence": 0.5
+    },
     {
       "id": "hkexnews:108798",
       "date": "2026-08-18",
