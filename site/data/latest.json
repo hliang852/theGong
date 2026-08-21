@@ -1,8 +1,53 @@
 {
-  "generated_at": "2026-08-20T02:17:55+00:00",
+  "generated_at": "2026-08-21T02:23:43+00:00",
   "schema_version": "1.0",
-  "count": 370,
+  "count": 372,
   "items": [
+    {
+      "id": "hkexnews:108803",
+      "date": "2026-08-20",
+      "type": "a1",
+      "title": "PANACRO (Hangzhou) Pharmaceutical Technology Co., Ltd. — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108803/documents/sehk26082001768.pdf",
+      "source": "HKEXnews",
+      "tags": [
+        "Biotech / Healthcare",
+        "Technology"
+      ],
+      "entity": "PANACRO (Hangzhou) Pharmaceutical Technology Co., Ltd.",
+      "summary": "PANACRO (Hangzhou) Pharmaceutical Technology Co., Ltd. submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-08-21T02:23:41+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "hkexnews:108802",
+      "date": "2026-08-20",
+      "type": "a1",
+      "title": "Junlebao Dairy Group Co., Ltd. — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108802/documents/sehk26082000220.pdf",
+      "source": "HKEXnews",
+      "tags": [],
+      "entity": "Junlebao Dairy Group Co., Ltd.",
+      "summary": "Junlebao Dairy Group Co., Ltd. submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-08-21T02:23:41+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "hkexnews:108787",
+      "date": "2026-08-20",
+      "type": "a1",
+      "title": "Sichuan Biokin Pharmaceutical Co., Ltd. - B — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108787/documents/sehk26080601694.pdf",
+      "source": "HKEXnews",
+      "tags": [
+        "Chapter 18A",
+        "Biotech / Healthcare"
+      ],
+      "entity": "Sichuan Biokin Pharmaceutical Co., Ltd. - B",
+      "summary": "Sichuan Biokin Pharmaceutical Co., Ltd. - B submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-08-21T02:23:41+00:00",
+      "confidence": 0.5
+    },
     {
       "id": "hkexnews:108801",
       "date": "2026-08-19",
@@ -293,22 +338,6 @@
       "stock_code": "00100",
       "summary": "Minimax-W (00100) added to Southbound trading (Shanghai Connect)",
       "ingested_at": "2026-08-06T04:14:59+00:00",
-      "confidence": 0.5
-    },
-    {
-      "id": "hkexnews:108787",
-      "date": "2026-08-06",
-      "type": "a1",
-      "title": "Sichuan Biokin Pharmaceutical Co., Ltd. - B — Application Proof (A1) posted",
-      "url": "https://www1.hkexnews.hk/app/sehk/2026/108787/documents/sehk26080601694.pdf",
-      "source": "HKEXnews",
-      "tags": [
-        "Chapter 18A",
-        "Biotech / Healthcare"
-      ],
-      "entity": "Sichuan Biokin Pharmaceutical Co., Ltd. - B",
-      "summary": "Sichuan Biokin Pharmaceutical Co., Ltd. - B submitted an application proof to list on the Hong Kong Main Board.",
-      "ingested_at": "2026-08-07T03:51:25+00:00",
       "confidence": 0.5
     },
     {
