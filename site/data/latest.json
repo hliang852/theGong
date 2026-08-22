@@ -1,22 +1,152 @@
 {
-  "generated_at": "2026-08-21T02:23:43+00:00",
+  "generated_at": "2026-08-22T02:15:58+00:00",
   "schema_version": "1.0",
-  "count": 372,
+  "count": 380,
   "items": [
+    {
+      "id": "hkexnews:108813",
+      "date": "2026-08-21",
+      "type": "a1",
+      "title": "Eaglerise Electric & Electronic (CHINA) Co., Ltd. — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108813/documents/sehk26082102534.pdf",
+      "source": "HKEXnews",
+      "tags": [],
+      "entity": "Eaglerise Electric & Electronic (CHINA) Co., Ltd.",
+      "summary": "Eaglerise Electric & Electronic (CHINA) Co., Ltd. submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-08-22T02:15:56+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "hkexnews:108812",
+      "date": "2026-08-21",
+      "type": "a1",
+      "title": "Zhuhai Kingsware Artificial Intelligence Co., Ltd. — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108812/documents/sehk26082102364.pdf",
+      "source": "HKEXnews",
+      "tags": [
+        "AI"
+      ],
+      "entity": "Zhuhai Kingsware Artificial Intelligence Co., Ltd.",
+      "summary": "Zhuhai Kingsware Artificial Intelligence Co., Ltd. submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-08-22T02:15:56+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "hkexnews:108811",
+      "date": "2026-08-21",
+      "type": "a1",
+      "title": "Kunlun New Energy Materials Technology (Yichang) Co., Ltd. — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108811/documents/sehk26082102278.pdf",
+      "source": "HKEXnews",
+      "tags": [
+        "Technology",
+        "Energy / Materials"
+      ],
+      "entity": "Kunlun New Energy Materials Technology (Yichang) Co., Ltd.",
+      "summary": "Kunlun New Energy Materials Technology (Yichang) Co., Ltd. submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-08-22T02:15:56+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "hkexnews:108810",
+      "date": "2026-08-21",
+      "type": "a1",
+      "title": "Red Avenue New Materials Group Co., Ltd. — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108810/documents/sehk26082102510.pdf",
+      "source": "HKEXnews",
+      "tags": [
+        "Energy / Materials"
+      ],
+      "entity": "Red Avenue New Materials Group Co., Ltd.",
+      "summary": "Red Avenue New Materials Group Co., Ltd. submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-08-22T02:15:56+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "hkexnews:108809",
+      "date": "2026-08-21",
+      "type": "a1",
+      "title": "Tyligand Bioscience Ltd. - B — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108809/documents/sehk26082102082.pdf",
+      "source": "HKEXnews",
+      "tags": [
+        "Chapter 18A",
+        "Biotech / Healthcare"
+      ],
+      "entity": "Tyligand Bioscience Ltd. - B",
+      "summary": "Tyligand Bioscience Ltd. - B submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-08-22T02:15:56+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "hkexnews:108806",
+      "date": "2026-08-21",
+      "type": "a1",
+      "title": "InventisBio Co., Limited - B — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108806/documents/sehk26082101888.pdf",
+      "source": "HKEXnews",
+      "tags": [
+        "Chapter 18A"
+      ],
+      "entity": "InventisBio Co., Limited - B",
+      "summary": "InventisBio Co., Limited - B submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-08-22T02:15:56+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "hkexnews:108805",
+      "date": "2026-08-21",
+      "type": "a1",
+      "title": "SSI New Material (Zhenjiang) Co., Ltd. — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108805/documents/sehk26082101576.pdf",
+      "source": "HKEXnews",
+      "tags": [],
+      "entity": "SSI New Material (Zhenjiang) Co., Ltd.",
+      "summary": "SSI New Material (Zhenjiang) Co., Ltd. submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-08-22T02:15:56+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "hkexnews:108804",
+      "date": "2026-08-21",
+      "type": "a1",
+      "title": "Qdama International Holding Ltd. — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108804/documents/sehk26082101862.pdf",
+      "source": "HKEXnews",
+      "tags": [],
+      "entity": "Qdama International Holding Ltd.",
+      "summary": "Qdama International Holding Ltd. submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-08-22T02:15:56+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "hkexnews:108790",
+      "date": "2026-08-21",
+      "type": "a1",
+      "title": "RelyEZ Energy Storage Technology Co., Ltd. — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108790/documents/sehk26080900120.pdf",
+      "source": "HKEXnews",
+      "tags": [
+        "Technology"
+      ],
+      "entity": "RelyEZ Energy Storage Technology Co., Ltd.",
+      "summary": "RelyEZ Energy Storage Technology Co., Ltd. submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-08-22T02:15:56+00:00",
+      "confidence": 0.5
+    },
     {
       "id": "hkexnews:108803",
       "date": "2026-08-20",
       "type": "a1",
-      "title": "PANACRO (Hangzhou) Pharmaceutical Technology Co., Ltd. — Application Proof (A1) posted",
+      "title": "PANACRO (Hangzhou) Pharmaceutical Consulting Co., Ltd. — Application Proof (A1) posted",
       "url": "https://www1.hkexnews.hk/app/sehk/2026/108803/documents/sehk26082001768.pdf",
       "source": "HKEXnews",
       "tags": [
-        "Biotech / Healthcare",
-        "Technology"
+        "Biotech / Healthcare"
       ],
-      "entity": "PANACRO (Hangzhou) Pharmaceutical Technology Co., Ltd.",
-      "summary": "PANACRO (Hangzhou) Pharmaceutical Technology Co., Ltd. submitted an application proof to list on the Hong Kong Main Board.",
-      "ingested_at": "2026-08-21T02:23:41+00:00",
+      "entity": "PANACRO (Hangzhou) Pharmaceutical Consulting Co., Ltd.",
+      "summary": "PANACRO (Hangzhou) Pharmaceutical Consulting Co., Ltd. submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-08-22T02:15:56+00:00",
       "confidence": 0.5
     },
     {
@@ -225,21 +355,6 @@
       "entity": "Shenzhen Yueshi Holding Co., Ltd. (formerly known as Shenzhen Yueshi Digital Intelligence Co., Ltd.)",
       "summary": "Shenzhen Yueshi Holding Co., Ltd. (formerly known as Shenzhen Yueshi Digital Intelligence Co., Ltd.) submitted an application proof to list on the Hong Kong Main Board.",
       "ingested_at": "2026-08-11T03:04:54+00:00",
-      "confidence": 0.5
-    },
-    {
-      "id": "hkexnews:108790",
-      "date": "2026-08-09",
-      "type": "a1",
-      "title": "RelyEZ Energy Storage Technology Co., Ltd. — Application Proof (A1) posted",
-      "url": "https://www1.hkexnews.hk/app/sehk/2026/108790/documents/sehk26080900120.pdf",
-      "source": "HKEXnews",
-      "tags": [
-        "Technology"
-      ],
-      "entity": "RelyEZ Energy Storage Technology Co., Ltd.",
-      "summary": "RelyEZ Energy Storage Technology Co., Ltd. submitted an application proof to list on the Hong Kong Main Board.",
-      "ingested_at": "2026-08-10T03:12:24+00:00",
       "confidence": 0.5
     },
     {
