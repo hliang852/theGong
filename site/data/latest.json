@@ -1,8 +1,36 @@
 {
-  "generated_at": "2026-08-24T02:23:14+00:00",
+  "generated_at": "2026-08-25T02:18:43+00:00",
   "schema_version": "1.0",
-  "count": 380,
+  "count": 382,
   "items": [
+    {
+      "id": "hkexnews:108816",
+      "date": "2026-08-24",
+      "type": "a1",
+      "title": "Shanghai Eigencomm Technologies Co., Ltd. — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108816/documents/sehk26082402034.pdf",
+      "source": "HKEXnews",
+      "tags": [
+        "Technology"
+      ],
+      "entity": "Shanghai Eigencomm Technologies Co., Ltd.",
+      "summary": "Shanghai Eigencomm Technologies Co., Ltd. submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-08-25T02:18:41+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "hkexnews:108815",
+      "date": "2026-08-24",
+      "type": "a1",
+      "title": "Zhejiang Rongtai Electric Material Co., Ltd. — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108815/documents/sehk26082401772.pdf",
+      "source": "HKEXnews",
+      "tags": [],
+      "entity": "Zhejiang Rongtai Electric Material Co., Ltd.",
+      "summary": "Zhejiang Rongtai Electric Material Co., Ltd. submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-08-25T02:18:41+00:00",
+      "confidence": 0.5
+    },
     {
       "id": "hkexnews:108813",
       "date": "2026-08-21",
