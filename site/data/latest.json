@@ -1,8 +1,34 @@
 {
-  "generated_at": "2026-08-25T02:18:43+00:00",
+  "generated_at": "2026-08-26T02:25:27+00:00",
   "schema_version": "1.0",
-  "count": 382,
+  "count": 384,
   "items": [
+    {
+      "id": "hkexnews:108820",
+      "date": "2026-08-25",
+      "type": "a1",
+      "title": "Sublime China Information Co., Ltd. — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108820/documents/sehk26082502062.pdf",
+      "source": "HKEXnews",
+      "tags": [],
+      "entity": "Sublime China Information Co., Ltd.",
+      "summary": "Sublime China Information Co., Ltd. submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-08-26T02:25:24+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "hkexnews:108818",
+      "date": "2026-08-25",
+      "type": "a1",
+      "title": "Ugreen Group Limited — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108818/documents/sehk26082500276.pdf",
+      "source": "HKEXnews",
+      "tags": [],
+      "entity": "Ugreen Group Limited",
+      "summary": "Ugreen Group Limited submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-08-26T02:25:24+00:00",
+      "confidence": 0.5
+    },
     {
       "id": "hkexnews:108816",
       "date": "2026-08-24",
