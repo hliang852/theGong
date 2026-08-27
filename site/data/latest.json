@@ -1,8 +1,41 @@
 {
-  "generated_at": "2026-08-26T02:25:27+00:00",
+  "generated_at": "2026-08-27T10:59:51+00:00",
   "schema_version": "1.0",
-  "count": 384,
+  "count": 385,
   "items": [
+    {
+      "id": "hkexnews:108798",
+      "date": "2026-08-27",
+      "type": "a1",
+      "title": "Shenzhen Immunofoco Biotechnology Co., Ltd. - B — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108798/documents/sehk26081800036.pdf",
+      "source": "HKEXnews",
+      "tags": [
+        "Chapter 18A",
+        "Biotech / Healthcare",
+        "Technology"
+      ],
+      "entity": "Shenzhen Immunofoco Biotechnology Co., Ltd. - B",
+      "summary": "Shenzhen Immunofoco Biotechnology Co., Ltd. - B submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-08-27T10:59:51+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "hkexnews:108821",
+      "date": "2026-08-26",
+      "type": "a1",
+      "title": "Zenshine Pharmaceuticals (Nanjing) Group Co., Ltd. - B — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108821/documents/sehk26082601974.pdf",
+      "source": "HKEXnews",
+      "tags": [
+        "Chapter 18A",
+        "Biotech / Healthcare"
+      ],
+      "entity": "Zenshine Pharmaceuticals (Nanjing) Group Co., Ltd. - B",
+      "summary": "Zenshine Pharmaceuticals (Nanjing) Group Co., Ltd. - B submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-08-27T10:59:51+00:00",
+      "confidence": 0.5
+    },
     {
       "id": "hkexnews:108820",
       "date": "2026-08-25",
@@ -275,23 +308,6 @@
       "entity": "Tianjin Chenxing Technology Co., Ltd. (formerly known as Tianjin Atomrobot Co., Ltd.)",
       "summary": "Tianjin Chenxing Technology Co., Ltd. (formerly known as Tianjin Atomrobot Co., Ltd.) submitted an application proof to list on the Hong Kong Main Board.",
       "ingested_at": "2026-08-19T02:18:53+00:00",
-      "confidence": 0.5
-    },
-    {
-      "id": "hkexnews:108798",
-      "date": "2026-08-18",
-      "type": "a1",
-      "title": "Shenzhen Immunofoco Biotechnology Co., Ltd. - B — Application Proof (A1) posted",
-      "url": "https://www1.hkexnews.hk/app/sehk/2026/108798/documents/sehk26081800036.pdf",
-      "source": "HKEXnews",
-      "tags": [
-        "Chapter 18A",
-        "Biotech / Healthcare",
-        "Technology"
-      ],
-      "entity": "Shenzhen Immunofoco Biotechnology Co., Ltd. - B",
-      "summary": "Shenzhen Immunofoco Biotechnology Co., Ltd. - B submitted an application proof to list on the Hong Kong Main Board.",
-      "ingested_at": "2026-08-18T02:16:15+00:00",
       "confidence": 0.5
     },
     {
