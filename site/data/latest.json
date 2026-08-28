@@ -1,8 +1,80 @@
 {
-  "generated_at": "2026-08-27T10:59:51+00:00",
+  "generated_at": "2026-08-28T12:34:22+00:00",
   "schema_version": "1.0",
-  "count": 385,
+  "count": 389,
   "items": [
+    {
+      "id": "hkexnews:108825",
+      "date": "2026-08-28",
+      "type": "a1",
+      "title": "VivaVision Biotech (Zhejiang) Co., Ltd. - B — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108825/documents/sehk26082802477.pdf",
+      "source": "HKEXnews",
+      "tags": [
+        "Chapter 18A",
+        "Biotech / Healthcare"
+      ],
+      "entity": "VivaVision Biotech (Zhejiang) Co., Ltd. - B",
+      "summary": "VivaVision Biotech (Zhejiang) Co., Ltd. - B submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-08-28T12:34:21+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "hkexnews:108824",
+      "date": "2026-08-28",
+      "type": "a1",
+      "title": "SHENZHEN CAPCHEM TECHNOLOGY CO., LTD. — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108824/documents/sehk26082802199.pdf",
+      "source": "HKEXnews",
+      "tags": [
+        "Technology"
+      ],
+      "entity": "SHENZHEN CAPCHEM TECHNOLOGY CO., LTD.",
+      "summary": "SHENZHEN CAPCHEM TECHNOLOGY CO., LTD. submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-08-28T12:34:21+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "hkexnews:108805",
+      "date": "2026-08-28",
+      "type": "a1",
+      "title": "SSI New Material (Zhenjiang) Co., Ltd. — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108805/documents/sehk26082101576.pdf",
+      "source": "HKEXnews",
+      "tags": [],
+      "entity": "SSI New Material (Zhenjiang) Co., Ltd.",
+      "summary": "SSI New Material (Zhenjiang) Co., Ltd. submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-08-28T12:34:21+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "hkexnews:108823",
+      "date": "2026-08-27",
+      "type": "a1",
+      "title": "Dizal Pharmaceutical Co., Ltd. — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108823/documents/sehk26082702222.pdf",
+      "source": "HKEXnews",
+      "tags": [
+        "Biotech / Healthcare"
+      ],
+      "entity": "Dizal Pharmaceutical Co., Ltd.",
+      "summary": "Dizal Pharmaceutical Co., Ltd. submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-08-28T12:34:21+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "hkexnews:108822",
+      "date": "2026-08-27",
+      "type": "a1",
+      "title": "Shanghai Vision Star Media Co.,Ltd. — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108822/documents/sehk26082701844.pdf",
+      "source": "HKEXnews",
+      "tags": [],
+      "entity": "Shanghai Vision Star Media Co.,Ltd.",
+      "summary": "Shanghai Vision Star Media Co.,Ltd. submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-08-28T12:34:21+00:00",
+      "confidence": 0.5
+    },
     {
       "id": "hkexnews:108798",
       "date": "2026-08-27",
@@ -177,19 +249,6 @@
       ],
       "entity": "InventisBio Co., Limited - B",
       "summary": "InventisBio Co., Limited - B submitted an application proof to list on the Hong Kong Main Board.",
-      "ingested_at": "2026-08-22T02:15:56+00:00",
-      "confidence": 0.5
-    },
-    {
-      "id": "hkexnews:108805",
-      "date": "2026-08-21",
-      "type": "a1",
-      "title": "SSI New Material (Zhenjiang) Co., Ltd. — Application Proof (A1) posted",
-      "url": "https://www1.hkexnews.hk/app/sehk/2026/108805/documents/sehk26082101576.pdf",
-      "source": "HKEXnews",
-      "tags": [],
-      "entity": "SSI New Material (Zhenjiang) Co., Ltd.",
-      "summary": "SSI New Material (Zhenjiang) Co., Ltd. submitted an application proof to list on the Hong Kong Main Board.",
       "ingested_at": "2026-08-22T02:15:56+00:00",
       "confidence": 0.5
     },
