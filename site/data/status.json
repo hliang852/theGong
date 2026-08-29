@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-08-28T12:34:19+00:00",
+  "generated_at": "2026-08-29T07:42:57+00:00",
   "engine": "llm",
   "sources": {
     "HKEXnews": {
       "ok": true,
-      "fetched": 346
+      "fetched": 353
     },
     "SSE / HKEX": {
       "ok": false,
-      "error": "('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))"
+      "error": "HTTPSConnectionPool(host='query.sse.com.cn', port=443): Max retries exceeded with url: /commonQuery.do?jsonCallBack=cb&sqlId=COMMON_SSE_JYFW_HGT_XXPL_BDZQQD_L&isPagination=true&pageHelp.pageSize=2000&"
     },
     "Curated": {
       "ok": true,
@@ -23,6 +23,6 @@
       "fetched": 0
     }
   },
-  "new_items": 5,
-  "total_items": 389
+  "new_items": 7,
+  "total_items": 396
 }

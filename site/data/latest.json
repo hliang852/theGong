@@ -1,8 +1,114 @@
 {
-  "generated_at": "2026-08-28T12:34:22+00:00",
+  "generated_at": "2026-08-29T07:43:01+00:00",
   "schema_version": "1.0",
-  "count": 389,
+  "count": 396,
   "items": [
+    {
+      "id": "hkexnews:108833",
+      "date": "2026-08-28",
+      "type": "a1",
+      "title": "Nanjing Novlead Biotechnology Co., Ltd. - B — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108833/documents/sehk26082804161.pdf",
+      "source": "HKEXnews",
+      "tags": [
+        "Chapter 18A",
+        "Biotech / Healthcare",
+        "Technology"
+      ],
+      "entity": "Nanjing Novlead Biotechnology Co., Ltd. - B",
+      "summary": "Nanjing Novlead Biotechnology Co., Ltd. - B submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-08-29T07:43:00+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "hkexnews:108832",
+      "date": "2026-08-28",
+      "type": "a1",
+      "title": "Exegenesis Bio Inc. - B — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108832/documents/sehk26082804043.pdf",
+      "source": "HKEXnews",
+      "tags": [
+        "Chapter 18A"
+      ],
+      "entity": "Exegenesis Bio Inc. - B",
+      "summary": "Exegenesis Bio Inc. - B submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-08-29T07:43:00+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "hkexnews:108831",
+      "date": "2026-08-28",
+      "type": "a1",
+      "title": "ClubMed Lifestyle Group — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108831/documents/sehk26082803941.pdf",
+      "source": "HKEXnews",
+      "tags": [],
+      "entity": "ClubMed Lifestyle Group",
+      "summary": "ClubMed Lifestyle Group submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-08-29T07:43:00+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "hkexnews:108829",
+      "date": "2026-08-28",
+      "type": "a1",
+      "title": "Betta Pharmaceuticals Co., Ltd. — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108829/documents/sehk26082803861.pdf",
+      "source": "HKEXnews",
+      "tags": [
+        "Biotech / Healthcare"
+      ],
+      "entity": "Betta Pharmaceuticals Co., Ltd.",
+      "summary": "Betta Pharmaceuticals Co., Ltd. submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-08-29T07:43:00+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "hkexnews:108828",
+      "date": "2026-08-28",
+      "type": "a1",
+      "title": "Frontera Therapeutics - B — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108828/documents/sehk26082803705.pdf",
+      "source": "HKEXnews",
+      "tags": [
+        "Chapter 18A",
+        "Biotech / Healthcare"
+      ],
+      "entity": "Frontera Therapeutics - B",
+      "summary": "Frontera Therapeutics - B submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-08-29T07:43:00+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "hkexnews:108827",
+      "date": "2026-08-28",
+      "type": "a1",
+      "title": "Hangzhou Tangji Medical Technology Co., Ltd. - B — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108827/documents/sehk26082803557.pdf",
+      "source": "HKEXnews",
+      "tags": [
+        "Chapter 18A",
+        "Biotech / Healthcare",
+        "Technology"
+      ],
+      "entity": "Hangzhou Tangji Medical Technology Co., Ltd. - B",
+      "summary": "Hangzhou Tangji Medical Technology Co., Ltd. - B submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-08-29T07:43:00+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "hkexnews:108826",
+      "date": "2026-08-28",
+      "type": "a1",
+      "title": "Zhejiang Chint Electrics Co., Ltd. — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108826/documents/sehk26082803207.pdf",
+      "source": "HKEXnews",
+      "tags": [],
+      "entity": "Zhejiang Chint Electrics Co., Ltd.",
+      "summary": "Zhejiang Chint Electrics Co., Ltd. submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-08-29T07:43:00+00:00",
+      "confidence": 0.5
+    },
     {
       "id": "hkexnews:108825",
       "date": "2026-08-28",
