@@ -1,8 +1,25 @@
 {
-  "generated_at": "2026-08-29T07:43:01+00:00",
+  "generated_at": "2026-08-30T06:19:57+00:00",
   "schema_version": "1.0",
-  "count": 396,
+  "count": 397,
   "items": [
+    {
+      "id": "sse:sbadd:03308:2026-08-28",
+      "date": "2026-08-28",
+      "type": "rule",
+      "title": "Zj Innolight (03308) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Zj Innolight",
+      "stock_code": "03308",
+      "summary": "Zj Innolight (03308) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-08-30T06:19:57+00:00",
+      "confidence": 0.5
+    },
     {
       "id": "hkexnews:108833",
       "date": "2026-08-28",
