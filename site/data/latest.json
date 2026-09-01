@@ -1,8 +1,113 @@
 {
-  "generated_at": "2026-08-31T06:47:30+00:00",
+  "generated_at": "2026-09-01T06:06:43+00:00",
   "schema_version": "1.0",
-  "count": 400,
+  "count": 406,
   "items": [
+    {
+      "id": "hkexnews:108797",
+      "date": "2026-09-01",
+      "type": "a1",
+      "title": "Hunan Yuneng New Energy Battery Material Co., Ltd. — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108797/documents/sehk26081700010.pdf",
+      "source": "HKEXnews",
+      "tags": [
+        "Auto / Mobility",
+        "Energy / Materials"
+      ],
+      "entity": "Hunan Yuneng New Energy Battery Material Co., Ltd.",
+      "summary": "Hunan Yuneng New Energy Battery Material Co., Ltd. submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-09-01T06:06:40+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "hkexnews:108856",
+      "date": "2026-08-31",
+      "type": "a1",
+      "title": "ProteLight Pharmaceuticals (Jiangsu) Co., Ltd. - B — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108856/documents/sehk26083102866.pdf",
+      "source": "HKEXnews",
+      "tags": [
+        "Chapter 18A",
+        "Biotech / Healthcare"
+      ],
+      "entity": "ProteLight Pharmaceuticals (Jiangsu) Co., Ltd. - B",
+      "summary": "ProteLight Pharmaceuticals (Jiangsu) Co., Ltd. - B submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-09-01T06:06:40+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "hkexnews:108855",
+      "date": "2026-08-31",
+      "type": "a1",
+      "title": "Jiangxi Tongbo Technology Co., Ltd. — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108855/documents/sehk26083102794.pdf",
+      "source": "HKEXnews",
+      "tags": [
+        "Technology"
+      ],
+      "entity": "Jiangxi Tongbo Technology Co., Ltd.",
+      "summary": "Jiangxi Tongbo Technology Co., Ltd. submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-09-01T06:06:40+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "hkexnews:108854",
+      "date": "2026-08-31",
+      "type": "a1",
+      "title": "Ningbo Sunny Smart Autotech Company Limited — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108854/documents/sehk26083102636.pdf",
+      "source": "HKEXnews",
+      "tags": [
+        "Auto / Mobility"
+      ],
+      "entity": "Ningbo Sunny Smart Autotech Company Limited",
+      "summary": "Ningbo Sunny Smart Autotech Company Limited submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-09-01T06:06:40+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "hkexnews:108853",
+      "date": "2026-08-31",
+      "type": "a1",
+      "title": "Zhejiang IPLUSMOBOT Technology Co., Ltd. — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108853/documents/sehk26083102166.pdf",
+      "source": "HKEXnews",
+      "tags": [
+        "Technology"
+      ],
+      "entity": "Zhejiang IPLUSMOBOT Technology Co., Ltd.",
+      "summary": "Zhejiang IPLUSMOBOT Technology Co., Ltd. submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-09-01T06:06:40+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "hkexnews:108852",
+      "date": "2026-08-31",
+      "type": "a1",
+      "title": "ANEW Health Limited — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108852/documents/sehk26083102544.pdf",
+      "source": "HKEXnews",
+      "tags": [
+        "Biotech / Healthcare"
+      ],
+      "entity": "ANEW Health Limited",
+      "summary": "ANEW Health Limited submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-09-01T06:06:40+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "hkexnews:108851",
+      "date": "2026-08-31",
+      "type": "a1",
+      "title": "Guangxi Yuchai Marine and Genset Power Co., Ltd. — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108851/documents/sehk26083101780.pdf",
+      "source": "HKEXnews",
+      "tags": [],
+      "entity": "Guangxi Yuchai Marine and Genset Power Co., Ltd.",
+      "summary": "Guangxi Yuchai Marine and Genset Power Co., Ltd. submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-09-01T06:06:40+00:00",
+      "confidence": 0.5
+    },
     {
       "id": "hkexnews:108850",
       "date": "2026-08-30",
@@ -534,22 +639,6 @@
       "entity": "Tianjin Chenxing Technology Co., Ltd. (formerly known as Tianjin Atomrobot Co., Ltd.)",
       "summary": "Tianjin Chenxing Technology Co., Ltd. (formerly known as Tianjin Atomrobot Co., Ltd.) submitted an application proof to list on the Hong Kong Main Board.",
       "ingested_at": "2026-08-19T02:18:53+00:00",
-      "confidence": 0.5
-    },
-    {
-      "id": "hkexnews:108797",
-      "date": "2026-08-17",
-      "type": "a1",
-      "title": "Hunan Yuneng New Energy Battery Material Co., Ltd. — Application Proof (A1) posted",
-      "url": "https://www1.hkexnews.hk/app/sehk/2026/108797/documents/sehk26081700010.pdf",
-      "source": "HKEXnews",
-      "tags": [
-        "Auto / Mobility",
-        "Energy / Materials"
-      ],
-      "entity": "Hunan Yuneng New Energy Battery Material Co., Ltd.",
-      "summary": "Hunan Yuneng New Energy Battery Material Co., Ltd. submitted an application proof to list on the Hong Kong Main Board.",
-      "ingested_at": "2026-08-17T02:20:42+00:00",
       "confidence": 0.5
     },
     {
