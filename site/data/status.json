@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-01T06:06:38+00:00",
+  "generated_at": "2026-09-02T05:32:04+00:00",
   "engine": "llm",
   "sources": {
     "HKEXnews": {
@@ -23,6 +23,6 @@
       "fetched": 0
     }
   },
-  "new_items": 7,
+  "new_items": 0,
   "total_items": 406
 }
