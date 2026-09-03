@@ -1,8 +1,21 @@
 {
-  "generated_at": "2026-09-02T05:32:12+00:00",
+  "generated_at": "2026-09-03T05:32:44+00:00",
   "schema_version": "1.0",
-  "count": 406,
+  "count": 407,
   "items": [
+    {
+      "id": "hkexnews:108857",
+      "date": "2026-09-03",
+      "type": "a1",
+      "title": "VATAI HOLDINGS LIMITED — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108857/documents/sehk26090300176.pdf",
+      "source": "HKEXnews",
+      "tags": [],
+      "entity": "VATAI HOLDINGS LIMITED",
+      "summary": "VATAI HOLDINGS LIMITED submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-09-03T05:32:43+00:00",
+      "confidence": 0.5
+    },
     {
       "id": "hkexnews:108797",
       "date": "2026-09-01",
