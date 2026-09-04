@@ -1,8 +1,23 @@
 {
-  "generated_at": "2026-09-03T05:32:44+00:00",
+  "generated_at": "2026-09-04T05:38:00+00:00",
   "schema_version": "1.0",
-  "count": 407,
+  "count": 408,
   "items": [
+    {
+      "id": "hkexnews:108858",
+      "date": "2026-09-03",
+      "type": "a1",
+      "title": "Shenzhen Salubris Pharmaceuticals Co., Ltd. — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108858/documents/sehk26090301640.pdf",
+      "source": "HKEXnews",
+      "tags": [
+        "Biotech / Healthcare"
+      ],
+      "entity": "Shenzhen Salubris Pharmaceuticals Co., Ltd.",
+      "summary": "Shenzhen Salubris Pharmaceuticals Co., Ltd. submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-09-04T05:37:58+00:00",
+      "confidence": 0.5
+    },
     {
       "id": "hkexnews:108857",
       "date": "2026-09-03",
