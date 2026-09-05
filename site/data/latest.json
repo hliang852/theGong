@@ -1,8 +1,23 @@
 {
-  "generated_at": "2026-09-04T05:38:00+00:00",
+  "generated_at": "2026-09-05T05:23:03+00:00",
   "schema_version": "1.0",
   "count": 408,
   "items": [
+    {
+      "id": "hkexnews:108812",
+      "date": "2026-09-04",
+      "type": "a1",
+      "title": "Zhuhai Kingsware Artificial Intelligence Co., Ltd. — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108812/documents/sehk26082102364.pdf",
+      "source": "HKEXnews",
+      "tags": [
+        "AI"
+      ],
+      "entity": "Zhuhai Kingsware Artificial Intelligence Co., Ltd.",
+      "summary": "Zhuhai Kingsware Artificial Intelligence Co., Ltd. submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-09-05T05:23:00+00:00",
+      "confidence": 0.5
+    },
     {
       "id": "hkexnews:108858",
       "date": "2026-09-03",
@@ -472,21 +487,6 @@
       "tags": [],
       "entity": "Eaglerise Electric & Electronic (CHINA) Co., Ltd.",
       "summary": "Eaglerise Electric & Electronic (CHINA) Co., Ltd. submitted an application proof to list on the Hong Kong Main Board.",
-      "ingested_at": "2026-08-22T02:15:56+00:00",
-      "confidence": 0.5
-    },
-    {
-      "id": "hkexnews:108812",
-      "date": "2026-08-21",
-      "type": "a1",
-      "title": "Zhuhai Kingsware Artificial Intelligence Co., Ltd. — Application Proof (A1) posted",
-      "url": "https://www1.hkexnews.hk/app/sehk/2026/108812/documents/sehk26082102364.pdf",
-      "source": "HKEXnews",
-      "tags": [
-        "AI"
-      ],
-      "entity": "Zhuhai Kingsware Artificial Intelligence Co., Ltd.",
-      "summary": "Zhuhai Kingsware Artificial Intelligence Co., Ltd. submitted an application proof to list on the Hong Kong Main Board.",
       "ingested_at": "2026-08-22T02:15:56+00:00",
       "confidence": 0.5
     },
