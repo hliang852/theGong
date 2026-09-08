@@ -1,8 +1,1193 @@
 {
-  "generated_at": "2026-09-07T05:49:14+00:00",
+  "generated_at": "2026-09-08T05:42:13+00:00",
   "schema_version": "1.0",
-  "count": 408,
+  "count": 477,
   "items": [
+    {
+      "id": "sse:sbdrop:06955:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Boan Biotech (06955) removed from Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Chapter 18A",
+        "Southbound",
+        "Connect Eligibility",
+        "Biotech / Healthcare"
+      ],
+      "entity": "Boan Biotech",
+      "stock_code": "06955",
+      "summary": "Boan Biotech (06955) removed from Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbdrop:06603:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Ifbh (06603) removed from Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Ifbh",
+      "stock_code": "06603",
+      "summary": "Ifbh (06603) removed from Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbdrop:02587:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Healthyway Inc (02587) removed from Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility",
+        "Biotech / Healthcare"
+      ],
+      "entity": "Healthyway Inc",
+      "stock_code": "02587",
+      "summary": "Healthyway Inc (02587) removed from Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbdrop:02582:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Guofuhee (02582) removed from Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Guofuhee",
+      "stock_code": "02582",
+      "summary": "Guofuhee (02582) removed from Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbdrop:02570:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Refire (02570) removed from Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Refire",
+      "stock_code": "02570",
+      "summary": "Refire (02570) removed from Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbdrop:02562:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Synagistics (02562) removed from Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Synagistics",
+      "stock_code": "02562",
+      "summary": "Synagistics (02562) removed from Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbdrop:02431:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Minieye (02431) removed from Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Minieye",
+      "stock_code": "02431",
+      "summary": "Minieye (02431) removed from Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbdrop:02410:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Tyk Medicines-B (02410) removed from Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Tyk Medicines-B",
+      "stock_code": "02410",
+      "summary": "Tyk Medicines-B (02410) removed from Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbdrop:02291:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Scientech (02291) removed from Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Scientech",
+      "stock_code": "02291",
+      "summary": "Scientech (02291) removed from Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbdrop:02255:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Haichang Hldg (02255) removed from Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Haichang Hldg",
+      "stock_code": "02255",
+      "summary": "Haichang Hldg (02255) removed from Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbdrop:02158:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Yidu Tech (02158) removed from Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Yidu Tech",
+      "stock_code": "02158",
+      "summary": "Yidu Tech (02158) removed from Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbdrop:01773:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Tianli Int Hldg (01773) removed from Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Tianli Int Hldg",
+      "stock_code": "01773",
+      "summary": "Tianli Int Hldg (01773) removed from Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbdrop:01691:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Js Global Life (01691) removed from Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Js Global Life",
+      "stock_code": "01691",
+      "summary": "Js Global Life (01691) removed from Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbdrop:01475:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Nissin Foods (01475) removed from Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility",
+        "Consumer"
+      ],
+      "entity": "Nissin Foods",
+      "stock_code": "01475",
+      "summary": "Nissin Foods (01475) removed from Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbdrop:00909:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Ming Yuan Cloud (00909) removed from Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility",
+        "Technology"
+      ],
+      "entity": "Ming Yuan Cloud",
+      "stock_code": "00909",
+      "summary": "Ming Yuan Cloud (00909) removed from Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:09888:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Bidu-W (09888) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Bidu-W",
+      "stock_code": "09888",
+      "summary": "Bidu-W (09888) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:09637:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Alebund-B (09637) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Alebund-B",
+      "stock_code": "09637",
+      "summary": "Alebund-B (09637) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:07688:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Topnc (07688) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Topnc",
+      "stock_code": "07688",
+      "summary": "Topnc (07688) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:07666:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Metis Techbio-P (07666) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Metis Techbio-P",
+      "stock_code": "07666",
+      "summary": "Metis Techbio-P (07666) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:07630:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Impact Therap-B (07630) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Impact Therap-B",
+      "stock_code": "07630",
+      "summary": "Impact Therap-B (07630) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:06938:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Ribolife-B (06938) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Ribolife-B",
+      "stock_code": "06938",
+      "summary": "Ribolife-B (06938) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:06872:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Tennor Therap-B (06872) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Tennor Therap-B",
+      "stock_code": "06872",
+      "summary": "Tennor Therap-B (06872) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:06715:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Xunlong Scitech (06715) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Xunlong Scitech",
+      "stock_code": "06715",
+      "summary": "Xunlong Scitech (06715) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:06675:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Senasic (06675) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Senasic",
+      "stock_code": "06675",
+      "summary": "Senasic (06675) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:06658:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Liuliumei (06658) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Liuliumei",
+      "stock_code": "06658",
+      "summary": "Liuliumei (06658) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:06656:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Sigenergy (06656) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Sigenergy",
+      "stock_code": "06656",
+      "summary": "Sigenergy (06656) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:06636:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Extreme Vision (06636) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Extreme Vision",
+      "stock_code": "06636",
+      "summary": "Extreme Vision (06636) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:06106:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Seer Tech (06106) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Seer Tech",
+      "stock_code": "06106",
+      "summary": "Seer Tech (06106) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:03774:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Fameglow (03774) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Fameglow",
+      "stock_code": "03774",
+      "summary": "Fameglow (03774) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:03625:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Foursemi (03625) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Foursemi",
+      "stock_code": "03625",
+      "summary": "Foursemi (03625) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:03388:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Creality (03388) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Creality",
+      "stock_code": "03388",
+      "summary": "Creality (03388) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:03355:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Fs.Com (03355) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Fs.Com",
+      "stock_code": "03355",
+      "summary": "Fs.Com (03355) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:03310:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Viewtrix Tech (03310) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Viewtrix Tech",
+      "stock_code": "03310",
+      "summary": "Viewtrix Tech (03310) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:03277:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Gpixel (03277) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Gpixel",
+      "stock_code": "03277",
+      "summary": "Gpixel (03277) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:02729:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Galaxis Tech (02729) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Galaxis Tech",
+      "stock_code": "02729",
+      "summary": "Galaxis Tech (02729) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:02726:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Epiworld (02726) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Epiworld",
+      "stock_code": "02726",
+      "summary": "Epiworld (02726) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:02723:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Deepzero (02723) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Deepzero",
+      "stock_code": "02723",
+      "summary": "Deepzero (02723) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:02697:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Th Medical-B (02697) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility",
+        "Biotech / Healthcare"
+      ],
+      "entity": "Th Medical-B",
+      "stock_code": "02697",
+      "summary": "Th Medical-B (02697) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:02696:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Henlius (02696) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Henlius",
+      "stock_code": "02696",
+      "summary": "Henlius (02696) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:02672:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Baige Digital (02672) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility",
+        "Technology"
+      ],
+      "entity": "Baige Digital",
+      "stock_code": "02672",
+      "summary": "Baige Digital (02672) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:02670:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Yunji (02670) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Yunji",
+      "stock_code": "02670",
+      "summary": "Yunji (02670) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:02632:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "New Vision Co (02632) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "New Vision Co",
+      "stock_code": "02632",
+      "summary": "New Vision Co (02632) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:02616:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Cstone Pharma-B (02616) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility",
+        "Biotech / Healthcare"
+      ],
+      "entity": "Cstone Pharma-B",
+      "stock_code": "02616",
+      "summary": "Cstone Pharma-B (02616) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:02553:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Shougang Lanza (02553) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Shougang Lanza",
+      "stock_code": "02553",
+      "summary": "Shougang Lanza (02553) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:02526:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Diagens-B (02526) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Diagens-B",
+      "stock_code": "02526",
+      "summary": "Diagens-B (02526) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:02335:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Micot Pharma-B (02335) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility",
+        "Biotech / Healthcare"
+      ],
+      "entity": "Micot Pharma-B",
+      "stock_code": "02335",
+      "summary": "Micot Pharma-B (02335) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:02272:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Keytop Parking (02272) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Keytop Parking",
+      "stock_code": "02272",
+      "summary": "Keytop Parking (02272) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:02225:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Jinhai Med Tech (02225) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Jinhai Med Tech",
+      "stock_code": "02225",
+      "summary": "Jinhai Med Tech (02225) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:02142:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Hbm Holdings-B (02142) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Hbm Holdings-B",
+      "stock_code": "02142",
+      "summary": "Hbm Holdings-B (02142) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:01956:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Wenge Ai (01956) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility",
+        "AI"
+      ],
+      "entity": "Wenge Ai",
+      "stock_code": "01956",
+      "summary": "Wenge Ai (01956) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:01879:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Xizhi Tech-P (01879) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Xizhi Tech-P",
+      "stock_code": "01879",
+      "summary": "Xizhi Tech-P (01879) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:01866:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "China Xlx Fert (01866) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "China Xlx Fert",
+      "stock_code": "01866",
+      "summary": "China Xlx Fert (01866) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:01779:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Longbio-B (01779) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Longbio-B",
+      "stock_code": "01779",
+      "summary": "Longbio-B (01779) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:01672:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Ascletis-B (01672) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Ascletis-B",
+      "stock_code": "01672",
+      "summary": "Ascletis-B (01672) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:01651:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Tsugami China (01651) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Tsugami China",
+      "stock_code": "01651",
+      "summary": "Tsugami China (01651) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:01609:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Star Sports Med (01609) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Star Sports Med",
+      "stock_code": "01609",
+      "summary": "Star Sports Med (01609) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:01511:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Uisee Tech (01511) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Uisee Tech",
+      "stock_code": "01511",
+      "summary": "Uisee Tech (01511) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:01440:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Star Shine Hldg (01440) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Star Shine Hldg",
+      "stock_code": "01440",
+      "summary": "Star Shine Hldg (01440) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:01392:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Hqvt (01392) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Hqvt",
+      "stock_code": "01392",
+      "summary": "Hqvt (01392) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:01286:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Impro Precision (01286) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Impro Precision",
+      "stock_code": "01286",
+      "summary": "Impro Precision (01286) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:01236:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Ldrobot (01236) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility",
+        "Robotics"
+      ],
+      "entity": "Ldrobot",
+      "stock_code": "01236",
+      "summary": "Ldrobot (01236) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:01191:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Crealights (01191) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Crealights",
+      "stock_code": "01191",
+      "summary": "Crealights (01191) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:01133:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Harbin Electric (01133) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Harbin Electric",
+      "stock_code": "01133",
+      "summary": "Harbin Electric (01133) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:01021:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Huayan Robotics (01021) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility",
+        "Robotics"
+      ],
+      "entity": "Huayan Robotics",
+      "stock_code": "01021",
+      "summary": "Huayan Robotics (01021) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:00901:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Sdmc (00901) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Sdmc",
+      "stock_code": "00901",
+      "summary": "Sdmc (00901) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:00600:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Axera (00600) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Axera",
+      "stock_code": "00600",
+      "summary": "Axera (00600) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:00376:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Yunfeng Fin (00376) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Yunfeng Fin",
+      "stock_code": "00376",
+      "summary": "Yunfeng Fin (00376) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:00340:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Tongguan Gold (00340) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Tongguan Gold",
+      "stock_code": "00340",
+      "summary": "Tongguan Gold (00340) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:00068:2026-09-08",
+      "date": "2026-09-08",
+      "type": "rule",
+      "title": "Manycore Tech (00068) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Manycore Tech",
+      "stock_code": "00068",
+      "summary": "Manycore Tech (00068) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-08T05:42:13+00:00",
+      "confidence": 0.5
+    },
     {
       "id": "hkexnews:108812",
       "date": "2026-09-04",
