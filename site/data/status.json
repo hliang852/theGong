@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-12T05:28:28+00:00",
+  "generated_at": "2026-09-13T05:44:45+00:00",
   "engine": "llm",
   "sources": {
     "HKEXnews": {
@@ -7,8 +7,8 @@
       "fetched": 360
     },
     "SSE / HKEX": {
-      "ok": true,
-      "fetched": 0
+      "ok": false,
+      "error": "'NoneType' object has no attribute 'group'"
     },
     "Curated": {
       "ok": true,
@@ -23,6 +23,6 @@
       "fetched": 0
     }
   },
-  "new_items": 2,
+  "new_items": 0,
   "total_items": 479
 }
