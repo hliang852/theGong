@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-17T05:52:50+00:00",
+  "generated_at": "2026-09-18T05:37:42+00:00",
   "engine": "llm",
   "sources": {
     "HKEXnews": {
@@ -7,8 +7,8 @@
       "fetched": 356
     },
     "SSE / HKEX": {
-      "ok": true,
-      "fetched": 0
+      "ok": false,
+      "error": "HTTPSConnectionPool(host='query.sse.com.cn', port=443): Max retries exceeded with url: /commonQuery.do?jsonCallBack=cb&sqlId=COMMON_SSE_JYFW_HGT_XXPL_BDZQQD_L&isPagination=true&pageHelp.pageSize=2000&"
     },
     "Curated": {
       "ok": true,
