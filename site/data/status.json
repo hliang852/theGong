@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-09-18T05:37:42+00:00",
+  "generated_at": "2026-09-19T05:33:14+00:00",
   "engine": "llm",
   "sources": {
     "HKEXnews": {
       "ok": true,
-      "fetched": 356
+      "fetched": 357
     },
     "SSE / HKEX": {
-      "ok": false,
-      "error": "HTTPSConnectionPool(host='query.sse.com.cn', port=443): Max retries exceeded with url: /commonQuery.do?jsonCallBack=cb&sqlId=COMMON_SSE_JYFW_HGT_XXPL_BDZQQD_L&isPagination=true&pageHelp.pageSize=2000&"
+      "ok": true,
+      "fetched": 0
     },
     "Curated": {
       "ok": true,
@@ -23,6 +23,6 @@
       "fetched": 0
     }
   },
-  "new_items": 0,
-  "total_items": 482
+  "new_items": 1,
+  "total_items": 483
 }

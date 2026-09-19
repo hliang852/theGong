@@ -1,8 +1,23 @@
 {
-  "generated_at": "2026-09-18T05:38:11+00:00",
+  "generated_at": "2026-09-19T05:33:19+00:00",
   "schema_version": "1.0",
-  "count": 482,
+  "count": 483,
   "items": [
+    {
+      "id": "hkexnews:108886",
+      "date": "2026-09-18",
+      "type": "a1",
+      "title": "Zhejiang Jingxin Pharmaceutical Co., Ltd. — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108886/documents/sehk26091801843.pdf",
+      "source": "HKEXnews",
+      "tags": [
+        "Biotech / Healthcare"
+      ],
+      "entity": "Zhejiang Jingxin Pharmaceutical Co., Ltd.",
+      "summary": "Zhejiang Jingxin Pharmaceutical Co., Ltd. submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-09-19T05:33:17+00:00",
+      "confidence": 0.5
+    },
     {
       "id": "sse:sbdrop:01196:2026-09-14",
       "date": "2026-09-14",
