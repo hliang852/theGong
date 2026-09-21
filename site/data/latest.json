@@ -1,8 +1,42 @@
 {
-  "generated_at": "2026-09-20T05:52:00+00:00",
+  "generated_at": "2026-09-21T05:59:34+00:00",
   "schema_version": "1.0",
-  "count": 483,
+  "count": 485,
   "items": [
+    {
+      "id": "sse:sbadd:06727:2026-09-21",
+      "date": "2026-09-21",
+      "type": "rule",
+      "title": "Transwarp (06727) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Transwarp",
+      "stock_code": "06727",
+      "summary": "Transwarp (06727) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-21T05:59:34+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:03223:2026-09-21",
+      "date": "2026-09-21",
+      "type": "rule",
+      "title": "Ingenic (03223) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Ingenic",
+      "stock_code": "03223",
+      "summary": "Ingenic (03223) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-21T05:59:34+00:00",
+      "confidence": 0.5
+    },
     {
       "id": "hkexnews:108886",
       "date": "2026-09-18",
