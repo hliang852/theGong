@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-09-21T05:59:34+00:00",
+  "generated_at": "2026-09-22T05:56:13+00:00",
   "schema_version": "1.0",
-  "count": 485,
+  "count": 486,
   "items": [
     {
       "id": "sse:sbadd:06727:2026-09-21",
@@ -35,6 +35,34 @@
       "stock_code": "03223",
       "summary": "Ingenic (03223) added to Southbound trading (Shanghai Connect)",
       "ingested_at": "2026-09-21T05:59:34+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "hkexnews:108887",
+      "date": "2026-09-21",
+      "type": "a1",
+      "title": "Dynamic Electronics Co., Ltd. — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108887/documents/sehk26092101146.pdf",
+      "source": "HKEXnews",
+      "tags": [],
+      "entity": "Dynamic Electronics Co., Ltd.",
+      "summary": "Dynamic Electronics Co., Ltd. submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-09-22T05:56:12+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "hkexnews:108870",
+      "date": "2026-09-21",
+      "type": "a1",
+      "title": "Hai Robotics Innovation Group Co., Ltd. - W — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108870/documents/sehk26091300124.pdf",
+      "source": "HKEXnews",
+      "tags": [
+        "Robotics"
+      ],
+      "entity": "Hai Robotics Innovation Group Co., Ltd. - W",
+      "summary": "Hai Robotics Innovation Group Co., Ltd. - W submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-09-22T05:56:12+00:00",
       "confidence": 0.5
     },
     {
@@ -84,21 +112,6 @@
       "stock_code": "02922",
       "summary": "Realord Tech (02922) added to Southbound trading (Shanghai Connect)",
       "ingested_at": "2026-09-14T05:55:42+00:00",
-      "confidence": 0.5
-    },
-    {
-      "id": "hkexnews:108870",
-      "date": "2026-09-13",
-      "type": "a1",
-      "title": "Hai Robotics Innovation Group Co., Ltd. - W — Application Proof (A1) posted",
-      "url": "https://www1.hkexnews.hk/app/sehk/2026/108870/documents/sehk26091300124.pdf",
-      "source": "HKEXnews",
-      "tags": [
-        "Robotics"
-      ],
-      "entity": "Hai Robotics Innovation Group Co., Ltd. - W",
-      "summary": "Hai Robotics Innovation Group Co., Ltd. - W submitted an application proof to list on the Hong Kong Main Board.",
-      "ingested_at": "2026-09-14T05:55:40+00:00",
       "confidence": 0.5
     },
     {
