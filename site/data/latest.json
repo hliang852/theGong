@@ -1,8 +1,68 @@
 {
-  "generated_at": "2026-09-22T05:56:13+00:00",
+  "generated_at": "2026-09-23T05:37:52+00:00",
   "schema_version": "1.0",
-  "count": 486,
+  "count": 489,
   "items": [
+    {
+      "id": "sse:sbdrop:02670:2026-09-23",
+      "date": "2026-09-23",
+      "type": "rule",
+      "title": "Yunji (02670) removed from Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Yunji",
+      "stock_code": "02670",
+      "summary": "Yunji (02670) removed from Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-23T05:37:52+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:02915:2026-09-23",
+      "date": "2026-09-23",
+      "type": "rule",
+      "title": "Yunji (02915) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Yunji",
+      "stock_code": "02915",
+      "summary": "Yunji (02915) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-23T05:37:52+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "hkexnews:108888",
+      "date": "2026-09-22",
+      "type": "a1",
+      "title": "Guangdong Rising Mineral-Rich Mountain Copper Co., Ltd. — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108888/documents/sehk26092201540.pdf",
+      "source": "HKEXnews",
+      "tags": [],
+      "entity": "Guangdong Rising Mineral-Rich Mountain Copper Co., Ltd.",
+      "summary": "Guangdong Rising Mineral-Rich Mountain Copper Co., Ltd. submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-09-23T05:37:48+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "hkexnews:108440",
+      "date": "2026-09-22",
+      "type": "a1",
+      "title": "Amlogic (Shanghai) Co.,Ltd. — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108440/documents/sehk26041200324.pdf",
+      "source": "HKEXnews",
+      "tags": [],
+      "entity": "Amlogic (Shanghai) Co.,Ltd.",
+      "summary": "Amlogic (Shanghai) Co.,Ltd. submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-09-23T05:37:48+00:00",
+      "confidence": 0.5
+    },
     {
       "id": "sse:sbadd:06727:2026-09-21",
       "date": "2026-09-21",
@@ -5786,19 +5846,6 @@
       "tags": [],
       "entity": "Semi-Tech Group Co., Ltd.",
       "summary": "Semi-Tech Group Co., Ltd. submitted an application proof to list on the Hong Kong Main Board.",
-      "ingested_at": "2026-08-04T00:36:25+00:00",
-      "confidence": 0.5
-    },
-    {
-      "id": "hkexnews:108440",
-      "date": "2026-04-12",
-      "type": "a1",
-      "title": "Amlogic (Shanghai) Co.,Ltd. — Application Proof (A1) posted",
-      "url": "https://www1.hkexnews.hk/app/sehk/2026/108440/documents/sehk26041200324.pdf",
-      "source": "HKEXnews",
-      "tags": [],
-      "entity": "Amlogic (Shanghai) Co.,Ltd.",
-      "summary": "Amlogic (Shanghai) Co.,Ltd. submitted an application proof to list on the Hong Kong Main Board.",
       "ingested_at": "2026-08-04T00:36:25+00:00",
       "confidence": 0.5
     },
