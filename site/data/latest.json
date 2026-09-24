@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-09-23T05:37:52+00:00",
+  "generated_at": "2026-09-24T05:55:51+00:00",
   "schema_version": "1.0",
-  "count": 489,
+  "count": 490,
   "items": [
     {
       "id": "sse:sbdrop:02670:2026-09-23",
@@ -35,6 +35,19 @@
       "stock_code": "02915",
       "summary": "Yunji (02915) added to Southbound trading (Shanghai Connect)",
       "ingested_at": "2026-09-23T05:37:52+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "hkexnews:108889",
+      "date": "2026-09-23",
+      "type": "a1",
+      "title": "Onyx International Inc. — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108889/documents/sehk26092301864.pdf",
+      "source": "HKEXnews",
+      "tags": [],
+      "entity": "Onyx International Inc.",
+      "summary": "Onyx International Inc. submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-09-24T05:55:50+00:00",
       "confidence": 0.5
     },
     {
