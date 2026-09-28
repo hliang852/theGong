@@ -1,8 +1,36 @@
 {
-  "generated_at": "2026-09-27T06:24:01+00:00",
+  "generated_at": "2026-09-28T06:26:59+00:00",
   "schema_version": "1.0",
-  "count": 491,
+  "count": 493,
   "items": [
+    {
+      "id": "hkexnews:108907",
+      "date": "2026-09-28",
+      "type": "a1",
+      "title": "Shandong Linuo Pharmaceutical Packaging Co.,Ltd. — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108907/documents/sehk26092800296.pdf",
+      "source": "HKEXnews",
+      "tags": [
+        "Biotech / Healthcare"
+      ],
+      "entity": "Shandong Linuo Pharmaceutical Packaging Co.,Ltd.",
+      "summary": "Shandong Linuo Pharmaceutical Packaging Co.,Ltd. submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-09-28T06:26:58+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "hkexnews:108906",
+      "date": "2026-09-27",
+      "type": "a1",
+      "title": "Voyager Intelligent Systems Limited — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108906/documents/sehk26092700112.pdf",
+      "source": "HKEXnews",
+      "tags": [],
+      "entity": "Voyager Intelligent Systems Limited",
+      "summary": "Voyager Intelligent Systems Limited submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-09-28T06:26:58+00:00",
+      "confidence": 0.5
+    },
     {
       "id": "hkexnews:108890",
       "date": "2026-09-24",
