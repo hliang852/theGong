@@ -1,8 +1,86 @@
 {
-  "generated_at": "2026-09-29T06:39:52+00:00",
+  "generated_at": "2026-09-30T06:23:32+00:00",
   "schema_version": "1.0",
-  "count": 493,
+  "count": 498,
   "items": [
+    {
+      "id": "sse:sbadd:09607:2026-09-30",
+      "date": "2026-09-30",
+      "type": "rule",
+      "title": "Ra Materials (09607) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility",
+        "Energy / Materials"
+      ],
+      "entity": "Ra Materials",
+      "stock_code": "09607",
+      "summary": "Ra Materials (09607) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-30T06:23:32+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:03228:2026-09-30",
+      "date": "2026-09-30",
+      "type": "rule",
+      "title": "Kinwong (03228) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Kinwong",
+      "stock_code": "03228",
+      "summary": "Kinwong (03228) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-30T06:23:32+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:01196:2026-09-30",
+      "date": "2026-09-30",
+      "type": "rule",
+      "title": "Realord Tec-New (01196) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Realord Tec-New",
+      "stock_code": "01196",
+      "summary": "Realord Tec-New (01196) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-09-30T06:23:32+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "hkexnews:108909",
+      "date": "2026-09-29",
+      "type": "a1",
+      "title": "YUDO HOLDINGS CO., LIMITED — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108909/documents/sehk26092902078.pdf",
+      "source": "HKEXnews",
+      "tags": [],
+      "entity": "YUDO HOLDINGS CO., LIMITED",
+      "summary": "YUDO HOLDINGS CO., LIMITED submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-09-30T06:23:30+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "hkexnews:108908",
+      "date": "2026-09-29",
+      "type": "a1",
+      "title": "DataCanvas Co., Ltd. — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108908/documents/sehk26092900994.pdf",
+      "source": "HKEXnews",
+      "tags": [],
+      "entity": "DataCanvas Co., Ltd.",
+      "summary": "DataCanvas Co., Ltd. submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-09-30T06:23:30+00:00",
+      "confidence": 0.5
+    },
     {
       "id": "hkexnews:108907",
       "date": "2026-09-28",
