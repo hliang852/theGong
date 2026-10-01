@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-09-30T06:23:32+00:00",
+  "generated_at": "2026-10-01T06:59:02+00:00",
   "schema_version": "1.0",
-  "count": 498,
+  "count": 499,
   "items": [
     {
       "id": "sse:sbadd:09607:2026-09-30",
@@ -53,6 +53,19 @@
       "stock_code": "01196",
       "summary": "Realord Tec-New (01196) added to Southbound trading (Shanghai Connect)",
       "ingested_at": "2026-09-30T06:23:32+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "hkexnews:108910",
+      "date": "2026-09-30",
+      "type": "a1",
+      "title": "ACROBIOSYSTEMS CO., LTD — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108910/documents/sehk26093002652.pdf",
+      "source": "HKEXnews",
+      "tags": [],
+      "entity": "ACROBIOSYSTEMS CO., LTD",
+      "summary": "ACROBIOSYSTEMS CO., LTD submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-10-01T06:58:59+00:00",
       "confidence": 0.5
     },
     {
