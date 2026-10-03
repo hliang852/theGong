@@ -1,8 +1,21 @@
 {
-  "generated_at": "2026-10-02T06:48:26+00:00",
+  "generated_at": "2026-10-03T06:11:00+00:00",
   "schema_version": "1.0",
-  "count": 499,
+  "count": 500,
   "items": [
+    {
+      "id": "hkexnews:108912",
+      "date": "2026-10-02",
+      "type": "a1",
+      "title": "Gaw Capital Real Estate Private Debt OFC — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108912/documents/sehk26100203578.pdf",
+      "source": "HKEXnews",
+      "tags": [],
+      "entity": "Gaw Capital Real Estate Private Debt OFC",
+      "summary": "Gaw Capital Real Estate Private Debt OFC submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-10-03T06:10:59+00:00",
+      "confidence": 0.5
+    },
     {
       "id": "sse:sbadd:09607:2026-09-30",
       "date": "2026-09-30",
