@@ -1,8 +1,42 @@
 {
-  "generated_at": "2026-10-07T06:58:20+00:00",
+  "generated_at": "2026-10-08T07:06:09+00:00",
   "schema_version": "1.0",
-  "count": 500,
+  "count": 502,
   "items": [
+    {
+      "id": "sse:sbadd:09976:2026-10-08",
+      "date": "2026-10-08",
+      "type": "rule",
+      "title": "Longsys (09976) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Longsys",
+      "stock_code": "09976",
+      "summary": "Longsys (09976) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-10-08T07:06:09+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:02670:2026-10-08",
+      "date": "2026-10-08",
+      "type": "rule",
+      "title": "Yunji-New (02670) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Yunji-New",
+      "stock_code": "02670",
+      "summary": "Yunji-New (02670) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-10-08T07:06:09+00:00",
+      "confidence": 0.5
+    },
     {
       "id": "hkexnews:108912",
       "date": "2026-10-02",
