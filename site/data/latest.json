@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-10-08T07:06:09+00:00",
+  "generated_at": "2026-10-09T07:12:34+00:00",
   "schema_version": "1.0",
-  "count": 502,
+  "count": 503,
   "items": [
     {
       "id": "sse:sbadd:09976:2026-10-08",
@@ -35,6 +35,19 @@
       "stock_code": "02670",
       "summary": "Yunji-New (02670) added to Southbound trading (Shanghai Connect)",
       "ingested_at": "2026-10-08T07:06:09+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "hkexnews:108926",
+      "date": "2026-10-08",
+      "type": "a1",
+      "title": "Pinnacle Marine Holdings Ltd — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108926/documents/sehk26100801298.pdf",
+      "source": "HKEXnews",
+      "tags": [],
+      "entity": "Pinnacle Marine Holdings Ltd",
+      "summary": "Pinnacle Marine Holdings Ltd submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-10-09T07:12:32+00:00",
       "confidence": 0.5
     },
     {
