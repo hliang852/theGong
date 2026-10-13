@@ -1,8 +1,34 @@
 {
-  "generated_at": "2026-10-12T07:03:31+00:00",
+  "generated_at": "2026-10-13T07:27:57+00:00",
   "schema_version": "1.0",
   "count": 503,
   "items": [
+    {
+      "id": "hkexnews:108908",
+      "date": "2026-10-12",
+      "type": "a1",
+      "title": "DataCanvas Co., Ltd. — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108908/documents/sehk26092900994.pdf",
+      "source": "HKEXnews",
+      "tags": [],
+      "entity": "DataCanvas Co., Ltd.",
+      "summary": "DataCanvas Co., Ltd. submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-10-13T07:27:56+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "hkexnews:108906",
+      "date": "2026-10-12",
+      "type": "a1",
+      "title": "Voyager Intelligent Systems Limited — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108906/documents/sehk26092700112.pdf",
+      "source": "HKEXnews",
+      "tags": [],
+      "entity": "Voyager Intelligent Systems Limited",
+      "summary": "Voyager Intelligent Systems Limited submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-10-13T07:27:56+00:00",
+      "confidence": 0.5
+    },
     {
       "id": "sse:sbadd:09976:2026-10-08",
       "date": "2026-10-08",
@@ -142,19 +168,6 @@
       "confidence": 0.5
     },
     {
-      "id": "hkexnews:108908",
-      "date": "2026-09-29",
-      "type": "a1",
-      "title": "DataCanvas Co., Ltd. — Application Proof (A1) posted",
-      "url": "https://www1.hkexnews.hk/app/sehk/2026/108908/documents/sehk26092900994.pdf",
-      "source": "HKEXnews",
-      "tags": [],
-      "entity": "DataCanvas Co., Ltd.",
-      "summary": "DataCanvas Co., Ltd. submitted an application proof to list on the Hong Kong Main Board.",
-      "ingested_at": "2026-09-30T06:23:30+00:00",
-      "confidence": 0.5
-    },
-    {
       "id": "hkexnews:108907",
       "date": "2026-09-28",
       "type": "a1",
@@ -166,19 +179,6 @@
       ],
       "entity": "Shandong Linuo Pharmaceutical Packaging Co.,Ltd.",
       "summary": "Shandong Linuo Pharmaceutical Packaging Co.,Ltd. submitted an application proof to list on the Hong Kong Main Board.",
-      "ingested_at": "2026-09-28T06:26:58+00:00",
-      "confidence": 0.5
-    },
-    {
-      "id": "hkexnews:108906",
-      "date": "2026-09-27",
-      "type": "a1",
-      "title": "Voyager Intelligent Systems Limited — Application Proof (A1) posted",
-      "url": "https://www1.hkexnews.hk/app/sehk/2026/108906/documents/sehk26092700112.pdf",
-      "source": "HKEXnews",
-      "tags": [],
-      "entity": "Voyager Intelligent Systems Limited",
-      "summary": "Voyager Intelligent Systems Limited submitted an application proof to list on the Hong Kong Main Board.",
       "ingested_at": "2026-09-28T06:26:58+00:00",
       "confidence": 0.5
     },
