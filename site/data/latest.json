@@ -1,8 +1,23 @@
 {
-  "generated_at": "2026-10-13T07:27:57+00:00",
+  "generated_at": "2026-10-14T05:54:57+00:00",
   "schema_version": "1.0",
-  "count": 503,
+  "count": 504,
   "items": [
+    {
+      "id": "hkexnews:108946",
+      "date": "2026-10-14",
+      "type": "a1",
+      "title": "Shandong Sinder Technology Co., Ltd — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108946/documents/sehk26101400166.pdf",
+      "source": "HKEXnews",
+      "tags": [
+        "Technology"
+      ],
+      "entity": "Shandong Sinder Technology Co., Ltd",
+      "summary": "Shandong Sinder Technology Co., Ltd submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-10-14T05:54:55+00:00",
+      "confidence": 0.5
+    },
     {
       "id": "hkexnews:108908",
       "date": "2026-10-12",
