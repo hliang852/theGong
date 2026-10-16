@@ -1,8 +1,42 @@
 {
-  "generated_at": "2026-10-15T05:39:29+00:00",
+  "generated_at": "2026-10-16T05:35:18+00:00",
   "schema_version": "1.0",
-  "count": 504,
+  "count": 506,
   "items": [
+    {
+      "id": "sse:sbdrop:02723:2026-10-16",
+      "date": "2026-10-16",
+      "type": "rule",
+      "title": "Deepzero (02723) removed from Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Deepzero",
+      "stock_code": "02723",
+      "summary": "Deepzero (02723) removed from Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-10-16T05:35:18+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:02947:2026-10-16",
+      "date": "2026-10-16",
+      "type": "rule",
+      "title": "Deepzero (02947) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Deepzero",
+      "stock_code": "02947",
+      "summary": "Deepzero (02947) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-10-16T05:35:18+00:00",
+      "confidence": 0.5
+    },
     {
       "id": "hkexnews:108946",
       "date": "2026-10-14",
