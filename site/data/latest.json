@@ -1,8 +1,42 @@
 {
-  "generated_at": "2026-10-20T05:44:38+00:00",
+  "generated_at": "2026-10-21T05:47:44+00:00",
   "schema_version": "1.0",
-  "count": 506,
+  "count": 508,
   "items": [
+    {
+      "id": "sse:sbdrop:02922:2026-10-21",
+      "date": "2026-10-21",
+      "type": "rule",
+      "title": "Realord Tec-Old (02922) removed from Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Realord Tec-Old",
+      "stock_code": "02922",
+      "summary": "Realord Tec-Old (02922) removed from Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-10-21T05:47:44+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:02245:2026-10-21",
+      "date": "2026-10-21",
+      "type": "rule",
+      "title": "Lygend Resource (02245) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Lygend Resource",
+      "stock_code": "02245",
+      "summary": "Lygend Resource (02245) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-10-21T05:47:44+00:00",
+      "confidence": 0.5
+    },
     {
       "id": "sse:sbdrop:02723:2026-10-16",
       "date": "2026-10-16",
