@@ -1,8 +1,26 @@
 {
-  "generated_at": "2026-10-25T05:48:13+00:00",
+  "generated_at": "2026-10-26T05:50:56+00:00",
   "schema_version": "1.0",
-  "count": 510,
+  "count": 511,
   "items": [
+    {
+      "id": "sse:sbadd:03757:2026-10-26",
+      "date": "2026-10-26",
+      "type": "rule",
+      "title": "Robotechnik (03757) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility",
+        "Robotics"
+      ],
+      "entity": "Robotechnik",
+      "stock_code": "03757",
+      "summary": "Robotechnik (03757) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-10-26T05:50:56+00:00",
+      "confidence": 0.5
+    },
     {
       "id": "sse:sbdrop:02555:2026-10-23",
       "date": "2026-10-23",
