@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-10-27T06:03:44+00:00",
+  "generated_at": "2026-10-28T06:42:08+00:00",
   "engine": "llm",
   "sources": {
     "HKEXnews": {
       "ok": true,
-      "fetched": 342
+      "fetched": 341
     },
     "SSE / HKEX": {
       "ok": true,
