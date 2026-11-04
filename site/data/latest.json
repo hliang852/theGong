@@ -1,8 +1,23 @@
 {
-  "generated_at": "2026-11-03T07:41:55+00:00",
+  "generated_at": "2026-11-04T07:19:40+00:00",
   "schema_version": "1.0",
   "count": 513,
   "items": [
+    {
+      "id": "hkexnews:108966",
+      "date": "2026-11-03",
+      "type": "a1",
+      "title": "CSG Smart Science & Technology Co., Ltd. — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108966/documents/sehk26102201517.pdf",
+      "source": "HKEXnews",
+      "tags": [
+        "Technology"
+      ],
+      "entity": "CSG Smart Science & Technology Co., Ltd.",
+      "summary": "CSG Smart Science & Technology Co., Ltd. submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-11-04T07:19:38+00:00",
+      "confidence": 0.5
+    },
     {
       "id": "sse:sbadd:02723:2026-11-02",
       "date": "2026-11-02",
@@ -70,21 +85,6 @@
       "stock_code": "02555",
       "summary": "Chabaidao (02555) removed from Southbound trading (Shanghai Connect)",
       "ingested_at": "2026-10-23T05:49:18+00:00",
-      "confidence": 0.5
-    },
-    {
-      "id": "hkexnews:108966",
-      "date": "2026-10-22",
-      "type": "a1",
-      "title": "CSG Smart Science & Technology Co., Ltd. — Application Proof (A1) posted",
-      "url": "https://www1.hkexnews.hk/app/sehk/2026/108966/documents/sehk26102201517.pdf",
-      "source": "HKEXnews",
-      "tags": [
-        "Technology"
-      ],
-      "entity": "CSG Smart Science & Technology Co., Ltd.",
-      "summary": "CSG Smart Science & Technology Co., Ltd. submitted an application proof to list on the Hong Kong Main Board.",
-      "ingested_at": "2026-10-23T05:49:16+00:00",
       "confidence": 0.5
     },
     {
