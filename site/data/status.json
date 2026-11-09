@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-08T06:59:29+00:00",
+  "generated_at": "2026-11-09T07:43:34+00:00",
   "engine": "llm",
   "sources": {
     "HKEXnews": {
@@ -7,8 +7,8 @@
       "fetched": 336
     },
     "SSE / HKEX": {
-      "ok": false,
-      "error": "('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))"
+      "ok": true,
+      "fetched": 10
     },
     "Curated": {
       "ok": true,
@@ -23,6 +23,6 @@
       "fetched": 0
     }
   },
-  "new_items": 0,
-  "total_items": 513
+  "new_items": 10,
+  "total_items": 523
 }

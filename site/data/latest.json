@@ -1,8 +1,179 @@
 {
-  "generated_at": "2026-11-08T06:59:33+00:00",
+  "generated_at": "2026-11-09T07:43:38+00:00",
   "schema_version": "1.0",
-  "count": 513,
+  "count": 523,
   "items": [
+    {
+      "id": "sse:sbadd:03535:2026-11-09",
+      "date": "2026-11-09",
+      "type": "rule",
+      "title": "Csop Hkjpcf (03535) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Csop Hkjpcf",
+      "stock_code": "03535",
+      "summary": "Csop Hkjpcf (03535) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-11-09T07:43:38+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:03488:2026-11-09",
+      "date": "2026-11-09",
+      "type": "rule",
+      "title": "Vp Div Lo Vol (03488) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Vp Div Lo Vol",
+      "stock_code": "03488",
+      "summary": "Vp Div Lo Vol (03488) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-11-09T07:43:38+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:03473:2026-11-09",
+      "date": "2026-11-09",
+      "type": "rule",
+      "title": "Csop A Tec&Div (03473) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Csop A Tec&Div",
+      "stock_code": "03473",
+      "summary": "Csop A Tec&Div (03473) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-11-09T07:43:38+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:03466:2026-11-09",
+      "date": "2026-11-09",
+      "type": "rule",
+      "title": "Hs High Div (03466) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Hs High Div",
+      "stock_code": "03466",
+      "summary": "Hs High Div (03466) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-11-09T07:43:38+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:03428:2026-11-09",
+      "date": "2026-11-09",
+      "type": "rule",
+      "title": "Gx Cl Hk-Us (03428) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Gx Cl Hk-Us",
+      "stock_code": "03428",
+      "summary": "Gx Cl Hk-Us (03428) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-11-09T07:43:38+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:03190:2026-11-09",
+      "date": "2026-11-09",
+      "type": "rule",
+      "title": "Fb Ssh High Div (03190) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Fb Ssh High Div",
+      "stock_code": "03190",
+      "summary": "Fb Ssh High Div (03190) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-11-09T07:43:38+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:03169:2026-11-09",
+      "date": "2026-11-09",
+      "type": "rule",
+      "title": "Hgi Tech 50 (03169) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Hgi Tech 50",
+      "stock_code": "03169",
+      "summary": "Hgi Tech 50 (03169) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-11-09T07:43:38+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:03140:2026-11-09",
+      "date": "2026-11-09",
+      "type": "rule",
+      "title": "Cam Hkus Ai (03140) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility",
+        "AI"
+      ],
+      "entity": "Cam Hkus Ai",
+      "stock_code": "03140",
+      "summary": "Cam Hkus Ai (03140) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-11-09T07:43:38+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:03031:2026-11-09",
+      "date": "2026-11-09",
+      "type": "rule",
+      "title": "Fg Hs Highdiv (03031) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Fg Hs Highdiv",
+      "stock_code": "03031",
+      "summary": "Fg Hs Highdiv (03031) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-11-09T07:43:38+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:02805:2026-11-09",
+      "date": "2026-11-09",
+      "type": "rule",
+      "title": "Cg Bs Cnasean (02805) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Cg Bs Cnasean",
+      "stock_code": "02805",
+      "summary": "Cg Bs Cnasean (02805) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-11-09T07:43:38+00:00",
+      "confidence": 0.5
+    },
     {
       "id": "hkexnews:108966",
       "date": "2026-11-03",
