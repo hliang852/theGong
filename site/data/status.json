@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-11-11T07:34:56+00:00",
+  "generated_at": "2026-11-12T08:01:34+00:00",
   "engine": "llm",
   "sources": {
     "HKEXnews": {
       "ok": true,
-      "fetched": 333
+      "fetched": 331
     },
     "SSE / HKEX": {
-      "ok": true,
-      "fetched": 0
+      "ok": false,
+      "error": "'NoneType' object has no attribute 'group'"
     },
     "Curated": {
       "ok": true,
