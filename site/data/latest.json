@@ -1,8 +1,23 @@
 {
-  "generated_at": "2026-11-12T08:01:37+00:00",
+  "generated_at": "2026-11-13T07:40:23+00:00",
   "schema_version": "1.0",
-  "count": 523,
+  "count": 524,
   "items": [
+    {
+      "id": "hkexnews:109026",
+      "date": "2026-11-12",
+      "type": "a1",
+      "title": "Konfoong Materials International Co., Ltd. — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/109026/documents/sehk26111201125.pdf",
+      "source": "HKEXnews",
+      "tags": [
+        "Energy / Materials"
+      ],
+      "entity": "Konfoong Materials International Co., Ltd.",
+      "summary": "Konfoong Materials International Co., Ltd. submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-11-13T07:40:21+00:00",
+      "confidence": 0.5
+    },
     {
       "id": "sse:sbadd:03535:2026-11-09",
       "date": "2026-11-09",
