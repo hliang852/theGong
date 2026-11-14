@@ -1,8 +1,25 @@
 {
-  "generated_at": "2026-11-13T07:40:23+00:00",
+  "generated_at": "2026-11-14T07:27:23+00:00",
   "schema_version": "1.0",
-  "count": 524,
+  "count": 525,
   "items": [
+    {
+      "id": "sse:sbadd:02636:2026-11-13",
+      "date": "2026-11-13",
+      "type": "rule",
+      "title": "Transsion (02636) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Transsion",
+      "stock_code": "02636",
+      "summary": "Transsion (02636) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-11-14T07:27:23+00:00",
+      "confidence": 0.5
+    },
     {
       "id": "hkexnews:109026",
       "date": "2026-11-12",
