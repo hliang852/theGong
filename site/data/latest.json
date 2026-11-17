@@ -1,8 +1,23 @@
 {
-  "generated_at": "2026-11-16T07:44:40+00:00",
+  "generated_at": "2026-11-17T08:54:05+00:00",
   "schema_version": "1.0",
   "count": 525,
   "items": [
+    {
+      "id": "hkexnews:108735",
+      "date": "2026-11-16",
+      "type": "a1",
+      "title": "Jinan Janbon Metallic Materials Co., Ltd. (formerly known as Janbon Materials Co., Ltd.) — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108735/documents/sehk26071401399.pdf",
+      "source": "HKEXnews",
+      "tags": [
+        "Energy / Materials"
+      ],
+      "entity": "Jinan Janbon Metallic Materials Co., Ltd. (formerly known as Janbon Materials Co., Ltd.)",
+      "summary": "Jinan Janbon Metallic Materials Co., Ltd. (formerly known as Janbon Materials Co., Ltd.) submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-11-17T08:54:03+00:00",
+      "confidence": 0.5
+    },
     {
       "id": "sse:sbadd:02636:2026-11-13",
       "date": "2026-11-13",
@@ -3091,21 +3106,6 @@
       ],
       "entity": "ZhongAn Information Technology (Shenzhen) Co., Ltd.",
       "summary": "ZhongAn Information Technology (Shenzhen) Co., Ltd. submitted an application proof to list on the Hong Kong Main Board.",
-      "ingested_at": "2026-08-04T00:36:25+00:00",
-      "confidence": 0.5
-    },
-    {
-      "id": "hkexnews:108735",
-      "date": "2026-07-24",
-      "type": "a1",
-      "title": "Jinan Janbon Metallic Materials Co., Ltd. (formerly known as Janbon Materials Co., Ltd.) — Application Proof (A1) posted",
-      "url": "https://www1.hkexnews.hk/app/sehk/2026/108735/documents/sehk26071401399.pdf",
-      "source": "HKEXnews",
-      "tags": [
-        "Energy / Materials"
-      ],
-      "entity": "Jinan Janbon Metallic Materials Co., Ltd. (formerly known as Janbon Materials Co., Ltd.)",
-      "summary": "Jinan Janbon Metallic Materials Co., Ltd. (formerly known as Janbon Materials Co., Ltd.) submitted an application proof to list on the Hong Kong Main Board.",
       "ingested_at": "2026-08-04T00:36:25+00:00",
       "confidence": 0.5
     },
