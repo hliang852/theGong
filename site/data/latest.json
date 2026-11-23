@@ -1,8 +1,76 @@
 {
-  "generated_at": "2026-11-22T07:51:13+00:00",
+  "generated_at": "2026-11-23T08:42:31+00:00",
   "schema_version": "1.0",
-  "count": 525,
+  "count": 529,
   "items": [
+    {
+      "id": "sse:sbdrop:02947:2026-11-23",
+      "date": "2026-11-23",
+      "type": "rule",
+      "title": "Deepzero-Old (02947) removed from Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Deepzero-Old",
+      "stock_code": "02947",
+      "summary": "Deepzero-Old (02947) removed from Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-11-23T08:42:31+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbdrop:01440:2026-11-23",
+      "date": "2026-11-23",
+      "type": "rule",
+      "title": "Star Shine Hldg (01440) removed from Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Star Shine Hldg",
+      "stock_code": "01440",
+      "summary": "Star Shine Hldg (01440) removed from Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-11-23T08:42:31+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:02963:2026-11-23",
+      "date": "2026-11-23",
+      "type": "rule",
+      "title": "Star Shine Hldg (02963) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Star Shine Hldg",
+      "stock_code": "02963",
+      "summary": "Star Shine Hldg (02963) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-11-23T08:42:31+00:00",
+      "confidence": 0.5
+    },
+    {
+      "id": "sse:sbadd:02384:2026-11-23",
+      "date": "2026-11-23",
+      "type": "rule",
+      "title": "Dsbj (02384) added to Southbound trading (Shanghai Connect)",
+      "url": "https://www.hkex.com.hk/Mutual-Market/Stock-Connect/Eligible-Stocks-and-ETFs?sc_lang=en",
+      "source": "SSE / HKEX",
+      "tags": [
+        "Southbound",
+        "Connect Eligibility"
+      ],
+      "entity": "Dsbj",
+      "stock_code": "02384",
+      "summary": "Dsbj (02384) added to Southbound trading (Shanghai Connect)",
+      "ingested_at": "2026-11-23T08:42:31+00:00",
+      "confidence": 0.5
+    },
     {
       "id": "hkexnews:108735",
       "date": "2026-11-16",
