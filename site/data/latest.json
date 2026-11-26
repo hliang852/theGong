@@ -1,8 +1,23 @@
 {
-  "generated_at": "2026-11-25T09:39:24+00:00",
+  "generated_at": "2026-11-26T09:14:30+00:00",
   "schema_version": "1.0",
   "count": 529,
   "items": [
+    {
+      "id": "hkexnews:109026",
+      "date": "2026-11-25",
+      "type": "a1",
+      "title": "Konfoong Materials International Co., Ltd. — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/109026/documents/sehk26111201125.pdf",
+      "source": "HKEXnews",
+      "tags": [
+        "Energy / Materials"
+      ],
+      "entity": "Konfoong Materials International Co., Ltd.",
+      "summary": "Konfoong Materials International Co., Ltd. submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-11-26T09:14:27+00:00",
+      "confidence": 0.5
+    },
     {
       "id": "sse:sbdrop:02947:2026-11-23",
       "date": "2026-11-23",
@@ -101,21 +116,6 @@
       "stock_code": "02636",
       "summary": "Transsion (02636) added to Southbound trading (Shanghai Connect)",
       "ingested_at": "2026-11-14T07:27:23+00:00",
-      "confidence": 0.5
-    },
-    {
-      "id": "hkexnews:109026",
-      "date": "2026-11-12",
-      "type": "a1",
-      "title": "Konfoong Materials International Co., Ltd. — Application Proof (A1) posted",
-      "url": "https://www1.hkexnews.hk/app/sehk/2026/109026/documents/sehk26111201125.pdf",
-      "source": "HKEXnews",
-      "tags": [
-        "Energy / Materials"
-      ],
-      "entity": "Konfoong Materials International Co., Ltd.",
-      "summary": "Konfoong Materials International Co., Ltd. submitted an application proof to list on the Hong Kong Main Board.",
-      "ingested_at": "2026-11-13T07:40:21+00:00",
       "confidence": 0.5
     },
     {
