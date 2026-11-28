@@ -1,8 +1,23 @@
 {
-  "generated_at": "2026-11-27T09:30:17+00:00",
+  "generated_at": "2026-11-28T08:43:39+00:00",
   "schema_version": "1.0",
   "count": 529,
   "items": [
+    {
+      "id": "hkexnews:108381",
+      "date": "2026-11-27",
+      "type": "a1",
+      "title": "Alkaidsemi (Shanghai) Technologies Corporation — Application Proof (A1) posted",
+      "url": "https://www1.hkexnews.hk/app/sehk/2026/108381/documents/sehk26033103112.pdf",
+      "source": "HKEXnews",
+      "tags": [
+        "Technology"
+      ],
+      "entity": "Alkaidsemi (Shanghai) Technologies Corporation",
+      "summary": "Alkaidsemi (Shanghai) Technologies Corporation submitted an application proof to list on the Hong Kong Main Board.",
+      "ingested_at": "2026-11-28T08:43:37+00:00",
+      "confidence": 0.5
+    },
     {
       "id": "hkexnews:109026",
       "date": "2026-11-25",
@@ -6888,21 +6903,6 @@
       "tags": [],
       "entity": "TOP TOY International Group Limited",
       "summary": "TOP TOY International Group Limited submitted an application proof to list on the Hong Kong Main Board.",
-      "ingested_at": "2026-08-04T00:36:25+00:00",
-      "confidence": 0.5
-    },
-    {
-      "id": "hkexnews:108381",
-      "date": "2026-03-31",
-      "type": "a1",
-      "title": "Alkaidsemi (Shanghai) Technologies Corporation — Application Proof (A1) posted",
-      "url": "https://www1.hkexnews.hk/app/sehk/2026/108381/documents/sehk26033103112.pdf",
-      "source": "HKEXnews",
-      "tags": [
-        "Technology"
-      ],
-      "entity": "Alkaidsemi (Shanghai) Technologies Corporation",
-      "summary": "Alkaidsemi (Shanghai) Technologies Corporation submitted an application proof to list on the Hong Kong Main Board.",
       "ingested_at": "2026-08-04T00:36:25+00:00",
       "confidence": 0.5
     },
